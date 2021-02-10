@@ -14,11 +14,12 @@ const sections = [
     subtitle: "$25",
   },
 ];
+
 const Intro = () => {
-  const [bg, setBg] = useState("#262626");
+  const [bg, setBg] = useState(" #6890df");
 
   const toggleBackground = () => {
-    const color = bg !== "#262626" ? "#5a7d95" : "#1b4943";
+    const color = bg !== " #6890df" ? " #6890df" : "#1b4943";
     setBg(color);
   };
 

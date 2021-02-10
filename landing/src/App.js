@@ -1,12 +1,14 @@
 import "./App.css";
 import Intro from "./components/Intro";
+import Navbar from "./components/Navbar";
+import About from "./components/About";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Webe Sushi</header>
+      <Navbar />
+      <About />
       <Intro />
-      <div className=""></div>
     </div>
   );
 }
