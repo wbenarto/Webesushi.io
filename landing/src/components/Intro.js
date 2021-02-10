@@ -41,7 +41,7 @@ const Intro = () => {
     gsap.to(headerRef.current, {
       duration: 2,
       backgroundColor: bg,
-      x: "-300px",
+      x: "0px",
       ease: "easeOut",
       height: "100%",
     });

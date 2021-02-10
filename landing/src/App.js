@@ -1,17 +1,17 @@
 import "./App.css";
 import Intro from "./components/Intro";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import About from "./components/About";
-import Home from "./pages/index";
+import Home from "./pages";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
         <Home />
-        <About />
-        <Intro />
+        {/* <About />
+        <Intro /> */}
       </Router>
     </div>
   );

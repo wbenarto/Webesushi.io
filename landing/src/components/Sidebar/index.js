@@ -12,7 +12,7 @@ import {
 
 const Sidebar = (props) => {
   return (
-    <div>
+    <>
       <SidebarContainer onClick={props.toggle} isOpen={props.isOpen}>
         <Icon>
           <CloseIcon />
@@ -28,7 +28,7 @@ const Sidebar = (props) => {
           </SideBtnWrap>
         </SidebarWrapper>
       </SidebarContainer>
-    </div>
+    </>
   );
 };
 
