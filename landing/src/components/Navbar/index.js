@@ -10,24 +10,24 @@ import {
   NavItem,
 } from "./NavbarElements";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <Nav>
       <NavbarContainer>
         {/* <header className="App-header">Webe Sushi</header> */}
         <NavLogo to="/">Webe Sushi</NavLogo>
-        <MobileIcon>
+        <MobileIcon onClick={props.toggle}>
           <FaBars />
         </MobileIcon>
         <NavMenu>
           <NavItem>
-            <NavLinks to="/about">About</NavLinks>
+            <NavLinks to="about">About</NavLinks>
           </NavItem>
           <NavItem>
-            <NavLinks to="/recipes">Recipes</NavLinks>
+            <NavLinks to="recipes">Recipes</NavLinks>
           </NavItem>
           <NavItem>
-            <NavLinks to="/gallery">Gallery</NavLinks>
+            <NavLinks to="gallery">Gallery</NavLinks>
           </NavItem>
         </NavMenu>
         {/* <NavBtn>

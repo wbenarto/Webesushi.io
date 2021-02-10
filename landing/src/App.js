@@ -2,13 +2,14 @@ import "./App.css";
 import Intro from "./components/Intro";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
+import Home from "./pages/index";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        <Home />
         <About />
         <Intro />
       </Router>
