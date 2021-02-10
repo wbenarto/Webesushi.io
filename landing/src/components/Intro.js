@@ -93,7 +93,7 @@ const Intro = () => {
   return (
     <div className="intro">
       <div ref={headerRef} className="hero">
-        <h1 ref={h1}>The New Golden Salmon Tataki</h1>
+        <h1 ref={h1}>New Sushi Recipe and Instructions</h1>
         <button onClick={toggleBackground}>Toggle Bg-color</button>
       </div>
       <div ref={blue} className="trigger"></div>
