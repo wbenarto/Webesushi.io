@@ -10,8 +10,8 @@ function App() {
     <div>
       <Router>
         <Home />
-        {/* <About />
-        <Intro /> */}
+        <About />
+        <Intro />
       </Router>
     </div>
   );

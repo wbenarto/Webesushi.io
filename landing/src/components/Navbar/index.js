@@ -9,13 +9,21 @@ import {
   NavMenu,
   NavItem,
 } from "./NavbarElements";
+import webe from "../../images/webe.png";
 
 const Navbar = (props) => {
   return (
     <Nav>
       <NavbarContainer>
         {/* <header className="App-header">Webe Sushi</header> */}
-        <NavLogo to="/">Webe Sushi</NavLogo>
+        <NavLogo to="/">
+          Webe Sushi
+          {/* <img
+            alt="webe-sushi"
+            style={{ width: "100%", height: "100%" }}
+            src={webe}
+          ></img> */}
+        </NavLogo>
         <MobileIcon onClick={props.toggle}>
           <FaBars />
         </MobileIcon>

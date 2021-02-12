@@ -9,6 +9,7 @@ import {
   HeroBtnWrapper,
 } from "./HeroElements";
 import Video from "../../videos/video.mp4";
+import { Button } from "../ButtonElement";
 
 const HeroSection = () => {
   return (
@@ -19,9 +20,10 @@ const HeroSection = () => {
       <HeroContent>
         <HeroH1>Welcome to WeBe Sushi</HeroH1>
         <HeroP>
-          Here I'll share some of my favorite sushi recipes and share some
-          knowledge about consuming sushi sustainably.
+          Here I'll share some of my favorite sushi recipes and knowledge about
+          consuming sushi sustainably.
         </HeroP>
+        <Button>Whats This</Button>
       </HeroContent>
       {/* <HeroBtnWrapper></HeroBtnWrapper> */}
     </HeroContainer>
