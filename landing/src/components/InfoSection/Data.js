@@ -2,7 +2,7 @@ import img from "../../images/webe.png";
 export const homeObjOne = {
   id: "about",
   lightBg: false,
-  lightText: false,
+  lightText: true,
   lightTextDesc: true,
   topLine: "Home-Makase",
   headline: "Premium Source of Homemade Sushi Making",
@@ -10,7 +10,7 @@ export const homeObjOne = {
     "Get access to our exclusive step by step recipes from chef Webe.",
   buttonLabel: "Get Started",
   imgStart: false,
-
+  img: img,
   alt: "sushi",
   dark: true,
   primary: true,
@@ -22,13 +22,13 @@ export const homeObjTwo = {
   lightBg: true,
   lightText: false,
   lightTextDesc: false,
-  topLine: "Home-Makase",
+  topLine: "Recipes",
   headline: "Premium Source of Homemade Sushi Making",
   description:
     "Get access to our exclusive step by step recipes from chef Webe.",
   buttonLabel: "View Recipes",
   imgStart: false,
-
+  img: img,
   alt: "sushi",
   dark: false,
   primary: false,
@@ -36,17 +36,16 @@ export const homeObjTwo = {
 };
 
 export const homeObjThree = {
-  id: "about",
+  id: "gallery",
   lightBg: false,
-  lightText: false,
+  lightText: true,
   lightTextDesc: true,
-  topLine: "Home-Makase",
-  headline: "Premium Source of Homemade Sushi Making",
-  description:
-    "Get access to our exclusive step by step recipes from chef Webe.",
+  topLine: "Gallery",
+  headline: "See Images for Webe Sushi products.",
+  description: "",
   buttonLabel: "Get Started",
   imgStart: true,
-
+  img: img,
   alt: "sushi",
   dark: true,
   primary: true,
