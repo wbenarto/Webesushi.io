@@ -9,6 +9,8 @@ import {
   NavLinks,
   NavMenu,
   NavItem,
+  NavBtnLink,
+  NavBtn,
 } from "./NavbarElements";
 import webe from "../../images/webe.png";
 
@@ -35,7 +37,7 @@ const Navbar = (props) => {
       <NavbarContainer>
         {/* <header className="App-header">Webe Sushi</header> */}
         <NavLogo to="/" onClick={toggleHome}>
-          Webe Sushi
+          WeBe Sushi
           {/* <img
             alt="webe-sushi"
             style={{ width: "100%", height: "100%" }}
@@ -86,7 +88,9 @@ const Navbar = (props) => {
             </NavLinks>
           </NavItem>
         </NavMenu>
-        {/* <NavBtn></NavBtn> */}
+        <NavBtn>
+          <NavBtnLink to="/signin">Sign In</NavBtnLink>
+        </NavBtn>
       </NavbarContainer>
     </Nav>
   );

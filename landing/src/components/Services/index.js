@@ -21,19 +21,19 @@ const Services = () => {
           <ServicesIcon src={Icon1} />
           <ServicesH2>Increase Awareness</ServicesH2>
           <ServicesP>
-            We love to share a lot of our love too you know mwahh
+            Educating myself and others to become better as a consumer.
           </ServicesP>
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon2} />
           <ServicesH2>Providing Solutions</ServicesH2>
-          <ServicesP>We give you answers you know mwahh</ServicesP>
+          <ServicesP>Through Kaizen Mindset</ServicesP>
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon3} />
           <ServicesH2>Food Safety</ServicesH2>
           <ServicesP>
-            We love to share a lot of our love too you know mwahh
+            Helping you achieve industry-level food safety standards.
           </ServicesP>
         </ServicesCard>
       </ServicesWrapper>

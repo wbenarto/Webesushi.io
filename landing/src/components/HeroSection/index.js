@@ -20,12 +20,22 @@ const HeroSection = () => {
       <HeroContent>
         <HeroH1>Welcome to WeBe Sushi</HeroH1>
         <HeroP>
-          Here I'll share some of my favorite sushi recipes and knowledge about
-          consuming sushi sustainably.
+          Here I'll share some of my favorite sushi recipes and also some
+          knowledge on how to consume sushi sustainably.
         </HeroP>
-        <Button>Whats This</Button>
+        <HeroBtnWrapper>
+          <Button
+            to="home-makase"
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact="true"
+            offset={-80}
+          >
+            KAIZEN
+          </Button>
+        </HeroBtnWrapper>
       </HeroContent>
-      {/* <HeroBtnWrapper></HeroBtnWrapper> */}
     </HeroContainer>
   );
 };

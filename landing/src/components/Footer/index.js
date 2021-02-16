@@ -1,4 +1,5 @@
 import React from "react";
+import { animateScroll as scroll } from "react-scroll";
 import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 
 import {
@@ -18,6 +19,10 @@ import {
 } from "./FooterElements";
 
 const index = () => {
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <FooterContainer>
       <FooterWrapper>
@@ -63,7 +68,9 @@ const index = () => {
         </FooterLinksContainer>
         <SocialMedia>
           <SocialMediaWrap>
-            <SocialLogo to="/">WebeSushi</SocialLogo>
+            <SocialLogo to="/" onClick={toggleHome}>
+              WebeSushi
+            </SocialLogo>
 
             <WebsiteRights>
               WebeSushi © {new Date().getFullYear()} All Rights reserved.

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link as LinkR } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const InfoContainer = styled.div`
   color: #fff;
@@ -99,21 +99,16 @@ export const Img = styled.img`
   padding-right: 0;
 `;
 
-export const InfoBtnLink = styled(LinkR)`
-  background: #01bf71;
-  white-space: nowrap;
-  padding: 10px 22px;
-  color: #010606;
-  font-size: 16px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+export const Icon = styled(Link)`
+  margin-left: 32px;
+  margin-top: 32px;
   text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 32px;
 
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
+  @media screen and (max-width: 480px) {
+    margin-left: 16px;
+    margin-top: 8px;
   }
 `;
