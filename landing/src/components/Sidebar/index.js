@@ -19,9 +19,15 @@ const Sidebar = (props) => {
         </Icon>
         <SidebarWrapper>
           <SidebarMenu>
-            <SidebarLink to="about">About</SidebarLink>
-            <SidebarLink to="recipes">Recipes</SidebarLink>
-            <SidebarLink to="gallery">Gallery</SidebarLink>
+            <SidebarLink onClick={props.toggle} to="home-makase">
+              Home-Makase
+            </SidebarLink>
+            <SidebarLink onClick={props.toggle} to="sustainability">
+              Sustainability
+            </SidebarLink>
+            <SidebarLink onClick={props.toggle} to="gallery">
+              Gallery
+            </SidebarLink>
           </SidebarMenu>
           <SideBtnWrap>
             <SidebarRoute to="/nextpage">New Page</SidebarRoute>

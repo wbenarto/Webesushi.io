@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
+import { animateScroll as scroll } from "react-scroll";
 import {
   Nav,
   NavbarContainer,
@@ -12,11 +13,28 @@ import {
 import webe from "../../images/webe.png";
 
 const Navbar = (props) => {
+  const [scrollNav, setScrollNav] = useState(false);
+
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true);
+    } else {
+      setScrollNav(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav);
+  }, []);
+
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  };
   return (
-    <Nav>
+    <Nav scrollNav={scrollNav}>
       <NavbarContainer>
         {/* <header className="App-header">Webe Sushi</header> */}
-        <NavLogo to="/">
+        <NavLogo to="/" onClick={toggleHome}>
           Webe Sushi
           {/* <img
             alt="webe-sushi"
@@ -29,18 +47,46 @@ const Navbar = (props) => {
         </MobileIcon>
         <NavMenu>
           <NavItem>
-            <NavLinks to="about">About</NavLinks>
+            <NavLinks
+              to="home-makase"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+              activeClass="active"
+            >
+              Home-Makase
+            </NavLinks>
           </NavItem>
           <NavItem>
-            <NavLinks to="recipes">Recipes</NavLinks>
+            <NavLinks
+              to="sustainability"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+              activeClass="active"
+            >
+              Sustainability
+            </NavLinks>
           </NavItem>
           <NavItem>
-            <NavLinks to="gallery">Gallery</NavLinks>
+            <NavLinks
+              to="gallery"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+              activeClass="active"
+            >
+              Gallery
+            </NavLinks>
           </NavItem>
         </NavMenu>
-        {/* <NavBtn>
-          
-        </NavBtn> */}
+        {/* <NavBtn></NavBtn> */}
       </NavbarContainer>
     </Nav>
   );
