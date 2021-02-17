@@ -5,6 +5,7 @@ import market from "../../images/market.jpg";
 
 export const homeObjOne = {
   id: "home-makase",
+  page: "/recipes",
   lightBg: true,
   lightText: false,
   lightTextDesc: true,
@@ -21,7 +22,8 @@ export const homeObjOne = {
 };
 
 export const homeObjTwo = {
-  id: "/sustainability",
+  id: "sustainability",
+  page: "/sustainability",
   lightBg: false,
   lightText: true,
   lightTextDesc: true,
@@ -41,6 +43,7 @@ export const homeObjTwo = {
 
 export const homeObjThree = {
   id: "gallery",
+  page: "/gallery",
   lightBg: true,
   lightText: false,
   lightTextDesc: false,

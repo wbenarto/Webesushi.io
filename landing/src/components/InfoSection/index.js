@@ -19,6 +19,7 @@ import {
 const InfoSection = ({
   lightBg,
   id,
+  page,
   imgStart,
   topLine,
   lightText,
@@ -43,7 +44,18 @@ const InfoSection = ({
                 <Heading lightText={lightText}>{headline}</Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
-                  <Button
+                  {/* <Button
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact="true"
+                    offset={-80}
+                    primary={primary ? 1 : 0}
+                    dark={dark ? 1 : 0}
+                    dark2={dark2 ? 1 : 0}
+                  > */}
+                  <InfoBtnLink
+                    to={page}
                     smooth={true}
                     duration={500}
                     spy={true}
@@ -53,9 +65,10 @@ const InfoSection = ({
                     dark={dark ? 1 : 0}
                     dark2={dark2 ? 1 : 0}
                   >
-                    <InfoBtnLink to={id}></InfoBtnLink>
+                    {" "}
                     {buttonLabel}
-                  </Button>
+                  </InfoBtnLink>
+                  {/* </Button> */}
                 </BtnWrap>
               </TextWrapper>
             </Column1>
