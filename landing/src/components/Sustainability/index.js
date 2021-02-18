@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Button } from "../ButtonElement";
 import {
   InfoContainer,
@@ -32,6 +33,37 @@ const Sustainability = ({
   dark,
   dark2,
 }) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // const fetchData = () => {
+  //   axios
+  //     .get(
+  //       "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
+  //     )
+  //     .then((res) => {
+  //       console.log(res);
+  //       setDate(res);
+  //     });
+  // };
+  const fetchData = () => {
+    axios
+      .get("https://www.fishwatch.gov/api/species/red-snapper")
+      .then((res) => {
+        console.log(res);
+        setData(res);
+      });
+  };
+
+  const fishImage = data.data[0].Quote;
+  const fishImg = data.data[0]["Image Gallery"];
+  console.log(fishImg);
+  // console.log(fishImage);
+  // const bitcoin = data.data.bitcoin.usd;
+  // console.log(bitcoin);
   return (
     <>
       <Icon to="/">WebeSushi</Icon>
@@ -39,7 +71,19 @@ const Sustainability = ({
         <Heading lightText="true">Sustainabilty page</Heading>
         <Subtitle> Helloooo </Subtitle>
         <h1>Hello</h1>
-        <Icon to="/">WebeSushi</Icon>
+        <Icon to="/">WebeSushi {fishImage}</Icon>
+
+        {fishImg.map((e, i) => {
+          return (
+            <div>
+              <img
+                key={i}
+                src={e.src}
+                styles={{ height: "100px", width: "100px" }}
+              />
+            </div>
+          );
+        })}
       </InfoContainer>
     </>
   );

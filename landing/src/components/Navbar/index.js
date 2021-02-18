@@ -29,7 +29,7 @@ const Navbar = (props) => {
   }, []);
 
   const toggleHome = () => {
-    scroll.scrollToTop();
+    scroll.scrollToTop({ duration: "3000" });
   };
   return (
     <Nav scrollNav={scrollNav}>
@@ -51,7 +51,7 @@ const Navbar = (props) => {
             <NavLinks
               to="home-makase"
               smooth={true}
-              duration={500}
+              duration={1500}
               spy={true}
               exact="true"
               offset={-80}
@@ -65,7 +65,7 @@ const Navbar = (props) => {
             <NavLinks
               to="sustainability"
               smooth={true}
-              duration={500}
+              duration={1500}
               spy={true}
               exact="true"
               offset={-80}
@@ -79,7 +79,7 @@ const Navbar = (props) => {
             <NavLinks
               to="about"
               smooth={true}
-              duration={500}
+              duration={1500}
               spy={true}
               exact="true"
               offset={-80}
@@ -93,7 +93,7 @@ const Navbar = (props) => {
             <NavLinks
               to="gallery"
               smooth={true}
-              duration={500}
+              duration={1500}
               spy={true}
               exact="true"
               offset={-80}

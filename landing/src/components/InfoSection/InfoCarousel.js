@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../ButtonElement";
+import { Carousel } from "antd";
 import { sushi } from "./Data";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
@@ -89,14 +90,14 @@ const InfoCarousel = ({
                   <FaArrowAltCircleLeft />
                 </IconWrapperLeft>
                 {sushi.map((e, i) => {
-                  //   console.log(e);
+                  console.log(e);
                   return (
                     <div className={i === cur ? "slide active" : "slide"}>
                       {i === cur && <ImgCarousel src={e.images} alt={e.name} />}
                     </div>
                   );
                 })}
-                {/* <ImgCarousel src={images} alt={alt} /> */}
+                <ImgCarousel src={images} alt={alt} />
                 <IconWrapperRight onClick={nextSlide}>
                   <FaArrowAltCircleRight />
                 </IconWrapperRight>
