@@ -12,7 +12,6 @@ import {
   NavBtnLink,
   NavBtn,
 } from "./NavbarElements";
-import webe from "../../images/webe.png";
 
 const Navbar = (props) => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -61,6 +60,7 @@ const Navbar = (props) => {
               Home-Makase
             </NavLinks>
           </NavItem>
+
           <NavItem>
             <NavLinks
               to="sustainability"
@@ -74,6 +74,21 @@ const Navbar = (props) => {
               Sustainability
             </NavLinks>
           </NavItem>
+
+          <NavItem>
+            <NavLinks
+              to="about"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+              activeClass="active"
+            >
+              About
+            </NavLinks>
+          </NavItem>
+
           <NavItem>
             <NavLinks
               to="gallery"
@@ -88,9 +103,9 @@ const Navbar = (props) => {
             </NavLinks>
           </NavItem>
         </NavMenu>
-        <NavBtn>
+        {/* <NavBtn>
           <NavBtnLink to="/signin">Sign In</NavBtnLink>
-        </NavBtn>
+        </NavBtn> */}
       </NavbarContainer>
     </Nav>
   );

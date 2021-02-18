@@ -13,13 +13,17 @@ export const InfoContainer = styled.div`
 export const InfoWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 860px;
+  height: 100vh;
   width: 100%;
   max-width: 1100px;
   margin-right: auto;
   margin-left: auto;
   padding: 0 24px;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    height: 100vh;
+  }
 `;
 
 export const InfoRow = styled.div`
@@ -31,7 +35,7 @@ export const InfoRow = styled.div`
 
   @media screen and (max-width: 768px) {
     grid-template-areas: ${({ imgStart }) =>
-      imgStart ? '"col1" "col2"' : '"col1 col1" "col2 col2"'};
+      imgStart ? '"col1" "col2"' : '"col2 col2" "col1 col1"'};
   }
 `;
 
@@ -92,15 +96,68 @@ export const ImgWrap = styled.div`
   max-width: 555px;
   height: 100%;
 `;
-
 export const Img = styled.img`
   width: 100%;
   margin: 0 0 10px;
   padding-right: 0;
 `;
 
+// Carousel
+
+export const ImgWrapCarousel = styled.div`
+  position: relative;
+  max-width: 600px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+`;
+export const ImgCarousel = styled.img`
+  height: 100vh;
+
+  flex-wrap: fit;
+  padding-right: 0;
+  border-radius: 10px;
+
+  &.slide {
+    opacity: 0;
+    transition-duration: 1s ease;
+  }
+
+  &.slide.active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+  }
+`;
+
+export const IconWrapperLeft = styled.div`
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+
+  left: 20px;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+`;
+
+export const IconWrapperRight = styled.div`
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+`;
+// Carousel Ends
+
 export const InfoBtnLink = styled(LinkR)`
-   border-radius: 50px;
+  border-radius: 50px;
   background: ${({ primary }) => (primary ? "#dbd6a9" : "#010606")};
   white-space: nowrap;
   padding: ${({ big }) => (big ? "14px 48px" : "12px 30px")};
@@ -119,6 +176,5 @@ export const InfoBtnLink = styled(LinkR)`
     transition: all 0.2s ease-in-out;
     background: ${({ primary }) => (primary ? "#edecdf" : "#dbd6a9")};
     color: ${({ primary }) => (primary ? "#010606" : "#010606")};
-  }
   }
 `;

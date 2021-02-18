@@ -25,6 +25,9 @@ const Sidebar = (props) => {
             <SidebarLink onClick={props.toggle} to="sustainability">
               Sustainability
             </SidebarLink>
+            <SidebarLink onClick={props.toggle} to="about">
+              About
+            </SidebarLink>
             <SidebarLink onClick={props.toggle} to="gallery">
               Gallery
             </SidebarLink>
