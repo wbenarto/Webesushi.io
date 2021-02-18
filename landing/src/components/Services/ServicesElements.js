@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ServicesContainer = styled.div`
-  height: 800px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,7 @@ export const ServicesContainer = styled.div`
   }
 
   @media screen and (max-width: 480px) {
-    height: 1300px;
+    height: 1100px;
   }
 `;
 

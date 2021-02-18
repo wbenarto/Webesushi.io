@@ -4,14 +4,14 @@ import { sushi } from "./Data";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 import {
-  InfoContainer,
-  InfoWrapper,
+  InfoCarouselContainer,
+  InfoCarouselWrapper,
   InfoRow,
   Column1,
   TextWrapper,
   TopLine,
-  Heading,
-  Subtitle,
+  CarouselHeading,
+  CarouselSubtitle,
   BtnWrap,
   Column2,
   ImgWrapCarousel,
@@ -54,14 +54,18 @@ const InfoCarousel = ({
   console.log(sushi[cur].name);
   return (
     <>
-      <InfoContainer lightBg={lightBg} id={id}>
-        <InfoWrapper>
+      <InfoCarouselContainer lightBg={lightBg} id={id}>
+        <InfoCarouselWrapper>
           <InfoRow imgStart={imgStart}>
             <Column1>
               <TextWrapper>
-                <TopLine>{topLine}</TopLine>
-                <Heading lightText={lightText}>{sushi[cur].name}</Heading>
-                <Subtitle darkText={darkText}>{sushi[cur].desc}</Subtitle>
+                {/* <TopLine>{topLine}</TopLine> */}
+                <CarouselHeading lightText={lightText}>
+                  {sushi[cur].name}
+                </CarouselHeading>
+                <CarouselSubtitle darkText={darkText}>
+                  {sushi[cur].desc}
+                </CarouselSubtitle>
                 <BtnWrap>
                   <InfoBtnLink
                     to={page}
@@ -99,8 +103,8 @@ const InfoCarousel = ({
               </ImgWrapCarousel>
             </Column2>
           </InfoRow>
-        </InfoWrapper>
-      </InfoContainer>
+        </InfoCarouselWrapper>
+      </InfoCarouselContainer>
     </>
   );
 };
