@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/WB_LANDING/static/css/main.998811c8.chunk.css",
+    "main.js": "/WB_LANDING/static/js/main.59bf334b.chunk.js",
+    "main.js.map": "/WB_LANDING/static/js/main.59bf334b.chunk.js.map",
+    "runtime-main.js": "/WB_LANDING/static/js/runtime-main.20502d8b.js",
+    "runtime-main.js.map": "/WB_LANDING/static/js/runtime-main.20502d8b.js.map",
+    "static/js/2.ae9e0889.chunk.js": "/WB_LANDING/static/js/2.ae9e0889.chunk.js",
+    "static/js/2.ae9e0889.chunk.js.map": "/WB_LANDING/static/js/2.ae9e0889.chunk.js.map",
+    "index.html": "/WB_LANDING/index.html",
+    "static/css/main.998811c8.chunk.css.map": "/WB_LANDING/static/css/main.998811c8.chunk.css.map",
+    "static/js/2.ae9e0889.chunk.js.LICENSE.txt": "/WB_LANDING/static/js/2.ae9e0889.chunk.js.LICENSE.txt",
+    "static/media/cucumberbite.45dbd543.jpg": "/WB_LANDING/static/media/cucumberbite.45dbd543.jpg",
+    "static/media/dragonball.180e657a.jpg": "/WB_LANDING/static/media/dragonball.180e657a.jpg",
+    "static/media/goldensalmonnigiri.5dc50176.jpg": "/WB_LANDING/static/media/goldensalmonnigiri.5dc50176.jpg",
+    "static/media/hamachinigiri.20da029c.jpg": "/WB_LANDING/static/media/hamachinigiri.20da029c.jpg",
+    "static/media/ikanigiri.6ad61843.jpg": "/WB_LANDING/static/media/ikanigiri.6ad61843.jpg",
+    "static/media/katsuocombo.c95e3864.jpg": "/WB_LANDING/static/media/katsuocombo.c95e3864.jpg",
+    "static/media/maguronigiri.12036598.jpg": "/WB_LANDING/static/media/maguronigiri.12036598.jpg",
+    "static/media/market.8bd61227.jpg": "/WB_LANDING/static/media/market.8bd61227.jpg",
+    "static/media/omakase.0ca82187.jpg": "/WB_LANDING/static/media/omakase.0ca82187.jpg",
+    "static/media/recipe.e89ddf9b.jpg": "/WB_LANDING/static/media/recipe.e89ddf9b.jpg",
+    "static/media/salmonnigiri.fa9f2097.jpg": "/WB_LANDING/static/media/salmonnigiri.fa9f2097.jpg",
+    "static/media/tunatorch.b6f6dfb3.jpg": "/WB_LANDING/static/media/tunatorch.b6f6dfb3.jpg",
+    "static/media/video.341efcfe.mp4": "/WB_LANDING/static/media/video.341efcfe.mp4",
+    "static/media/webe.2df2bd53.png": "/WB_LANDING/static/media/webe.2df2bd53.png",
+    "static/media/webechef.6799c274.jpg": "/WB_LANDING/static/media/webechef.6799c274.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.20502d8b.js",
+    "static/js/2.ae9e0889.chunk.js",
+    "static/css/main.998811c8.chunk.css",
+    "static/js/main.59bf334b.chunk.js"
+  ]
+}
