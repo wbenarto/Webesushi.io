@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://www.fishwatch.gov/api/species/",
-  "homepage": "https://wbenarto.github.io/WB_LANDING",
+  
+  "homepage": "https://wbenarto.github.io/WB_Landing",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -23,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
