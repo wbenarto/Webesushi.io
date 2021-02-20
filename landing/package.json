@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://www.fishwatch.gov/api/species/",
-  
-  "homepage": "https://wbenarto.github.io/WB_Landing/landing",
+  "homepage": "https://wbenarto.github.io/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
