@@ -46,21 +46,19 @@ const Sustainability = ({
   //     )
   //     .then((res) => {
   //       console.log(res);
-  //       setDate(res);
+  //       setData(res);
   //     });
   // };
   const fetchData = () => {
-    axios
-      .get("https://www.fishwatch.gov/api/species/red-snapper")
-      .then((res) => {
-        console.log(res);
-        setData(res);
-      });
+    axios.get("https://www.fishwatch.gov/api/").then((res) => {
+      console.log(res);
+      setData(res);
+    });
   };
 
-  const fishImage = data.data[0].Quote;
-  const fishImg = data.data[0]["Image Gallery"];
-  console.log(fishImg);
+  // const fishImage = data.data[0].Quote;
+  // const fishImg = data.data[0]["Image Gallery"];
+  // console.log(fishImg);
   // console.log(fishImage);
   // const bitcoin = data.data.bitcoin.usd;
   // console.log(bitcoin);
@@ -71,9 +69,9 @@ const Sustainability = ({
         <Heading lightText="true">Sustainabilty page</Heading>
         <Subtitle> Helloooo </Subtitle>
         <h1>Hello</h1>
-        <Icon to="/">WebeSushi {fishImage}</Icon>
+        <Icon to="/">WebeSushi </Icon>
 
-        {fishImg.map((e, i) => {
+        {/* {fishImg.map((e, i) => {
           return (
             <div>
               <img
@@ -83,7 +81,7 @@ const Sustainability = ({
               />
             </div>
           );
-        })}
+        })} */}
       </InfoContainer>
     </>
   );

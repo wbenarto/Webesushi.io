@@ -34,15 +34,6 @@ export const sushi = [
     category: "Nigiri",
   },
   {
-    name: "Torched Salmon Nigiri",
-    images: salmontorch,
-    ingredients: ["sushi rice", "avocado"],
-    desc: "This is so hard to make omagahhh",
-    type: "Raw",
-    category: "Nigiri",
-  },
-
-  {
     name: "Golden Salmon Toro Torched Nigiri",
     images: salmontoro,
     ingredients: [

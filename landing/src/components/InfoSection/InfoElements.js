@@ -191,6 +191,7 @@ export const IconWrapperRight = styled.div`
 export const CarouselHeading = styled.h1`
   margin-bottom: 24px;
   font-size: 48px;
+  height: 140px;
   line-height: 1.1;
   font-weight: 600;
   color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
@@ -209,7 +210,7 @@ export const CarouselSubtitle = styled.p`
   font-size: 18px;
   line-height: 24px;
   color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
-  height: 100px;
+  height: 200px;
 `;
 // Carousel Ends
 
