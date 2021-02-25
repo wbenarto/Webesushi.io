@@ -19,9 +19,9 @@ export const HeroContainer = styled.div`
     right: 0;
     bottom: 0;
     background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(0, 0, 0, 0.6) 100%
+        -180deg,
+        rgba(0, 0, 0, 0.1) 40%,
+        rgba(0, 0, 0, 0.8) 100%
       ),
       linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
     z-index: 2;
@@ -58,9 +58,12 @@ export const HeroContent = styled.div`
 `;
 
 export const HeroH1 = styled.h1`
+  font-family: "EB Garamond", serif;
   color: #dbd6a9;
-  font-size: 48px;
+  font-size: 75px;
   text-align: center;
+  font-weight: normal;
+  line-height: 1em;
 
   @media screen and (max-width: 768px) {
     font-size: 40px;

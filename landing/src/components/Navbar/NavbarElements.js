@@ -3,9 +3,10 @@ import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 
 export const Nav = styled.nav`
-  background: ${({ scrollNav }) => (scrollNav ? "#000" : "transparent")};
-  height: 80px;
-  margin-top: -80px;
+  background: ${({ scrollNav }) => (scrollNav ? "#f9f9f9" : "transparent")};
+  /* display: ${({ scrollNav }) => (scrollNav ? "flex" : "none")}; */
+  height: 90px;
+  margin-top: -90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +15,7 @@ export const Nav = styled.nav`
   top: 0;
   z-index: 10;
   transition: 1.8s all ease;
+  font-family: "Work Sans", sans-serif;
 
   @media screen and (max-width: 960px) {
     transition: 0.8s all ease;
@@ -23,26 +25,37 @@ export const Nav = styled.nav`
 export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 90px;
   z-index: 1;
   width: 100%;
   padding: 0 24px;
+  /* margin-top: 40px; */
   max-width: 1100px;
 `;
 
 export const NavLogo = styled(LinkR)`
-  color: #dbd6a9;
+  color: white;
   /* background: #fff; */
-  height: 80px;
-  width: 80px;
+  height: 150px;
+  width: 150px;
   justify-self: flex-start;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 3rem;
   display: flex;
   align-items: center;
+  margin-top: -30px;
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+
+  @media screen and (max-width: 768px) {
+    /* background-color: #ffff; */
+    margin-top: 200px;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    padding-bottom: 30px;
+  }
 `;
 
 export const MobileIcon = styled.div`
@@ -65,7 +78,7 @@ export const NavMenu = styled.ul`
   align-items: center;
   list-style: none;
   text-align: center;
-  margin-right: -22px;
+  margin-right: 22px;
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -88,6 +101,9 @@ export const NavLinks = styled(LinkS)`
 
   &.active {
     border-bottom: 5px solid #dbd6a9;
+    background-color: #5c5b4f;
+
+    border-radius: 5px;
   }
 `;
 

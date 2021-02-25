@@ -130,12 +130,13 @@ export const InfoCarouselWrapper = styled.div`
 
 export const ImgWrapCarousel = styled.div`
   position: relative;
-  max-width: 600px;
+  max-width: 400px;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  margin-right: 100px;
 
   @media screen and (max-width: 768px) {
     height: 40vh;
@@ -143,12 +144,8 @@ export const ImgWrapCarousel = styled.div`
 `;
 
 export const ImgCarousel = styled.img`
-  height: 100vh;
-
-  flex-wrap: fit;
-  padding-right: 0;
+  height: 60vh;
   border-radius: 10px;
-
   &.slide {
     opacity: 0;
     transition-duration: 1s ease;
@@ -163,6 +160,12 @@ export const ImgCarousel = styled.img`
   @media screen and (max-width: 768px) {
     height: 40vh;
   }
+`;
+
+export const ColumnCarousel2 = styled.div`
+  margin-bottom: 15px;
+  grid-area: col2;
+  margin-left: 0px;
 `;
 
 export const IconWrapperLeft = styled.div`
@@ -195,7 +198,7 @@ export const CarouselHeading = styled.h1`
   line-height: 1.1;
   font-weight: 600;
   color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
-
+  width: 440px;
   @media screen and (max-width: 480px) {
     margin-top: -100px;
     margin-bottom: 60px;
@@ -205,7 +208,7 @@ export const CarouselHeading = styled.h1`
 `;
 
 export const CarouselSubtitle = styled.p`
-  max-width: 440px;
+  width: 440px;
   margin-bottom: 35px;
   font-size: 18px;
   line-height: 24px;

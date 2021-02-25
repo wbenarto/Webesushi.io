@@ -9,7 +9,7 @@ import {
   HeroBtnWrapper,
 } from "./HeroElements";
 import Video from "../../videos/video.mp4";
-import { Button } from "../ButtonElement";
+import { ButtonHero } from "../ButtonElement";
 
 const HeroSection = () => {
   return (
@@ -18,22 +18,23 @@ const HeroSection = () => {
         <VideoBg type="video/mp4" autoPlay loop muted src={Video}></VideoBg>
       </HeroBg>
       <HeroContent>
-        <HeroH1>Welcome to WeBe Sushi</HeroH1>
+        <HeroH1>Guide To Premium</HeroH1>
+        <HeroH1>Homemade Sushi Making</HeroH1>
         <HeroP>
-          Here I'll share some of my favorite sushi recipes and also some
-          knowledge on how to consume sushi sustainably.
+          {/* Here I'll share some of my favorite sushi recipes and also some
+          knowledge on how to consume sushi sustainably. */}
         </HeroP>
         <HeroBtnWrapper>
-          <Button
+          <ButtonHero
             to="home-makase"
             smooth={true}
-            duration={500}
+            duration={800}
             spy={true}
             exact="true"
-            offset={-80}
+            offset={-90}
           >
-            KAIZEN
-          </Button>
+            Get Started
+          </ButtonHero>
         </HeroBtnWrapper>
       </HeroContent>
     </HeroContainer>

@@ -9,15 +9,17 @@ import {
   NavLinks,
   NavMenu,
   NavItem,
+  NavImg,
   NavBtnLink,
   NavBtn,
 } from "./NavbarElements";
+import webe from "../../images/webe.png";
 
 const Navbar = (props) => {
   const [scrollNav, setScrollNav] = useState(false);
 
   const changeNav = () => {
-    if (window.scrollY >= 80) {
+    if (window.scrollY >= 120) {
       setScrollNav(true);
     } else {
       setScrollNav(false);
@@ -36,12 +38,12 @@ const Navbar = (props) => {
       <NavbarContainer>
         {/* <header className="App-header">Webe Sushi</header> */}
         <NavLogo to="/" onClick={toggleHome}>
-          WeBe Sushi
-          {/* <img
+          {/* WeBe Sushi */}
+          <img
             alt="webe-sushi"
             style={{ width: "100%", height: "100%" }}
             src={webe}
-          ></img> */}
+          ></img>
         </NavLogo>
         <MobileIcon onClick={props.toggle}>
           <FaBars />
@@ -51,10 +53,10 @@ const Navbar = (props) => {
             <NavLinks
               to="home-makase"
               smooth={true}
-              duration={1500}
+              duration={1200}
               spy={true}
               exact="true"
-              offset={-80}
+              offset={0}
               activeClass="active"
             >
               Home-Makase
@@ -65,10 +67,10 @@ const Navbar = (props) => {
             <NavLinks
               to="sustainability"
               smooth={true}
-              duration={1500}
+              duration={1200}
               spy={true}
               exact="true"
-              offset={-80}
+              offset={0}
               activeClass="active"
             >
               Sustainability
@@ -79,10 +81,10 @@ const Navbar = (props) => {
             <NavLinks
               to="about"
               smooth={true}
-              duration={1500}
+              duration={1200}
               spy={true}
               exact="true"
-              offset={-80}
+              offset={0}
               activeClass="active"
             >
               About
@@ -93,16 +95,31 @@ const Navbar = (props) => {
             <NavLinks
               to="gallery"
               smooth={true}
-              duration={1500}
+              duration={1200}
               spy={true}
               exact="true"
-              offset={-80}
+              offset={0}
               activeClass="active"
             >
               Gallery
             </NavLinks>
           </NavItem>
+
+          <NavItem>
+            <NavLinks
+              to="services"
+              smooth={true}
+              duration={1200}
+              spy={true}
+              exact="true"
+              offset={0}
+              activeClass="active"
+            >
+              Mission
+            </NavLinks>
+          </NavItem>
         </NavMenu>
+
         {/* <NavBtn>
           <NavBtnLink to="/signin">Sign In</NavBtnLink>
         </NavBtn> */}

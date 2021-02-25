@@ -138,8 +138,8 @@ export const homeObjOne = {
 export const homeObjTwo = {
   id: "sustainability",
   page: "/sustainability",
-  lightBg: false,
-  lightText: true,
+  lightBg: true,
+  lightText: false,
   lightTextDesc: true,
   topLine: "Sustainability",
   headline:
@@ -150,9 +150,9 @@ export const homeObjTwo = {
   imgStart: true,
   img: market,
   alt: "sushi",
-  dark: true,
-  primary: true,
-  darkText: false,
+  dark: false,
+  primary: false,
+  darkText: true,
 };
 
 export const homeObjThree = {

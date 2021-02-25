@@ -14,7 +14,7 @@ import {
   CarouselHeading,
   CarouselSubtitle,
   BtnWrap,
-  Column2,
+  ColumnCarousel2,
   ImgWrapCarousel,
   ImgCarousel,
   InfoBtnLink,
@@ -84,7 +84,7 @@ const InfoCarousel = ({
                 </BtnWrap>
               </TextWrapper>
             </Column1>
-            <Column2>
+            <ColumnCarousel2>
               <ImgWrapCarousel>
                 <IconWrapperLeft onClick={prevSlide}>
                   <FaArrowAltCircleLeft />
@@ -102,7 +102,7 @@ const InfoCarousel = ({
                   <FaArrowAltCircleRight />
                 </IconWrapperRight>
               </ImgWrapCarousel>
-            </Column2>
+            </ColumnCarousel2>
           </InfoRow>
         </InfoCarouselWrapper>
       </InfoCarouselContainer>
