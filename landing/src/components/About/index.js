@@ -1,21 +1,22 @@
 import React from "react";
-import {
-  Container,
-  AboutWrapper,
-  AboutRow,
-  AboutCol1,
-  AboutCol2,
-} from "./RecipesElements";
+// import {
+//   Container,
+//   AboutWrapper,
+//   AboutRow,
+//   AboutCol1,
+//   AboutCol2,
+// } from "./RecipesElements";
 
 const About = () => {
   return (
     <>
-      <Container lightBg={true}>
+      <div>hello</div>
+      {/* <Container lightBg={true}>
         <AboutWrapper>
           <AboutCol1>Here1 </AboutCol1>
           <AboutCol2>Heres 2</AboutCol2>
         </AboutWrapper>
-      </Container>
+      </Container> */}
     </>
   );
 };

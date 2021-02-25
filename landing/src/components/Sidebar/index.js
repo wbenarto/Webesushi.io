@@ -12,7 +12,7 @@ import {
 
 const Sidebar = (props) => {
   return (
-    <>
+    <div>
       <SidebarContainer onClick={props.toggle} isOpen={props.isOpen}>
         <Icon>
           <CloseIcon />
@@ -32,12 +32,12 @@ const Sidebar = (props) => {
               Gallery
             </SidebarLink>
           </SidebarMenu>
-          <SideBtnWrap>
+          {/* <SideBtnWrap>
             <SidebarRoute to="/nextpage">New Page</SidebarRoute>
-          </SideBtnWrap>
+          </SideBtnWrap> */}
         </SidebarWrapper>
       </SidebarContainer>
-    </>
+    </div>
   );
 };
 

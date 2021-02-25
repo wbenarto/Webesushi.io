@@ -23,7 +23,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div style={{ width: "100%" }}>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <HeroSection />
@@ -32,8 +32,8 @@ const Home = () => {
       <InfoSection {...homeObjThree} />
       <InfoCarousel {...homeObjFour} {...sushi} />
       <Services />
-      <Footer />
-    </>
+      {/* <Footer /> */}
+    </div>
   );
 };
 

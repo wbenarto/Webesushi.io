@@ -1,7 +1,5 @@
 import "./App.css";
-import Intro from "./components/Intro";
-// import Navbar from "./components/Navbar";
-import About from "./components/About";
+
 import Home from "./pages";
 import Navbar from "./components/Navbar/index";
 import GalleryPage from "./pages/gallery";
@@ -15,7 +13,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />
@@ -26,9 +24,6 @@ function App() {
           <Route path="/about" component={AboutPage} exact />
           <Route component={NotFoundPage} />
         </Switch>
-
-        {/* <About />
-        <Intro /> */}
       </Router>
     </div>
   );

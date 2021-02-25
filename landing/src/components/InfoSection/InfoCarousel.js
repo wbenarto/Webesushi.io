@@ -11,6 +11,7 @@ import {
   Column1,
   TextWrapper,
   TopLine,
+  ImgWrap2,
   CarouselHeading,
   CarouselSubtitle,
   BtnWrap,
@@ -89,6 +90,7 @@ const InfoCarousel = ({
                 <IconWrapperLeft onClick={prevSlide}>
                   <FaArrowAltCircleLeft />
                 </IconWrapperLeft>
+
                 {sushi.map((e, i) => {
                   console.log(e);
                   return (
@@ -97,6 +99,7 @@ const InfoCarousel = ({
                     </div>
                   );
                 })}
+
                 <ImgCarousel src={images} alt={alt} />
                 <IconWrapperRight onClick={nextSlide}>
                   <FaArrowAltCircleRight />

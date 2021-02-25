@@ -2,6 +2,7 @@ import React from "react";
 import Icon1 from "../../images/market.jpg";
 import Icon2 from "../../images/omakase.jpg";
 import Icon3 from "../../images/recipe.jpg";
+import Footer from "../Footer";
 import {
   ServicesContainer,
   ServicesCard,
@@ -16,27 +17,33 @@ const Services = () => {
   return (
     <ServicesContainer id="services">
       <ServicesH1>Our Mission</ServicesH1>
+      <ServicesCard>
+        <ServicesP>
+          Promoting At-Home Omakase experience and providing information about
+          sustainability in sushi.
+        </ServicesP>
+      </ServicesCard>
+
       <ServicesWrapper>
-        <ServicesCard>
+        {/* <ServicesCard>
           <ServicesIcon src={Icon1} />
-          <ServicesH2>Increase Awareness</ServicesH2>
+           <ServicesH2>Increase Awareness</ServicesH2>
           <ServicesP>
-            Educating myself and others to become better as a consumer.
+            We are responsible for the health of our Ocean. Let's spread more
+            information about sustainability in Sushi.
           </ServicesP>
-        </ServicesCard>
+        </ServicesCard> */}
         <ServicesCard>
-          <ServicesIcon src={Icon2} />
-          <ServicesH2>Providing Solutions</ServicesH2>
-          <ServicesP>Through Kaizen Mindset</ServicesP>
+          {/* <ServicesIcon src={Icon2} /> */}
+          <ServicesH2></ServicesH2>
         </ServicesCard>
-        <ServicesCard>
+        {/* <ServicesCard>
           <ServicesIcon src={Icon3} />
-          <ServicesH2>Food Safety</ServicesH2>
-          <ServicesP>
-            Helping you achieve industry-level food safety standards.
-          </ServicesP>
-        </ServicesCard>
+          <ServicesH2>Kaizen Mindset</ServicesH2>
+          <ServicesP>Strive to be better each and every days.</ServicesP>
+        </ServicesCard> */}
       </ServicesWrapper>
+      <Footer />
     </ServicesContainer>
   );
 };

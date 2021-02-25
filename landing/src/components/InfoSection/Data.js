@@ -164,7 +164,7 @@ export const homeObjThree = {
   topLine: "About Me",
   headline: "Sushi Chef from Philadelphia",
   description:
-    "Kaizen mindset ~ Small improvement each and every day. </br> \br Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "I landed my first job as a part time sushi chef in Genji Sushi Callowhill corner in Philadelphia. I had always loved sushi and Japanese culture,so working for a company that was strong in both senses was rewarding but also a great learning experience. During this time, I discovered that what we consume could be harmful to the livestock of our Ocean habitat. There are many illegal fishing practices that are still ended up as the sushi plate we consume. We all can do better. I hope to bring awareness to the sustainability issue and hopefully the future generations will be able to enjoy the Ootoro and Unagi that we all love. Please use the site to learn new recipes and also find out if the protein your fishmonger sells are sustainable or comes from a sustainable source. ",
   buttonLabel: "See More",
   imgStart: false,
   img: webe,

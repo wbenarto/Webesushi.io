@@ -26,10 +26,10 @@ export const Button = styled(Link)`
 
 export const ButtonHero = styled(Link)`
   border-radius: 50px;
-  background: ${({ primary }) => (primary ? "#dbd6a9" : "#010606")};
+  background: ${({ primary }) => (primary ? "#010606" : "#dbd6a9")};
   white-space: nowrap;
   padding: ${({ big }) => (big ? "14px 48px" : "12px 30px")};
-  color: ${({ dark }) => (dark ? "#010606" : "#fff")};
+  color: ${({ dark }) => (dark ? "#fff" : "#010606")};
   font-size: ${({ fontBig }) => (fontBig ? "20px" : "16px")};
   outline: none;
   border: none;
