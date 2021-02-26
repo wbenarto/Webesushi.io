@@ -17,6 +17,11 @@ export const Nav = styled.nav`
   transition: 0.8s all ease;
   font-family: "Work Sans", sans-serif;
 
+  @media screen and (max-width: 768px) {
+    height: 100px;
+    margin-top: -100px;
+  }
+
   @media screen and (max-width: 960px) {
     transition: 0.8s all ease;
   }
@@ -48,16 +53,21 @@ export const NavLogo = styled(LinkR)`
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+
+  @media screen and (max-width: 768px) {
+    margin-left: -10px;
+  }
 `;
 
 export const MobileIcon = styled.div`
   display: none;
 
   @media screen and (max-width: 768px) {
-    display: block;
+    display: grid;
     position: absolute;
+    float: left;
     top: 0;
-    right: 0;
+    right: 20px;
     transform: translate(-100%, 60%);
     font-size: 2.2rem;
     cursor: pointer;

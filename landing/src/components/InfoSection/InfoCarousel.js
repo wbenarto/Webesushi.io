@@ -6,7 +6,7 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 import {
   InfoCarouselContainer,
-  InfoCarouselWrapper,
+  InfoWrapper,
   InfoRow,
   Column1,
   TextWrapper,
@@ -57,8 +57,8 @@ const InfoCarousel = ({
   return (
     <>
       <InfoCarouselContainer lightBg={lightBg} id={id}>
-        <InfoCarouselWrapper>
-          <InfoRow imgStart={imgStart}>
+        <InfoWrapper>
+          <InfoRow imgStart={false}>
             <Column1>
               <TextWrapper>
                 {/* <TopLine>{topLine}</TopLine> */}
@@ -68,7 +68,7 @@ const InfoCarousel = ({
                 <CarouselSubtitle darkText={darkText}>
                   {sushi[cur].desc}
                 </CarouselSubtitle>
-                <BtnWrap>
+                {/* <BtnWrap>
                   <InfoBtnLink
                     to={page}
                     smooth={true}
@@ -82,9 +82,10 @@ const InfoCarousel = ({
                   >
                     {buttonLabel}
                   </InfoBtnLink>
-                </BtnWrap>
+                </BtnWrap> */}
               </TextWrapper>
             </Column1>
+
             <ColumnCarousel2>
               <ImgWrapCarousel>
                 <IconWrapperLeft onClick={prevSlide}>
@@ -107,7 +108,7 @@ const InfoCarousel = ({
               </ImgWrapCarousel>
             </ColumnCarousel2>
           </InfoRow>
-        </InfoCarouselWrapper>
+        </InfoWrapper>
       </InfoCarouselContainer>
     </>
   );

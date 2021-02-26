@@ -31,7 +31,7 @@ const HeroSection = () => {
             duration={800}
             spy={true}
             exact="true"
-            offset={-90}
+            offset={-10}
           >
             Get Started
           </ButtonHero>

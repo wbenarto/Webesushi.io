@@ -6,7 +6,8 @@ import { FaTimes } from "react-icons/fa";
 export const SidebarContainer = styled.aside`
   position: fixed;
   z-index: 999;
-  width: 100vh;
+  width: 100%;
+  height: 100%;
   background: #0d0d0d;
   display: grid;
   align-items: center;
@@ -17,8 +18,9 @@ export const SidebarContainer = styled.aside`
   top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
 
   @media screen and (max-width: 768px) {
-    width: 100%;
+    max-width: 100vw;
     height: 100vh;
+    position: fixed;
   }
 `;
 

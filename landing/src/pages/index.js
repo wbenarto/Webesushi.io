@@ -23,7 +23,7 @@ const Home = () => {
   };
 
   return (
-    <div style={{ width: "100%" }}>
+    <div>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <HeroSection />

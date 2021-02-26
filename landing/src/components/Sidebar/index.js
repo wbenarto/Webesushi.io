@@ -31,6 +31,9 @@ const Sidebar = (props) => {
             <SidebarLink onClick={props.toggle} to="gallery">
               Gallery
             </SidebarLink>
+            <SidebarLink onClick={props.toggle} to="services">
+              Mission
+            </SidebarLink>
           </SidebarMenu>
           {/* <SideBtnWrap>
             <SidebarRoute to="/nextpage">New Page</SidebarRoute>
