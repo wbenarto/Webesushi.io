@@ -240,7 +240,7 @@ export const CarouselHeading = styled.h1`
 `;
 
 export const CarouselSubtitle = styled.p`
-  width: 100vw;
+  width: 100%;
   margin-bottom: 35px;
   font-size: 18px;
   line-height: 24px;

@@ -13,19 +13,26 @@ import {
   NavBtnLink,
   NavBtn,
 } from "./NavbarElements";
-import webe from "../../images/webe.png";
+import webewhite from "../../images/webewhite.png";
+import webeblack from "../../images/webe.png";
 
 const Navbar = (props) => {
-  const [scrollNav, setScrollNav] = useState(false);
+  const [scrollNav, setScrollNav] = useState("home");
 
   const changeNav = () => {
-    if (window.scrollY >= 120) {
-      setScrollNav(true);
+    if (window.scrollY >= 4120) {
+      setScrollNav("black");
+    } else if (window.scrollY >= 3240) {
+      setScrollNav("white");
+    } else if (window.scrollY >= 900) {
+      setScrollNav("middle");
+      console.log(window.scrollY);
     } else {
-      setScrollNav(false);
+      setScrollNav("home");
+      console.log(window.scrollY);
     }
   };
-
+  console.log(scrollNav);
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, []);
@@ -33,6 +40,7 @@ const Navbar = (props) => {
   const toggleHome = () => {
     scroll.scrollToTop({ duration: "3000" });
   };
+
   return (
     <Nav scrollNav={scrollNav}>
       <NavbarContainer>
@@ -42,7 +50,7 @@ const Navbar = (props) => {
           <img
             alt="webe-sushi"
             style={{ width: "100%", height: "100%" }}
-            src={webe}
+            src={scrollNav == "white" ? webeblack : webewhite}
           ></img>
         </NavLogo>
         <MobileIcon onClick={props.toggle}>
@@ -112,7 +120,7 @@ const Navbar = (props) => {
               duration={1200}
               spy={true}
               exact="true"
-              offset={0}
+              offset={15}
               activeClass="active"
             >
               Mission

@@ -15,17 +15,18 @@ import {
 
 const Services = () => {
   return (
-    <ServicesContainer id="services">
-      <ServicesH1>Our Mission</ServicesH1>
-      <ServicesCard>
-        <ServicesP>
-          Promoting At-Home Omakase experience and providing information about
-          sustainability in sushi.
-        </ServicesP>
-      </ServicesCard>
+    <>
+      <ServicesContainer id="services">
+        <ServicesH1>Our Mission</ServicesH1>
+        <ServicesCard>
+          <ServicesP>
+            Promoting At-Home Omakase experience and providing information about
+            sustainability in sushi.
+          </ServicesP>
+        </ServicesCard>
 
-      <ServicesWrapper>
-        {/* <ServicesCard>
+        <ServicesWrapper>
+          {/* <ServicesCard>
           <ServicesIcon src={Icon1} />
            <ServicesH2>Increase Awareness</ServicesH2>
           <ServicesP>
@@ -33,18 +34,19 @@ const Services = () => {
             information about sustainability in Sushi.
           </ServicesP>
         </ServicesCard> */}
-        <ServicesCard>
-          {/* <ServicesIcon src={Icon2} /> */}
-          <ServicesH2></ServicesH2>
-        </ServicesCard>
-        {/* <ServicesCard>
+          <ServicesCard>
+            {/* <ServicesIcon src={Icon2} /> */}
+            <ServicesH2></ServicesH2>
+          </ServicesCard>
+          {/* <ServicesCard>
           <ServicesIcon src={Icon3} />
           <ServicesH2>Kaizen Mindset</ServicesH2>
           <ServicesP>Strive to be better each and every days.</ServicesP>
         </ServicesCard> */}
-      </ServicesWrapper>
+        </ServicesWrapper>
+      </ServicesContainer>
       <Footer />
-    </ServicesContainer>
+    </>
   );
 };
 

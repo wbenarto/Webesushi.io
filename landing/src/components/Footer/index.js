@@ -1,6 +1,11 @@
 import React from "react";
 import { animateScroll as scroll } from "react-scroll";
-import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaGithub,
+  FaLinkedin,
+  FaRegEnvelope,
+} from "react-icons/fa";
 
 import {
   FooterContainer,
@@ -21,6 +26,10 @@ import {
 const index = () => {
   const toggleHome = () => {
     scroll.scrollToTop();
+  };
+
+  const handleEmailMe = () => {
+    window.open("mailto:w.benarto@gmail.com");
   };
 
   return (
@@ -55,28 +64,41 @@ const index = () => {
           </FooterLinksWrapper>
         </FooterLinksContainer> */}
 
-        <SocialMedia>
-          <SocialMediaWrap>
-            <SocialLogo to="/" onClick={toggleHome}>
-              WebeSushi
-            </SocialLogo>
+        <SocialMediaWrap>
+          <SocialLogo to="/" onClick={toggleHome}>
+            WebeSushi
+          </SocialLogo>
 
-            <WebsiteRights>
-              WebeSushi © {new Date().getFullYear()} All Rights reserved.
-            </WebsiteRights>
-            <SocialIcons>
-              <SocialIconLink href="/" target="_blank" aria-label="Instagram">
-                <FaInstagram />
-              </SocialIconLink>
-              <SocialIconLink href="/" target="_blank" aria-label="Github">
-                <FaGithub />
-              </SocialIconLink>
-              <SocialIconLink href="/" target="_blank" aria-label="Linked In">
-                <FaLinkedin />
-              </SocialIconLink>
-            </SocialIcons>
-          </SocialMediaWrap>
-        </SocialMedia>
+          <WebsiteRights>
+            WebeSushi © {new Date().getFullYear()} All Rights reserved.
+          </WebsiteRights>
+          <SocialIcons>
+            <SocialIconLink
+              href="https://www.instagram.com/webeclinkz/"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <FaInstagram />
+            </SocialIconLink>
+            <SocialIconLink
+              href="https://github.com/wbenarto"
+              target="_blank"
+              aria-label="Github"
+            >
+              <FaGithub />
+            </SocialIconLink>
+            <SocialIconLink
+              href="https://www.linkedin.com/in/william-benarto/"
+              target="_blank"
+              aria-label="Linked In"
+            >
+              <FaLinkedin />
+            </SocialIconLink>
+            <SocialIconLink onClick={handleEmailMe}>
+              <FaRegEnvelope></FaRegEnvelope>
+            </SocialIconLink>
+          </SocialIcons>
+        </SocialMediaWrap>
       </FooterWrapper>
     </FooterContainer>
   );
