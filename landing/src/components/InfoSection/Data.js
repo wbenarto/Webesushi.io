@@ -16,6 +16,7 @@ import salmonkewpie from "../../images/salmonnigiri.jpg";
 
 export const sushi = [
   {
+    id: 1,
     name: "Chu Toro Nigiri",
     images: chutoro,
     ingredients: ["sushi rice", "tuna"],
@@ -25,6 +26,7 @@ export const sushi = [
     category: "Nigiri",
   },
   {
+    id: 2,
     name: "Torched Chu Toro Nigiri",
     images: tunatorch,
     ingredients: ["sushi rice", "tuna"],
@@ -34,6 +36,7 @@ export const sushi = [
     category: "Nigiri",
   },
   {
+    id: 3,
     name: "Golden Salmon Toro Torched Nigiri",
     images: salmontoro,
     ingredients: [
@@ -49,6 +52,7 @@ export const sushi = [
     category: "Nigiri",
   },
   {
+    id: 4,
     name: "Kanpachi Nigiri",
     images: kanpachi,
     ingredients: ["sushi rice", "kanpachi", "shiso leaf"],
@@ -57,6 +61,7 @@ export const sushi = [
     category: "Nigiri",
   },
   {
+    id: 5,
     name: "Ika Nigiri",
     images: ika,
     ingredients: ["sushi rice", "ika", "nikiri sauce", "lemon zest"],
@@ -67,6 +72,7 @@ export const sushi = [
   },
 
   {
+    id: 6,
     name: "Salmon Toro Nigiri",
     images: salmonkewpie,
     ingredients: ["sushi rice", "salmon", "kewpie"],
@@ -76,6 +82,7 @@ export const sushi = [
   },
 
   {
+    id: 7,
     name: "Katsuo Nigiri Combo",
     images: katsuonigiri,
     ingredients: ["sushi rice", "katsuo", "ikura"],
@@ -84,6 +91,7 @@ export const sushi = [
     category: "Nigiri",
   },
   {
+    id: 8,
     name: "Golden Dragon Crew Capsule",
     images: dragonball,
     ingredients: [
@@ -100,6 +108,7 @@ export const sushi = [
     category: "Chef Special",
   },
   {
+    id: 9,
     name: "Keto Cucumber Sushi Roll",
     images: cucumberbite,
     ingredients: [
@@ -123,7 +132,7 @@ export const homeObjOne = {
   lightBg: true,
   lightText: false,
   lightTextDesc: true,
-  topLine: "Home-Makase",
+  topLine: "Home-Kase",
   headline: "Guide to Premium Homemade Sushi Making",
   description: "Get access to our step by step recipes from Webe-san.",
   buttonLabel: "Get Rollin",

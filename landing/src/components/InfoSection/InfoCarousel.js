@@ -6,12 +6,13 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 import {
   InfoCarouselContainer,
-  InfoWrapper,
-  InfoRow,
+  InfoWrapperCarousel,
+  InfoRowCarousel,
   Column1,
   TextWrapper,
   TopLine,
-  ImgWrap2,
+  ImgWrap,
+  Img,
   CarouselHeading,
   CarouselSubtitle,
   BtnWrap,
@@ -52,13 +53,18 @@ const InfoCarousel = ({
     setCur(cur === length - 1 ? 0 : cur + 1);
     console.log("next clicked");
   };
+
+  setTimeout(nextSlide, 3000);
   console.log(cur);
   console.log(sushi[cur].name);
   return (
     <>
       <InfoCarouselContainer lightBg={lightBg} id={id}>
-        <InfoWrapper>
-          <InfoRow imgStart={false}>
+        <InfoWrapperCarousel>
+          <InfoRowCarousel imgStart={false}>
+            <IconWrapperLeft onClick={prevSlide}>
+              <FaArrowAltCircleLeft />
+            </IconWrapperLeft>
             <Column1>
               <TextWrapper>
                 {/* <TopLine>{topLine}</TopLine> */}
@@ -88,27 +94,41 @@ const InfoCarousel = ({
 
             <ColumnCarousel2>
               <ImgWrapCarousel>
-                <IconWrapperLeft onClick={prevSlide}>
-                  <FaArrowAltCircleLeft />
-                </IconWrapperLeft>
+                <img src={sushi[cur].images}></img>
+                {/* {sushi.map((image, index) => (
+                  <div>
+                    <img
+                      key={index}
+                      style={{
+                        width: "320px",
+                        height: "150px",
+                        objectFit: "cover",
+                      }}
+                      src={image.images}
+                      alt="sushi"
+                    ></img>
+                  </div>
+                ))} */}
+              </ImgWrapCarousel>
 
-                {sushi.map((e, i) => {
+              <ImgWrapCarousel>
+                {/* {sushi.map((e, i) => {
                   console.log(e);
                   return (
                     <div className={i === cur ? "slide active" : "slide"}>
                       {i === cur && <ImgCarousel src={e.images} alt={e.name} />}
                     </div>
                   );
-                })}
-
-                <ImgCarousel src={images} alt={alt} />
-                <IconWrapperRight onClick={nextSlide}>
-                  <FaArrowAltCircleRight />
-                </IconWrapperRight>
+                })} */}
+                {/* 
+                <ImgCarousel src={images} alt={alt} /> */}
               </ImgWrapCarousel>
             </ColumnCarousel2>
-          </InfoRow>
-        </InfoWrapper>
+            <IconWrapperRight onClick={nextSlide}>
+              <FaArrowAltCircleRight />
+            </IconWrapperRight>
+          </InfoRowCarousel>
+        </InfoWrapperCarousel>
       </InfoCarouselContainer>
     </>
   );

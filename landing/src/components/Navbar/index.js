@@ -41,49 +41,50 @@ const Navbar = (props) => {
     scroll.scrollToTop({ duration: "3000" });
   };
 
-  // return (
-  //   <Nav scrollNav={scrollNav}>
-  //     <NavbarContainer>
-  //       {/* <header className="App-header">Webe Sushi</header> */}
-  //       <NavLogo to="/" onClick={toggleHome}>
-  //         {/* WeBe Sushi */}
-  //         <img
-  //           alt="webe-sushi"
-  //           style={{ width: "100%", height: "100%" }}
-  //           src={scrollNav == "white" ? webeblack : webewhite}
-  //         ></img>
-  //       </NavLogo>
-  //       <MobileIcon onClick={props.toggle}>
-  //         <FaBars />
-  //       </MobileIcon>
-  //       <NavMenu>
-  //         <NavItem>
-  //           <NavLinks
-  //             to="home-makase"
-  //             smooth={true}
-  //             duration={1200}
-  //             spy={true}
-  //             exact="true"
-  //             offset={0}
-  //             activeClass="active"
-  //           >
-  //             Home-Makase
-  //           </NavLinks>
-  //         </NavItem>
+  return (
+    <Nav scrollNav={scrollNav}>
+      <NavbarContainer>
+        {/* <header className="App-header">Webe Sushi</header> */}
+        <NavLogo to="/" onClick={toggleHome}>
+          {/* WeBe Sushi */}
+          <img
+            alt="webe-sushi"
+            style={{ width: "100%", height: "100%" }}
+            src={scrollNav == "white" ? webeblack : webewhite}
+          ></img>
+        </NavLogo>
 
-  //         <NavItem>
-  //           <NavLinks
-  //             to="sustainability"
-  //             smooth={true}
-  //             duration={1200}
-  //             spy={true}
-  //             exact="true"
-  //             offset={0}
-  //             activeClass="active"
-  //           >
-  //             Sustainability
-  //           </NavLinks>
-  //         </NavItem>
+        <NavMenu>
+          <MobileIcon onClick={props.toggle}>
+            <FaBars />
+          </MobileIcon>
+          <NavItem>
+            <NavLinks
+              to="home-makase"
+              smooth={true}
+              duration={1200}
+              spy={true}
+              exact="true"
+              offset={0}
+              activeClass="active"
+            >
+              Home-Makase
+            </NavLinks>
+          </NavItem>
+
+          <NavItem>
+            <NavLinks
+              to="sustainability"
+              smooth={true}
+              duration={1200}
+              spy={true}
+              exact="true"
+              offset={0}
+              activeClass="active"
+            >
+              Sustainability
+            </NavLinks>
+          </NavItem>
 
           <NavItem>
             <NavLinks

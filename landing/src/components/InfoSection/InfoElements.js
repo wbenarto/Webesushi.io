@@ -147,10 +147,39 @@ export const InfoCarouselWrapper = styled.div`
   }
 `;
 
+export const InfoWrapperCarousel = styled.div`
+  display: grid;
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  max-width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 24px;
+  justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    height: 100vh;
+  }
+`;
+
+export const InfoRowCarousel = styled.div`
+  display: grid;
+  grid-auto-columns: minmax(auto, 1fr);
+  align-items: center;
+  grid-template-areas: ${({ imgStart }) =>
+    imgStart ? '"col2 col1"' : '"col1 col2"'};
+
+  @media screen and (max-width: 768px) {
+    grid-template-areas: ${({ imgStart }) =>
+      imgStart ? '"col1" "col2"' : '"col2 col2" "col1 col1"'};
+  }
+`;
+
 export const ImgWrapCarousel = styled.div`
-  position: relative;
-  max-width: 400px;
-  height: 60vh;
+  position: absolute;
+  max-width: 800px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,7 +194,7 @@ export const ImgWrapCarousel = styled.div`
 `;
 
 export const ImgCarousel = styled.img`
-  height: 60vh;
+  width: 100%;
 
   &.slide {
     opacity: 0;
@@ -187,6 +216,9 @@ export const ColumnCarousel2 = styled.div`
   grid-area: col2;
   margin-left: 0px;
 
+  width: 700px;
+  height: 300px;
+
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -196,10 +228,10 @@ export const IconWrapperLeft = styled.div`
   z-index: 100;
   position: absolute;
   top: 50%;
-
+  height: 300px;
   left: 20px;
   font-size: 2rem;
-  color: #fff;
+  color: #000;
   cursor: pointer;
   user-select: none;
 

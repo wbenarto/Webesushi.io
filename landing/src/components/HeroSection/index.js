@@ -18,7 +18,7 @@ const HeroSection = () => {
         <VideoBg type="video/mp4" autoPlay loop muted src={Video}></VideoBg>
       </HeroBg>
       <HeroContent>
-        <HeroH1>Let's Be Better</HeroH1>
+        <HeroH1>Let's WeBe Better</HeroH1>
         <HeroH1></HeroH1>
         <HeroP>
           {/* Here I'll share some of my favorite sushi recipes and also some
