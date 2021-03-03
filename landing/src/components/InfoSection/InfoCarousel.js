@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../ButtonElement";
-import { Carousel } from "antd";
+
 import { sushi } from "./Data";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
@@ -8,7 +8,7 @@ import {
   InfoCarouselContainer,
   InfoWrapperCarousel,
   InfoRowCarousel,
-  Column1,
+  ColumnCarousel1,
   TextWrapper,
   TopLine,
   ImgWrap,
@@ -22,6 +22,8 @@ import {
   InfoBtnLink,
   IconWrapperLeft,
   IconWrapperRight,
+  ImageSliderCarousel,
+  PreviewCarousel,
 } from "./InfoElements";
 
 const InfoCarousel = ({
@@ -54,6 +56,10 @@ const InfoCarousel = ({
     console.log("next clicked");
   };
 
+  // Autoplay 4s with animation
+  // Button to pause
+  // Preview images bar, onClick, show data
+
   setTimeout(nextSlide, 3000);
   console.log(cur);
   console.log(sushi[cur].name);
@@ -65,7 +71,7 @@ const InfoCarousel = ({
             <IconWrapperLeft onClick={prevSlide}>
               <FaArrowAltCircleLeft />
             </IconWrapperLeft>
-            <Column1>
+            <ColumnCarousel1>
               <TextWrapper>
                 {/* <TopLine>{topLine}</TopLine> */}
                 <CarouselHeading lightText={lightText}>
@@ -90,11 +96,11 @@ const InfoCarousel = ({
                   </InfoBtnLink>
                 </BtnWrap> */}
               </TextWrapper>
-            </Column1>
+            </ColumnCarousel1>
 
             <ColumnCarousel2>
               <ImgWrapCarousel>
-                <img src={sushi[cur].images}></img>
+                <ImgCarousel src={sushi[cur].images} />
                 {/* {sushi.map((image, index) => (
                   <div>
                     <img
@@ -128,6 +134,23 @@ const InfoCarousel = ({
               <FaArrowAltCircleRight />
             </IconWrapperRight>
           </InfoRowCarousel>
+
+          <ImageSliderCarousel>
+            {sushi.map((e) => (
+              <PreviewCarousel>
+                <img
+                  style={{
+                    borderRadius: "5px",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                  src={e.images}
+                />
+              </PreviewCarousel>
+            ))}
+            <PreviewCarousel></PreviewCarousel>
+          </ImageSliderCarousel>
         </InfoWrapperCarousel>
       </InfoCarouselContainer>
     </>

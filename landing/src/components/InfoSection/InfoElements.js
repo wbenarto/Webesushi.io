@@ -122,6 +122,7 @@ export const Img = styled.img`
 // Carousel
 export const InfoCarouselContainer = styled.div`
   color: #fff;
+
   background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")};
 
   @media screen and (max-width: 768px) {
@@ -165,26 +166,60 @@ export const InfoWrapperCarousel = styled.div`
 
 export const InfoRowCarousel = styled.div`
   display: grid;
+  margin-top: -200px;
   grid-auto-columns: minmax(auto, 1fr);
   align-items: center;
   grid-template-areas: ${({ imgStart }) =>
     imgStart ? '"col2 col1"' : '"col1 col2"'};
 
+  height: 100vh;
   @media screen and (max-width: 768px) {
     grid-template-areas: ${({ imgStart }) =>
       imgStart ? '"col1" "col2"' : '"col2 col2" "col1 col1"'};
   }
 `;
 
+export const ColumnCarousel1 = styled.div`
+  margin-bottom: 15px;
+  margin-top: 150px;
+  grid-area: col1;
+  margin-left: 0px;
+  align-items: left;
+  width: 530px;
+  height: 300px;
+  padding: 20px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+export const ColumnCarousel2 = styled.div`
+  margin-bottom: 15px;
+  grid-area: col2;
+  margin-left: 0px;
+  background-color: "green";
+  max-width: 600px;
+  align-content: center;
+
+  /* margin-top: -350px; */
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
 export const ImgWrapCarousel = styled.div`
   position: absolute;
-  max-width: 800px;
-
+  object-fit: contain;
+  margin-top: -100px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  margin-right: 100px;
+  height: 700px;
+  width: 500px;
+  border-radius: 10px;
+  z-index: 4;
 
   @media screen and (max-width: 768px) {
     margin-top: 130px;
@@ -194,8 +229,10 @@ export const ImgWrapCarousel = styled.div`
 `;
 
 export const ImgCarousel = styled.img`
-  width: 100%;
-
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  margin-left: 30px;
   &.slide {
     opacity: 0;
     transition-duration: 1s ease;
@@ -208,19 +245,6 @@ export const ImgCarousel = styled.img`
   }
 
   @media screen and (max-width: 768px) {
-  }
-`;
-
-export const ColumnCarousel2 = styled.div`
-  margin-bottom: 15px;
-  grid-area: col2;
-  margin-left: 0px;
-
-  width: 700px;
-  height: 300px;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
   }
 `;
 
@@ -254,14 +278,16 @@ export const IconWrapperRight = styled.div`
 `;
 
 export const CarouselHeading = styled.h1`
-  margin-bottom: 24px;
+  margin-bottom: 100px;
+  padding: 10px 20px;
   font-size: 48px;
-  height: 140px;
+  height: 120px;
   line-height: 1.1;
   font-weight: 600;
   color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
-  width: 440px;
-
+  text-align: right;
+  border-radius: 20px;
+  border-bottom: 4px solid #dbd6a9;
   @media screen and (max-width: 480px) {
     margin-top: -100px;
     margin-bottom: 60px;
@@ -272,10 +298,10 @@ export const CarouselHeading = styled.h1`
 `;
 
 export const CarouselSubtitle = styled.p`
-  width: 100%;
   margin-bottom: 35px;
-  font-size: 18px;
-  line-height: 24px;
+
+  font-size: 24px;
+  line-height: 30px;
   color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
   height: 200px;
 
@@ -283,6 +309,35 @@ export const CarouselSubtitle = styled.p`
     width: 100%;
     height: 100px;
     overflow: hidden;
+  }
+`;
+
+export const ImageSliderCarousel = styled.div`
+  height: 120px;
+
+  position: sticky;
+  z-index: 5;
+  background-color: #dbd6a9bf;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+
+  ::-webkit-scrollbar-thumb {
+    width: 5px;
+    color: black;
+  }
+`;
+
+export const PreviewCarousel = styled.div`
+  height: 80px;
+  width: 60px;
+  background-color: #000000;
+  margin: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  &:hover {
+    transform: scale(1.2);
   }
 `;
 // Carousel Ends
