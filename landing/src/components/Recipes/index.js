@@ -6,13 +6,16 @@ import {
   RecipeCol1,
   RecipeCol2,
 } from "./RecipesElements";
+import rice from "../../images/rice.jpg";
 
 const Recipes = () => {
   return (
     <>
       <Container lightBg={true}>
         <RecipeWrapper>
-          <RecipeCol1>Here1 </RecipeCol1>
+          <RecipeCol1>
+            <img style={{ width: "100%" }} src={rice}></img>
+          </RecipeCol1>
           <RecipeCol2>Heres 2</RecipeCol2>
         </RecipeWrapper>
       </Container>

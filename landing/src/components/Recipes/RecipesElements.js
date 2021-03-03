@@ -58,7 +58,7 @@ export const RecipeCol1 = styled.div`
   padding: 0 15px;
   grid-area: col1;
   background-color: gray;
-  width: 100%;
+  width: 600px;
   height: 100%;
 `;
 

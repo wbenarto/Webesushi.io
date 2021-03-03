@@ -45,32 +45,40 @@ const InfoCarousel = ({
 }) => {
   const [cur, setCur] = useState(0);
   const length = sushi.length;
+  let counter = 0;
   const prevSlide = () => {
     setCur(cur === 0 ? length - 1 : cur - 1);
 
-    console.log("prev clicked");
+    console.log("prev slide");
   };
 
   const nextSlide = () => {
     setCur(cur === length - 1 ? 0 : cur + 1);
-    console.log("next clicked");
+    console.log("next slide");
   };
 
   // Autoplay 4s with animation
   // Button to pause
   // Preview images bar, onClick, show data
-
-  setTimeout(nextSlide, 3000);
-  console.log(cur);
-  console.log(sushi[cur].name);
+  const handlePreview = (val) => {
+    console.log("clicked = " + val);
+    setCur(val - 1);
+  };
+  // setInterval(nextSlide, 3000);
+  // setTimeout(nextSlide, 3000);
+  // console.log(cur);
+  // console.log(sushi[cur].name);
   return (
     <>
       <InfoCarouselContainer lightBg={lightBg} id={id}>
+        <IconWrapperLeft onClick={prevSlide}>
+          <FaArrowAltCircleLeft style={{ marginTop: "50vh" }} />
+        </IconWrapperLeft>
+        <IconWrapperRight onClick={nextSlide}>
+          <FaArrowAltCircleRight style={{ marginTop: "50vh" }} />
+        </IconWrapperRight>
         <InfoWrapperCarousel>
           <InfoRowCarousel imgStart={false}>
-            <IconWrapperLeft onClick={prevSlide}>
-              <FaArrowAltCircleLeft />
-            </IconWrapperLeft>
             <ColumnCarousel1>
               <TextWrapper>
                 {/* <TopLine>{topLine}</TopLine> */}
@@ -130,14 +138,11 @@ const InfoCarousel = ({
                 <ImgCarousel src={images} alt={alt} /> */}
               </ImgWrapCarousel>
             </ColumnCarousel2>
-            <IconWrapperRight onClick={nextSlide}>
-              <FaArrowAltCircleRight />
-            </IconWrapperRight>
           </InfoRowCarousel>
 
           <ImageSliderCarousel>
-            {sushi.map((e) => (
-              <PreviewCarousel>
+            {sushi.map((e, i) => (
+              <PreviewCarousel onClick={() => handlePreview(e.id)}>
                 <img
                   style={{
                     borderRadius: "5px",

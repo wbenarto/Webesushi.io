@@ -251,10 +251,15 @@ export const ImgCarousel = styled.img`
 export const IconWrapperLeft = styled.div`
   z-index: 100;
   position: absolute;
-  top: 50%;
-  height: 300px;
+  align-items: center;
+
+  margin-left: 10vw;
+  height: 100vh;
+  width: 100px;
+  border-radius: 78px;
+
   left: 20px;
-  font-size: 2rem;
+  font-size: 4rem;
   color: #000;
   cursor: pointer;
   user-select: none;
@@ -266,10 +271,11 @@ export const IconWrapperLeft = styled.div`
 export const IconWrapperRight = styled.div`
   z-index: 100;
   position: absolute;
-  top: 50%;
-  right: 20px;
-  font-size: 2rem;
-  color: #fff;
+  align-items: center;
+  height: 100vh;
+  right: 10vw;
+  font-size: 4rem;
+  color: #000;
   cursor: pointer;
   user-select: none;
 
@@ -284,6 +290,7 @@ export const CarouselHeading = styled.h1`
   height: 120px;
   line-height: 1.1;
   font-weight: 600;
+  vertical-align: text-bottom;
   color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
   text-align: right;
   border-radius: 20px;
@@ -313,7 +320,7 @@ export const CarouselSubtitle = styled.p`
 `;
 
 export const ImageSliderCarousel = styled.div`
-  height: 120px;
+  height: 100px;
 
   position: sticky;
   z-index: 5;
@@ -321,7 +328,6 @@ export const ImageSliderCarousel = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  overflow: scroll;
 
   ::-webkit-scrollbar-thumb {
     width: 5px;

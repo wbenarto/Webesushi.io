@@ -33,6 +33,7 @@ const Navbar = (props) => {
     }
   };
   console.log(scrollNav);
+
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, []);

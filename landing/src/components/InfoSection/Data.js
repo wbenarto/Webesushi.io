@@ -132,7 +132,7 @@ export const homeObjOne = {
   lightBg: true,
   lightText: false,
   lightTextDesc: true,
-  topLine: "Home-Kase",
+  topLine: "Home-Makase",
   headline: "Guide to Premium Homemade Sushi Making",
   description: "Get access to our step by step recipes from Webe-san.",
   buttonLabel: "Get Rollin",
