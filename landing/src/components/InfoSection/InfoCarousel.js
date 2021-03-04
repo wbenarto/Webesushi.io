@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button } from "../ButtonElement";
 
 import { sushi } from "./Data";
@@ -44,27 +44,66 @@ const InfoCarousel = ({
   dark2,
 }) => {
   const [cur, setCur] = useState(0);
+  const [play, setPlay] = useState(true);
+
+  const autoPlayRef = useRef();
   const length = sushi.length;
+  let interval;
+  useEffect(() => {
+    autoPlayRef.current = nextSlide;
+    console.log("useEffect = run nextslide" + cur);
+  });
+
+  useEffect(() => {
+    if (play === false) {
+      clearInterval(interval);
+    }
+    if (play === true) {
+      const play = () => {
+        autoPlayRef.current();
+      };
+      if (cur !== null) {
+        interval = setInterval(play, 2000);
+      }
+    }
+  }, [10]);
+
   let counter = 0;
   const prevSlide = () => {
-    setCur(cur === 0 ? length - 1 : cur - 1);
-
-    console.log("prev slide");
+    if (cur === 0) {
+      setCur(length - 1);
+    } else setCur(cur - 1);
+    console.log("prev slide" + cur);
   };
 
   const nextSlide = () => {
-    setCur(cur === length - 1 ? 0 : cur + 1);
-    console.log("next slide");
+    if (cur === length - 1) {
+      setCur(0);
+    } else setCur(cur + 1);
+    console.log("next slide" + cur);
   };
 
+  const handlePause = () => {
+    console.log("pause button");
+
+    console.log(play);
+    if (play === true) {
+      setPlay(false);
+    } else setPlay(true);
+    console.log("handlepause = " + play);
+  };
   // Autoplay 4s with animation
   // Button to pause
   // Preview images bar, onClick, show data
   const handlePreview = (val) => {
+    if (!val) {
+      cur = 0;
+    }
     console.log("clicked = " + val);
     setCur(val - 1);
   };
-  // setInterval(nextSlide, 3000);
+
+  // setInterval(nextSlide, 5000);
   // setTimeout(nextSlide, 3000);
   // console.log(cur);
   // console.log(sushi[cur].name);
@@ -74,7 +113,7 @@ const InfoCarousel = ({
         <IconWrapperLeft onClick={prevSlide}>
           <FaArrowAltCircleLeft style={{ marginTop: "50vh" }} />
         </IconWrapperLeft>
-        <IconWrapperRight onClick={nextSlide}>
+        <IconWrapperRight onClick={() => nextSlide()}>
           <FaArrowAltCircleRight style={{ marginTop: "50vh" }} />
         </IconWrapperRight>
         <InfoWrapperCarousel>
@@ -106,7 +145,7 @@ const InfoCarousel = ({
               </TextWrapper>
             </ColumnCarousel1>
 
-            <ColumnCarousel2>
+            <ColumnCarousel2 onClick={() => handlePause()}>
               <ImgWrapCarousel>
                 <ImgCarousel src={sushi[cur].images} />
                 {/* {sushi.map((image, index) => (
@@ -141,19 +180,21 @@ const InfoCarousel = ({
           </InfoRowCarousel>
 
           <ImageSliderCarousel>
-            {sushi.map((e, i) => (
-              <PreviewCarousel onClick={() => handlePreview(e.id)}>
-                <img
-                  style={{
-                    borderRadius: "5px",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
-                  src={e.images}
-                />
-              </PreviewCarousel>
-            ))}
+            {sushi.map((e, i) => {
+              return (
+                <PreviewCarousel onClick={() => handlePreview(e.id)}>
+                  <img
+                    style={{
+                      borderRadius: "5px",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                    src={e.images}
+                  />
+                </PreviewCarousel>
+              );
+            })}
             <PreviewCarousel></PreviewCarousel>
           </ImageSliderCarousel>
         </InfoWrapperCarousel>

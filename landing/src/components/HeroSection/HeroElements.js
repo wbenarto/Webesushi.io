@@ -59,7 +59,7 @@ export const HeroContent = styled.div`
 `;
 
 export const HeroH1 = styled.h1`
-  font-family: "EB Garamond", serif;
+  font-family: "Work Sans", sans-serif;
   color: #dbd6a9;
   font-size: 75px;
   text-align: center;

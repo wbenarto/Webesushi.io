@@ -184,7 +184,7 @@ export const ColumnCarousel1 = styled.div`
   margin-top: 150px;
   grid-area: col1;
   margin-left: 0px;
-  align-items: left;
+  align-items: right;
   width: 530px;
   height: 300px;
   padding: 20px;
@@ -211,7 +211,7 @@ export const ColumnCarousel2 = styled.div`
 export const ImgWrapCarousel = styled.div`
   position: absolute;
   object-fit: contain;
-  margin-top: -100px;
+  margin-top: -180px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -259,7 +259,8 @@ export const IconWrapperLeft = styled.div`
   border-radius: 78px;
 
   left: 20px;
-  font-size: 4rem;
+  font-size: 2rem;
+  opacity: 0.2;
   color: #000;
   cursor: pointer;
   user-select: none;
@@ -274,7 +275,8 @@ export const IconWrapperRight = styled.div`
   align-items: center;
   height: 100vh;
   right: 10vw;
-  font-size: 4rem;
+  font-size: 2rem;
+  opacity: 0.2;
   color: #000;
   cursor: pointer;
   user-select: none;
@@ -292,7 +294,7 @@ export const CarouselHeading = styled.h1`
   font-weight: 600;
   vertical-align: text-bottom;
   color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
-  text-align: right;
+  text-align: left;
   border-radius: 20px;
   border-bottom: 4px solid #dbd6a9;
   @media screen and (max-width: 480px) {
@@ -321,7 +323,7 @@ export const CarouselSubtitle = styled.p`
 
 export const ImageSliderCarousel = styled.div`
   height: 100px;
-
+  width: 70vw;
   position: sticky;
   z-index: 5;
   background-color: #dbd6a9bf;
@@ -337,7 +339,7 @@ export const ImageSliderCarousel = styled.div`
 
 export const PreviewCarousel = styled.div`
   height: 80px;
-  width: 60px;
+  width: 10%;
   background-color: #000000;
   margin: 10px;
   border-radius: 10px;

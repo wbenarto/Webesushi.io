@@ -5,7 +5,6 @@ import market from "../../images/market.jpg";
 import webe from "../../images/webechef.jpg";
 import dragonball from "../../images/dragonball.jpg";
 import tunatorch from "../../images/tunatorch.jpg";
-import salmontorch from "../../images/goldensalmonnigiri.jpg";
 import katsuonigiri from "../../images/katsuocombo.jpg";
 import cucumberbite from "../../images/cucumberbite.jpg";
 import salmontoro from "../../images/goldensalmonnigiri.jpg";
@@ -111,6 +110,23 @@ export const sushi = [
     id: 9,
     name: "Keto Cucumber Sushi Roll",
     images: cucumberbite,
+    ingredients: [
+      "sushi rice",
+      "avocado",
+      "cucumber",
+      "salmon",
+      "hamachi",
+      "tuna",
+    ],
+    desc:
+      "No carbs option for Ketonian. Salmon, Tuna, Hamachi, and Avocado wrapped inside of thin cucumber layer.",
+    type: "Raw",
+    category: "Chef Special",
+  },
+  {
+    id: 10,
+    name: "Keto Cucumber Sushi Roll",
+    images: tunatorch,
     ingredients: [
       "sushi rice",
       "avocado",
