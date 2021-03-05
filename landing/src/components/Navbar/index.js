@@ -46,7 +46,7 @@ const Navbar = (props) => {
     <Nav scrollNav={scrollNav}>
       <NavbarContainer>
         {/* <header className="App-header">Webe Sushi</header> */}
-        <NavLogo to="/" onClick={toggleHome}>
+        <NavLogo to="/" onClick={props.toggle}>
           {/* WeBe Sushi */}
           <img
             alt="webe-sushi"

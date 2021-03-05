@@ -44,29 +44,34 @@ const InfoCarousel = ({
   dark2,
 }) => {
   const [cur, setCur] = useState(0);
-  const [play, setPlay] = useState(true);
+  const [slidePlay, setSlidePlay] = useState(true);
 
   const autoPlayRef = useRef();
   const length = sushi.length;
   let interval;
+
   useEffect(() => {
     autoPlayRef.current = nextSlide;
     console.log("useEffect = run nextslide" + cur);
   });
 
   useEffect(() => {
-    if (play === false) {
+    console.log("PLAYYYY");
+    const play = () => {
+      autoPlayRef.current();
+    };
+    if (slidePlay === true) {
+      console.log(slidePlay);
+      interval = setInterval(play, 3000);
+
+      return () => clearInterval(interval);
+    } else if (slidePlay === false) {
       clearInterval(interval);
+      console.log(slidePlay);
     }
-    if (play === true) {
-      const play = () => {
-        autoPlayRef.current();
-      };
-      if (cur !== null) {
-        interval = setInterval(play, 2000);
-      }
-    }
-  }, [10]);
+
+    console.log(interval);
+  }, [slidePlay]);
 
   let counter = 0;
   const prevSlide = () => {
@@ -80,17 +85,18 @@ const InfoCarousel = ({
     if (cur === length - 1) {
       setCur(0);
     } else setCur(cur + 1);
-    console.log("next slide" + cur);
+
+    setSlidePlay(true);
+    console.log("next slide" + cur, slidePlay);
   };
 
   const handlePause = () => {
     console.log("pause button");
 
-    console.log(play);
-    if (play === true) {
-      setPlay(false);
-    } else setPlay(true);
-    console.log("handlepause = " + play);
+    if (slidePlay === false) {
+      setSlidePlay(true);
+    } else setSlidePlay(false);
+    console.log("set false", cur, slidePlay);
   };
   // Autoplay 4s with animation
   // Button to pause
@@ -109,13 +115,18 @@ const InfoCarousel = ({
   // console.log(sushi[cur].name);
   return (
     <>
-      <InfoCarouselContainer lightBg={lightBg} id={id}>
+      <InfoCarouselContainer
+        onClick={() => handlePause()}
+        lightBg={lightBg}
+        id={id}
+      >
         <IconWrapperLeft onClick={prevSlide}>
           <FaArrowAltCircleLeft style={{ marginTop: "50vh" }} />
         </IconWrapperLeft>
         <IconWrapperRight onClick={() => nextSlide()}>
           <FaArrowAltCircleRight style={{ marginTop: "50vh" }} />
         </IconWrapperRight>
+
         <InfoWrapperCarousel>
           <InfoRowCarousel imgStart={false}>
             <ColumnCarousel1>
@@ -145,7 +156,7 @@ const InfoCarousel = ({
               </TextWrapper>
             </ColumnCarousel1>
 
-            <ColumnCarousel2 onClick={() => handlePause()}>
+            <ColumnCarousel2>
               <ImgWrapCarousel>
                 <ImgCarousel src={sushi[cur].images} />
                 {/* {sushi.map((image, index) => (
@@ -178,26 +189,25 @@ const InfoCarousel = ({
               </ImgWrapCarousel>
             </ColumnCarousel2>
           </InfoRowCarousel>
-
-          <ImageSliderCarousel>
-            {sushi.map((e, i) => {
-              return (
-                <PreviewCarousel onClick={() => handlePreview(e.id)}>
-                  <img
-                    style={{
-                      borderRadius: "5px",
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                    src={e.images}
-                  />
-                </PreviewCarousel>
-              );
-            })}
-            <PreviewCarousel></PreviewCarousel>
-          </ImageSliderCarousel>
         </InfoWrapperCarousel>
+        <ImageSliderCarousel>
+          {sushi.map((e, i) => {
+            return (
+              <PreviewCarousel onClick={() => handlePreview(e.id)}>
+                <img
+                  style={{
+                    borderRadius: "5px",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                  src={e.images}
+                />
+              </PreviewCarousel>
+            );
+          })}
+          <PreviewCarousel></PreviewCarousel>
+        </ImageSliderCarousel>
       </InfoCarouselContainer>
     </>
   );

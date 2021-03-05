@@ -122,6 +122,7 @@ export const Img = styled.img`
 // Carousel
 export const InfoCarouselContainer = styled.div`
   color: #fff;
+  height: 100vh;
 
   background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")};
 
@@ -130,28 +131,28 @@ export const InfoCarouselContainer = styled.div`
   }
 `;
 
-export const InfoCarouselWrapper = styled.div`
-  display: grid;
-  z-index: 1;
-  height: 100vh;
-  width: 100vw;
-  max-width: 1100px;
-  margin-right: auto;
-  margin-left: auto;
+// export const InfoCarouselWrapper = styled.div`
+//   display: grid;
+//   z-index: 1;
+//   height: 70vh;
+//   width: 100vw;
+//   max-width: 1100px;
+//   margin-right: auto;
+//   margin-left: auto;
 
-  justify-content: center;
+//   justify-content: center;
 
-  @media screen and (max-width: 768px) {
-    height: 100vh;
-    width: 100%;
-    padding: 0 0px;
-  }
-`;
+//   @media screen and (max-width: 768px) {
+//     height: 100vh;
+//     width: 100%;
+//     padding: 0 0px;
+//   }
+// `;
 
 export const InfoWrapperCarousel = styled.div`
   display: grid;
   z-index: 1;
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   max-width: 1100px;
   margin-right: auto;
@@ -199,8 +200,9 @@ export const ColumnCarousel2 = styled.div`
   grid-area: col2;
   margin-left: 0px;
   background-color: "green";
-  max-width: 600px;
+  max-width: 40vw;
   align-content: center;
+  object-fit: wrap;
 
   /* margin-top: -350px; */
   @media screen and (max-width: 768px) {
@@ -211,13 +213,13 @@ export const ColumnCarousel2 = styled.div`
 export const ImgWrapCarousel = styled.div`
   position: absolute;
   object-fit: contain;
-  margin-top: -180px;
+  margin-top: -15vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 700px;
-  width: 500px;
+  height: 70vh;
+  width: 30vw;
   border-radius: 10px;
   z-index: 4;
 
@@ -323,12 +325,14 @@ export const CarouselSubtitle = styled.p`
 
 export const ImageSliderCarousel = styled.div`
   height: 100px;
-  width: 70vw;
-  position: sticky;
+  width: 100vw;
+  position: absolute;
   z-index: 5;
   background-color: #dbd6a9bf;
   border-radius: 10px;
+
   display: flex;
+  flex: 1;
   flex-direction: row;
 
   ::-webkit-scrollbar-thumb {
