@@ -3,8 +3,10 @@ import { Link as LinkR } from "react-router-dom";
 
 export const InfoContainer = styled.div`
   color: #fff;
-  background: ${({ lightBg }) => (lightBg ? "rgb(37, 33, 28)" : "#010606")};
+  background: ${({ lightBg }) => (lightBg ? "#2c3138" : "#010606")};
   height: 100%;
+
+  scroll-snap-type: start;
 
   @media screen and (max-width: 768px) {
     /* padding: 100px 0; */
@@ -145,7 +147,7 @@ export const InfoCarouselContainer = styled.div`
   color: #fff;
   height: 100vh;
 
-  background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")};
+  background: ${({ lightBg }) => (lightBg ? "#2c3138" : "#010606")};
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -173,15 +175,15 @@ export const InfoCarouselContainer = styled.div`
 
 export const InfoWrapperCarousel = styled.div`
   display: grid;
-  z-index: 1;
+  z-index: 100;
   height: 80vh;
-  width: 100vw;
+  width: 100%;
   max-width: 1100px;
   margin-right: auto;
   margin-left: auto;
   padding: 0;
   justify-content: center;
-
+  background-color: white;
   @media screen and (max-width: 768px) {
     height: 100%;
     overflow: hidden;
@@ -353,14 +355,14 @@ export const CarouselSubtitle = styled.p`
 
 export const ImageSliderCarousel = styled.div`
   height: 100px;
-  width: 100%;
+  max-width: 50%;
   position: absolute;
   z-index: 5;
-  background-color: #dbd6a9bf;
+  background-color: #2c3138;
   border-radius: 10px;
 
   display: flex;
-  flex: 1;
+  flex: 0;
   flex-direction: row;
 
   ::-webkit-scrollbar-thumb {

@@ -21,29 +21,10 @@ const Services = () => {
         <ServicesCard>
           <ServicesP>
             Promoting At-Home Omakase experience and providing information about
-            sustainability in sushi.
+            sustainable fishing.
           </ServicesP>
         </ServicesCard>
 
-        <ServicesWrapper>
-          {/* <ServicesCard>
-          <ServicesIcon src={Icon1} />
-           <ServicesH2>Increase Awareness</ServicesH2>
-          <ServicesP>
-            We are responsible for the health of our Ocean. Let's spread more
-            information about sustainability in Sushi.
-          </ServicesP>
-        </ServicesCard> */}
-          <ServicesCard>
-            {/* <ServicesIcon src={Icon2} /> */}
-            <ServicesH2></ServicesH2>
-          </ServicesCard>
-          {/* <ServicesCard>
-          <ServicesIcon src={Icon3} />
-          <ServicesH2>Kaizen Mindset</ServicesH2>
-          <ServicesP>Strive to be better each and every days.</ServicesP>
-        </ServicesCard> */}
-        </ServicesWrapper>
         <Footer />
       </ServicesContainer>
     </>

@@ -51,7 +51,7 @@ const Navbar = (props) => {
           <img
             alt="webe-sushi"
             style={{ width: "100%", height: "100%" }}
-            src={scrollNav == "white" ? webeblack : webewhite}
+            src={scrollNav == "white" ? webewhite : webewhite}
           ></img>
         </NavLogo>
 

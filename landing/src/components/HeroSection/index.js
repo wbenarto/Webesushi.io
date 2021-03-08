@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import {
   HeroContainer,
   HeroBg,
@@ -8,8 +8,9 @@ import {
   HeroP,
   HeroBtnWrapper,
 } from "./HeroElements";
-import Video from "../../videos/video.mp4";
 import { ButtonHero } from "../ButtonElement";
+import Video from "../../videos/video.mp4";
+// const Video = lazy(() => import("../../videos/video.mp4"));
 
 const HeroSection = () => {
   return (

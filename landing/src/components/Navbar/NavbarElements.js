@@ -7,9 +7,9 @@ export const Nav = styled.nav`
     scrollNav == "home"
       ? "transparent"
       : scrollNav == "middle"
-      ? "rgb(37, 33, 28)"
+      ? "#2c3138"
       : scrollNav == "white"
-      ? "#f9f9f9"
+      ? "#2c3138"
       : "#010606"};
 
   height: 100px;

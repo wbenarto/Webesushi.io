@@ -34,6 +34,9 @@ const Sustainability = ({
   dark2,
 }) => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // "https://api.lyrics.ovh/v1/artist/title"
 
   useEffect(() => {
     fetchData();
@@ -49,11 +52,19 @@ const Sustainability = ({
   //       setData(res);
   //     });
   // };
-  const fetchData = () => {
-    axios.get("https://www.fishwatch.gov/api/").then((res) => {
-      console.log(res);
-      setData(res);
-    });
+  const fetchData = async () => {
+    try {
+      const fish = await axios
+        .get("https://api.lyrics.ovh/v1/Eminem/8mile")
+        .then((res) => {
+          console.log(res);
+          setData(res.data.lyrics);
+        });
+
+      setLoading(true);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   // const fishImage = data.data[0].Quote;
@@ -70,6 +81,7 @@ const Sustainability = ({
         <Subtitle> Helloooo </Subtitle>
         <h1>Hello</h1>
         <Icon to="/">WebeSushi </Icon>
+        {loading ? <h1>{data}</h1> : <h1>LOADINGGGGGG</h1>}
 
         {/* {fishImg.map((e, i) => {
           return (

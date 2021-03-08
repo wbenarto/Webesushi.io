@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ServicesContainer = styled.div`
   height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,30 +17,11 @@ export const ServicesContainer = styled.div`
   }
 `;
 
-export const ServicesWrapper = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  flex: 1 0 auto;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  grid-gap: 16px;
-  padding: 0 50px;
-
-  @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media screen and (max-width: 768px) {
-    padding: 0 20px;
-    overflow: hidden;
-  }
-`;
-
 export const ServicesCard = styled.div`
   background: transparent;
   display: flex;
   flex-direction: column;
+  flex: 1 0 auto;
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
@@ -65,7 +47,7 @@ export const ServicesH1 = styled.h1`
   font-size: 2.5rem;
   color: #dbd6a9;
   margin-bottom: 40px;
-  margin-top: 200px;
+  margin-top: 300px;
 
   @media screen and (max-width: 480px) {
     font-size: 2rem;

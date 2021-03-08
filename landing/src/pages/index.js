@@ -26,13 +26,16 @@ const Home = () => {
     <div>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
-      <HeroSection />
-      <InfoSection {...homeObjOne} />
-      <InfoSection {...homeObjTwo} />
-      <InfoSection {...homeObjThree} />
-      <InfoCarousel {...homeObjFour} {...sushi} />
+      <HeroSection style={{ scrollSnapAlign: "start" }} />
+      <InfoSection style={{ scrollSnapAlign: "start" }} {...homeObjOne} />
+      <InfoSection style={{ scrollSnapAlign: "start" }} {...homeObjTwo} />
+      <InfoSection style={{ scrollSnapAlign: "start" }} {...homeObjThree} />
+      <InfoCarousel
+        style={{ scrollSnapAlign: "start" }}
+        {...homeObjFour}
+        {...sushi}
+      />
       <Services />
-      {/* <Footer /> */}
     </div>
   );
 };

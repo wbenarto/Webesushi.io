@@ -176,25 +176,25 @@ const InfoCarousel = ({
               </ImgWrapCarousel>
             </ColumnCarousel2>
           </InfoRowCarousel>
+          <ImageSliderCarousel>
+            {sushi.map((e, i) => {
+              return (
+                <PreviewCarousel onClick={() => handlePreview(e.id)}>
+                  <img
+                    style={{
+                      borderRadius: "5px",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                    src={e.images}
+                  />
+                </PreviewCarousel>
+              );
+            })}
+            <PreviewCarousel></PreviewCarousel>
+          </ImageSliderCarousel>
         </InfoWrapperCarousel>
-        <ImageSliderCarousel>
-          {sushi.map((e, i) => {
-            return (
-              <PreviewCarousel onClick={() => handlePreview(e.id)}>
-                <img
-                  style={{
-                    borderRadius: "5px",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
-                  src={e.images}
-                />
-              </PreviewCarousel>
-            );
-          })}
-          <PreviewCarousel></PreviewCarousel>
-        </ImageSliderCarousel>
       </InfoCarouselContainer>
     </>
   );
