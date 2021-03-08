@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />

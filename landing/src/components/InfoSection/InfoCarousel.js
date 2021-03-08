@@ -174,19 +174,6 @@ const InfoCarousel = ({
                   </div>
                 ))} */}
               </ImgWrapCarousel>
-
-              <ImgWrapCarousel>
-                {/* {sushi.map((e, i) => {
-                  console.log(e);
-                  return (
-                    <div className={i === cur ? "slide active" : "slide"}>
-                      {i === cur && <ImgCarousel src={e.images} alt={e.name} />}
-                    </div>
-                  );
-                })} */}
-                {/* 
-                <ImgCarousel src={images} alt={alt} /> */}
-              </ImgWrapCarousel>
             </ColumnCarousel2>
           </InfoRowCarousel>
         </InfoWrapperCarousel>

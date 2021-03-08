@@ -27,6 +27,10 @@ export const HeroContainer = styled.div`
       linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
     z-index: 2;
   }
+
+  @media screen and (max-width: 768px) {
+    overflow: hidden;
+  }
 `;
 
 export const HeroBg = styled.div`

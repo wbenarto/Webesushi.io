@@ -22,6 +22,9 @@ export const Button = styled(Link)`
     background: ${({ primary }) => (primary ? "#edecdf" : "#dbd6a9")};
     color: ${({ primary }) => (primary ? "#010606" : "#010606")};
   }
+  @media screen and (max-width: 768px) {
+    width: 80vw;
+  }
 `;
 
 export const ButtonHero = styled(Link)`
@@ -46,5 +49,9 @@ export const ButtonHero = styled(Link)`
     transition: all 0.2s ease-in-out;
     background: ${({ primary }) => (primary ? "#edecdf" : "#dbd6a9")};
     color: ${({ primary }) => (primary ? "#010606" : "#010606")};
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 80vw;
   }
 `;

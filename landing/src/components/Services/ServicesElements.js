@@ -12,6 +12,7 @@ export const ServicesContainer = styled.div`
     height: 100%;
     width: 100%;
     margin-left: 0px;
+    overflow: hidden;
   }
 `;
 
@@ -19,6 +20,7 @@ export const ServicesWrapper = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   display: grid;
+  flex: 1 0 auto;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   grid-gap: 16px;
@@ -30,6 +32,7 @@ export const ServicesWrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     padding: 0 20px;
+    overflow: hidden;
   }
 `;
 
@@ -82,4 +85,7 @@ export const ServicesP = styled.p`
 
   padding-top: 60px;
   color: #fff;
+  @media screen and (max-width) {
+    overflow: hidden;
+  }
 `;

@@ -1,5 +1,6 @@
 import img from "../../images/webe.png";
 import omakase from "../../images/omakase.jpg";
+import katsuobrush2 from "../../images/katsuobrush2.jpg";
 import recipe from "../../images/recipe.jpg";
 import market from "../../images/market.jpg";
 import webe from "../../images/webechef.jpg";
@@ -146,25 +147,25 @@ export const homeObjOne = {
   id: "home-makase",
   page: "/recipes",
   lightBg: true,
-  lightText: false,
+  lightText: true,
   lightTextDesc: true,
   topLine: "Home-Makase",
   headline: "Guide to Premium Homemade Sushi Making",
   description: "Get access to our step by step recipes from Webe-san.",
   buttonLabel: "Get Rollin",
   imgStart: false,
-  img: recipe,
+  img: katsuobrush2,
   alt: "sushi",
   dark: false,
   primary: false,
-  darkText: true,
+  darkText: false,
 };
 
 export const homeObjTwo = {
   id: "sustainability",
   page: "/sustainability",
   lightBg: true,
-  lightText: false,
+  lightText: true,
   lightTextDesc: true,
   topLine: "Sustainability",
   headline:
@@ -177,14 +178,14 @@ export const homeObjTwo = {
   alt: "sushi",
   dark: false,
   primary: false,
-  darkText: true,
+  darkText: false,
 };
 
 export const homeObjThree = {
   id: "about",
   page: "/about",
   lightBg: true,
-  lightText: false,
+  lightText: true,
   lightTextDesc: false,
   topLine: "About Me",
   headline: "Sushi Chef from Philadelphia",
@@ -196,7 +197,7 @@ export const homeObjThree = {
   alt: "sushi",
   dark: false,
   primary: false,
-  darkText: true,
+  darkText: false,
 };
 
 export const homeObjFour = {

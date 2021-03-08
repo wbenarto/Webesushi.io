@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 
 export const FooterContainer = styled.footer`
   /* background-color: #101522; */
+  flex-shrink: 0;
+  height: 5vh;
   background-color: #010606;
   width: 100%;
+
+  @media screen and (max-width: 768px) {
+    height: 15vh;
+  }
 `;
 
 export const FooterWrapper = styled.div`

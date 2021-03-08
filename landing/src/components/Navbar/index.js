@@ -46,7 +46,7 @@ const Navbar = (props) => {
     <Nav scrollNav={scrollNav}>
       <NavbarContainer>
         {/* <header className="App-header">Webe Sushi</header> */}
-        <NavLogo to="/" onClick={props.toggle}>
+        <NavLogo to="/" onClick={toggleHome}>
           {/* WeBe Sushi */}
           <img
             alt="webe-sushi"
@@ -122,7 +122,7 @@ const Navbar = (props) => {
               duration={1200}
               spy={true}
               exact="true"
-              offset={15}
+              offset={0}
               activeClass="active"
             >
               Mission

@@ -44,8 +44,8 @@ const Services = () => {
           <ServicesP>Strive to be better each and every days.</ServicesP>
         </ServicesCard> */}
         </ServicesWrapper>
+        <Footer />
       </ServicesContainer>
-      <Footer />
     </>
   );
 };
