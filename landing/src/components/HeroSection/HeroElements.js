@@ -30,6 +30,7 @@ export const HeroContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     overflow: hidden;
+    height: 100vh;
   }
 `;
 
@@ -68,14 +69,13 @@ export const HeroH1 = styled.h1`
   font-size: 75px;
   text-align: center;
   font-weight: normal;
-  line-height: 1em;
+  line-height: 2em;
 
   @media screen and (max-width: 768px) {
     font-size: 40px;
-  }
-
-  @media screen and (max-width: 480px) {
-    font-size: 32px;
+    margin-bottom: calc(40vh * 0.2);
+    border: #dbd6a9 0.1em solid;
+    background-color: black;
   }
 `;
 

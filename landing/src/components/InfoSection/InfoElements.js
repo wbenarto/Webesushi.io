@@ -10,6 +10,7 @@ export const InfoContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     /* padding: 100px 0; */
+    height: 100vh;
   }
 `;
 
@@ -25,7 +26,7 @@ export const InfoWrapper = styled.div`
   justify-content: center;
 
   @media screen and (max-width: 768px) {
-    height: 100vh;
+    height: 70vh;
   }
 `;
 
@@ -37,8 +38,10 @@ export const InfoRow = styled.div`
     imgStart ? '"col2 col1"' : '"col1 col2"'};
 
   @media screen and (max-width: 768px) {
+    margin-top: 13vh;
+    height: 80vh;
     grid-template-areas: ${({ imgStart }) =>
-      imgStart ? '"col1" "col2"' : '"col2 col2" "col1 col1"'};
+      imgStart ? '"col1" "col2"' : '"col2" "col1"'};
   }
 `;
 
@@ -48,7 +51,13 @@ export const Column1 = styled.div`
   margin-top: 10vh;
 
   @media screen and (max-width: 768px) {
-    margin-top: 0px;
+    margin-top: 10px;
+    padding: 0;
+    height: 35vh;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -60,6 +69,12 @@ export const Column2 = styled.div`
   overflow: hidden;
 
   @media screen and (max-width: 768px) {
+    margin-top: 0;
+    margin-bottom: 10px;
+    height: 35vh;
+    display: flex;
+    flex: 1;
+    justify-content: center;
   }
 `;
 
@@ -70,7 +85,6 @@ export const TextWrapper = styled.div`
   margin-left: 1em;
 
   @media screen and (max-width: 768px) {
-    padding-top: 120px;
     padding-bottom: 0;
   }
 `;
@@ -87,6 +101,7 @@ export const TopLine = styled.p`
   @media screen and (max-width: 768px) {
     overflow: hidden;
     width: 80vw;
+    transform: scale(0.6);
   }
 `;
 
@@ -98,6 +113,7 @@ export const Heading = styled.h1`
   color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
 
   @media screen and (max-width: 768px) {
+    transform: scale(0.6);
     font-size: 32px;
     margin-top: 0px;
     overflow: hidden;
@@ -113,9 +129,12 @@ export const Subtitle = styled.p`
   color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
 
   @media screen and (max-width: 768px) {
-    height: 100px;
-    width: 80vw;
-    overflow: scroll;
+    transform: scale(0.6);
+    width: 85vw;
+    height: 15vh;
+    overflow-y: scroll;
+    margin-bottom: 0;
+    margin-bottom: 1em;
   }
 `;
 
@@ -125,6 +144,7 @@ export const BtnWrap = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 80vw;
+    justify-content: center;
   }
 `;
 
@@ -135,11 +155,22 @@ export const ImgWrap = styled.div`
   overflow: hidden;
   border: 4px white solid;
   border-radius: 5px;
+
+  @media screen and (max-width: 768px) {
+    height: 100%;
+  }
 `;
 export const Img = styled.img`
-  width: 30vw;
   height: 100%;
+  width: 800px;
   object-fit: cover;
+  object-position: top right;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 `;
 
 // Carousel
@@ -254,7 +285,7 @@ export const ImgWrapCarousel = styled.div`
   align-items: center;
   overflow: hidden;
   height: 65vh;
-  width: 500px;
+  width: 20vw;
 
   z-index: 4;
 
@@ -291,7 +322,7 @@ export const CarouselControls = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 500px;
+  width: scale(0.7);
 
   background-color: red;
 `;
@@ -442,5 +473,8 @@ export const InfoBtnLink = styled(LinkR)`
     transition: all 0.2s ease-in-out;
     background: ${({ primary }) => (primary ? "#edecdf" : "#dbd6a9")};
     color: ${({ primary }) => (primary ? "#010606" : "#010606")};
+  }
+  @media screen and (max-width: 768px) {
+    justify-content: center;
   }
 `;

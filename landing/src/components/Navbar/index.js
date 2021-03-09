@@ -54,11 +54,10 @@ const Navbar = (props) => {
             src={scrollNav == "white" ? webewhite : webewhite}
           ></img>
         </NavLogo>
-
+        <MobileIcon onClick={props.toggle}>
+          <FaBars />
+        </MobileIcon>
         <NavMenu>
-          <MobileIcon onClick={props.toggle}>
-            <FaBars />
-          </MobileIcon>
           <NavItem>
             <NavLinks
               to="home-makase"

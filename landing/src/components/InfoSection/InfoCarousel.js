@@ -60,7 +60,6 @@ const InfoCarousel = ({
 
   useEffect(() => {
     autoPlayRef.current = nextSlide;
-    console.log("useEffect = run nextslide" + cur);
   });
 
   useEffect(() => {
@@ -86,25 +85,19 @@ const InfoCarousel = ({
     if (cur === 0) {
       setCur(length - 1);
     } else setCur(cur - 1);
-    console.log("prev slide" + cur);
   };
 
   const nextSlide = () => {
     if (cur === length - 1) {
       setCur(0);
     } else setCur(cur + 1);
-
     setSlidePlay(true);
-    console.log("next slide" + cur, slidePlay);
   };
 
   const handlePause = () => {
-    console.log("pause button");
-
     if (slidePlay === false) {
       setSlidePlay(true);
     } else setSlidePlay(false);
-    console.log("set false", cur, slidePlay);
   };
   // Autoplay 4s with animation
   // Button to pause
@@ -113,14 +106,10 @@ const InfoCarousel = ({
     if (!val) {
       cur = 0;
     }
-    console.log("clicked = " + val);
+
     setCur(val - 1);
   };
 
-  // setInterval(nextSlide, 5000);
-  // setTimeout(nextSlide, 3000);
-  // console.log(cur);
-  // console.log(sushi[cur].name);
   return (
     <>
       <InfoCarouselContainer

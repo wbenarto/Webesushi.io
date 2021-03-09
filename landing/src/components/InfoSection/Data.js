@@ -1,6 +1,6 @@
 import img from "../../images/webe.png";
 import omakase from "../../images/omakase.jpg";
-import katsuobrush2 from "../../images/katsuobrush2.jpg";
+import katsuobrush2 from "../../images/katsuobrush.jpg";
 import recipe from "../../images/recipe.jpg";
 import market from "../../images/market.jpg";
 import webe from "../../images/webechef.jpg";
