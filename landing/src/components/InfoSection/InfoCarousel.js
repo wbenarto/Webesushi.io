@@ -20,10 +20,12 @@ import {
   ImgWrapCarousel,
   ImgCarousel,
   InfoBtnLink,
+  CarouselControls,
   IconWrapperLeft,
   IconWrapperRight,
   ImageSliderCarousel,
   PreviewCarousel,
+  ImgThumb,
 } from "./InfoElements";
 
 const InfoCarousel = ({
@@ -120,15 +122,8 @@ const InfoCarousel = ({
         lightBg={lightBg}
         id={id}
       >
-        <IconWrapperLeft onClick={prevSlide}>
-          <FaArrowAltCircleLeft style={{ marginTop: "50vh" }} />
-        </IconWrapperLeft>
-        <IconWrapperRight onClick={() => nextSlide()}>
-          <FaArrowAltCircleRight style={{ marginTop: "50vh" }} />
-        </IconWrapperRight>
-
         <InfoWrapperCarousel>
-          <InfoRowCarousel imgStart={false}>
+          <InfoRowCarousel imgStart={imgStart}>
             <ColumnCarousel1>
               <TextWrapper>
                 {/* <TopLine>{topLine}</TopLine> */}
@@ -153,46 +148,32 @@ const InfoCarousel = ({
                     {buttonLabel}
                   </InfoBtnLink>
                 </BtnWrap> */}
+                <CarouselControls>
+                  <IconWrapperLeft onClick={prevSlide}>
+                    <FaArrowAltCircleLeft />
+                  </IconWrapperLeft>
+                  <IconWrapperRight onClick={() => nextSlide()}>
+                    <FaArrowAltCircleRight />
+                  </IconWrapperRight>
+                </CarouselControls>
               </TextWrapper>
             </ColumnCarousel1>
 
             <ColumnCarousel2>
               <ImgWrapCarousel>
                 <ImgCarousel src={sushi[cur].images} />
-                {/* {sushi.map((image, index) => (
-                  <div>
-                    <img
-                      key={index}
-                      style={{
-                        width: "320px",
-                        height: "150px",
-                        objectFit: "cover",
-                      }}
-                      src={image.images}
-                      alt="sushi"
-                    ></img>
-                  </div>
-                ))} */}
               </ImgWrapCarousel>
             </ColumnCarousel2>
           </InfoRowCarousel>
+
           <ImageSliderCarousel>
             {sushi.map((e, i) => {
               return (
                 <PreviewCarousel onClick={() => handlePreview(e.id)}>
-                  <img
-                    style={{
-                      borderRadius: "5px",
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                    src={e.images}
-                  />
+                  <ImgThumb activeClass="active" src={e.images} />
                 </PreviewCarousel>
               );
             })}
-            <PreviewCarousel></PreviewCarousel>
           </ImageSliderCarousel>
         </InfoWrapperCarousel>
       </InfoCarouselContainer>

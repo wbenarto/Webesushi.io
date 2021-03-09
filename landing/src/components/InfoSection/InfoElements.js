@@ -66,7 +66,8 @@ export const Column2 = styled.div`
 export const TextWrapper = styled.div`
   max-width: 540px;
   padding-top: 0;
-  padding-bottom: 60px;
+
+  margin-left: 1em;
 
   @media screen and (max-width: 768px) {
     overflow: hidden;
@@ -78,9 +79,9 @@ export const TextWrapper = styled.div`
 export const TopLine = styled.p`
   color: #dbd6a9;
   font-size: 24px;
-  line-height: 16px;
+  line-height: 40px;
   font-weight: 700;
-  letter-spacing: 1.4px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 16px;
 
@@ -146,7 +147,7 @@ export const Img = styled.img`
 export const InfoCarouselContainer = styled.div`
   color: #fff;
   height: 100vh;
-
+  justify-content: center;
   background: ${({ lightBg }) => (lightBg ? "#2c3138" : "#010606")};
 
   @media screen and (max-width: 768px) {
@@ -182,8 +183,10 @@ export const InfoWrapperCarousel = styled.div`
   margin-right: auto;
   margin-left: auto;
   padding: 0;
-  justify-content: center;
-  background-color: white;
+  flex-direction: column;
+  flex: 1 0 auto;
+
+  background-color: #2c3138;
   @media screen and (max-width: 768px) {
     height: 100%;
     overflow: hidden;
@@ -192,13 +195,18 @@ export const InfoWrapperCarousel = styled.div`
 
 export const InfoRowCarousel = styled.div`
   display: grid;
-  margin-top: -200px;
+  margin-top: 15vh;
+  margin-bottom: 50px;
+
   grid-auto-columns: minmax(auto, 1fr);
-  align-items: center;
+  flex-direction: column;
+  flex: 1 0 auto;
+
   grid-template-areas: ${({ imgStart }) =>
     imgStart ? '"col2 col1"' : '"col1 col2"'};
 
-  height: 100vh;
+  height: 80%;
+  width: 100%;
 
   @media screen and (max-width: 768px) {
     grid-template-areas: ${({ imgStart }) =>
@@ -208,12 +216,12 @@ export const InfoRowCarousel = styled.div`
 
 export const ColumnCarousel1 = styled.div`
   margin-bottom: 15px;
-  margin-top: 150px;
+
   grid-area: col1;
-  margin-left: 0px;
+
   align-items: right;
-  width: 530px;
-  height: 300px;
+  width: 100%;
+  height: 55vh;
   padding: 20px;
   overflow: hidden;
 
@@ -227,7 +235,7 @@ export const ColumnCarousel2 = styled.div`
   grid-area: col2;
   margin-left: 0px;
   background-color: "green";
-  max-width: 30vw;
+  width: 100%;
   align-content: center;
   object-fit: wrap;
   overflow: hidden;
@@ -240,14 +248,14 @@ export const ColumnCarousel2 = styled.div`
 
 export const ImgWrapCarousel = styled.div`
   position: absolute;
-  object-fit: contain;
-  margin-top: -15vh;
+  object-fit: wrap;
+
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 70vh;
-  width: 30vw;
+  height: 60vh;
+  width: 500px;
   border-radius: 10px;
   z-index: 4;
 
@@ -259,7 +267,7 @@ export const ImgWrapCarousel = styled.div`
 
 export const ImgCarousel = styled.img`
   height: 100%;
-  width: 100%;
+
   object-fit: contain;
   border-radius: 20px;
   margin-left: 30px;
@@ -279,20 +287,28 @@ export const ImgCarousel = styled.img`
   }
 `;
 
-export const IconWrapperLeft = styled.div`
-  z-index: 100;
-  position: absolute;
-  align-items: center;
+export const CarouselControls = styled.div`
+  display: flex;
+  flex-direction: row;
 
-  margin-left: 10vw;
-  height: 100vh;
+  width: 500px;
+  height: 200px;
+  background-color: red;
+`;
+
+export const IconWrapperLeft = styled.div`
+  display: flex;
+  flex: 1;
+  z-index: 1000;
+  position: absolute;
+
+  height: 100px;
   width: 100px;
   border-radius: 78px;
 
-  left: 20px;
-  font-size: 2rem;
-  opacity: 0.2;
-  color: #000;
+  font-size: 3rem;
+  opacity: 0.7;
+  color: #fff;
   cursor: pointer;
   user-select: none;
 
@@ -301,14 +317,17 @@ export const IconWrapperLeft = styled.div`
 `;
 
 export const IconWrapperRight = styled.div`
+  display: flex;
+  flex: 1;
   z-index: 100;
   position: absolute;
-  align-items: center;
-  height: 100vh;
-  right: 10vw;
-  font-size: 2rem;
-  opacity: 0.2;
-  color: #000;
+
+  height: 100px;
+  width: 100px;
+
+  font-size: 3rem;
+  opacity: 0.7;
+  color: #fff;
   cursor: pointer;
   user-select: none;
 
@@ -321,6 +340,7 @@ export const CarouselHeading = styled.h1`
   padding: 10px 20px;
   font-size: 48px;
   height: 120px;
+  width: 100%;
   line-height: 1.1;
   font-weight: 600;
   vertical-align: text-bottom;
@@ -354,10 +374,12 @@ export const CarouselSubtitle = styled.p`
 `;
 
 export const ImageSliderCarousel = styled.div`
-  height: 100px;
-  max-width: 50%;
-  position: absolute;
-  z-index: 5;
+  flex-shrink: 0;
+  height: 120px;
+  width: 100%;
+  overflow-x: scroll;
+
+  z-index: 50;
   background-color: #2c3138;
   border-radius: 10px;
 
@@ -365,20 +387,38 @@ export const ImageSliderCarousel = styled.div`
   flex: 0;
   flex-direction: row;
 
+  ::-webkit-scrollbar {
+    width: 200px;
+    height: 10px;
+    background-color: white;
+  }
+
   ::-webkit-scrollbar-thumb {
-    width: 5px;
-    color: black;
+    width: 20px;
+    height: 3px;
+    background-color: #dbd6a9;
+    border-radius: 20px;
   }
 `;
 
 export const PreviewCarousel = styled.div`
   height: 80px;
-  width: 10%;
+  width: 100%;
   background-color: #000000;
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
   justify-content: center;
   &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const ImgThumb = styled.img`
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+
+  &.active {
     transform: scale(1.2);
   }
 `;
