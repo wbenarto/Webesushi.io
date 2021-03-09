@@ -70,7 +70,6 @@ export const TextWrapper = styled.div`
   margin-left: 1em;
 
   @media screen and (max-width: 768px) {
-    overflow: hidden;
     padding-top: 120px;
     padding-bottom: 0;
   }
@@ -131,16 +130,16 @@ export const BtnWrap = styled.div`
 
 export const ImgWrap = styled.div`
   max-width: 80vw;
-  height: 80vh;
-  object-fit: fill;
+  height: 65vh;
+  color: #f5f5f5;
   overflow: hidden;
-  border-radius: 20px;
+  border: 4px white solid;
+  border-radius: 5px;
 `;
 export const Img = styled.img`
+  width: 30vw;
   height: 100%;
-  margin: 0 0 10px;
-
-  border-radius: 20px;
+  object-fit: cover;
 `;
 
 // Carousel
@@ -196,7 +195,7 @@ export const InfoWrapperCarousel = styled.div`
 export const InfoRowCarousel = styled.div`
   display: grid;
   margin-top: 15vh;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 
   grid-auto-columns: minmax(auto, 1fr);
   flex-direction: column;
@@ -254,9 +253,9 @@ export const ImgWrapCarousel = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 60vh;
+  height: 65vh;
   width: 500px;
-  border-radius: 10px;
+
   z-index: 4;
 
   @media screen and (max-width: 768px) {
@@ -288,22 +287,20 @@ export const ImgCarousel = styled.img`
 `;
 
 export const CarouselControls = styled.div`
+  position: absolute;
   display: flex;
   flex-direction: row;
-
+  justify-content: space-evenly;
   width: 500px;
-  height: 200px;
+
   background-color: red;
 `;
 
 export const IconWrapperLeft = styled.div`
-  display: flex;
-  flex: 1;
   z-index: 1000;
   position: absolute;
+  left: 0;
 
-  height: 100px;
-  width: 100px;
   border-radius: 78px;
 
   font-size: 3rem;
@@ -316,14 +313,17 @@ export const IconWrapperLeft = styled.div`
   }
 `;
 
-export const IconWrapperRight = styled.div`
-  display: flex;
-  flex: 1;
-  z-index: 100;
+export const IconWrapperMiddle = styled.div`
   position: absolute;
 
-  height: 100px;
-  width: 100px;
+  font-size: 3rem;
+  opacity: 0.7;
+`;
+
+export const IconWrapperRight = styled.div`
+  z-index: 100;
+  position: absolute;
+  right: 0;
 
   font-size: 3rem;
   opacity: 0.7;
@@ -380,24 +380,22 @@ export const ImageSliderCarousel = styled.div`
   overflow-x: scroll;
 
   z-index: 50;
-  background-color: #2c3138;
-  border-radius: 10px;
 
   display: flex;
   flex: 0;
   flex-direction: row;
 
   ::-webkit-scrollbar {
-    width: 200px;
+    width: 10%;
     height: 10px;
-    background-color: white;
+    background-color: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    width: 20px;
-    height: 3px;
-    background-color: #dbd6a9;
-    border-radius: 20px;
+    width: 15px;
+
+    background-color: black;
+    border-radius: 50px;
   }
 `;
 
@@ -406,7 +404,7 @@ export const PreviewCarousel = styled.div`
   width: 100%;
   background-color: #000000;
   margin: 10px;
-  border-radius: 20px;
+  border-radius: 50%;
   justify-content: center;
   &:hover {
     transform: scale(1.2);
@@ -416,7 +414,7 @@ export const PreviewCarousel = styled.div`
 export const ImgThumb = styled.img`
   height: 100%;
   object-fit: contain;
-  border-radius: 20px;
+  border-radius: 10%;
 
   &.active {
     transform: scale(1.2);

@@ -2,7 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import { Button } from "../ButtonElement";
 
 import { sushi } from "./Data";
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import {
+  FaArrowAltCircleRight,
+  FaArrowAltCircleLeft,
+  FaPause,
+  FaPlay,
+} from "react-icons/fa";
 
 import {
   InfoCarouselContainer,
@@ -22,6 +27,7 @@ import {
   InfoBtnLink,
   CarouselControls,
   IconWrapperLeft,
+  IconWrapperMiddle,
   IconWrapperRight,
   ImageSliderCarousel,
   PreviewCarousel,
@@ -152,6 +158,9 @@ const InfoCarousel = ({
                   <IconWrapperLeft onClick={prevSlide}>
                     <FaArrowAltCircleLeft />
                   </IconWrapperLeft>
+                  <IconWrapperMiddle>
+                    {slidePlay ? <FaPause /> : <FaPlay />}
+                  </IconWrapperMiddle>
                   <IconWrapperRight onClick={() => nextSlide()}>
                     <FaArrowAltCircleRight />
                   </IconWrapperRight>
