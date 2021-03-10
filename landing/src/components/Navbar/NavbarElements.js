@@ -113,7 +113,7 @@ export const NavLinks = styled(LinkS)`
 
   &.active {
     border-bottom: 5px solid #dbd6a9;
-    background-color: #5c5b4f;
+    /* background-color: #5c5b4f; */
 
     border-radius: 5px;
   }

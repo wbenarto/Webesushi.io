@@ -39,7 +39,7 @@ export const InfoRow = styled.div`
 
   @media screen and (max-width: 768px) {
     margin-top: 13vh;
-    height: 80vh;
+    height: 90vh;
     grid-template-areas: ${({ imgStart }) =>
       imgStart ? '"col2" "col1"' : '"col2" "col1"'};
   }
@@ -51,7 +51,11 @@ export const Column1 = styled.div`
   margin-top: 10vh;
   flex-direction: column;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 475px) {
+    height: 100%;
+    flex: 1;
+  }
+  /* @media screen and (max-width: 768px) {
     margin-top: -20px;
     margin-bottom: 30px;
     padding: 0;
@@ -60,7 +64,7 @@ export const Column1 = styled.div`
     flex: 1;
     justify-content: center;
     align-items: top;
-  }
+  } */
 `;
 
 export const Column2 = styled.div`
@@ -73,7 +77,7 @@ export const Column2 = styled.div`
   @media screen and (max-width: 768px) {
     margin-top: 0;
     margin-bottom: 10px;
-    height: 35vh;
+    height: 100%;
     display: flex;
     flex: 1;
     justify-content: center;
@@ -85,12 +89,13 @@ export const TextWrapper = styled.div`
   padding-top: 0;
 
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 85%;
     flex-direction: column;
     display: flex;
     text-align: left;
+    flex: 1;
 
-    height: 300px;
+    height: 350px;
   }
 `;
 
@@ -106,7 +111,10 @@ export const TopLine = styled.p`
   @media screen and (max-width: 768px) {
     overflow: hidden;
     width: 80vw;
+    height: 50px;
     font-size: 14px;
+
+    margin-bottom: 10px;
   }
 `;
 
@@ -115,15 +123,17 @@ export const Heading = styled.h1`
   line-height: 1.1;
   font-weight: 600;
   color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
+  margin-bottom: 20px;
 
   @media screen and (max-width: 768px) {
     font-size: 26px;
     line-height: 1;
-    margin-top: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+
     margin-right: 0px;
     overflow: hidden;
     width: 80vw;
+    height: 90px;
   }
 `;
 
@@ -136,9 +146,10 @@ export const Subtitle = styled.p`
 
   @media screen and (max-width: 768px) {
     font-size: 16px;
-    width: 100%;
-    height: ${({ short }) => (short ? "15vh" : "25vh")};
+    width: 80vw;
+    /* height: ${({ short }) => (short ? "15vh" : "25vh")}; */
     overflow-y: scroll;
+    margin-top: 10px;
     ::-webkit-scrollbar {
       display: none;
     }
@@ -154,6 +165,9 @@ export const BtnWrap = styled.div`
   @media screen and (max-width: 768px) {
     width: 80vw;
     justify-content: center;
+    display: flex;
+    flex: 1;
+    margin-top: 50px;
   }
 `;
 
@@ -167,6 +181,7 @@ export const ImgWrap = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 100%;
+    height: 100%;
   }
 `;
 export const Img = styled.img`
@@ -213,7 +228,8 @@ export const InfoWrapperCarousel = styled.div`
   @media screen and (max-width: 475px) {
     display: flex;
     flex-direction: column;
-    margin-top: -20px;
+
+    justify-content: flex-end;
   }
 
   @media screen and (max-width: 768px) {
@@ -234,6 +250,7 @@ export const InfoRowCarousel = styled.div`
 
   height: 80%;
   width: 100%;
+  justify-content: center;
 
   @media screen and (max-width: 475px) {
     display: flex;
@@ -252,7 +269,7 @@ export const InfoRowCarousel = styled.div`
 export const ColumnCarousel1 = styled.div`
   margin-bottom: 15px;
   grid-area: col1;
-  align-items: right;
+  align-items: center;
   width: 100%;
   height: 55vh;
   padding: 20px;
@@ -261,13 +278,13 @@ export const ColumnCarousel1 = styled.div`
   @media screen and (max-width: 475px) {
     display: flex;
     flex-direction: column;
-
+    background-color: #dbd6a9;
     z-index: 5;
-
-    border-top: 6px solid black;
+    border-top: 6px solid #2c3138;
     border-radius: 50px;
     height: 30vh;
     margin-top: 320px;
+    width: 90%;
   }
   @media screen and (max-width: 768px) {
     overflow: hidden;
@@ -356,19 +373,19 @@ export const CarouselControls = styled.div`
   flex: 1;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 40vw;
+  min-width: 20vw;
 
   @media screen and (max-width: 475px) {
-    width: 90vw;
+    width: 50vw;
     display: flex;
-    margin-top: 200px;
+    margin-top: 190px;
+    transform: scale(0.5);
 
     margin-bottom: 0px;
   }
 `;
 
 export const IconWrapperLeft = styled.div`
-  z-index: 1000;
   position: absolute;
   left: 0;
 
@@ -381,7 +398,7 @@ export const IconWrapperLeft = styled.div`
   user-select: none;
 
   @media screen and (max-width: 475px) {
-    font-size: 3em;
+    color: #000;
   }
 `;
 
@@ -390,6 +407,9 @@ export const IconWrapperMiddle = styled.div`
 
   font-size: 3rem;
   opacity: 0.7;
+  @media screen and (max-width: 475px) {
+    color: #000;
+  }
 `;
 
 export const IconWrapperRight = styled.div`
@@ -403,7 +423,8 @@ export const IconWrapperRight = styled.div`
   cursor: pointer;
   user-select: none;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 475px) {
+    color: #000;
   }
 `;
 
@@ -421,13 +442,16 @@ export const CarouselHeading = styled.h1`
   border-radius: 20px;
   border-bottom: 4px solid #dbd6a9;
   @media screen and (max-width: 475px) {
-    font-size: 24px;
+    padding: 0;
+    font-size: 20px;
     height: 90px;
     margin-bottom: 0;
+    justify-content: bottom;
+    color: ${({ lightText }) => (lightText ? "#010606" : "#010606")};
+    border-bottom: 4px solid #010606;
   }
 
   @media screen and (max-width: 768px) {
-    font-size: 30px;
   }
 `;
 
@@ -442,7 +466,9 @@ export const CarouselSubtitle = styled.p`
   @media screen and (max-width: 475px) {
     font-size: 15px;
     width: 80vw;
-    height: 50px;
+    height: 280px;
+
+    color: ${({ darkText }) => (darkText ? "#010606" : "#010606")};
   }
 
   @media screen and (max-width: 768px) {
@@ -453,29 +479,30 @@ export const CarouselSubtitle = styled.p`
 
 export const ImageSliderCarousel = styled.div`
   flex-shrink: 0;
-  height: 120px;
+  height: 110px;
   width: 100%;
   overflow-x: scroll;
   display: flex;
   flex: 0;
   flex-direction: row;
-
+  align-items: center;
   ::-webkit-scrollbar {
-    width: 10%;
     height: 10px;
     background-color: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    width: 15px;
-
-    background-color: black;
+    background-color: #dbd6a9;
     border-radius: 50px;
   }
 
   @media screen and (max-width: 475px) {
-    position: relative;
+    width: 90%;
+    position: absolute;
     display: flex;
+    flex-shrink: 0;
+    margin-left: 5%;
+    border-radius: 50px;
   }
 `;
 

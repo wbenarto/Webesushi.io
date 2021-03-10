@@ -126,28 +126,12 @@ const InfoCarousel = ({
             </ColumnCarousel2>
             <ColumnCarousel1>
               <TextWrapper>
-                {/* <TopLine>{topLine}</TopLine> */}
                 <CarouselHeading lightText={lightText}>
                   {sushi[cur].name}
                 </CarouselHeading>
                 <CarouselSubtitle darkText={darkText}>
                   {sushi[cur].desc}
                 </CarouselSubtitle>
-                {/* <BtnWrap>
-                  <InfoBtnLink
-                    to={page}
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    exact="true"
-                    offset={-80}
-                    primary={primary ? 1 : 0}
-                    dark={dark ? 1 : 0}
-                    dark2={dark2 ? 1 : 0}
-                  >
-                    {buttonLabel}
-                  </InfoBtnLink>
-                </BtnWrap> */}
               </TextWrapper>
               <CarouselControls>
                 <IconWrapperLeft onClick={prevSlide}>
