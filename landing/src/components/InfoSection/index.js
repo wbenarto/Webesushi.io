@@ -32,6 +32,7 @@ const InfoSection = ({
   primary,
   dark,
   dark2,
+  short,
 }) => {
   return (
     <>
@@ -42,9 +43,12 @@ const InfoSection = ({
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headline}</Heading>
-                <Subtitle darkText={darkText}>{description}</Subtitle>
-                <BtnWrap>
-                  {/* <Button
+                <Subtitle short={short} darkText={darkText}>
+                  {description}
+                </Subtitle>
+              </TextWrapper>
+              <BtnWrap>
+                {/* <Button
                     smooth={true}
                     duration={500}
                     spy={true}
@@ -54,22 +58,21 @@ const InfoSection = ({
                     dark={dark ? 1 : 0}
                     dark2={dark2 ? 1 : 0}
                   > */}
-                  <InfoBtnLink
-                    to={page}
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    exact="true"
-                    offset={-80}
-                    primary={primary ? 1 : 0}
-                    dark={dark ? 1 : 0}
-                    dark2={dark2 ? 1 : 0}
-                  >
-                    {buttonLabel}
-                  </InfoBtnLink>
-                  {/* </Button> */}
-                </BtnWrap>
-              </TextWrapper>
+                <InfoBtnLink
+                  to={page}
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                  primary={primary ? 1 : 0}
+                  dark={dark ? 1 : 0}
+                  dark2={dark2 ? 1 : 0}
+                >
+                  {buttonLabel}
+                </InfoBtnLink>
+                {/* </Button> */}
+              </BtnWrap>
             </Column1>
             <Column2>
               <ImgWrap>

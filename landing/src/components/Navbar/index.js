@@ -20,7 +20,7 @@ const Navbar = (props) => {
   const [scrollNav, setScrollNav] = useState("home");
 
   const changeNav = () => {
-    if (window.scrollY >= 4120) {
+    if (window.scrollY >= 4000) {
       setScrollNav("black");
     } else if (window.scrollY >= 3240) {
       setScrollNav("white");

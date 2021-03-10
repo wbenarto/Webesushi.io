@@ -119,6 +119,11 @@ const InfoCarousel = ({
       >
         <InfoWrapperCarousel>
           <InfoRowCarousel imgStart={imgStart}>
+            <ColumnCarousel2>
+              <ImgWrapCarousel>
+                <ImgCarousel src={sushi[cur].images} />
+              </ImgWrapCarousel>
+            </ColumnCarousel2>
             <ColumnCarousel1>
               <TextWrapper>
                 {/* <TopLine>{topLine}</TopLine> */}
@@ -143,25 +148,19 @@ const InfoCarousel = ({
                     {buttonLabel}
                   </InfoBtnLink>
                 </BtnWrap> */}
-                <CarouselControls>
-                  <IconWrapperLeft onClick={prevSlide}>
-                    <FaArrowAltCircleLeft />
-                  </IconWrapperLeft>
-                  <IconWrapperMiddle>
-                    {slidePlay ? <FaPause /> : <FaPlay />}
-                  </IconWrapperMiddle>
-                  <IconWrapperRight onClick={() => nextSlide()}>
-                    <FaArrowAltCircleRight />
-                  </IconWrapperRight>
-                </CarouselControls>
               </TextWrapper>
+              <CarouselControls>
+                <IconWrapperLeft onClick={prevSlide}>
+                  <FaArrowAltCircleLeft />
+                </IconWrapperLeft>
+                <IconWrapperMiddle>
+                  {slidePlay ? <FaPause /> : <FaPlay />}
+                </IconWrapperMiddle>
+                <IconWrapperRight onClick={() => nextSlide()}>
+                  <FaArrowAltCircleRight />
+                </IconWrapperRight>
+              </CarouselControls>
             </ColumnCarousel1>
-
-            <ColumnCarousel2>
-              <ImgWrapCarousel>
-                <ImgCarousel src={sushi[cur].images} />
-              </ImgWrapCarousel>
-            </ColumnCarousel2>
           </InfoRowCarousel>
 
           <ImageSliderCarousel>

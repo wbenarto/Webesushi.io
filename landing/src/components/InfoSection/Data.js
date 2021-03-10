@@ -13,6 +13,7 @@ import kanpachi from "../../images/hamachinigiri.jpg";
 import ika from "../../images/ikanigiri.jpg";
 import chutoro from "../../images/maguronigiri.jpg";
 import salmonkewpie from "../../images/salmonnigiri.jpg";
+import nigiriPrep from "../../images/nigiriprep.jpg";
 
 export const sushi = [
   {
@@ -159,6 +160,7 @@ export const homeObjOne = {
   dark: false,
   primary: false,
   darkText: false,
+  short: true,
 };
 
 export const homeObjTwo = {
@@ -168,17 +170,17 @@ export const homeObjTwo = {
   lightText: true,
   lightTextDesc: true,
   topLine: "Sustainability",
-  headline:
-    "Let's help protect our Ocean and its habitat for the future generation.",
+  headline: "Help Protect Our Ocean's Habitat.",
   description:
-    "Learn more about sustainable seafood for sushi and where are most fishes sourced from.",
+    "Learn more about sustainable seafood for sushi and where majority of fish we consume are being sourced.",
   buttonLabel: "For Our Kids",
   imgStart: true,
-  img: market,
+  img: nigiriPrep,
   alt: "sushi",
   dark: false,
   primary: false,
   darkText: false,
+  short: true,
 };
 
 export const homeObjThree = {
@@ -198,6 +200,7 @@ export const homeObjThree = {
   dark: false,
   primary: false,
   darkText: false,
+  short: false,
 };
 
 export const homeObjFour = {

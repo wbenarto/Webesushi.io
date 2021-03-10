@@ -41,7 +41,7 @@ export const InfoRow = styled.div`
     margin-top: 13vh;
     height: 80vh;
     grid-template-areas: ${({ imgStart }) =>
-      imgStart ? '"col1" "col2"' : '"col2" "col1"'};
+      imgStart ? '"col2" "col1"' : '"col2" "col1"'};
   }
 `;
 
@@ -49,15 +49,17 @@ export const Column1 = styled.div`
   padding: 0 15px;
   grid-area: col1;
   margin-top: 10vh;
+  flex-direction: column;
 
   @media screen and (max-width: 768px) {
-    margin-top: 10px;
+    margin-top: -20px;
+    margin-bottom: 30px;
     padding: 0;
-    height: 35vh;
+    height: 35svh;
     display: flex;
     flex: 1;
     justify-content: center;
-    align-items: center;
+    align-items: top;
   }
 `;
 
@@ -82,10 +84,13 @@ export const TextWrapper = styled.div`
   max-width: 540px;
   padding-top: 0;
 
-  margin-left: 1em;
-
   @media screen and (max-width: 768px) {
-    padding-bottom: 0;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    text-align: left;
+
+    height: 300px;
   }
 `;
 
@@ -101,21 +106,22 @@ export const TopLine = styled.p`
   @media screen and (max-width: 768px) {
     overflow: hidden;
     width: 80vw;
-    transform: scale(0.6);
+    font-size: 14px;
   }
 `;
 
 export const Heading = styled.h1`
-  margin-bottom: 24px;
   font-size: 48px;
   line-height: 1.1;
   font-weight: 600;
   color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
 
   @media screen and (max-width: 768px) {
-    transform: scale(0.6);
-    font-size: 32px;
+    font-size: 26px;
+    line-height: 1;
     margin-top: 0px;
+    margin-bottom: 30px;
+    margin-right: 0px;
     overflow: hidden;
     width: 80vw;
   }
@@ -129,10 +135,13 @@ export const Subtitle = styled.p`
   color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
 
   @media screen and (max-width: 768px) {
-    transform: scale(0.6);
-    width: 85vw;
-    height: 15vh;
+    font-size: 16px;
+    width: 100%;
+    height: ${({ short }) => (short ? "15vh" : "25vh")};
     overflow-y: scroll;
+    ::-webkit-scrollbar {
+      display: none;
+    }
     margin-bottom: 0;
     margin-bottom: 1em;
   }
@@ -157,12 +166,12 @@ export const ImgWrap = styled.div`
   border-radius: 5px;
 
   @media screen and (max-width: 768px) {
-    height: 100%;
+    width: 100%;
   }
 `;
 export const Img = styled.img`
   height: 100%;
-  width: 800px;
+  width: 700px;
   object-fit: cover;
   object-position: top right;
 
@@ -184,25 +193,9 @@ export const InfoCarouselContainer = styled.div`
     width: 100%;
     overflow: hidden;
   }
+
+  // iphone
 `;
-
-// export const InfoCarouselWrapper = styled.div`
-//   display: grid;
-//   z-index: 1;
-//   height: 70vh;
-//   width: 100vw;
-//   max-width: 1100px;
-//   margin-right: auto;
-//   margin-left: auto;
-
-//   justify-content: center;
-
-//   @media screen and (max-width: 768px) {
-//     height: 100vh;
-//     width: 100%;
-//     padding: 0 0px;
-//   }
-// `;
 
 export const InfoWrapperCarousel = styled.div`
   display: grid;
@@ -217,6 +210,12 @@ export const InfoWrapperCarousel = styled.div`
   flex: 1 0 auto;
 
   background-color: #2c3138;
+  @media screen and (max-width: 475px) {
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+  }
+
   @media screen and (max-width: 768px) {
     height: 100%;
     overflow: hidden;
@@ -227,34 +226,49 @@ export const InfoRowCarousel = styled.div`
   display: grid;
   margin-top: 15vh;
   margin-bottom: 100px;
-
   grid-auto-columns: minmax(auto, 1fr);
   flex-direction: column;
   flex: 1 0 auto;
-
   grid-template-areas: ${({ imgStart }) =>
     imgStart ? '"col2 col1"' : '"col1 col2"'};
 
   height: 80%;
   width: 100%;
 
-  @media screen and (max-width: 768px) {
-    grid-template-areas: ${({ imgStart }) =>
-      imgStart ? '"col1" "col2"' : '"col2 col2" "col1 col1"'};
+  @media screen and (max-width: 475px) {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
+  /* @media screen and (max-width: 768px) {
+    grid-template-areas: ${({ imgStart }) =>
+    imgStart ? '"col1" "col2"' : '"col2 col2" "col1 col1"'};
+  } */
 `;
 
 export const ColumnCarousel1 = styled.div`
   margin-bottom: 15px;
-
   grid-area: col1;
-
   align-items: right;
   width: 100%;
   height: 55vh;
   padding: 20px;
   overflow: hidden;
 
+  @media screen and (max-width: 475px) {
+    display: flex;
+    flex-direction: column;
+
+    z-index: 5;
+
+    border-top: 6px solid black;
+    border-radius: 50px;
+    height: 30vh;
+    margin-top: 320px;
+  }
   @media screen and (max-width: 768px) {
     overflow: hidden;
   }
@@ -269,29 +283,42 @@ export const ColumnCarousel2 = styled.div`
   align-content: center;
   object-fit: wrap;
   overflow: hidden;
-
+  @media screen and (max-width: 475px) {
+    display: flex;
+    flex: 1;
+    background-color: yellow;
+  }
   /* margin-top: -350px; */
   @media screen and (max-width: 768px) {
     overflow: hidden;
+    justify-content: center;
   }
 `;
 
 export const ImgWrapCarousel = styled.div`
   position: absolute;
   object-fit: wrap;
-
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   height: 65vh;
-  width: 20vw;
+  width: 30vw;
 
+  border-radius: 5px;
   z-index: 4;
 
+  @media screen and (max-width: 475px) {
+    object-fit: cover;
+    overflow: hidden;
+    width: 90%;
+    height: 100vw;
+    border: 2px solid white;
+  }
+
   @media screen and (max-width: 768px) {
-    height: 50vh;
-    width: 80%;
+    /* height: 50vh;
+    width: 80%; */
   }
 `;
 
@@ -312,19 +339,32 @@ export const ImgCarousel = styled.img`
     transform: scale(1.08);
   }
 
+  @media screen and (max-width: 475px) {
+    display: flex;
+    flex: 1;
+    border-radius: 0;
+    object-fit: fill;
+  }
+
   @media screen and (max-width: 768px) {
-    width: 80vw;
   }
 `;
 
 export const CarouselControls = styled.div`
   position: absolute;
   display: flex;
+  flex: 1;
   flex-direction: row;
   justify-content: space-evenly;
-  width: scale(0.7);
+  width: 40vw;
 
-  background-color: red;
+  @media screen and (max-width: 475px) {
+    width: 90vw;
+    display: flex;
+    margin-top: 200px;
+
+    margin-bottom: 0px;
+  }
 `;
 
 export const IconWrapperLeft = styled.div`
@@ -340,7 +380,8 @@ export const IconWrapperLeft = styled.div`
   cursor: pointer;
   user-select: none;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 475px) {
+    font-size: 3em;
   }
 `;
 
@@ -379,13 +420,14 @@ export const CarouselHeading = styled.h1`
   text-align: left;
   border-radius: 20px;
   border-bottom: 4px solid #dbd6a9;
+  @media screen and (max-width: 475px) {
+    font-size: 24px;
+    height: 90px;
+    margin-bottom: 0;
+  }
+
   @media screen and (max-width: 768px) {
-    margin-top: -100px;
-    margin-bottom: 60px;
-    font-size: 32px;
-    width: 100%;
-    height: 40px;
-    overflow: hidden;
+    font-size: 30px;
   }
 `;
 
@@ -397,9 +439,14 @@ export const CarouselSubtitle = styled.p`
   color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
   height: 200px;
 
+  @media screen and (max-width: 475px) {
+    font-size: 15px;
+    width: 80vw;
+    height: 50px;
+  }
+
   @media screen and (max-width: 768px) {
     width: 100%;
-    height: 100px;
     overflow: hidden;
   }
 `;
@@ -409,9 +456,6 @@ export const ImageSliderCarousel = styled.div`
   height: 120px;
   width: 100%;
   overflow-x: scroll;
-
-  z-index: 50;
-
   display: flex;
   flex: 0;
   flex-direction: row;
@@ -427,6 +471,11 @@ export const ImageSliderCarousel = styled.div`
 
     background-color: black;
     border-radius: 50px;
+  }
+
+  @media screen and (max-width: 475px) {
+    position: relative;
+    display: flex;
   }
 `;
 
