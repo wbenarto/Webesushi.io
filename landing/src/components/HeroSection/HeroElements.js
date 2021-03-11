@@ -74,8 +74,8 @@ export const HeroH1 = styled.h1`
   @media screen and (max-width: 768px) {
     font-size: 40px;
     margin-bottom: calc(40vh * 0.2);
-    border: #dbd6a9 0.1em solid;
-    background-color: black;
+    /* border: #dbd6a9 0.1em solid;
+    background-color: black; */
   }
 `;
 

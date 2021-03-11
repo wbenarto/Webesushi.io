@@ -52,8 +52,10 @@ export const Column1 = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 475px) {
-    height: 100%;
+    height: 55vh;
+    margin-top: -130px;
     flex: 1;
+    position: relative;
   }
   /* @media screen and (max-width: 768px) {
     margin-top: -20px;
@@ -75,9 +77,9 @@ export const Column2 = styled.div`
   overflow: hidden;
 
   @media screen and (max-width: 768px) {
-    margin-top: 0;
+    margin-top: -70px;
     margin-bottom: 10px;
-    height: 100%;
+    height: 80%;
     display: flex;
     flex: 1;
     justify-content: center;
@@ -128,12 +130,12 @@ export const Heading = styled.h1`
   @media screen and (max-width: 768px) {
     font-size: 26px;
     line-height: 1;
-    margin-bottom: 10px;
 
     margin-right: 0px;
     overflow: hidden;
     width: 80vw;
-    height: 90px;
+    min-height: 50px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -154,7 +156,6 @@ export const Subtitle = styled.p`
       display: none;
     }
     margin-bottom: 0;
-    margin-bottom: 1em;
   }
 `;
 
@@ -164,10 +165,10 @@ export const BtnWrap = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 80vw;
+
     justify-content: center;
     display: flex;
     flex: 1;
-    margin-top: 50px;
   }
 `;
 
@@ -228,7 +229,7 @@ export const InfoWrapperCarousel = styled.div`
   @media screen and (max-width: 475px) {
     display: flex;
     flex-direction: column;
-
+    flex: 1;
     justify-content: flex-end;
   }
 
@@ -258,6 +259,7 @@ export const InfoRowCarousel = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 90px;
   }
 
   /* @media screen and (max-width: 768px) {
@@ -278,13 +280,15 @@ export const ColumnCarousel1 = styled.div`
   @media screen and (max-width: 475px) {
     display: flex;
     flex-direction: column;
-    background-color: #dbd6a9;
+    position: relative;
+    background: linear-gradient(#dbd6a9, #fff);
     z-index: 5;
     border-top: 6px solid #2c3138;
-    border-radius: 50px;
-    height: 30vh;
-    margin-top: 320px;
+    border-radius: 45px;
+    height: 38vh;
+    margin-top: 300px;
     width: 90%;
+    padding: 0px;
   }
   @media screen and (max-width: 768px) {
     overflow: hidden;
@@ -303,12 +307,25 @@ export const ColumnCarousel2 = styled.div`
   @media screen and (max-width: 475px) {
     display: flex;
     flex: 1;
-    background-color: yellow;
   }
   /* margin-top: -350px; */
   @media screen and (max-width: 768px) {
     overflow: hidden;
     justify-content: center;
+  }
+`;
+
+export const TextWrapperCarousel = styled.div`
+  max-width: 540px;
+  padding-top: 0;
+
+  @media screen and (max-width: 768px) {
+    width: 95%;
+    flex-direction: column;
+    display: flex;
+    text-align: left;
+    flex: 1;
+    height: 85%;
   }
 `;
 
@@ -328,6 +345,7 @@ export const ImgWrapCarousel = styled.div`
   @media screen and (max-width: 475px) {
     object-fit: cover;
     overflow: hidden;
+    margin-top: 3vh;
     width: 90%;
     height: 100vw;
     border: 2px solid white;
@@ -376,12 +394,11 @@ export const CarouselControls = styled.div`
   min-width: 20vw;
 
   @media screen and (max-width: 475px) {
-    width: 50vw;
+    width: 100%;
+    position: relative;
     display: flex;
-    margin-top: 190px;
+    flex: 1;
     transform: scale(0.5);
-
-    margin-bottom: 0px;
   }
 `;
 
@@ -442,9 +459,9 @@ export const CarouselHeading = styled.h1`
   border-radius: 20px;
   border-bottom: 4px solid #dbd6a9;
   @media screen and (max-width: 475px) {
-    padding: 0;
-    font-size: 20px;
-    height: 90px;
+    padding-top: 10px;
+    font-size: 26px;
+    min-height: 80px;
     margin-bottom: 0;
     justify-content: bottom;
     color: ${({ lightText }) => (lightText ? "#010606" : "#010606")};
@@ -464,10 +481,11 @@ export const CarouselSubtitle = styled.p`
   height: 200px;
 
   @media screen and (max-width: 475px) {
-    font-size: 15px;
+    font-size: 18px;
     width: 80vw;
-    height: 280px;
-
+    height: 300px;
+    line-height: 24px;
+    padding: 20px;
     color: ${({ darkText }) => (darkText ? "#010606" : "#010606")};
   }
 

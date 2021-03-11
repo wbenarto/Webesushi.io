@@ -14,7 +14,7 @@ import {
   InfoWrapperCarousel,
   InfoRowCarousel,
   ColumnCarousel1,
-  TextWrapper,
+  TextWrapperCarousel,
   TopLine,
   ImgWrap,
   Img,
@@ -125,14 +125,14 @@ const InfoCarousel = ({
               </ImgWrapCarousel>
             </ColumnCarousel2>
             <ColumnCarousel1>
-              <TextWrapper>
+              <TextWrapperCarousel>
                 <CarouselHeading lightText={lightText}>
                   {sushi[cur].name}
                 </CarouselHeading>
                 <CarouselSubtitle darkText={darkText}>
                   {sushi[cur].desc}
                 </CarouselSubtitle>
-              </TextWrapper>
+              </TextWrapperCarousel>
               <CarouselControls>
                 <IconWrapperLeft onClick={prevSlide}>
                   <FaArrowAltCircleLeft />
