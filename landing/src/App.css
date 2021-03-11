@@ -4,8 +4,9 @@
   padding: 0;
 }
 html {
-  scroll-snap-type: y mandatory;
-  -webkit-scroll-snap-type: y mandatory;
+  scroll-snap-type: both mandatory;
+  -webkit-scroll-snap-type: both mandatory;
+
   -webkit-overflow-scrolling: touch;
 }
 .App {
@@ -13,6 +14,9 @@ html {
   width: 100vw;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: y mandatory;
-  -webkit-scroll-snap-type: y mandatory;
+}
+
+.recipe {
+  flex-direction: row;
+  height: 300px;
 }

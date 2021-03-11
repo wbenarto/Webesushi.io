@@ -1,11 +1,23 @@
 import React from "react";
-import Recipes from "../components/Recipes";
+import Shop from "../components/Recipes/Shop";
+import Home from "../components/Recipes/Home";
 import Navbar from "../components/Navbar";
 
 const RecipesPage = () => {
   return (
-    <div>
-      <Recipes />
+    <div
+      style={{
+        margin: "0",
+        bottom: "0",
+        width: "100vw",
+        height: "100vh",
+        flexDirection: "row",
+        display: "flex",
+        scrollSnapType: "x",
+      }}
+    >
+      <Shop />
+      <Home />
     </div>
   );
 };

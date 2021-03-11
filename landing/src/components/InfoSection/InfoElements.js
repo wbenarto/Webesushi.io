@@ -266,7 +266,7 @@ export const InfoWrapperCarousel = styled.div`
 export const InfoRowCarousel = styled.div`
   display: grid;
   margin-top: 15vh;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
   grid-auto-columns: minmax(auto, 1fr);
   flex-direction: column;
   flex: 1 0 auto;
@@ -371,7 +371,7 @@ export const ImgWrapCarousel = styled.div`
   align-items: center;
   overflow: hidden;
   max-width: 80vw;
-  height: 65vh;
+  height: 60vh;
   border: 4px #dbd6a9 solid;
   border-radius: 5px;
   z-index: 4;
@@ -473,7 +473,6 @@ export const IconWrapperMiddle = styled.div`
 `;
 
 export const IconWrapperRight = styled.div`
-  z-index: 100;
   position: absolute;
   right: 0;
 
