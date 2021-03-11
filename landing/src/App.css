@@ -5,6 +5,7 @@
 }
 html {
   scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 .App {
   background-color: rgb(37, 33, 28);
