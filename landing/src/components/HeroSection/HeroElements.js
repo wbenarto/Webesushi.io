@@ -6,6 +6,7 @@ export const HeroContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 30px;
+  scroll-snap-align: start;
 
   height: 110vh;
   position: relative;

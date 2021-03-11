@@ -6,7 +6,7 @@ export const InfoContainer = styled.div`
   background: ${({ lightBg }) => (lightBg ? "#2c3138" : "#010606")};
   height: 100%;
 
-  scroll-snap-type: start;
+  scroll-snap-align: start;
 
   @media screen and (max-width: 768px) {
     /* padding: 100px 0; */
@@ -177,7 +177,7 @@ export const ImgWrap = styled.div`
   height: 65vh;
   color: #f5f5f5;
   overflow: hidden;
-  border: 4px white solid;
+  border: 4px #dbd6a9 solid;
   border-radius: 5px;
 
   @media screen and (max-width: 768px) {
@@ -204,7 +204,7 @@ export const InfoCarouselContainer = styled.div`
   height: 100vh;
   justify-content: center;
   background: ${({ lightBg }) => (lightBg ? "#2c3138" : "#010606")};
-
+  scroll-snap-align: center;
   @media screen and (max-width: 768px) {
     width: 100%;
     overflow: hidden;
@@ -272,6 +272,8 @@ export const ColumnCarousel1 = styled.div`
   margin-bottom: 15px;
   grid-area: col1;
   align-items: center;
+  justify-content: center;
+  align-content: center;
   width: 100%;
   height: 55vh;
   padding: 20px;
@@ -281,7 +283,7 @@ export const ColumnCarousel1 = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    background: linear-gradient(#dbd6a9, #fff);
+    background: linear-gradient(#dbd6a9, #010606);
     z-index: 5;
     border-top: 6px solid #2c3138;
     border-radius: 45px;
@@ -327,28 +329,33 @@ export const TextWrapperCarousel = styled.div`
     flex: 1;
     height: 85%;
   }
+  @media screen and (max-height: 569px) {
+    position: relative;
+  }
 `;
 
 export const ImgWrapCarousel = styled.div`
-  position: absolute;
+  position: relative;
   object-fit: wrap;
   display: flex;
-  justify-content: center;
+
   align-items: center;
   overflow: hidden;
+  max-width: 80vw;
   height: 65vh;
-  width: 30vw;
+  border: 4px #dbd6a9 solid;
 
   border-radius: 5px;
   z-index: 4;
 
   @media screen and (max-width: 475px) {
+    position: absolute;
     object-fit: cover;
     overflow: hidden;
     margin-top: 3vh;
     width: 90%;
     height: 100vw;
-    border: 2px solid white;
+    border: 2px solid #dbd6a9;
   }
 
   @media screen and (max-width: 768px) {
@@ -386,12 +393,13 @@ export const ImgCarousel = styled.img`
 `;
 
 export const CarouselControls = styled.div`
-  position: absolute;
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: space-evenly;
   min-width: 20vw;
+  align-items: center;
 
   @media screen and (max-width: 475px) {
     width: 100%;
@@ -415,7 +423,7 @@ export const IconWrapperLeft = styled.div`
   user-select: none;
 
   @media screen and (max-width: 475px) {
-    color: #000;
+    color: #dbd6a9;
   }
 `;
 
@@ -425,7 +433,7 @@ export const IconWrapperMiddle = styled.div`
   font-size: 3rem;
   opacity: 0.7;
   @media screen and (max-width: 475px) {
-    color: #000;
+    color: #dbd6a9;
   }
 `;
 
@@ -441,7 +449,7 @@ export const IconWrapperRight = styled.div`
   user-select: none;
 
   @media screen and (max-width: 475px) {
-    color: #000;
+    color: #dbd6a9;
   }
 `;
 
@@ -486,7 +494,7 @@ export const CarouselSubtitle = styled.p`
     height: 300px;
     line-height: 24px;
     padding: 20px;
-    color: ${({ darkText }) => (darkText ? "#010606" : "#010606")};
+    color: ${({ darkText }) => (darkText ? "#010606" : "#dbd6a9")};
   }
 
   @media screen and (max-width: 768px) {

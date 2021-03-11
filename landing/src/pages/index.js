@@ -23,11 +23,11 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div style={{ scrollSnapType: "y" }}>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
-      <HeroSection style={{ scrollSnapAlign: "start" }} />
-      <InfoSection style={{ scrollSnapAlign: "start" }} {...homeObjOne} />
+      <HeroSection style={{ scrollSnapAlign: "center" }} />
+      <InfoSection style={{ scrollSnapAlign: "center" }} {...homeObjOne} />
       <InfoSection style={{ scrollSnapAlign: "start" }} {...homeObjTwo} />
       <InfoSection style={{ scrollSnapAlign: "start" }} {...homeObjThree} />
       <InfoCarousel

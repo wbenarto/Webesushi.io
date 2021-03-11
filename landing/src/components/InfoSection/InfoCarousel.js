@@ -112,20 +112,16 @@ const InfoCarousel = ({
 
   return (
     <>
-      <InfoCarouselContainer
-        onClick={() => handlePause()}
-        lightBg={lightBg}
-        id={id}
-      >
+      <InfoCarouselContainer lightBg={lightBg} id={id}>
         <InfoWrapperCarousel>
           <InfoRowCarousel imgStart={imgStart}>
-            <ColumnCarousel2>
+            <ColumnCarousel2 onClick={() => handlePause()}>
               <ImgWrapCarousel>
-                <ImgCarousel src={sushi[cur].images} />
+                <Img src={sushi[cur].images} />
               </ImgWrapCarousel>
             </ColumnCarousel2>
             <ColumnCarousel1>
-              <TextWrapperCarousel>
+              <TextWrapperCarousel onClick={() => handlePause()}>
                 <CarouselHeading lightText={lightText}>
                   {sushi[cur].name}
                 </CarouselHeading>
@@ -137,7 +133,7 @@ const InfoCarousel = ({
                 <IconWrapperLeft onClick={prevSlide}>
                   <FaArrowAltCircleLeft />
                 </IconWrapperLeft>
-                <IconWrapperMiddle>
+                <IconWrapperMiddle onClick={() => handlePause()}>
                   {slidePlay ? <FaPause /> : <FaPlay />}
                 </IconWrapperMiddle>
                 <IconWrapperRight onClick={() => nextSlide()}>
