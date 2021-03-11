@@ -352,6 +352,7 @@ export const ColumnCarousel2 = styled.div`
 export const TextWrapperCarousel = styled.div`
   max-width: 540px;
   padding-top: 0;
+  height: 100%;
 
   @media screen and (max-width: 768px) {
     width: 95%;
@@ -438,7 +439,8 @@ export const CarouselControls = styled.div`
     width: 100%;
     position: relative;
     display: flex;
-    flex: 1;
+    flex-shrink: 0;
+
     transform: scale(0.5);
   }
 `;

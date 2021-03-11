@@ -5,10 +5,14 @@
 }
 html {
   scroll-snap-type: y mandatory;
+  -webkit-scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
 }
 .App {
   background-color: rgb(37, 33, 28);
   width: 100vw;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: y mandatory;
+  -webkit-scroll-snap-type: y mandatory;
 }
