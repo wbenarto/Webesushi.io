@@ -43,6 +43,10 @@ export const InfoRow = styled.div`
     grid-template-areas: ${({ imgStart }) =>
       imgStart ? '"col2" "col1"' : '"col2" "col1"'};
   }
+
+  @media screen and (max-height: 645px) {
+    height: 85vh;
+  }
 `;
 
 export const Column1 = styled.div`
@@ -67,6 +71,8 @@ export const Column1 = styled.div`
     justify-content: center;
     align-items: top;
   } */
+  @media screen and (max-height: 645px) {
+  }
 `;
 
 export const Column2 = styled.div`
@@ -84,20 +90,29 @@ export const Column2 = styled.div`
     flex: 1;
     justify-content: center;
   }
+
+  @media screen and (max-height: 645px) {
+    position: relative;
+    margin-top: -20px;
+  }
 `;
 
 export const TextWrapper = styled.div`
   max-width: 540px;
   padding-top: 0;
+  flex-direction: column;
 
   @media screen and (max-width: 768px) {
     width: 85%;
-    flex-direction: column;
+
     display: flex;
     text-align: left;
     flex: 1;
 
     height: 350px;
+  }
+  @media screen and (max-height: 645px) {
+    position: relative;
   }
 `;
 
@@ -109,14 +124,21 @@ export const TopLine = styled.p`
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 16px;
+  display: flex;
+  height: 50px;
+  margin-bottom: 20px;
 
   @media screen and (max-width: 768px) {
     overflow: hidden;
     width: 80vw;
     height: 50px;
     font-size: 14px;
-
     margin-bottom: 10px;
+  }
+  @media screen and (max-height: 645px) {
+    margin-top: 70px;
+    height: 90px;
+    margin-bottom: -10px;
   }
 `;
 
@@ -130,7 +152,6 @@ export const Heading = styled.h1`
   @media screen and (max-width: 768px) {
     font-size: 26px;
     line-height: 1;
-
     margin-right: 0px;
     overflow: hidden;
     width: 80vw;
@@ -147,8 +168,11 @@ export const Subtitle = styled.p`
   color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
 
   @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
     font-size: 16px;
-    width: 80vw;
+    width: 85vw;
+
     /* height: ${({ short }) => (short ? "15vh" : "25vh")}; */
     overflow-y: scroll;
     margin-top: 10px;
@@ -292,6 +316,10 @@ export const ColumnCarousel1 = styled.div`
     width: 90%;
     padding: 0px;
   }
+  @media screen and (max-height: 645px) {
+    margin-top: 100px;
+  }
+
   @media screen and (max-width: 768px) {
     overflow: hidden;
   }
@@ -301,7 +329,6 @@ export const ColumnCarousel2 = styled.div`
   margin-bottom: 15px;
   grid-area: col2;
   margin-left: 0px;
-  background-color: "green";
   width: 100%;
   align-content: center;
   object-fit: wrap;
@@ -314,6 +341,11 @@ export const ColumnCarousel2 = styled.div`
   @media screen and (max-width: 768px) {
     overflow: hidden;
     justify-content: center;
+  }
+  @media screen and (max-height: 645px) {
+    margin-top: -30px;
+    object-fit: cover;
+    object-position: bottom;
   }
 `;
 
@@ -329,22 +361,17 @@ export const TextWrapperCarousel = styled.div`
     flex: 1;
     height: 85%;
   }
-  @media screen and (max-height: 569px) {
-    position: relative;
-  }
 `;
 
 export const ImgWrapCarousel = styled.div`
   position: relative;
   object-fit: wrap;
   display: flex;
-
   align-items: center;
   overflow: hidden;
   max-width: 80vw;
   height: 65vh;
   border: 4px #dbd6a9 solid;
-
   border-radius: 5px;
   z-index: 4;
 
@@ -361,6 +388,9 @@ export const ImgWrapCarousel = styled.div`
   @media screen and (max-width: 768px) {
     /* height: 50vh;
     width: 80%; */
+  }
+  @media screen and (max-height: 645px) {
+    height: 40vh;
   }
 `;
 
@@ -386,6 +416,9 @@ export const ImgCarousel = styled.img`
     flex: 1;
     border-radius: 0;
     object-fit: fill;
+    position: relative;
+    object-position: bottom;
+    height: 35vh;
   }
 
   @media screen and (max-width: 768px) {
