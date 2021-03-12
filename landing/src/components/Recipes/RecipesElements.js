@@ -23,7 +23,6 @@ export const ShopTab = styled.div`
 export const ShopControls = styled.div`
   width: 100%;
   height: 200px;
-  background-color: white;
 `;
 
 export const HomeTab = styled.div`

@@ -7,8 +7,7 @@ const RecipesPage = () => {
   return (
     <div
       style={{
-        margin: "0",
-        bottom: "0",
+        top: 0,
         width: "100vw",
         height: "100vh",
         flexDirection: "row",

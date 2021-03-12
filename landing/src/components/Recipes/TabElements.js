@@ -16,3 +16,15 @@ export const HomeControls = styled.div`
   background-color: #fff;
   display: flex;
 `;
+
+export const VideoScroll = styled.video`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  background: #232a34;
+  z-index: 999;
+`;
