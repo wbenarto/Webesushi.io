@@ -7,9 +7,6 @@ const RecipesPage = () => {
   return (
     <div
       style={{
-        top: 0,
-        width: "100vw",
-        height: "100vh",
         flexDirection: "row",
         display: "flex",
         scrollSnapType: "x",

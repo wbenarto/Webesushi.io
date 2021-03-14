@@ -9,7 +9,7 @@ import {
   RecipeRow,
   RecipeCol1,
   RecipeCol2,
-} from "./RecipesElements";
+} from "./ShopElements";
 import Home from "./Home";
 
 import rice from "../../images/rice.jpg";

@@ -4,7 +4,7 @@ export const Shop = styled.div`
   color: #bd8f5e;
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   scroll-snap-align: start;
   z-index: 0;
 `;
