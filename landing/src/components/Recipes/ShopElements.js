@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Shop = styled.div`
+export const ShopContainer = styled.div`
   color: #bd8f5e;
   display: flex;
   width: 100vw;

@@ -1,6 +1,7 @@
 import React from "react";
-import { HomeContainer, HomeControls, VideoScroll } from "./TabElements";
+import { HomeContainer, HomeControls, VideoScroll } from "./HomeElements";
 import video from "../../videos/video.mp4";
+import { setActiveLink } from "react-scroll/modules/mixins/scroller";
 
 const Home = () => {
   // var frameNumber = 0, // start video at frame 0
@@ -30,18 +31,7 @@ const Home = () => {
     <>
       <HomeContainer>
         <h1>hi</h1>
-        <HomeControls>
-          At Home
-          <div id="set-height"></div>
-          <video
-            id="v0"
-            type="video/mp4"
-            autoPlay
-            loop
-            muted
-            src={video}
-          ></video>
-        </HomeControls>
+        <HomeControls>At Home</HomeControls>
       </HomeContainer>
     </>
   );

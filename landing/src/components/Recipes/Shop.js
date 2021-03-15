@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  RecipeContainer,
-  Shop,
+  ShopContainer,
   ShopTab,
   ShopControls,
   HomeTab,
@@ -15,17 +14,11 @@ import Home from "./Home";
 import rice from "../../images/rice.jpg";
 import webewhite from "../../images/webewhite.png";
 
-const Recipes = () => {
-  const [active, setActive] = useState("shop");
-
-  const handleTab = (tab) => {
-    setActive(tab);
-  };
-  console.log(active);
+const Shop = () => {
   return (
     <>
       <Shop>
-        <ShopTab show={active} onClick={() => handleTab("shop")}>
+        <ShopTab>
           <h1>Back</h1>
           <ShopControls>SHOP</ShopControls>
         </ShopTab>
@@ -34,4 +27,4 @@ const Recipes = () => {
   );
 };
 
-export default Recipes;
+export default Shop;

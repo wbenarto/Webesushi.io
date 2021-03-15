@@ -294,10 +294,9 @@ export const InfoRowCarousel = styled.div`
 
 export const ColumnCarousel1 = styled.div`
   margin-bottom: 15px;
-  grid-area: col1;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
+
+  justify-content: right;
+  position: relative;
   width: 100%;
   height: 55vh;
   padding: 20px;
@@ -431,10 +430,11 @@ export const CarouselControls = styled.div`
   display: flex;
   flex: 1;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   min-width: 20vw;
   align-items: center;
-
+  width: 50%;
+  margin-right: 0;
   @media screen and (max-width: 475px) {
     width: 100%;
     position: relative;
@@ -451,7 +451,7 @@ export const IconWrapperLeft = styled.div`
 
   border-radius: 78px;
 
-  font-size: 3rem;
+  font-size: 2rem;
   opacity: 0.7;
   color: #fff;
   cursor: pointer;
@@ -465,7 +465,7 @@ export const IconWrapperLeft = styled.div`
 export const IconWrapperMiddle = styled.div`
   position: absolute;
 
-  font-size: 3rem;
+  font-size: 2rem;
   opacity: 0.7;
   @media screen and (max-width: 475px) {
     color: #dbd6a9;
@@ -476,7 +476,7 @@ export const IconWrapperRight = styled.div`
   position: absolute;
   right: 0;
 
-  font-size: 3rem;
+  font-size: 2rem;
   opacity: 0.7;
   color: #fff;
   cursor: pointer;
