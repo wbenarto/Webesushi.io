@@ -3,14 +3,13 @@
   margin: 0;
   padding: 0;
 }
-html {
+/* html {
   scroll-snap-type: both proximity;
   -webkit-scroll-snap-type: both proximity;
- 
-}
+ } */
 .App {
   background-color: rgb(37, 33, 28);
   width: 100vw;
   overflow: hidden;
-  -webkit-overflow-scrolling: touch;
+
 }

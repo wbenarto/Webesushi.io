@@ -295,8 +295,8 @@ export const InfoRowCarousel = styled.div`
 
 export const ColumnCarousel1 = styled.div`
   margin-bottom: 15px;
-
-  justify-content: right;
+  flex-direction: column;
+  align-content: center;
   position: relative;
   width: 100%;
   height: 55vh;
@@ -393,6 +393,11 @@ export const ImgWrapCarousel = styled.div`
 `;
 
 export const ImgCarousel = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
   @media screen and (max-width: 475px) {
     height: 100%;
     width: 100%;
@@ -524,6 +529,7 @@ export const ImageSliderCarousel = styled.div`
   flex: 0;
   flex-direction: row;
   align-items: center;
+
   ::-webkit-scrollbar {
     height: 10px;
     background-color: transparent;
