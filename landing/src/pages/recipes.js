@@ -34,8 +34,6 @@ const RecipesPage = () => {
           </NavLogo>
         </NavbarContainer>
       </Nav>
-
-      <Home />
     </div>
   );
 };

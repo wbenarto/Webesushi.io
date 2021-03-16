@@ -38,10 +38,9 @@ export const InfoRow = styled.div`
     imgStart ? '"col2 col1"' : '"col1 col2"'};
 
   @media screen and (max-width: 768px) {
-    margin-top: 13vh;
     height: 90vh;
-    grid-template-areas: ${({ imgStart }) =>
-      imgStart ? '"col2" "col1"' : '"col2" "col1"'};
+    display: flex;
+    flex-direction: column;
   }
 
   @media screen and (max-height: 645px) {
@@ -56,21 +55,16 @@ export const Column1 = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 475px) {
-    height: 55vh;
+    height: 45vh;
     margin-top: -130px;
     flex: 1;
     position: relative;
   }
-  /* @media screen and (max-width: 768px) {
-    margin-top: -20px;
-    margin-bottom: 30px;
+  @media screen and (max-width: 768px) {
     padding: 0;
-    height: 35svh;
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: top;
-  } */
+    margin-top: 0;
+    height: 40vh;
+  }
   @media screen and (max-height: 645px) {
   }
 `;
@@ -82,12 +76,16 @@ export const Column2 = styled.div`
   border-radius: 20px;
   overflow: hidden;
 
-  @media screen and (max-width: 768px) {
-    margin-top: -70px;
-    margin-bottom: 10px;
-    height: 80%;
+  @media screen and (max-width: 475px) {
+    margin-top: 12vh;
     display: flex;
-    flex: 1;
+    justify-content: center;
+    height: 35vh;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+
     justify-content: center;
   }
 
@@ -99,16 +97,14 @@ export const Column2 = styled.div`
 
 export const TextWrapper = styled.div`
   max-width: 540px;
-  padding-top: 0;
+
   flex-direction: column;
 
   @media screen and (max-width: 768px) {
     width: 85%;
-
     display: flex;
     text-align: left;
     flex: 1;
-
     height: 350px;
   }
   @media screen and (max-height: 645px) {
@@ -171,7 +167,7 @@ export const Subtitle = styled.p`
     display: flex;
     justify-content: center;
     font-size: 16px;
-    width: 85vw;
+    width: 80vw;
 
     /* height: ${({ short }) => (short ? "15vh" : "25vh")}; */
     overflow-y: scroll;
@@ -205,7 +201,11 @@ export const ImgWrap = styled.div`
   border-radius: 5px;
 
   @media screen and (max-width: 768px) {
+    height: 100%;
     width: 100%;
+    position: relative;
+  }
+  @media screen and (max-width: 475px) {
     height: 100%;
   }
 `;
@@ -216,8 +216,9 @@ export const Img = styled.img`
   object-position: top right;
 
   @media screen and (max-width: 768px) {
+  }
+  @media screen and (max-width: 475px) {
     width: 100%;
-    object-fit: cover;
     object-position: center;
   }
 `;
@@ -306,6 +307,7 @@ export const ColumnCarousel1 = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
+    align-items: center;
     background: linear-gradient(#dbd6a9, #010606);
     z-index: 5;
     border-top: 6px solid #2c3138;
@@ -354,7 +356,7 @@ export const TextWrapperCarousel = styled.div`
   height: 100%;
 
   @media screen and (max-width: 768px) {
-    width: 95%;
+    width: 90%;
     flex-direction: column;
     display: flex;
     text-align: left;
@@ -377,11 +379,7 @@ export const ImgWrapCarousel = styled.div`
 
   @media screen and (max-width: 475px) {
     position: absolute;
-    object-fit: cover;
     overflow: hidden;
-    margin-top: 3vh;
-    width: 90%;
-    height: 100vw;
     border: 2px solid #dbd6a9;
   }
 
@@ -395,30 +393,10 @@ export const ImgWrapCarousel = styled.div`
 `;
 
 export const ImgCarousel = styled.img`
-  height: 100%;
-
-  object-fit: contain;
-  border-radius: 20px;
-  margin-left: 30px;
-  &.slide {
-    opacity: 0;
-    transition-duration: 1s ease;
-  }
-
-  &.slide.active {
-    opacity: 1;
-    transition-duration: 1s;
-    transform: scale(1.08);
-  }
-
   @media screen and (max-width: 475px) {
-    display: flex;
-    flex: 1;
-    border-radius: 0;
-    object-fit: fill;
-    position: relative;
-    object-position: bottom;
-    height: 35vh;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   @media screen and (max-width: 768px) {

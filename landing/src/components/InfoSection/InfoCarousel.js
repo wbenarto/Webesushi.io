@@ -117,7 +117,7 @@ const InfoCarousel = ({
           <InfoRowCarousel imgStart={imgStart}>
             <ColumnCarousel2 onClick={() => handlePause()}>
               <ImgWrapCarousel>
-                <Img src={sushi[cur].images} />
+                <ImgCarousel src={sushi[cur].images} />
               </ImgWrapCarousel>
             </ColumnCarousel2>
             <ColumnCarousel1>
