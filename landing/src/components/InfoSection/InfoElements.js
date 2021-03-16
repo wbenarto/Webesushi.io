@@ -65,7 +65,7 @@ export const Column1 = styled.div`
     margin-top: 0;
     height: 40vh;
   }
-  @media screen and (max-height: 645px) {
+  @media screen and (max-height: 740px) {
   }
 `;
 
@@ -89,9 +89,10 @@ export const Column2 = styled.div`
     justify-content: center;
   }
 
-  @media screen and (max-height: 645px) {
+  @media screen and (max-height: 740px) {
+    margin-top: 13vh;
     position: relative;
-    margin-top: -20px;
+    height: 30vh;
   }
 `;
 
@@ -107,8 +108,8 @@ export const TextWrapper = styled.div`
     flex: 1;
     height: 350px;
   }
-  @media screen and (max-height: 645px) {
-    position: relative;
+  @media screen and (max-height: 740px) {
+    height: 320px;
   }
 `;
 

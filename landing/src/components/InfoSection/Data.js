@@ -146,7 +146,7 @@ export const sushi = [
 
 export const homeObjOne = {
   id: "home-makase",
-  page: "/recipes",
+  page: "/homemakase",
   lightBg: true,
   lightText: true,
   lightTextDesc: true,

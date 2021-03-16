@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./pages";
 import Navbar from "./components/Navbar/index";
 import GalleryPage from "./pages/gallery";
-import RecipesPage from "./pages/recipes";
+import HomeMakase from "./pages/homemakase";
 import SigninPage from "./pages/signin";
 
 import SustainabilityPage from "./pages/sustainability";
@@ -18,7 +18,7 @@ function App() {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/signin" component={SigninPage} exact />
-          <Route path="/recipes" component={RecipesPage} exact />
+          <Route path="/homemakase" component={HomeMakase} exact />
           <Route path="/sustainability" component={SustainabilityPage} exact />
           <Route path="/gallery" component={GalleryPage} exact />
 
