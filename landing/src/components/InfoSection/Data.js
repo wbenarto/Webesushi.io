@@ -190,7 +190,7 @@ export const homeObjThree = {
   lightText: true,
   lightTextDesc: false,
   topLine: "About Me",
-  headline: "Sushi chef from Philadelphia",
+  headline: "Sushi chef from South Philadelphia",
   description:
     "I landed my first job as a part time sushi chef at Genji Sushi Callowhill in Philadelphia, PA. My love for sushi and affinity with the Japanese culture while working for a company that was strong in both senses, created a tool for me to learn and provide a very rewarding experience. During that time, I’ve discovered what we consume could be very detrimental to the livestock of our Ocean’s habitat. There are many illegal fishing practices that are still ending up on our plates. As a result, we all can do better. I hope to bring awareness to the sustainability issue and hopefully future generations will still be able to enjoy the Ootoro and Unagi that we all love today. Please use the site to learn new recipes and find out if the protein your fishmonger sells comes from a sustainable source!",
   buttonLabel: "See More",

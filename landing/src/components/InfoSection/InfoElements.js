@@ -56,7 +56,7 @@ export const Column1 = styled.div`
 
   @media screen and (max-width: 475px) {
     height: 45vh;
-    margin-top: -130px;
+
     flex: 1;
     position: relative;
   }
@@ -77,7 +77,6 @@ export const Column2 = styled.div`
   overflow: hidden;
 
   @media screen and (max-width: 475px) {
-    margin-top: 12vh;
     display: flex;
     justify-content: center;
     height: 35vh;
@@ -90,7 +89,7 @@ export const Column2 = styled.div`
   }
 
   @media screen and (max-height: 740px) {
-    margin-top: 13vh;
+    margin-top: 8vh;
     position: relative;
     height: 30vh;
   }
@@ -98,7 +97,6 @@ export const Column2 = styled.div`
 
 export const TextWrapper = styled.div`
   max-width: 540px;
-
   flex-direction: column;
 
   @media screen and (max-width: 768px) {
@@ -106,10 +104,9 @@ export const TextWrapper = styled.div`
     display: flex;
     text-align: left;
     flex: 1;
-    height: 350px;
   }
   @media screen and (max-height: 740px) {
-    height: 320px;
+    height: ${({ id }) => (id == "about" ? "60vh" : "40vh")};
   }
 `;
 
@@ -123,17 +120,15 @@ export const TopLine = styled.p`
   margin-bottom: 16px;
   display: flex;
   height: 50px;
-  margin-bottom: 20px;
 
   @media screen and (max-width: 768px) {
     overflow: hidden;
-    width: 80vw;
-    height: 50px;
+
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
   @media screen and (max-height: 645px) {
-    margin-top: 70px;
+    margin-top: 50px;
     height: 90px;
     margin-bottom: -10px;
   }
@@ -170,13 +165,13 @@ export const Subtitle = styled.p`
     font-size: 16px;
     width: 80vw;
 
-    /* height: ${({ short }) => (short ? "15vh" : "25vh")}; */
+    height: ${({ id }) => (id == "about" ? "60vh" : "15vh")};
+    margin-bottom: 0px;
     overflow-y: scroll;
-    margin-top: 10px;
+
     ::-webkit-scrollbar {
       display: none;
     }
-    margin-bottom: 0;
   }
 `;
 
@@ -598,5 +593,6 @@ export const InfoBtnLink = styled(LinkR)`
   }
   @media screen and (max-width: 768px) {
     justify-content: center;
+    display: ${({ id }) => (id == "about" ? "none" : "flex")};
   }
 `;

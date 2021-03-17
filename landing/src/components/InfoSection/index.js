@@ -45,10 +45,10 @@ const InfoSection = ({
               </ImgWrap>
             </Column2>
             <Column1>
-              <TextWrapper>
+              <TextWrapper id={id}>
                 <TopLine>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headline}</Heading>
-                <Subtitle short={short} darkText={darkText}>
+                <Subtitle short={short} id={id} darkText={darkText}>
                   {description}
                 </Subtitle>
               </TextWrapper>
@@ -64,6 +64,7 @@ const InfoSection = ({
                     dark2={dark2 ? 1 : 0}
                   > */}
                 <InfoBtnLink
+                  id={id}
                   to={page}
                   smooth={true}
                   duration={500}

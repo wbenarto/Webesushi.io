@@ -10,6 +10,7 @@ export const HomemakaseContainer = styled.div`
   position: absolute;
   width: 100vw;
   height: 100vh;
+  height: -webkit-fill-available;
   /* background-color: #2c3138; */
   background-color: white;
   justify-content: center;
