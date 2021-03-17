@@ -9,16 +9,15 @@ console.log(intFrameHeight);
 export const HomemakaseContainer = styled.div`
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: -webkit-fill-available;
   background-color: #2c3138;
-
   justify-content: center;
 `;
 
 export const AppNav = styled.div`
   position: relative;
   width: 100vw;
-  height: 60px;
+  height: 50px;
   background-color: #2c3138;
   display: flex;
   flex-direction: row;
@@ -44,7 +43,7 @@ export const AppLogo = styled.img`
 AppLogo.defaultProps = { src: Webe };
 
 export const AppHeading = styled.h1`
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: flex;
   position: relative;
   justify-content: center;
