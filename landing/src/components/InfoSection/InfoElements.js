@@ -320,7 +320,7 @@ export const ColumnCarousel1 = styled.div`
 
   @media screen and (max-width: 475px) {
     overflow: hidden;
-    height: 30vh;
+    height: 40vh;
     margin-top: 200px;
     position: absolute;
   }
@@ -555,7 +555,7 @@ export const ImageSliderCarousel = styled.div`
     display: flex;
     flex-shrink: 0;
     margin-left: 5%;
-    margin-bottom: 13vh;
+
     border-radius: 50px;
   }
   @media screen and (max-height: 685px) {
