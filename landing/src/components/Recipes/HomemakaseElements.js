@@ -50,7 +50,7 @@ export const AppHeading = styled.h1`
 `;
 
 export const AppDesc = styled.p`
-  font-size: 0.8rem;
+  font-size: 1.8rem;
 `;
 
 export const AppMain = styled.div`
@@ -58,15 +58,19 @@ export const AppMain = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: auto;
-  width: 90vw;
-  height: calc(100% - 160px);
+  max-width: 70vw;
+  height: calc(100% - 145px);
   background-color: blue;
+
+  @media screen and (max-width: 475px) {
+    min-width: 90%;
+  }
 `;
 
 export const AppFooter = styled.div`
   position: relative;
   width: 100vw;
-  height: 80px;
+  height: 50px;
   background-color: #2c3138;
   flex-shrink: 0;
   display: flex;
@@ -74,7 +78,7 @@ export const AppFooter = styled.div`
 `;
 
 export const AppIconsWrapper = styled.div`
-  height: 100px;
+  height: 50px;
   width: 100px;
   flex-direction: row;
   justify-content: center;
@@ -83,7 +87,7 @@ export const AppIconsWrapper = styled.div`
 `;
 
 export const AppIcons = styled.div`
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin-top: 15px;
   text-align: center;
   align-self: center;

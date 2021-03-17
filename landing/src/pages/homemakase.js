@@ -27,6 +27,7 @@ const HomeMakase = () => {
   const [active, setActive] = useState("about");
 
   const handleClick = (page) => {
+    setActive(page);
     console.log(page);
   };
 
@@ -42,11 +43,18 @@ const HomeMakase = () => {
         </AppNav>
 
         <AppMain>
-          <AppDesc>
-            We will first take a look what kind of ingredients and tools are
-            needed before we start our prepping process.
-          </AppDesc>
+          {active == "about" ? (
+            <AppDesc>
+              We will first take a look what kind of ingredients and tools are
+              needed before we start our prepping process.
+            </AppDesc>
+          ) : active == "home" ? (
+            <AppDesc>Home</AppDesc>
+          ) : active == "market" ? (
+            <AppDesc>Shop</AppDesc>
+          ) : null}
         </AppMain>
+
         <AppFooter>
           <AppIconsWrapper onClick={() => handleClick("about")}>
             <AppIcons>
