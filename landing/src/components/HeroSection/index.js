@@ -10,13 +10,14 @@ import {
 } from "./HeroElements";
 import { ButtonHero } from "../ButtonElement";
 import Video from "../../videos/video.mp4";
+import torch from "../../images/torch.jpg";
 // const Video = lazy(() => import("../../videos/video.mp4"));
 
 const HeroSection = () => {
   return (
     <HeroContainer>
       <HeroBg>
-        <VideoBg type="video/mp4" autoPlay loop muted src={Video}></VideoBg>
+        <VideoBg autoPlay loop muted src={torch}></VideoBg>
       </HeroBg>
       <HeroContent>
         <HeroH1> WE BE BETTER </HeroH1>

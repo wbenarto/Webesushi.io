@@ -320,12 +320,14 @@ export const ColumnCarousel1 = styled.div`
 
   @media screen and (max-width: 475px) {
     overflow: hidden;
-    height: 40vh;
-    margin-top: 200px;
+    height: 35vh;
+    margin-top: 300px;
     position: absolute;
+    box-shadow: seagreen;
   }
   @media screen and (max-height: 685px) {
     height: 40vh;
+    margin-top: 300px;
   }
 `;
 
@@ -363,7 +365,9 @@ export const TextWrapperCarousel = styled.div`
     display: flex;
     text-align: left;
     flex: 1;
-    height: 85%;
+    height: 65%;
+
+    background-color: rgba(0, 0, 0, 0.5);
   }
 `;
 
@@ -383,7 +387,7 @@ export const ImgWrapCarousel = styled.div`
     position: absolute;
     overflow: hidden;
     border: 2px solid #dbd6a9;
-    height: 40vh;
+    height: 65vh;
   }
 
   @media screen and (max-width: 768px) {
@@ -391,7 +395,7 @@ export const ImgWrapCarousel = styled.div`
     width: 80%; */
   }
   @media screen and (max-height: 685px) {
-    height: 40vh;
+    height: 65vh;
   }
 `;
 
@@ -490,16 +494,17 @@ export const CarouselHeading = styled.h1`
   color: white;
   @media screen and (max-width: 475px) {
     padding-top: 10px;
-    font-size: 26px;
-    min-height: 80px;
+    font-size: 18px;
+    min-height: 40px;
     margin-bottom: 0;
+    padding-top: 5px;
     justify-content: bottom;
-    color: ${({ lightText }) => (lightText ? "#010606" : "#010606")};
+    color: ${({ lightText }) => (lightText ? "#fff" : "#2c3138")};
     border-bottom: 4px solid #010606;
   }
 
   @media screen and (max-height: 685px) {
-    height: 100px;
+    height: 150px;
   }
 `;
 
@@ -512,11 +517,12 @@ export const CarouselSubtitle = styled.p`
   height: 300px;
 
   @media screen and (max-width: 475px) {
+    font-size: 16px;
     font-size: 18px;
     width: 80vw;
     height: 300px;
     line-height: 24px;
-    padding: 20px;
+
     color: ${({ darkText }) => (darkText ? "#010606" : "#dbd6a9")};
   }
 
@@ -555,8 +561,8 @@ export const ImageSliderCarousel = styled.div`
     display: flex;
     flex-shrink: 0;
     margin-left: 5%;
-
     border-radius: 50px;
+    margin-bottom: 50px;
   }
   @media screen and (max-height: 685px) {
     margin-bottom: 4vh;
