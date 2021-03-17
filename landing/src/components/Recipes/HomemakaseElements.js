@@ -10,7 +10,8 @@ export const HomemakaseContainer = styled.div`
   position: absolute;
   width: 100vw;
   height: -webkit-fill-available;
-  background-color: #2c3138;
+  /* background-color: #2c3138; */
+  background-color: white;
   justify-content: center;
 `;
 
@@ -61,7 +62,7 @@ export const AppMain = styled.div`
   margin-bottom: auto;
   max-width: 70vw;
   height: calc(100% - 145px);
-  background-color: lightblue;
+  background-color: white;
 
   @media screen and (max-width: 475px) {
     min-width: 100%;
@@ -71,14 +72,14 @@ export const AppMain = styled.div`
 export const AppFooter = styled.div`
   position: relative;
   width: 100vw;
-  height: 50px;
+  height: 70px;
   background-color: #2c3138;
   flex-shrink: 0;
   display: flex;
   justify-content: space-evenly;
 
   @media screen and (max-width: 475px) {
-    margin-bottom: 65px; //resize
+    margin-bottom: 25px; //resize
   }
 `;
 
