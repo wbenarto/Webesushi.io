@@ -122,9 +122,7 @@ const InfoCarousel = ({
             </ColumnCarousel2>
             <ColumnCarousel1>
               <TextWrapperCarousel onClick={() => handlePause()}>
-                <CarouselHeading lightText={lightText}>
-                  {sushi[cur].name}
-                </CarouselHeading>
+                <CarouselHeading>{sushi[cur].name}</CarouselHeading>
                 <CarouselSubtitle darkText={darkText}>
                   {sushi[cur].desc}
                 </CarouselSubtitle>

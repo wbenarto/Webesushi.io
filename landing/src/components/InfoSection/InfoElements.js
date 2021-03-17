@@ -126,6 +126,7 @@ export const TopLine = styled.p`
 
     font-size: 14px;
     margin-bottom: 5px;
+    height: 25px;
   }
   @media screen and (max-height: 645px) {
     margin-top: 50px;
@@ -165,7 +166,7 @@ export const Subtitle = styled.p`
     font-size: 16px;
     width: 80vw;
 
-    height: ${({ id }) => (id == "about" ? "60vh" : "15vh")};
+    height: ${({ id }) => (id == "about" ? "35vh" : "15vh")};
     margin-bottom: 0px;
     overflow-y: scroll;
 
@@ -280,7 +281,8 @@ export const InfoRowCarousel = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 90px;
+    margin-top: 8vh;
+    margin-bottom: 120px;
   }
 
   /* @media screen and (max-width: 768px) {
@@ -304,7 +306,7 @@ export const ColumnCarousel1 = styled.div`
     flex-direction: column;
     position: relative;
     align-items: center;
-    background: linear-gradient(#dbd6a9, #010606);
+    /* background: linear-gradient(#dbd6a9, #010606); */
     z-index: 5;
     border-top: 6px solid #2c3138;
     border-radius: 45px;
@@ -313,12 +315,17 @@ export const ColumnCarousel1 = styled.div`
     width: 90%;
     padding: 0px;
   }
-  @media screen and (max-height: 645px) {
-    margin-top: 100px;
+  @media screen and (max-height: 685px) {
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 475px) {
     overflow: hidden;
+    height: 30vh;
+    margin-top: 200px;
+    position: absolute;
+  }
+  @media screen and (max-height: 685px) {
+    height: 40vh;
   }
 `;
 
@@ -339,8 +346,7 @@ export const ColumnCarousel2 = styled.div`
     overflow: hidden;
     justify-content: center;
   }
-  @media screen and (max-height: 645px) {
-    margin-top: 30px;
+  @media screen and (max-height: 685px) {
     object-fit: cover;
     object-position: bottom;
   }
@@ -377,13 +383,14 @@ export const ImgWrapCarousel = styled.div`
     position: absolute;
     overflow: hidden;
     border: 2px solid #dbd6a9;
+    height: 40vh;
   }
 
   @media screen and (max-width: 768px) {
     /* height: 50vh;
     width: 80%; */
   }
-  @media screen and (max-height: 645px) {
+  @media screen and (max-height: 685px) {
     height: 40vh;
   }
 `;
@@ -473,12 +480,14 @@ export const CarouselHeading = styled.h1`
   height: 120px;
   width: 100%;
   line-height: 1.1;
-  font-weight: 600;
+
   vertical-align: text-bottom;
-  color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
+
+  background: linear-gradient(#dbd6a9, #d3d4ba);
   text-align: left;
   border-radius: 20px;
   border-bottom: 4px solid #dbd6a9;
+  color: white;
   @media screen and (max-width: 475px) {
     padding-top: 10px;
     font-size: 26px;
@@ -489,7 +498,8 @@ export const CarouselHeading = styled.h1`
     border-bottom: 4px solid #010606;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-height: 685px) {
+    height: 100px;
   }
 `;
 
@@ -499,7 +509,7 @@ export const CarouselSubtitle = styled.p`
   font-size: 24px;
   line-height: 30px;
   color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
-  height: 200px;
+  height: 300px;
 
   @media screen and (max-width: 475px) {
     font-size: 18px;
@@ -512,7 +522,10 @@ export const CarouselSubtitle = styled.p`
 
   @media screen and (max-width: 768px) {
     width: 100%;
-    overflow: hidden;
+    overflow: scroll;
+    height: 350px;
+    margin-bottom: 0px;
+    padding-top: 5px;
   }
 `;
 
@@ -542,8 +555,11 @@ export const ImageSliderCarousel = styled.div`
     display: flex;
     flex-shrink: 0;
     margin-left: 5%;
-    margin-bottom: 0px;
+    margin-bottom: 13vh;
     border-radius: 50px;
+  }
+  @media screen and (max-height: 685px) {
+    margin-bottom: 4vh;
   }
 `;
 
