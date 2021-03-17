@@ -18,17 +18,15 @@ export const HomemakaseContainer = styled.div`
 export const AppNav = styled.div`
   position: relative;
   width: 100vw;
-  height: 80px;
+  height: 60px;
   background-color: #2c3138;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
 export const AppNavLogo = styled(LinkR)`
-  height: 100px;
-  width: 100px;
   display: flex;
   align-items: center;
   font-size: 1.2rem;
@@ -49,7 +47,7 @@ export const AppHeading = styled.h1`
   font-size: 1.2rem;
   display: flex;
   position: relative;
-  just: center;
+  justify-content: center;
   color: #dbd6a9;
 `;
 
@@ -64,10 +62,10 @@ export const AppMain = styled.div`
   margin-bottom: auto;
   max-width: 70vw;
   height: calc(100% - 145px);
-  background-color: blue;
+  background-color: lightblue;
 
   @media screen and (max-width: 475px) {
-    min-width: 90%;
+    min-width: 100%;
   }
 `;
 
@@ -79,6 +77,10 @@ export const AppFooter = styled.div`
   flex-shrink: 0;
   display: flex;
   justify-content: space-evenly;
+
+  @media screen and (max-width: 475px) {
+    margin-bottom: 65px; //resize
+  }
 `;
 
 export const AppIconsWrapper = styled.div`
