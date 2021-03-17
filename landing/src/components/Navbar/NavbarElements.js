@@ -25,7 +25,7 @@ export const Nav = styled.nav`
   font-family: "Work Sans", sans-serif;
 
   @media screen and (max-width: 475px) {
-    height: 80px;
+    height: 50px;
   }
 `;
 
@@ -40,9 +40,8 @@ export const NavbarContainer = styled.div`
   max-width: 1100px;
 
   @media screen and (max-width: 768px) {
-    height: 80px;
+    height: 50px;
 
-    align-items: center;
     padding-bottom: 0px;
   }
 `;
@@ -71,7 +70,8 @@ export const NavLogo = styled(LinkR)`
     height: 80px;
     display: block;
     position: absolute;
-    top: 30px;
+    top: 18px;
+    margin-left: 34px;
     left: 0;
   }
 `;
@@ -83,7 +83,9 @@ export const MobileIcon = styled.div`
     display: block;
     position: absolute;
     top: 0;
+    margin-top: -10px;
     right: 0;
+    margin-right: 10px;
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;

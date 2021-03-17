@@ -9,7 +9,7 @@ console.log(intFrameHeight);
 export const HomemakaseContainer = styled.div`
   position: absolute;
   width: 100vw;
-  height: -webkit-fill-available;
+  height: 100vh;
   /* background-color: #2c3138; */
   background-color: white;
   justify-content: center;
@@ -61,8 +61,8 @@ export const AppMain = styled.div`
   margin-right: auto;
   margin-bottom: auto;
   max-width: 70vw;
-  height: calc(100% - 145px);
-  background-color: white;
+  height: calc(100vh - 140px);
+  background-color: #a5b4cc;
 
   @media screen and (max-width: 475px) {
     min-width: 100%;
@@ -72,7 +72,7 @@ export const AppMain = styled.div`
 export const AppFooter = styled.div`
   position: relative;
   width: 100vw;
-  height: 70px;
+  height: 90px;
   background-color: #2c3138;
   flex-shrink: 0;
   display: flex;

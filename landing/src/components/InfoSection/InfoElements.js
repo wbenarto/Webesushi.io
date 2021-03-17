@@ -345,7 +345,7 @@ export const ColumnCarousel2 = styled.div`
     justify-content: center;
   }
   @media screen and (max-height: 645px) {
-    margin-top: -30px;
+    margin-top: 30px;
     object-fit: cover;
     object-position: bottom;
   }
@@ -547,6 +547,7 @@ export const ImageSliderCarousel = styled.div`
     display: flex;
     flex-shrink: 0;
     margin-left: 5%;
+    margin-bottom: 0px;
     border-radius: 50px;
   }
 `;
