@@ -23,15 +23,17 @@ export const AppNav = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 `;
 
 export const AppNavLogo = styled(LinkR)`
   height: 100px;
   width: 100px;
   display: flex;
+  align-items: center;
   font-size: 1.2rem;
   color: #dbd6a9;
-  align-items: center;
+
   padding: 20px;
 `;
 
@@ -46,6 +48,8 @@ AppLogo.defaultProps = { src: Webe };
 export const AppHeading = styled.h1`
   font-size: 1.2rem;
   display: flex;
+  position: relative;
+  just: center;
   color: #dbd6a9;
 `;
 

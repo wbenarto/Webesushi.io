@@ -16,14 +16,14 @@ import webewhite from "../../images/webewhite.png";
 
 const Shop = () => {
   return (
-    <>
-      <Shop>
-        <ShopTab>
-          <h1>Back</h1>
-          <ShopControls>SHOP</ShopControls>
-        </ShopTab>
-      </Shop>
-    </>
+    <ShopContainer>
+      <h1>Shop Here:</h1>
+      <h2>Tools</h2>
+      <h2>Essentials</h2>
+      <h2>Vegetarian</h2>
+      <h2>All Cooked</h2>
+      <h2>Raw</h2>
+    </ShopContainer>
   );
 };
 

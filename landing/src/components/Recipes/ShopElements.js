@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 export const ShopContainer = styled.div`
   color: #bd8f5e;
+  background-color: white;
   display: flex;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   scroll-snap-align: start;
+  overflow: scroll;
   z-index: 0;
 `;
 

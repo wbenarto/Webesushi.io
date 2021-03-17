@@ -49,9 +49,9 @@ const HomeMakase = () => {
               needed before we start our prepping process.
             </AppDesc>
           ) : active == "home" ? (
-            <AppDesc>Home</AppDesc>
+            <Home />
           ) : active == "market" ? (
-            <AppDesc>Shop</AppDesc>
+            <Shop />
           ) : null}
         </AppMain>
 
