@@ -423,7 +423,7 @@ export const CarouselControls = styled.div`
   justify-content: center;
   min-width: 20vw;
   align-items: center;
-  width: 50%;
+
   margin-right: 0;
   @media screen and (max-width: 475px) {
     width: 100%;
@@ -487,11 +487,10 @@ export const CarouselHeading = styled.h1`
 
   vertical-align: text-bottom;
 
-  background: linear-gradient(#dbd6a9, #d3d4ba);
   text-align: left;
   border-radius: 20px;
   border-bottom: 4px solid #dbd6a9;
-  color: white;
+
   @media screen and (max-width: 475px) {
     padding-top: 10px;
     font-size: 18px;
@@ -500,6 +499,7 @@ export const CarouselHeading = styled.h1`
     padding-top: 5px;
     justify-content: bottom;
     color: ${({ lightText }) => (lightText ? "#fff" : "#2c3138")};
+    background: linear-gradient(#dbd6a9, #d3d4ba);
     border-bottom: 4px solid #010606;
   }
 

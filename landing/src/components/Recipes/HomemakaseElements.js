@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Webe from "../../images/webe.png";
+import Webe from "../../images/nigiriplate.jpg";
 import { Link as LinkR } from "react-router-dom";
 
 var intFrameHeight = window.innerHeight;
@@ -12,15 +12,29 @@ export const HomemakaseContainer = styled.div`
   height: 100vh;
   height: -webkit-fill-available;
   /* background-color: #2c3138; */
-  background-color: white;
+  background-image: url(${Webe});
+  background-position: center;
+
   justify-content: center;
+
+  ::before {
+    content: "";
+    background-color: rgba(91, 92, 94, 0.4);
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
 `;
 
 export const AppNav = styled.div`
   position: relative;
   width: 100vw;
   height: 50px;
-  background-color: #2c3138;
+  background-color: transparent;
+  /* #2c3138 */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -63,7 +77,8 @@ export const AppMain = styled.div`
   margin-bottom: auto;
   max-width: 70vw;
   height: calc(100vh - 17vh);
-  background-color: #a5b4cc;
+  background-color: transparent;
+  /* #a5b4cc; */
 
   @media screen and (max-width: 475px) {
     min-width: 100%;
@@ -72,7 +87,8 @@ export const AppMain = styled.div`
 
 export const AppFooter = styled.div`
   position: relative;
-  width: 100vw;
+  margin-left: 15vw;
+  max-width: 70vw;
   height: 90px;
   background-color: #2c3138;
   flex-shrink: 0;
@@ -84,7 +100,7 @@ export const AppFooter = styled.div`
   }
 `;
 
-export const AppIconsWrapper = styled.div`
+export const AppIconsWrapper = styled(LinkR)`
   height: 50px;
   width: 100px;
   flex-direction: row;
