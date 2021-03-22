@@ -143,6 +143,17 @@ const InfoCarousel = ({
                 </CarouselInfo>
 
                 <CarouselHeading>{sushi[cur].name}</CarouselHeading>
+                <CarouselControls>
+                  <IconWrapperLeft onClick={() => prevSlide()}>
+                    <FaArrowAltCircleLeft />
+                  </IconWrapperLeft>
+                  <IconWrapperMiddle onClick={() => handlePause()}>
+                    {slidePlay ? <FaPause /> : <FaPlay />}
+                  </IconWrapperMiddle>
+                  <IconWrapperRight onClick={() => nextSlide()}>
+                    <FaArrowAltCircleRight />
+                  </IconWrapperRight>
+                </CarouselControls>
               </ImgWrapCarousel>
             </ColumnCarousel2>
 
@@ -154,17 +165,6 @@ const InfoCarousel = ({
                 </CarouselSubtitle>
               </TextWrapperCarousel>
             </ColumnCarousel1>
-            <CarouselControls>
-              <IconWrapperLeft onClick={() => prevSlide()}>
-                <FaArrowAltCircleLeft />
-              </IconWrapperLeft>
-              <IconWrapperMiddle onClick={() => handlePause()}>
-                {slidePlay ? <FaPause /> : <FaPlay />}
-              </IconWrapperMiddle>
-              <IconWrapperRight onClick={() => nextSlide()}>
-                <FaArrowAltCircleRight />
-              </IconWrapperRight>
-            </CarouselControls>
           </InfoRowCarousel>
 
           <ImageSliderCarousel>

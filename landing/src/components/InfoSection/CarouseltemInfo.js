@@ -1,15 +1,21 @@
 import React from "react";
-import { CarouselItemInfo, ItemIngredients } from "./CarouselItemInfoElements";
+import {
+  CarouselItemInfo,
+  ItemIngredients,
+  ItemDesc,
+} from "./CarouselItemInfoElements";
 
 const CarouseltemInfo = (props) => {
   return (
     <CarouselItemInfo onClick={() => props.handleInfo()}>
-      Ingredients:
+      <ItemDesc>{props.data.desc}</ItemDesc>
+
       <ItemIngredients>
+        <h1>Ingredients:</h1>
         {props.data.ingredients
           .filter((e) => e !== "sushi rice")
           .map((e) => (
-            <h4>{e}</h4>
+            <p>{e}</p>
           ))}
       </ItemIngredients>
     </CarouselItemInfo>

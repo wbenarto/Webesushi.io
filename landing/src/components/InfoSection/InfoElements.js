@@ -264,7 +264,7 @@ export const InfoWrapperCarousel = styled.div`
 export const InfoRowCarousel = styled.div`
   display: grid;
   margin-top: 15vh;
-  margin-bottom: 10px;
+
   grid-auto-columns: minmax(auto, 1fr);
   flex-direction: column;
   flex: 1 0 auto;
@@ -281,8 +281,7 @@ export const InfoRowCarousel = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 8vh;
-    margin-bottom: 120px;
+    margin-top: 10vh;
   }
 
   /* @media screen and (max-width: 768px) {
@@ -297,7 +296,7 @@ export const ColumnCarousel1 = styled.div`
   align-content: center;
   position: relative;
   width: 100%;
-  height: 45vh;
+  height: 55vh;
   padding: 20px;
   overflow: hidden;
 
@@ -331,7 +330,7 @@ export const ColumnCarousel2 = styled.div`
   margin-bottom: 15px;
   grid-area: col2;
   margin-left: 0px;
-  width: 100%;
+
   align-content: center;
   object-fit: wrap;
   overflow: hidden;
@@ -370,22 +369,28 @@ export const TextWrapperCarousel = styled.div`
 `;
 
 export const ImgWrapCarousel = styled.div`
-  position: relative;
+  position: absolute;
   object-fit: wrap;
   display: flex;
+
   align-items: center;
   overflow: hidden;
-  max-width: 80vw;
-  height: 60vh;
+  min-width: 38vw;
+  margin-right: 50px;
+
+  height: 70vh;
   border: 4px #dbd6a9 solid;
   border-radius: 5px;
   z-index: 4;
+  margin-bottom: 0;
 
   @media screen and (max-width: 475px) {
     position: absolute;
     overflow: hidden;
     border: 2px solid #dbd6a9;
     height: 65vh;
+    margin-right: 0;
+    flex-direction: column;
   }
 
   @media screen and (max-width: 768px) {
@@ -414,24 +419,19 @@ export const ImgCarousel = styled.img`
 `;
 
 export const CarouselControls = styled.div`
-  position: relative;
-
+  position: absolute;
   display: flex;
-  flex: 1;
+  bottom: 40px;
   flex-direction: row;
   justify-content: center;
-  width: 20vw;
-  margin-top: -4rem;
-
-  z-index: 15;
+  width: 100%;
+  z-index: 99;
+  align-items: center;
   @media screen and (max-width: 475px) {
     width: 100%;
     position: absolute;
-    display: flex;
-    z-index: 15;
-    margin-top: 200px;
-
     transform: scale(0.5);
+    bottom: 20px;
   }
 `;
 
@@ -443,37 +443,37 @@ export const IconWrapperLeft = styled.div`
 
   font-size: 2rem;
   opacity: 0.7;
-  color: #fff;
+  color: #dbd6a9;
   cursor: pointer;
   user-select: none;
 
   @media screen and (max-width: 475px) {
-    color: #dbd6a9;
+    /* color: #dbd6a9; */
+    color: #fff;
   }
 `;
 
 export const IconWrapperMiddle = styled.div`
   position: absolute;
-
+  color: #dbd6a9;
   font-size: 2rem;
   opacity: 0.7;
   @media screen and (max-width: 475px) {
-    color: #dbd6a9;
+    color: #fff;
   }
 `;
 
 export const IconWrapperRight = styled.div`
   position: absolute;
   right: 0;
-
+  color: #dbd6a9;
   font-size: 2rem;
   opacity: 0.7;
-  color: #fff;
   cursor: pointer;
   user-select: none;
 
   @media screen and (max-width: 475px) {
-    color: #dbd6a9;
+    color: #fff;
   }
 `;
 
@@ -492,16 +492,33 @@ export const CarouselHeading = styled.h1`
   @media screen and (max-width: 475px) {
     position: absolute;
     padding-top: 10px;
-    font-size: 1.5rem;
-    height: 4rem;
-    z-index: 4;
-    padding-top: 5px;
+    font-size: 2.2rem;
+    height: 7.5rem;
     bottom: 0;
     font-family: "Cormorant Unicase";
     margin-bottom: 0;
     justify-content: bottom;
-    color: ${({ lightText }) => (lightText ? "#fff" : "#2c3138")};
-    background: linear-gradient(#dbd6a9, #d3d4ba);
+    color: ${({ lightText }) => (lightText ? "#fff" : "#dbd6a9")};
+    /* background: linear-gradient(#dbd6a9, #d3d4ba);  */
+    background-color: transparent;
+    border-bottom: none;
+    z-index: 3;
+
+    :before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+          -180deg,
+          rgba(0, 0, 0, 0.1) 100%,
+          rgba(0, 0, 0, 0.1) 100%
+        ),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+      z-index: 2;
+    }
   }
 
   @media screen and (max-height: 685px) {
@@ -540,22 +557,23 @@ export const CarouselInfo = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  padding: 5px;
+  margin-top: 12px;
   font-size: 1.3rem;
   z-index: 99;
   justify-content: center;
-  color: #2c3138;
+  /* color: #2c3138; */
+  color: #dbd6a9;
 `;
 
 export const ImageSliderCarousel = styled.div`
-  flex-shrink: 0;
   height: 110px;
-  width: 100%;
+  width: 50%;
   overflow-x: scroll;
   display: flex;
-  flex: 0;
+  margin-bottom: 50px;
   flex-direction: row;
   align-items: center;
+  position: relative;
 
   ::-webkit-scrollbar {
     height: 10px;
@@ -568,16 +586,14 @@ export const ImageSliderCarousel = styled.div`
   }
 
   @media screen and (max-width: 475px) {
-    width: 90%;
+    width: 100%;
     position: absolute;
     display: flex;
-    flex-shrink: 0;
-    margin-left: 5%;
-    border-radius: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+    border-radius: 5px;
   }
   @media screen and (max-height: 685px) {
-    margin-bottom: 4vh;
+    margin-bottom: 8vh;
   }
 `;
 
