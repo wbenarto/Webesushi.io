@@ -297,7 +297,7 @@ export const ColumnCarousel1 = styled.div`
   align-content: center;
   position: relative;
   width: 100%;
-  height: 55vh;
+  height: 45vh;
   padding: 20px;
   overflow: hidden;
 
@@ -319,6 +319,7 @@ export const ColumnCarousel1 = styled.div`
   }
 
   @media screen and (max-width: 475px) {
+    display: none;
   }
   @media screen and (max-height: 685px) {
     height: 40vh;
@@ -353,6 +354,8 @@ export const TextWrapperCarousel = styled.div`
   max-width: 540px;
   padding-top: 0;
   height: 100%;
+  flex-direction: column;
+  justify-content: center;
 
   @media screen and (max-width: 768px) {
     width: 90%;
@@ -412,14 +415,15 @@ export const ImgCarousel = styled.img`
 
 export const CarouselControls = styled.div`
   position: relative;
+
   display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: center;
-  min-width: 20vw;
-  align-items: center;
-  margin-right: 0;
+  width: 20vw;
+  margin-top: -4rem;
 
+  z-index: 15;
   @media screen and (max-width: 475px) {
     width: 100%;
     position: absolute;
@@ -510,7 +514,6 @@ export const CarouselSubtitle = styled.p`
   font-size: 24px;
   line-height: 30px;
   color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
-  height: 300px;
 
   @media screen and (max-width: 475px) {
     font-size: 16px;

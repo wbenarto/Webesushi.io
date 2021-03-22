@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CarouselItemInfo = styled.div`
-  position: relative;
+  position: absolute;
   width: 80vw;
   height: 60%;
   padding: 20px;
