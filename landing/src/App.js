@@ -13,17 +13,9 @@ import NotFoundPage from "./pages/404";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => {
-    setIsOpen(!isOpen);
-    console.log("pressed = " + isOpen);
-  };
   return (
     <div style={{ width: "100%" }}>
       <Router>
-        <Sidebar isOpen={isOpen} toggle={toggle} />
-        <Navbar toggle={toggle} />
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/signin" component={SigninPage} exact />

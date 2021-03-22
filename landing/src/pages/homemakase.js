@@ -45,13 +45,11 @@ const HomeMakase = () => {
   };
 
   return (
-    <>
+    <div>
       <HomemakaseContainer>
         <AppNav>
           <AppNavLogo to="/">
             <FaChevronLeft />
-
-            {/* <AppLogo /> */}
           </AppNavLogo>
           <AppHeading>HOME-MAKASE</AppHeading>
         </AppNav>
@@ -141,7 +139,7 @@ const HomeMakase = () => {
           </AppIconsWrapper>
         </AppFooter>
       </HomemakaseContainer>
-    </>
+    </div>
   );
 };
 

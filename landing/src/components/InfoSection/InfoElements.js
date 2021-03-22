@@ -387,10 +387,14 @@ export const ImgWrapCarousel = styled.div`
   @media screen and (max-width: 475px) {
     position: absolute;
     overflow: hidden;
+    display: block;
+    margin: auto;
     border: 2px solid #dbd6a9;
     height: 65vh;
-    margin-right: 0;
+
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
   }
 
   @media screen and (max-width: 768px) {
@@ -421,12 +425,14 @@ export const ImgCarousel = styled.img`
 export const CarouselControls = styled.div`
   position: absolute;
   display: flex;
-  bottom: 40px;
+  flex: 1;
+  bottom: 60px;
   flex-direction: row;
   justify-content: center;
-  width: 100%;
-  z-index: 99;
-  align-items: center;
+  width: 70%;
+  margin-left: 7vw;
+  object-fit: wrap;
+
   @media screen and (max-width: 475px) {
     width: 100%;
     position: absolute;
@@ -449,7 +455,6 @@ export const IconWrapperLeft = styled.div`
 
   @media screen and (max-width: 475px) {
     /* color: #dbd6a9; */
-    color: #fff;
   }
 `;
 
@@ -459,7 +464,6 @@ export const IconWrapperMiddle = styled.div`
   font-size: 2rem;
   opacity: 0.7;
   @media screen and (max-width: 475px) {
-    color: #fff;
   }
 `;
 
@@ -473,7 +477,6 @@ export const IconWrapperRight = styled.div`
   user-select: none;
 
   @media screen and (max-width: 475px) {
-    color: #fff;
   }
 `;
 

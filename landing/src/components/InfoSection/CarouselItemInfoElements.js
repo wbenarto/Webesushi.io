@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const CarouselItemInfo = styled.div`
   position: absolute;
 
-  width: 45vw;
+  width: 100%;
   height: 60%;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 5;
 
   @media screen and (max-width: 475px) {
-    width: 100vw;
+    width: 100%;
   }
 `;
 

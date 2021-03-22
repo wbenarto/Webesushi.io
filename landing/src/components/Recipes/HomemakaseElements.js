@@ -10,7 +10,7 @@ export const HomemakaseContainer = styled.div`
   position: absolute;
   width: 100vw;
   height: 100vh;
-  height: -webkit-fill-available;
+
   /* background-color: #2c3138; */
   background-image: url(${Webe});
   background-position: center;
@@ -19,7 +19,7 @@ export const HomemakaseContainer = styled.div`
 
   ::before {
     content: "";
-    background-color: rgba(91, 92, 94, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     background-size: cover;
     position: absolute;
     top: 0px;

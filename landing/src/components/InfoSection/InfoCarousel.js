@@ -122,17 +122,16 @@ const InfoCarousel = ({
         <InfoWrapperCarousel>
           <InfoRowCarousel imgStart={imgStart}>
             <ColumnCarousel2>
-              {infoActive ? (
-                <CarouselItemInfo
-                  data={sushi[cur]}
-                  handleInfo={() => handleInfo()}
-                  onClick={() => handleInfo()}
-                />
-              ) : (
-                <></>
-              )}
-
               <ImgWrapCarousel>
+                {infoActive ? (
+                  <CarouselItemInfo
+                    data={sushi[cur]}
+                    handleInfo={() => handleInfo()}
+                    onClick={() => handleInfo()}
+                  />
+                ) : (
+                  <></>
+                )}
                 <ImgCarousel
                   onClick={() => handlePause()}
                   src={sushi[cur].images}
