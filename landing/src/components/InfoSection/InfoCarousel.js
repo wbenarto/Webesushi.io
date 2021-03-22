@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "../ButtonElement";
-
 import { sushi } from "./Data";
 import {
   FaArrowAltCircleRight,
   FaArrowAltCircleLeft,
   FaPause,
   FaPlay,
+  FaInfoCircle,
 } from "react-icons/fa";
-
+import CarouselItemInfo from "./CarouseltemInfo";
 import {
   InfoCarouselContainer,
   InfoWrapperCarousel,
@@ -20,6 +20,7 @@ import {
   Img,
   CarouselHeading,
   CarouselSubtitle,
+  CarouselInfo,
   BtnWrap,
   ColumnCarousel2,
   ImgWrapCarousel,
@@ -53,6 +54,7 @@ const InfoCarousel = ({
 }) => {
   const [cur, setCur] = useState(0);
   const [slidePlay, setSlidePlay] = useState(true);
+  const [infoActive, setInfoActive] = useState(false);
 
   const autoPlayRef = useRef();
   const length = sushi.length;
@@ -99,9 +101,7 @@ const InfoCarousel = ({
       setSlidePlay(true);
     } else setSlidePlay(false);
   };
-  // Autoplay 4s with animation
-  // Button to pause
-  // Preview images bar, onClick, show data
+
   const handlePreview = (val) => {
     if (!val) {
       cur = 0;
@@ -110,17 +110,53 @@ const InfoCarousel = ({
     setCur(val - 1);
   };
 
+  const handleInfo = () => {
+    if (infoActive) {
+      setInfoActive(false);
+    } else setInfoActive(true);
+  };
+
   return (
     <>
       <InfoCarouselContainer lightBg={lightBg} id={id}>
         <InfoWrapperCarousel>
           <InfoRowCarousel imgStart={imgStart}>
-            <ColumnCarousel2 onClick={() => handlePause()}>
+            <ColumnCarousel2>
+              {infoActive ? (
+                <CarouselItemInfo
+                  data={sushi[cur]}
+                  handleInfo={() => handleInfo()}
+                  onClick={() => handleInfo()}
+                />
+              ) : (
+                <></>
+              )}
+
               <ImgWrapCarousel>
-                <ImgCarousel src={sushi[cur].images} />
+                <ImgCarousel
+                  onClick={() => handlePause()}
+                  src={sushi[cur].images}
+                />
+
+                <CarouselInfo onClick={() => handleInfo()}>
+                  <FaInfoCircle />
+                </CarouselInfo>
+
+                <CarouselHeading>{sushi[cur].name}</CarouselHeading>
               </ImgWrapCarousel>
             </ColumnCarousel2>
-            <ColumnCarousel1>
+            <CarouselControls>
+              <IconWrapperLeft onClick={() => prevSlide()}>
+                <FaArrowAltCircleLeft />
+              </IconWrapperLeft>
+              <IconWrapperMiddle onClick={() => handlePause()}>
+                {slidePlay ? <FaPause /> : <FaPlay />}
+              </IconWrapperMiddle>
+              <IconWrapperRight onClick={() => nextSlide()}>
+                <FaArrowAltCircleRight />
+              </IconWrapperRight>
+            </CarouselControls>
+            {/* <ColumnCarousel1>
               <TextWrapperCarousel onClick={() => handlePause()}>
                 <CarouselHeading>{sushi[cur].name}</CarouselHeading>
                 <CarouselSubtitle darkText={darkText}>
@@ -138,7 +174,7 @@ const InfoCarousel = ({
                   <FaArrowAltCircleRight />
                 </IconWrapperRight>
               </CarouselControls>
-            </ColumnCarousel1>
+            </ColumnCarousel1> */}
           </InfoRowCarousel>
 
           <ImageSliderCarousel>

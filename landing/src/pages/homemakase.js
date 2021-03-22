@@ -5,8 +5,10 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import Sidebar from "../components/Sidebar/index";
 import Shop from "../components/Recipes/Shop";
 import Home from "../components/Recipes/Home";
+import Navbar from "../components/Navbar/index";
 import webewhite from "../images/webe.png";
 import { FaChevronLeft, FaHome, FaStore, FaTape } from "react-icons/fa";
 import {
@@ -30,18 +32,23 @@ import {
 } from "../components/Navbar/NavbarElements";
 
 const HomeMakase = () => {
-  const [active, setActive] = useState("about");
+  const [active, setActive] = useState("/");
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggle = () => {
+    setIsOpen(!isOpen);
+    console.log("pressed = " + isOpen);
+  };
   const handleClick = (page) => {
     setActive(page);
     console.log(page);
   };
 
   return (
-    <Router>
+    <>
       <HomemakaseContainer>
         <AppNav>
-          <AppNavLogo>
+          <AppNavLogo to="/">
             <FaChevronLeft />
 
             {/* <AppLogo /> */}
@@ -50,39 +57,36 @@ const HomeMakase = () => {
         </AppNav>
 
         <AppMain>
-          <Switch>
-            <Route exact path="/homemakase/">
-              <div>
-                <h1>Homemakase</h1>
-                <p>
-                  We will first take a look what kind of ingredients and tools
-                  are needed before we start our prepping process.
-                </p>
+          {active == "home" ? (
+            <Home />
+          ) : active == "shop" ? (
+            <Shop />
+          ) : (
+            <div>
+              <h1>Homemakase</h1>
+              <p>
+                We will first take a look what kind of ingredients and tools are
+                needed before we start our prepping process.
+              </p>
 
-                <h2>Omakase</h2>
-                <p>We eat good usually here in omakase</p>
+              <h2>Omakase</h2>
+              <p>We eat good usually here in omakase</p>
 
-                <h2>To Get Started</h2>
-                <p>
-                  Let's get all the ingredients and tools needed to start making
-                  sushi at home. Go to "At Market" tab to see more.
-                </p>
-                <h2>Let's get rollin!~</h2>
-                <p>
-                  Go to "Get Rollin" tab to access in depth step-by-step
-                  instruction for prepping your ingredients. I also included
-                  recipes for the sushi I have made in the past. Don't forget to
-                  try out the sauces recipes as well!{" "}
-                </p>
-              </div>
-            </Route>
-            <Route path="/homemakase/shop">
-              <Shop />
-            </Route>
-            <Route path="/homemakase/home">
-              <Home />
-            </Route>
-          </Switch>
+              <h2>To Get Started</h2>
+              <p>
+                Let's get all the ingredients and tools needed to start making
+                sushi at home. Go to "At Market" tab to see more.
+              </p>
+              <h2>Let's get rollin!~</h2>
+              <p>
+                Go to "Get Rollin" tab to access in depth step-by-step
+                instruction for prepping your ingredients. I also included
+                recipes for the sushi I have made in the past. Don't forget to
+                try out the sauces recipes as well!{" "}
+              </p>
+            </div>
+          )}
+
           {/* {active == "about" ? (
             <>
               <h1>Homemakase</h1>
@@ -115,21 +119,21 @@ const HomeMakase = () => {
         </AppMain>
 
         <AppFooter>
-          <AppIconsWrapper to="/homemakase/">
+          <AppIconsWrapper onClick={() => setActive("/")}>
             <AppIcons>
               <FaHome />
             </AppIcons>
             <AppIconsTitle>HomeMakase</AppIconsTitle>
           </AppIconsWrapper>
 
-          <AppIconsWrapper to="/homemakase/shop">
+          <AppIconsWrapper onClick={() => setActive("shop")}>
             <AppIcons>
               <FaStore />
             </AppIcons>
             <AppIconsTitle>At Market</AppIconsTitle>
           </AppIconsWrapper>
 
-          <AppIconsWrapper to="/homemakase/home">
+          <AppIconsWrapper onClick={() => setActive("home")}>
             <AppIcons>
               <FaTape />
             </AppIcons>
@@ -137,7 +141,7 @@ const HomeMakase = () => {
           </AppIconsWrapper>
         </AppFooter>
       </HomemakaseContainer>
-    </Router>
+    </>
   );
 };
 

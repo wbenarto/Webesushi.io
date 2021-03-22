@@ -125,23 +125,6 @@ export const sushi = [
     type: "Raw",
     category: "Chef Special",
   },
-  {
-    id: 10,
-    name: "Keto Cucumber Sushi Roll",
-    images: tunatorch,
-    ingredients: [
-      "sushi rice",
-      "avocado",
-      "cucumber",
-      "salmon",
-      "hamachi",
-      "tuna",
-    ],
-    desc:
-      "No carbs option for Ketonian. Salmon, Tuna, Hamachi, and Avocado wrapped inside of thin cucumber layer.",
-    type: "Raw",
-    category: "Chef Special",
-  },
 ];
 
 export const homeObjOne = {

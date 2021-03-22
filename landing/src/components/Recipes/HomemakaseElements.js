@@ -56,7 +56,7 @@ export const AppLogo = styled.img`
   margin-top: -25px;
 `;
 
-AppLogo.defaultProps = { src: Webe };
+// AppLogo.defaultProps = { src: Webe };
 
 export const AppHeading = styled.h1`
   font-size: 1rem;
@@ -90,7 +90,7 @@ export const AppFooter = styled.div`
   margin-left: 15vw;
   max-width: 70vw;
   height: 90px;
-  background-color: #2c3138;
+  /* background-color: #2c3138; */
   flex-shrink: 0;
   display: flex;
   justify-content: space-evenly;

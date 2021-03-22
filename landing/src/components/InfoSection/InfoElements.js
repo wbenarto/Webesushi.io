@@ -311,7 +311,7 @@ export const ColumnCarousel1 = styled.div`
     border-top: 6px solid #2c3138;
     border-radius: 45px;
     height: 38vh;
-    margin-top: 300px;
+
     width: 90%;
     padding: 0px;
   }
@@ -319,11 +319,6 @@ export const ColumnCarousel1 = styled.div`
   }
 
   @media screen and (max-width: 475px) {
-    overflow: hidden;
-    height: 35vh;
-    margin-top: 300px;
-    position: absolute;
-    box-shadow: seagreen;
   }
   @media screen and (max-height: 685px) {
     height: 40vh;
@@ -366,8 +361,8 @@ export const TextWrapperCarousel = styled.div`
     text-align: left;
     flex: 1;
     height: 65%;
-
-    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
   }
 `;
 
@@ -423,13 +418,14 @@ export const CarouselControls = styled.div`
   justify-content: center;
   min-width: 20vw;
   align-items: center;
-
   margin-right: 0;
+
   @media screen and (max-width: 475px) {
     width: 100%;
-    position: relative;
+    position: absolute;
     display: flex;
-    flex-shrink: 0;
+    z-index: 15;
+    margin-top: 200px;
 
     transform: scale(0.5);
   }
@@ -484,27 +480,27 @@ export const CarouselHeading = styled.h1`
   height: 120px;
   width: 100%;
   line-height: 1.1;
-
   vertical-align: text-bottom;
-
   text-align: left;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   border-bottom: 4px solid #dbd6a9;
 
   @media screen and (max-width: 475px) {
+    position: absolute;
     padding-top: 10px;
-    font-size: 18px;
-    min-height: 40px;
-    margin-bottom: 0;
+    font-size: 1.5rem;
+    height: 4rem;
+    z-index: 4;
     padding-top: 5px;
+    bottom: 0;
+    font-family: "Cormorant Unicase";
+    margin-bottom: 0;
     justify-content: bottom;
     color: ${({ lightText }) => (lightText ? "#fff" : "#2c3138")};
     background: linear-gradient(#dbd6a9, #d3d4ba);
-    border-bottom: 4px solid #010606;
   }
 
   @media screen and (max-height: 685px) {
-    height: 150px;
   }
 `;
 
@@ -533,6 +529,19 @@ export const CarouselSubtitle = styled.p`
     margin-bottom: 0px;
     padding-top: 5px;
   }
+`;
+
+export const CarouselInfo = styled.div`
+  width: 50px;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+  font-size: 1.3rem;
+  z-index: 99;
+  justify-content: center;
+  color: #2c3138;
 `;
 
 export const ImageSliderCarousel = styled.div`
