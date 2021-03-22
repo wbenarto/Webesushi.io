@@ -375,9 +375,8 @@ export const ImgWrapCarousel = styled.div`
 
   align-items: center;
   overflow: hidden;
-  min-width: 38vw;
+  width: 35vw;
   margin-right: 50px;
-
   height: 70vh;
   border: 4px #dbd6a9 solid;
   border-radius: 5px;
@@ -391,9 +390,8 @@ export const ImgWrapCarousel = styled.div`
     margin: auto;
     border: 2px solid #dbd6a9;
     height: 65vh;
-
+    width: 100vw;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
   }
 
@@ -438,6 +436,8 @@ export const CarouselControls = styled.div`
     position: absolute;
     transform: scale(0.5);
     bottom: 20px;
+    z-index: 60;
+    margin-left: 0;
   }
 `;
 
@@ -501,7 +501,7 @@ export const CarouselHeading = styled.h1`
     font-family: "Cormorant Unicase";
     margin-bottom: 0;
     justify-content: bottom;
-    color: ${({ lightText }) => (lightText ? "#fff" : "#dbd6a9")};
+    color: ${({ lightText }) => (lightText ? "#fff" : "#fff")};
     /* background: linear-gradient(#dbd6a9, #d3d4ba);  */
     background-color: transparent;
     border-bottom: none;
@@ -516,10 +516,14 @@ export const CarouselHeading = styled.h1`
       bottom: 0;
       background: linear-gradient(
           -180deg,
+          rgba(0, 0, 0, 0.1) 0%,
+          rgba(0, 0, 0, 0.1) 0%
+        ),
+        linear-gradient(
+          180deg,
           rgba(0, 0, 0, 0.1) 100%,
           rgba(0, 0, 0, 0.1) 100%
-        ),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+        );
       z-index: 2;
     }
   }
