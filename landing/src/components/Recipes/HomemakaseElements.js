@@ -19,7 +19,7 @@ export const HomemakaseContainer = styled.div`
 
   ::before {
     content: "";
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     background-size: cover;
     position: absolute;
     top: 0px;
@@ -76,12 +76,17 @@ export const AppMain = styled.div`
   margin-right: auto;
   margin-bottom: auto;
   max-width: 70vw;
-  height: calc(100vh - 17vh);
+  height: calc(100vh - 24vh);
   background-color: transparent;
   /* #a5b4cc; */
+  overflow: scroll;
+  color: white;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   @media screen and (max-width: 475px) {
-    min-width: 100%;
+    min-width: 90%;
   }
 `;
 
@@ -96,7 +101,7 @@ export const AppFooter = styled.div`
   justify-content: space-evenly;
 
   @media screen and (max-width: 475px) {
-    height: 10vh;
+    height: 16vh;
   }
 `;
 
@@ -123,4 +128,72 @@ export const AppIconsTitle = styled.div`
   font-size: 0.6rem;
   color: white;
   text-align: center;
+`;
+
+export const SushiCategory = styled.div`
+  margin-top: 25px;
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
+
+export const SushiCategoryButton = styled.div`
+  flex-basis: 25%;
+  height: 2rem;
+
+  font-size: 1.2rem;
+  background-color: transparent;
+  color: black;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  :nth-child(1) {
+    background-color: #db405f;
+  }
+  :nth-child(2) {
+    background-color: #eded4a;
+  }
+  :nth-child(3) {
+    background-color: #8df27e;
+  }
+`;
+
+export const SushiCategoryDesc = styled.div`
+  width: 100%;
+
+  position: relative;
+  top: 0;
+  color: ${({ cat }) =>
+    cat == "raw"
+      ? "white"
+      : cat == "cooked"
+      ? "black"
+      : cat == "vegetarian"
+      ? "black"
+      : "white"};
+
+  background-color: ${({ cat }) =>
+    cat == "raw"
+      ? "#db405f"
+      : cat == "cooked"
+      ? "#eded4a"
+      : cat == "vegetarian"
+      ? "#8df27e"
+      : "#db405f"};
+  border-radius: 5px;
+
+  > p {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  @media screen and (max-width: 475px) {
+    margin-bottom: 0;
+  }
 `;
