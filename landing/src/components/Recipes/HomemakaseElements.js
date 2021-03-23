@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import Webe from "../../images/nigiriplate.jpg";
+import Webe from "../../images/tools1.jpg";
+// import Webe from "../../images/nigiriplate.jpg";
 import { Link as LinkR } from "react-router-dom";
 
 var intFrameHeight = window.innerHeight;

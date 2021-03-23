@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ShopContainer = styled.div`
   color: #bd8f5e;
-  background-color: white;
+
   display: flex;
   width: 100%;
   height: 100%;

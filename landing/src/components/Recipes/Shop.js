@@ -14,16 +14,23 @@ import Home from "./Home";
 import rice from "../../images/rice.jpg";
 import webewhite from "../../images/webewhite.png";
 
+import { tools } from "../../data2/data2";
+
 const Shop = () => {
   return (
     <ShopContainer>
       <ul>
         Shop Here:
         <h2>Tools</h2>
-        <li>Sharp Knife</li>
+        {tools.map((e) => (
+          <>
+            <h1>{e.name}</h1>
+          </>
+        ))}
+        {/* <li>Sharp Knife</li>
         <li>Bamboo Mat</li>
         <li>Hangiri</li>
-        <li>Peeler</li>
+        <li>Peeler</li> */}
         <h2>Essentials</h2>
         <li>Sushi Rice</li>
         <li>Sushi Vinegar</li>

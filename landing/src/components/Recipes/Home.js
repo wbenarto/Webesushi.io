@@ -1,11 +1,16 @@
 import React from "react";
 import { HomeContainer, HomeControls, VideoScroll } from "./HomeElements";
 import video from "../../videos/video.mp4";
+import tools1 from "../../images/tools1.jpg";
 
 const Home = () => {
   return (
     <HomeContainer>
       <h1>home</h1>
+      <image
+        style={{ width: "150px", height: "150px", zIndex: "40" }}
+        src={tools1}
+      ></image>
       <li>
         <ul>Tools</ul>
         <li>Knife</li>
