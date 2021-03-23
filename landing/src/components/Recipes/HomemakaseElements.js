@@ -34,6 +34,7 @@ export const AppNav = styled.div`
   position: relative;
   width: 100vw;
   height: 50px;
+  scroll-snap-align: start;
   background-color: transparent;
   /* #2c3138 */
   display: flex;

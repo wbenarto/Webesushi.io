@@ -8,6 +8,12 @@ import {
   RecipeRow,
   RecipeCol1,
   RecipeCol2,
+  ShopContent,
+  ShopContentTitle,
+  ContentCard,
+  ContentDetails,
+  ContentSlider,
+  ItemImage,
 } from "./ShopElements";
 import Home from "./Home";
 
@@ -17,37 +23,110 @@ import webewhite from "../../images/webewhite.png";
 import { tools } from "../../data2/data2";
 
 const Shop = () => {
+  console.log(tools.map((e) => e.images));
   return (
     <ShopContainer>
-      <ul>
-        Shop Here:
-        <h2>Tools</h2>
-        {tools.map((e) => (
-          <>
-            <h1>{e.name}</h1>
-          </>
-        ))}
-        {/* <li>Sharp Knife</li>
+      <ShopContent>
+        <ShopContentTitle>Tools</ShopContentTitle>
+        <ContentSlider>
+          {tools.map((e) => (
+            <>
+              <ContentCard>
+                <ContentDetails>
+                  <ItemImage src={e.images}></ItemImage>
+                  <h1>{e.name}</h1>
+                  <p>{e.desc}</p>
+                </ContentDetails>
+              </ContentCard>
+            </>
+          ))}
+        </ContentSlider>
+      </ShopContent>
+      <ShopContent>
+        <ShopContentTitle>Essentials</ShopContentTitle>
+        <ContentSlider>
+          {tools.map((e) => (
+            <>
+              <ContentCard>
+                <ContentDetails>
+                  <ItemImage src={e.images}></ItemImage>
+                  <h1>{e.name}</h1>
+                  <p>{e.desc}</p>
+                </ContentDetails>
+              </ContentCard>
+            </>
+          ))}
+        </ContentSlider>
+      </ShopContent>
+      <ShopContent>
+        <ShopContentTitle>Vegetarian</ShopContentTitle>
+        <ContentSlider>
+          {tools.map((e) => (
+            <>
+              <ContentCard>
+                <ContentDetails>
+                  <ItemImage src={e.images}></ItemImage>
+                  <h1>{e.name}</h1>
+                  <p>{e.desc}</p>
+                </ContentDetails>
+              </ContentCard>
+            </>
+          ))}
+        </ContentSlider>
+      </ShopContent>
+      <ShopContent>
+        <ShopContentTitle>Cooked</ShopContentTitle>
+        <ContentSlider>
+          {tools.map((e) => (
+            <>
+              <ContentCard>
+                <ContentDetails>
+                  <ItemImage src={e.images}></ItemImage>
+                  <h1>{e.name}</h1>
+                  <p>{e.desc}</p>
+                </ContentDetails>
+              </ContentCard>
+            </>
+          ))}
+        </ContentSlider>
+      </ShopContent>
+      <ShopContent>
+        <ShopContentTitle>Vegetarian</ShopContentTitle>
+        <ContentSlider>
+          {tools.map((e) => (
+            <>
+              <ContentCard>
+                <ContentDetails>
+                  <ItemImage src={e.images}></ItemImage>
+                  <h1>{e.name}</h1>
+                  <p>{e.desc}</p>
+                </ContentDetails>
+              </ContentCard>
+            </>
+          ))}
+        </ContentSlider>
+      </ShopContent>
+
+      {/* <li>Sharp Knife</li>
         <li>Bamboo Mat</li>
         <li>Hangiri</li>
         <li>Peeler</li> */}
-        <h2>Essentials</h2>
-        <li>Sushi Rice</li>
-        <li>Sushi Vinegar</li>
-        <li>Seaweed</li>
-        <h2>Vegetarian</h2>
-        <li>Avocado</li>
-        <li>Cucumber</li>
-        <li>Green Onions</li>
-        <h2>All Cooked</h2>
-        <li>Shrimp Tempura</li>
-        <li>Cocktail Shrimp</li>
-        <li>Fried Fish</li>
-        <h2>Raw</h2>
-        <li>Salmon</li>
-        <li>Tuna</li>
-        <li>Hamachi</li>
-      </ul>
+      {/* <h2>Essentials</h2>
+      <li>Sushi Rice</li>
+      <li>Sushi Vinegar</li>
+      <li>Seaweed</li>
+      <h2>Vegetarian</h2>
+      <li>Avocado</li>
+      <li>Cucumber</li>
+      <li>Green Onions</li>
+      <h2>All Cooked</h2>
+      <li>Shrimp Tempura</li>
+      <li>Cocktail Shrimp</li>
+      <li>Fried Fish</li>
+      <h2>Raw</h2>
+      <li>Salmon</li>
+      <li>Tuna</li>
+      <li>Hamachi</li> */}
     </ShopContainer>
   );
 };
