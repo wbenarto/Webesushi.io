@@ -16,6 +16,7 @@ import {
   ContentDetails,
   ContentSlider,
   ItemImage,
+  ItemDesc,
 } from "./ShopElements";
 import Home from "./Home";
 
@@ -35,23 +36,23 @@ const Shop = () => {
     <ShopContainer>
       <FilterContainer>
         <FilterButton onClick={() => handleFilter("all")}>
-          <p>All</p>
+          <h1>All</h1>
         </FilterButton>
         <FilterButton onClick={() => handleFilter("tools")}>
-          <p>Tools</p>
+          <h1>Tools</h1>
         </FilterButton>
         <FilterButton onClick={() => handleFilter("essentials")}>
-          <p>Essentials</p>
+          <h1>Essentials</h1>
         </FilterButton>
 
         <FilterButton onClick={() => handleFilter("vegetarian")}>
-          <p>Vegetarian</p>
+          <h1>Vegetarian</h1>
         </FilterButton>
         <FilterButton onClick={() => handleFilter("cooked")}>
-          <p>Cooked</p>
+          <h1>Cooked</h1>
         </FilterButton>
         <FilterButton onClick={() => handleFilter("raw")}>
-          <p>Raw</p>
+          <h1>Raw</h1>
         </FilterButton>
       </FilterContainer>
 
@@ -65,8 +66,10 @@ const Shop = () => {
                 <ContentCard>
                   <ContentDetails>
                     <ItemImage src={e.images}></ItemImage>
-                    <h1>{e.name}</h1>
-                    <p>{e.desc}</p>
+                    <ItemDesc>
+                      <h1>{e.name}</h1>
+                      <p>{e.desc}</p>
+                    </ItemDesc>
                   </ContentDetails>
                 </ContentCard>
               </>

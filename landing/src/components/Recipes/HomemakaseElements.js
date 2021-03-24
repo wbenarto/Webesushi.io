@@ -59,7 +59,6 @@ export const AppNavLogo = styled(LinkR)`
   align-items: center;
   font-size: 1.2rem;
   color: #dbd6a9;
-
   padding: 20px;
 `;
 
@@ -89,7 +88,7 @@ export const AppMain = styled.div`
   margin-right: auto;
   margin-bottom: auto;
   max-width: 70vw;
-  height: calc(100vh - 24vh);
+  height: calc(100vh - 26vh);
   background-color: transparent;
   /* #a5b4cc; */
   overflow: scroll;
@@ -145,7 +144,7 @@ export const AppIconsTitle = styled.div`
 
 export const SushiCategory = styled.div`
   margin-top: 25px;
-  width: 80%;
+  width: 100%;
   height: 100px;
   justify-self: center;
   display: flex;

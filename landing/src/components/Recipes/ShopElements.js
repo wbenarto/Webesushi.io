@@ -5,9 +5,10 @@ export const ShopContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+
   scroll-snap-align: start;
-  overflow-y: scroll;
+
   z-index: 0;
   ::-webkit-scrollbar {
     display: none;
@@ -16,28 +17,31 @@ export const ShopContainer = styled.div`
 
 export const FilterContainer = styled.div`
   width: 100%;
-  height: 100px;
+  height: 20px;
   display: flex;
-  justify-content: center;
-
-  overflow-x: scroll;
+  background-color: #fff;
+  flex-direction: row;
   border-bottom: 3px solid white;
+  align-items: center;
+  position: relative;
+  top: 0;
 `;
 
 export const FilterButton = styled.div`
   width: 100%;
-  height: 50px;
+  height: 20px;
   display: flex;
-  position: relative;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 5px;
 
-  > p {
-    font-size: 20px;
+  > h1 {
+    font-size: 16px;
   }
 `;
 
 export const ShopContent = styled.div`
   width: 100%;
+  height: 100vh;
   position: relative;
 
   flex-direction: column;
@@ -54,7 +58,7 @@ export const ContentSlider = styled.div`
 
   display: flex;
   margin-right: 10px;
-  flex-direction: row;
+  flex-direction: column;
   overflow-x: scroll;
   top: 0;
 
@@ -63,14 +67,14 @@ export const ContentSlider = styled.div`
   }
 `;
 export const ContentCard = styled.div`
-  width: 600px;
-  margin-right: 10px;
+  width: 100%;
+  margin: 0 5px;
 `;
 
 export const ContentDetails = styled.div`
-  > h1 {
-    font-size: 16px;
-  }
+  flex-direction: row;
+  display: flex;
+
   > p {
     height: 120px;
     color: #fff;
@@ -79,11 +83,26 @@ export const ContentDetails = styled.div`
 
 export const ItemImage = styled.img`
   height: 150px;
-  width: 150px;
+  width: 50%;
   display: flex;
   position: relative;
   object-fit: contain;
   z-index: 10;
+`;
+
+export const ItemDesc = styled.div`
+  width: 50%;
+  margin-left: 10px;
+  > h1 {
+    font-size: 22px;
+  }
+  > p {
+    color: white;
+    overflow: scroll;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
 
 export const ShopTab = styled.div`
