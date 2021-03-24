@@ -16,17 +16,20 @@ export const ShopContainer = styled.div`
 
 export const FilterContainer = styled.div`
   width: 100%;
-  height: 50px;
+  height: 100px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
+  justify-content: center;
+
+  overflow-x: scroll;
   border-bottom: 3px solid white;
 `;
 
 export const FilterButton = styled.div`
-  width: 60px;
+  width: 100%;
   height: 50px;
+  display: flex;
+  position: relative;
+  padding: 20px;
 
   > p {
     font-size: 20px;

@@ -43,6 +43,7 @@ const Shop = () => {
         <FilterButton onClick={() => handleFilter("essentials")}>
           <p>Essentials</p>
         </FilterButton>
+
         <FilterButton onClick={() => handleFilter("vegetarian")}>
           <p>Vegetarian</p>
         </FilterButton>

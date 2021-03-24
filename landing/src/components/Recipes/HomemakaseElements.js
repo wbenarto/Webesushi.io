@@ -145,12 +145,12 @@ export const AppIconsTitle = styled.div`
 
 export const SushiCategory = styled.div`
   margin-top: 25px;
-  width: 100%;
+  width: 80%;
   height: 100px;
-
+  justify-self: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
 export const SushiCategoryButton = styled.div`
@@ -178,7 +178,7 @@ export const SushiCategoryButton = styled.div`
 `;
 
 export const SushiCategoryDesc = styled.div`
-  width: 100%;
+  width: 90%;
 
   position: relative;
   top: 0;

@@ -68,7 +68,7 @@ const HomeMakase = () => {
           ) : active == "shop" ? (
             <Shop />
           ) : (
-            <div>
+            <div class="parent-container">
               <h2>Omakase</h2>
               <p>
                 Omakase (Japanese: お任せ, Hepburn: o-makase) is a Japanese
