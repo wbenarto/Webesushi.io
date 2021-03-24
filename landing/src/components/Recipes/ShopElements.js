@@ -14,6 +14,25 @@ export const ShopContainer = styled.div`
   }
 `;
 
+export const FilterContainer = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-bottom: 3px solid white;
+`;
+
+export const FilterButton = styled.div`
+  width: 60px;
+  height: 50px;
+
+  > p {
+    font-size: 20px;
+  }
+`;
+
 export const ShopContent = styled.div`
   width: 100%;
   position: relative;
@@ -36,7 +55,7 @@ export const ContentSlider = styled.div`
   overflow-x: scroll;
   top: 0;
 
-  ::webkit-scrollbar {
+  ::-webkit-scrollbar {
     display: none;
   }
 `;

@@ -7,7 +7,7 @@ export const HomeContainer = styled.div`
   height: 100%;
 
   display: flex;
-  background-color: lightpink;
+  /* background-color: lightpink; */
   flex-direction: column;
   scroll-snap-align: end;
 `;

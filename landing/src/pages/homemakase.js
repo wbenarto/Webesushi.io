@@ -54,7 +54,7 @@ const HomeMakase = () => {
   };
   return (
     <div>
-      <HomemakaseContainer>
+      <HomemakaseContainer active={active}>
         <AppNav>
           <AppNavLogo to="/">
             <FaChevronLeft />

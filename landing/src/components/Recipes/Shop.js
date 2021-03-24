@@ -3,6 +3,8 @@ import {
   ShopContainer,
   ShopTab,
   ShopControls,
+  FilterContainer,
+  FilterButton,
   HomeTab,
   RecipeWrapper,
   RecipeRow,
@@ -20,28 +22,57 @@ import Home from "./Home";
 import rice from "../../images/rice.jpg";
 import webewhite from "../../images/webewhite.png";
 
-import { tools } from "../../data2/data2";
+import { data2 } from "../../data2/data2";
 
 const Shop = () => {
-  console.log(tools.map((e) => e.images));
+  const [content, setContent] = useState("all");
+
+  const handleFilter = (arg) => {
+    setContent(arg);
+  };
+
   return (
     <ShopContainer>
+      <FilterContainer>
+        <FilterButton onClick={() => handleFilter("all")}>
+          <p>All</p>
+        </FilterButton>
+        <FilterButton onClick={() => handleFilter("tools")}>
+          <p>Tools</p>
+        </FilterButton>
+        <FilterButton onClick={() => handleFilter("essentials")}>
+          <p>Essentials</p>
+        </FilterButton>
+        <FilterButton onClick={() => handleFilter("vegetarian")}>
+          <p>Vegetarian</p>
+        </FilterButton>
+        <FilterButton onClick={() => handleFilter("cooked")}>
+          <p>Cooked</p>
+        </FilterButton>
+        <FilterButton onClick={() => handleFilter("raw")}>
+          <p>Raw</p>
+        </FilterButton>
+      </FilterContainer>
+
       <ShopContent>
-        <ShopContentTitle>Tools</ShopContentTitle>
+        <ShopContentTitle>{content.toUpperCase()}</ShopContentTitle>
         <ContentSlider>
-          {tools.map((e) => (
-            <>
-              <ContentCard>
-                <ContentDetails>
-                  <ItemImage src={e.images}></ItemImage>
-                  <h1>{e.name}</h1>
-                  <p>{e.desc}</p>
-                </ContentDetails>
-              </ContentCard>
-            </>
-          ))}
+          {data2
+            .filter((e) => e.type == content)
+            .map((e) => (
+              <>
+                <ContentCard>
+                  <ContentDetails>
+                    <ItemImage src={e.images}></ItemImage>
+                    <h1>{e.name}</h1>
+                    <p>{e.desc}</p>
+                  </ContentDetails>
+                </ContentCard>
+              </>
+            ))}
         </ContentSlider>
       </ShopContent>
+      {/* 
       <ShopContent>
         <ShopContentTitle>Essentials</ShopContentTitle>
         <ContentSlider>
@@ -105,7 +136,7 @@ const Shop = () => {
             </>
           ))}
         </ContentSlider>
-      </ShopContent>
+      </ShopContent> */}
 
       {/* <li>Sharp Knife</li>
         <li>Bamboo Mat</li>

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Webe from "../../images/tools1.jpg";
+import misc from "../../images2/raw/misc.jpg";
+import dish from "../../images2/homemakase3.jpg";
 // import Webe from "../../images/nigiriplate.jpg";
 import { Link as LinkR } from "react-router-dom";
 
@@ -13,8 +15,18 @@ export const HomemakaseContainer = styled.div`
   height: 100vh;
 
   /* background-color: #2c3138; */
-  background-image: url(${Webe});
+  /* background-image: url(${Webe}); */
+  background-image: ${({ active }) =>
+    active == "/"
+      ? `url(${Webe})`
+      : active == "home"
+      ? `url(${dish})`
+      : active == "shop"
+      ? `url(${misc})`
+      : `url(${Webe})`};
   background-position: center;
+
+  background-position: left;
 
   justify-content: center;
 
@@ -34,7 +46,6 @@ export const AppNav = styled.div`
   position: relative;
   width: 100vw;
   height: 50px;
-  scroll-snap-align: start;
   background-color: transparent;
   /* #2c3138 */
   display: flex;
