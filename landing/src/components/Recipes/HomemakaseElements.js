@@ -88,7 +88,7 @@ export const AppMain = styled.div`
   margin-right: auto;
   margin-bottom: auto;
   max-width: 70vw;
-  height: calc(100vh - 26vh);
+  height: calc(100vh - 16vh);
   background-color: transparent;
   /* #a5b4cc; */
   overflow: scroll;
@@ -99,6 +99,7 @@ export const AppMain = styled.div`
 
   @media screen and (max-width: 475px) {
     min-width: 90%;
+    height: calc(100vh - 26vh);
   }
 `;
 
@@ -127,7 +128,7 @@ export const AppIconsWrapper = styled(LinkR)`
 `;
 
 export const AppIcons = styled.div`
-  font-size: 1.4rem;
+  font-size: 2rem;
   margin-top: 15px;
   text-align: center;
   align-self: center;
@@ -137,9 +138,13 @@ export const AppIcons = styled.div`
 `;
 
 export const AppIconsTitle = styled.div`
-  font-size: 0.6rem;
+  font-size: 1.1rem;
   color: white;
   text-align: center;
+
+  @media screen and (max-width: 475px) {
+    font-size: 0.6rem;
+  }
 `;
 
 export const SushiCategory = styled.div`

@@ -13,7 +13,6 @@ import {
   ShopContent,
   ShopContentTitle,
   ContentCard,
-  ContentDetails,
   ContentSlider,
   ItemImage,
   ItemDesc,
@@ -63,13 +62,11 @@ const Shop = () => {
             {data2.map((e) => (
               <>
                 <ContentCard>
-                  <ContentDetails>
-                    <ItemImage src={e.images}></ItemImage>
-                    <ItemDesc>
-                      <h1>{e.name}</h1>
-                      <p>{e.desc}</p>
-                    </ItemDesc>
-                  </ContentDetails>
+                  <ItemImage src={e.images}></ItemImage>
+                  <ItemDesc>
+                    <h1>{e.name}</h1>
+                    <p>{e.desc}</p>
+                  </ItemDesc>
                 </ContentCard>
               </>
             ))}
@@ -84,13 +81,11 @@ const Shop = () => {
               .map((e) => (
                 <>
                   <ContentCard>
-                    <ContentDetails>
-                      <ItemImage src={e.images}></ItemImage>
-                      <ItemDesc>
-                        <h1>{e.name}</h1>
-                        <p>{e.desc}</p>
-                      </ItemDesc>
-                    </ContentDetails>
+                    <ItemImage src={e.images}></ItemImage>
+                    <ItemDesc>
+                      <h1>{e.name}</h1>
+                      <p>{e.desc}</p>
+                    </ItemDesc>
                   </ContentCard>
                 </>
               ))}

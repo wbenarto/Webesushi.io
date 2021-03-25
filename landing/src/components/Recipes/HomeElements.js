@@ -12,6 +12,32 @@ export const HomeContainer = styled.div`
   scroll-snap-align: end;
 `;
 
+export const HomeDisplay = styled.div`
+  background-color: teal;
+  flex-direction: row;
+  height: 40vh;
+  position: relative;
+  display: flex;
+  @media screen and (max-width: 475px) {
+    width: 100%;
+    height: 250px;
+  }
+`;
+
+export const HomeMedia = styled.div`
+  width: 100%;
+  height: 150px;
+  background-color: yellow;
+`;
+
+export const HomeFilter = styled.div`
+  width: 100%;
+  height: 35vh;
+  background-color: purple;
+  display: flex;
+  position: relative;
+`;
+
 export const HomeControls = styled.div`
   width: 100vw;
   height: 200px;

@@ -6,35 +6,44 @@ export const ShopContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  align-items: center;
 
   overflow: hidden;
   z-index: 0;
 `;
 
 export const FilterContainer = styled.div`
-  width: 100%;
-  height: 50px;
+  width: 60%;
+  height: 40px;
   display: flex;
   color: white;
   flex-direction: row;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid black;
   align-items: center;
   position: relative;
+
+  justify-content: space-around;
+
   top: 0;
   border-radius: 5px;
   margin-bottom: 15px;
 `;
 
 export const FilterButton = styled.div`
-  width: 100%;
-  height: 20px;
   display: flex;
   justify-content: space-between;
   padding: 5px;
   align-items: center;
+  margin-bottom: 15px;
 
   > h1 {
-    font-size: 1rem;
+    font-size: 1.4rem;
+  }
+
+  @media screen and (max-width: 475px) {
+    > h1 {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -46,10 +55,16 @@ export const ShopContent = styled.div`
   flex-direction: column;
   display: flex;
   z-index: 99;
+
+  @media screen and (max-width: 475px) {
+  }
 `;
 
 export const ShopContentTitle = styled.h1`
   color: white;
+  margin-bottom: 5px;
+  align-self: center;
+  width: 60%;
   font-size: 1.5rem;
 `;
 
@@ -57,7 +72,7 @@ export const ContentSlider = styled.div`
   width: 100%;
 
   display: flex;
-
+  align-items: center;
   flex-direction: column;
   overflow-x: scroll;
   top: 0;
@@ -67,46 +82,56 @@ export const ContentSlider = styled.div`
   }
 `;
 export const ContentCard = styled.div`
-  width: 50%;
-  margin: 10px 5px;
-  background-color: rgba(74, 74, 65, 0.6);
+  width: 60%;
+  margin-bottom: 20px;
+  background-color: rgba(74, 74, 65, 0.9);
+  flex-direction: row;
+  display: flex;
 
   @media screen and (max-width: 475px) {
     width: 100%;
   }
 `;
 
-export const ContentDetails = styled.div`
-  flex-direction: row;
-  display: flex;
-
-  > p {
-    height: 120px;
-    color: #fff;
-  }
-`;
-
 export const ItemImage = styled.img`
-  height: 150px;
   width: 50%;
   display: flex;
   position: relative;
   object-fit: contain;
   z-index: 10;
+
+  @media screen and (max-width: 475px) {
+    height: 150px;
+    width: 50%;
+  }
 `;
 
 export const ItemDesc = styled.div`
   width: 50%;
   margin-left: 10px;
   > h1 {
-    font-size: 22px;
+    font-size: 34px;
+    margin: 10px 0;
   }
   > p {
     height: 100px;
     color: white;
+    font-size: 22px;
     overflow: scroll;
+    padding: 5px;
     ::-webkit-scrollbar {
       display: none;
+    }
+  }
+
+  @media screen and (max-width: 475px) {
+    width: 50%;
+    > h1 {
+      font-size: 22px;
+      margin-bottom: 0;
+    }
+    > p {
+      font-size: 16px;
     }
   }
 `;
