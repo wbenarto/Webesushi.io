@@ -13,14 +13,16 @@ export const ShopContainer = styled.div`
 
 export const FilterContainer = styled.div`
   width: 100%;
-  height: 20px;
+  height: 50px;
   display: flex;
-  background-color: #fff;
+  color: white;
   flex-direction: row;
   border-bottom: 3px solid white;
   align-items: center;
   position: relative;
   top: 0;
+  border-radius: 5px;
+  margin-bottom: 15px;
 `;
 
 export const FilterButton = styled.div`
@@ -29,9 +31,10 @@ export const FilterButton = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 5px;
+  align-items: center;
 
   > h1 {
-    font-size: 16px;
+    font-size: 1rem;
   }
 `;
 
@@ -47,6 +50,7 @@ export const ShopContent = styled.div`
 
 export const ShopContentTitle = styled.h1`
   color: white;
+  font-size: 1.5rem;
 `;
 
 export const ContentSlider = styled.div`
@@ -65,6 +69,7 @@ export const ContentSlider = styled.div`
 export const ContentCard = styled.div`
   width: 50%;
   margin: 10px 5px;
+  background-color: rgba(74, 74, 65, 0.6);
 
   @media screen and (max-width: 475px) {
     width: 100%;
@@ -97,6 +102,7 @@ export const ItemDesc = styled.div`
     font-size: 22px;
   }
   > p {
+    height: 100px;
     color: white;
     overflow: scroll;
     ::-webkit-scrollbar {

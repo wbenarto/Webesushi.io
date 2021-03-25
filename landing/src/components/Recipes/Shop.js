@@ -45,7 +45,7 @@ const Shop = () => {
           <h1>Essentials</h1>
         </FilterButton>
 
-        <FilterButton onClick={() => handleFilter("vegetarian")}>
+        <FilterButton onClick={() => handleFilter("veg")}>
           <h1>Vegetarian</h1>
         </FilterButton>
         <FilterButton onClick={() => handleFilter("cooked")}>
@@ -56,12 +56,11 @@ const Shop = () => {
         </FilterButton>
       </FilterContainer>
 
-      <ShopContent>
-        <ShopContentTitle>{content.toUpperCase()}</ShopContentTitle>
-        <ContentSlider>
-          {data2
-            .filter((e) => e.type == content)
-            .map((e) => (
+      {content == "all" ? (
+        <ShopContent>
+          <ShopContentTitle>{content.toUpperCase()}</ShopContentTitle>
+          <ContentSlider>
+            {data2.map((e) => (
               <>
                 <ContentCard>
                   <ContentDetails>
@@ -74,8 +73,30 @@ const Shop = () => {
                 </ContentCard>
               </>
             ))}
-        </ContentSlider>
-      </ShopContent>
+          </ContentSlider>
+        </ShopContent>
+      ) : (
+        <ShopContent>
+          <ShopContentTitle>{content.toUpperCase()}</ShopContentTitle>
+          <ContentSlider>
+            {data2
+              .filter((e) => e.type == content)
+              .map((e) => (
+                <>
+                  <ContentCard>
+                    <ContentDetails>
+                      <ItemImage src={e.images}></ItemImage>
+                      <ItemDesc>
+                        <h1>{e.name}</h1>
+                        <p>{e.desc}</p>
+                      </ItemDesc>
+                    </ContentDetails>
+                  </ContentCard>
+                </>
+              ))}
+          </ContentSlider>
+        </ShopContent>
+      )}
     </ShopContainer>
   );
 };

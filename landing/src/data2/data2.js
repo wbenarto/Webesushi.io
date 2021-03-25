@@ -24,6 +24,18 @@ import sriracha from "../images2/essentials/sriracha.jpg";
 import eelsauce from "../images2/essentials/unagisauce.jpg";
 import mirin from "../images2/essentials/mirin.jpg";
 import sauces1 from "../images2/essentials/sauces1.jpg";
+import veggies from "../images2/vegetarian/vegetables.jpg";
+import avocado from "../images2/vegetarian/avocado.jpg";
+import cucumber from "../images2/vegetarian/cucumber.jpg";
+import englishcucumber from "../images2/vegetarian/englishcucumber.jpg";
+import shrimp from "../images2/cooked/shrimp.jpg";
+import eel from "../images2/cooked/eel.jpg";
+import crabstick from "../images2/cooked/crabstick.jpg";
+import buri from "../images2/raw/buri.jpg";
+import ikura from "../images2/raw/ikura.jpg";
+import masago from "../images2/raw/masago.jpg";
+import uni from "../images2/raw/uni.jpg";
+import tuna from "../images2/raw/tunasashimi.jpg";
 
 export const data2 = [
   {
@@ -212,7 +224,38 @@ export const data2 = [
     type: "essentials",
   },
   {
-    id: 15,
+    id: 25,
+    name: "Vegetables",
+    images: veggies,
+    desc:
+      "You can grab any of your favorite vegetables and turn them into delicious sushi rolls.",
+    type: "veg",
+  },
+  {
+    id: 23,
+    name: "Avocado",
+    images: avocado,
+    desc:
+      "Avocadoes are great for sushi as main ingredient or specialty toppings. Do not get over ripen avocadoes, they are usually too soft and bruised. Look for dark green color if possible.",
+    type: "veg",
+  },
+  {
+    id: 23,
+    name: "Cucumber",
+    images: cucumber,
+    desc: "One of the most used ingredients in sushi.",
+    type: "veg",
+  },
+  {
+    id: 23,
+    name: "English Cucumber",
+    images: englishcucumber,
+    desc:
+      "Great option, they usually contain less seeds than regular cucumber.",
+    type: "veg",
+  },
+  {
+    id: 24,
     name: "Shrimp Tempura",
     images: shrimptempura,
     desc:
@@ -220,10 +263,71 @@ export const data2 = [
     type: "cooked",
   },
   {
-    id: 16,
-    name: "Hamachi Frozen",
+    id: 25,
+    name: "Cocktail/Raw Shrimp",
+    images: shrimp,
+    desc:
+      "We can use cocktail shrimp as main ingredient or make shrimp tempura from scratch.",
+    type: "cooked",
+  },
+  {
+    id: 26,
+    name: "Unagi (ウナギ)",
+    images: eel,
+    desc:
+      "Broiled eel glazed in teriyaki sauce. Unagi gives strong umami flavor to your dish.",
+    type: "cooked",
+  },
+  {
+    id: 27,
+    name: "Imitation Crabstick",
+    images: crabstick,
+    desc:
+      "Imitation crabstick or kani are usually made of Pollock fish. Great taste for guests who doesn't consume raw fish.",
+    type: "cooked",
+  },
+
+  {
+    id: 28,
+    name: "Hamachi",
     images: hamachifrozen,
-    desc: "Hamachi Toro good ",
+    desc:
+      "Farmed young Japanese amberjack. Look for belly portion cut to have some hamachi toro sashimi or nigiri.",
+    type: "raw",
+  },
+  {
+    id: 29,
+    name: "Buri",
+    images: buri,
+    desc: "Adult Japanese amberjack. Same fish as Hamachi.",
+    type: "raw",
+  },
+  {
+    id: 30,
+    name: "Uni",
+    images: uni,
+    desc: "Purple/Red sea urchin.",
+    type: "raw",
+  },
+  {
+    id: 31,
+    name: "Maguro",
+    images: tuna,
+    desc: "Lean part of tuna, usually red in color.",
+    type: "raw",
+  },
+  {
+    id: 32,
+    name: "Ikura",
+    images: ikura,
+    desc: "Salmon roe carries great umami taste with bursting flavors.",
+    type: "raw",
+  },
+  {
+    id: 33,
+    name: "Masago",
+    images: masago,
+    desc: "Flying fish roe.",
     type: "raw",
   },
 ];
