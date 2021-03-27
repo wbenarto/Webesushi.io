@@ -93,7 +93,7 @@ const InfoCarousel = ({
     if (cur === length - 1) {
       setCur(0);
     } else setCur(cur + 1);
-    setSlidePlay(true);
+    // setSlidePlay(true);
   };
 
   const handlePause = () => {

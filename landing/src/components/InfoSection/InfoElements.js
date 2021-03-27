@@ -252,7 +252,7 @@ export const InfoWrapperCarousel = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
-    margin-top: 5vh;
+    margin-top: 3vh;
     justify-content: flex-end;
   }
 
@@ -508,7 +508,7 @@ export const CarouselHeading = styled.h1`
     border-bottom: none;
     z-index: 3;
 
-    :before {
+    :after {
       content: "";
       position: absolute;
       top: 0;
@@ -516,12 +516,10 @@ export const CarouselHeading = styled.h1`
       right: 0;
       bottom: 0;
       background: linear-gradient(
-          -180deg,
-          rgba(235, 235, 235, 0.2) 100%,
-          rgba(235, 235, 235, 0.2) 50%
-        ),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.9) 100%);
-      z-index: 2;
+        180deg,
+        rgba(0, 0, 0, 0.2) 100%,
+        rgba(0, 0, 0, 0.1) 30%
+      );
     }
   }
 

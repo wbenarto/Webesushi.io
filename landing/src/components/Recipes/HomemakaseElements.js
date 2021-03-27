@@ -100,7 +100,7 @@ export const AppMain = styled.div`
 
   @media screen and (max-width: 475px) {
     min-width: 90%;
-    height: calc(100vh - 23vh);
+    height: calc(100vh - 20vh);
   }
 `;
 
@@ -115,7 +115,7 @@ export const AppFooter = styled.div`
   justify-content: space-evenly;
 
   @media screen and (max-width: 475px) {
-    height: 16vh;
+    height: 3vh;
   }
 `;
 
