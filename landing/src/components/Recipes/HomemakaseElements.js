@@ -45,7 +45,8 @@ export const HomemakaseContainer = styled.div`
 export const AppNav = styled.div`
   position: relative;
   width: 100vw;
-  height: 50px;
+  /* height: 50px; */
+  height: 7vh;
   background-color: transparent;
   /* #2c3138 */
   display: flex;
@@ -88,7 +89,7 @@ export const AppMain = styled.div`
   margin-right: auto;
   margin-bottom: auto;
   max-width: 70vw;
-  height: calc(100vh - 16vh);
+  height: calc(100vh - 23vh);
   background-color: transparent;
   /* #a5b4cc; */
   overflow: scroll;
@@ -99,7 +100,7 @@ export const AppMain = styled.div`
 
   @media screen and (max-width: 475px) {
     min-width: 90%;
-    height: calc(100vh - 26vh);
+    height: calc(100vh - 23vh);
   }
 `;
 
@@ -107,7 +108,7 @@ export const AppFooter = styled.div`
   position: relative;
   margin-left: 15vw;
   max-width: 70vw;
-  height: 90px;
+  height: 16vh;
   /* background-color: #2c3138; */
   flex-shrink: 0;
   display: flex;

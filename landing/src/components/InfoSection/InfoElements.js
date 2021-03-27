@@ -252,6 +252,7 @@ export const InfoWrapperCarousel = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
+    margin-top: 5vh;
     justify-content: flex-end;
   }
 
@@ -264,7 +265,6 @@ export const InfoWrapperCarousel = styled.div`
 export const InfoRowCarousel = styled.div`
   display: grid;
   margin-top: 15vh;
-
   grid-auto-columns: minmax(auto, 1fr);
   flex-direction: column;
   flex: 1 0 auto;
@@ -280,8 +280,7 @@ export const InfoRowCarousel = styled.div`
     flex: 1;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin-top: 10vh;
+    height: 100%;
   }
 
   /* @media screen and (max-width: 768px) {
@@ -337,6 +336,8 @@ export const ColumnCarousel2 = styled.div`
   @media screen and (max-width: 475px) {
     display: flex;
     flex: 1;
+    position: relative;
+    height: 100%;
   }
   /* margin-top: -350px; */
   @media screen and (max-width: 768px) {
@@ -384,13 +385,13 @@ export const ImgWrapCarousel = styled.div`
   margin-bottom: 0;
 
   @media screen and (max-width: 475px) {
-    position: absolute;
+    position: relative;
     overflow: hidden;
     display: block;
     margin: auto;
     border: 2px solid #dbd6a9;
     height: 65vh;
-    width: 100vw;
+    width: 80vw;
     flex-direction: column;
     align-items: center;
   }
@@ -495,13 +496,13 @@ export const CarouselHeading = styled.h1`
   @media screen and (max-width: 475px) {
     position: absolute;
     padding-top: 10px;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     height: 7.5rem;
     bottom: 0;
     font-family: "Cormorant Unicase";
     margin-bottom: 0;
     justify-content: bottom;
-    color: ${({ lightText }) => (lightText ? "#fff" : "#fff")};
+    color: ${({ lightText }) => (lightText ? "#fff" : "#dbd6a9")};
     /* background: linear-gradient(#dbd6a9, #d3d4ba);  */
     background-color: transparent;
     border-bottom: none;
@@ -516,14 +517,10 @@ export const CarouselHeading = styled.h1`
       bottom: 0;
       background: linear-gradient(
           -180deg,
-          rgba(0, 0, 0, 0.1) 0%,
-          rgba(0, 0, 0, 0.1) 0%
+          rgba(235, 235, 235, 0.2) 100%,
+          rgba(235, 235, 235, 0.2) 50%
         ),
-        linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.1) 100%,
-          rgba(0, 0, 0, 0.1) 100%
-        );
+        linear-gradient(180deg, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.9) 100%);
       z-index: 2;
     }
   }
@@ -565,7 +562,7 @@ export const CarouselInfo = styled.div`
   right: 0;
   top: 0;
   margin-top: 12px;
-  font-size: 1.3rem;
+  font-size: 2.3rem;
   z-index: 99;
   justify-content: center;
   /* color: #2c3138; */
@@ -574,14 +571,14 @@ export const CarouselInfo = styled.div`
 
 export const ImageSliderCarousel = styled.div`
   height: 110px;
-  width: 50%;
+  width: 95%;
   overflow-x: scroll;
   display: flex;
   margin-bottom: 50px;
   flex-direction: row;
   align-items: center;
   position: relative;
-
+  margin-left: 15px;
   ::-webkit-scrollbar {
     height: 10px;
     background-color: transparent;
@@ -594,7 +591,7 @@ export const ImageSliderCarousel = styled.div`
 
   @media screen and (max-width: 475px) {
     width: 100%;
-    position: absolute;
+    position: relative;
     display: flex;
     margin-bottom: 100px;
     border-radius: 5px;

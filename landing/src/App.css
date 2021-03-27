@@ -10,6 +10,6 @@
 .App {
   background-color: rgb(37, 33, 28);
   width: 100vw;
-  overflow: hidden;
 
+  padding: 0;
 }

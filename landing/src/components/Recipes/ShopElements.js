@@ -27,6 +27,10 @@ export const FilterContainer = styled.div`
   top: 0;
   border-radius: 5px;
   margin-bottom: 15px;
+  @media screen and (max-width: 475px) {
+    margin-bottom: 0px;
+    height: 30px;
+  }
 `;
 
 export const FilterButton = styled.div`
@@ -66,6 +70,13 @@ export const ShopContentTitle = styled.h1`
   align-self: center;
   width: 60%;
   font-size: 1.5rem;
+
+  @media screen and (max-width: 475px) {
+    text-align: center;
+    color: #dbd6a9;
+    border-top: 2px #dbd6a9 solid;
+    width: 100vw;
+  }
 `;
 
 export const ContentSlider = styled.div`

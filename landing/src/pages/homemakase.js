@@ -53,7 +53,7 @@ const HomeMakase = () => {
     setCategory(category);
   };
   return (
-    <div>
+    <>
       <HomemakaseContainer active={active}>
         <AppNav>
           <AppNavLogo to="/">
@@ -182,7 +182,7 @@ const HomeMakase = () => {
           </AppIconsWrapper>
         </AppFooter>
       </HomemakaseContainer>
-    </div>
+    </>
   );
 };
 

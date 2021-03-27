@@ -164,17 +164,17 @@ const InfoCarousel = ({
                 </CarouselSubtitle>
               </TextWrapperCarousel>
             </ColumnCarousel1>
-          </InfoRowCarousel>
 
-          <ImageSliderCarousel>
-            {sushi.map((e, i) => {
-              return (
-                <PreviewCarousel onClick={() => handlePreview(e.id)}>
-                  <ImgThumb activeClass="active" src={e.images} />
-                </PreviewCarousel>
-              );
-            })}
-          </ImageSliderCarousel>
+            <ImageSliderCarousel>
+              {sushi.map((e, i) => {
+                return (
+                  <PreviewCarousel onClick={() => handlePreview(e.id)}>
+                    <ImgThumb activeClass="active" src={e.images} />
+                  </PreviewCarousel>
+                );
+              })}
+            </ImageSliderCarousel>
+          </InfoRowCarousel>
         </InfoWrapperCarousel>
       </InfoCarouselContainer>
     </>
