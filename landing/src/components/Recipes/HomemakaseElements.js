@@ -88,8 +88,9 @@ export const AppMain = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: auto;
-  max-width: 70vw;
-  height: calc(100vh - 23vh);
+  width: 60%;
+
+  height: calc(100vh - 15vh);
   background-color: transparent;
   /* #a5b4cc; */
   overflow: scroll;
@@ -108,8 +109,8 @@ export const AppFooter = styled.div`
   position: relative;
   margin-left: 15vw;
   max-width: 70vw;
-  height: 16vh;
-  /* background-color: #2c3138; */
+  height: 5vh;
+
   flex-shrink: 0;
   display: flex;
   justify-content: space-evenly;
@@ -129,7 +130,7 @@ export const AppIconsWrapper = styled(LinkR)`
 `;
 
 export const AppIcons = styled.div`
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin-top: 15px;
   text-align: center;
   align-self: center;

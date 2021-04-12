@@ -13,7 +13,7 @@ export const ShopContainer = styled.div`
 `;
 
 export const FilterContainer = styled.div`
-  width: 60%;
+  width: 100%;
   height: 40px;
   display: flex;
   color: white;
@@ -27,6 +27,7 @@ export const FilterContainer = styled.div`
   top: 0;
   border-radius: 5px;
   margin-bottom: 15px;
+  border-bottom: 2px #dbd6a9 solid;
   @media screen and (max-width: 475px) {
     margin-bottom: 0px;
     height: 30px;
@@ -74,7 +75,7 @@ export const ShopContentTitle = styled.h1`
   @media screen and (max-width: 475px) {
     text-align: center;
     color: #dbd6a9;
-    border-top: 2px #dbd6a9 solid;
+
     width: 100vw;
   }
 `;
@@ -93,7 +94,7 @@ export const ContentSlider = styled.div`
   }
 `;
 export const ContentCard = styled.div`
-  width: 60%;
+  width: 100%;
   margin-bottom: 20px;
   background-color: rgba(74, 74, 65, 0.9);
   flex-direction: row;
@@ -122,10 +123,10 @@ export const ItemDesc = styled.div`
   margin-left: 10px;
   > h1 {
     font-size: 34px;
-    margin: 10px 0;
+    margin: 10px 5px;
+    border-bottom: 2px #dbd6a9 solid;
   }
   > p {
-    height: 100px;
     color: white;
     font-size: 22px;
     overflow: scroll;
@@ -143,6 +144,7 @@ export const ItemDesc = styled.div`
     }
     > p {
       font-size: 16px;
+      height: 100px;
     }
   }
 `;

@@ -18,10 +18,10 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/signin" component={SigninPage} exact />
-          <Route path="/homemakase" component={HomeMakase} exact />
-          <Route path="/sustainability" component={SustainabilityPage} exact />
-          <Route path="/gallery" component={GalleryPage} exact />
+          <Route path="/signin/" component={SigninPage} exact />
+          <Route path="/homemakase/" component={HomeMakase} exact />
+          <Route path="/sustainability/" component={SustainabilityPage} exact />
+          <Route path="/gallery/" component={GalleryPage} exact />
           <Route component={NotFoundPage} />
         </Switch>
       </Router>
