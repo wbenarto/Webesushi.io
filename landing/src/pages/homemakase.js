@@ -6,8 +6,8 @@ import {
   Redirect,
 } from "react-router-dom";
 import Sidebar from "../components/Sidebar/index";
-import Shop from "../components/Recipes/Shop";
-import Home from "../components/Recipes/Home";
+import Shop from "../components/Homemakase/Shop";
+import Home from "../components/Homemakase/Home";
 import Navbar from "../components/Navbar/index";
 import webewhite from "../images/webe.png";
 import { FaChevronLeft, FaHome, FaStore, FaTape } from "react-icons/fa";
@@ -26,7 +26,7 @@ import {
   SushiCategory,
   SushiCategoryButton,
   SushiCategoryDesc,
-} from "../components/Recipes/HomemakaseElements";
+} from "../components/Homemakase/HomemakaseElements";
 
 import {
   Nav,

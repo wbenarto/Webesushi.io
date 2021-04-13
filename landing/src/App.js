@@ -3,6 +3,7 @@ import { useState } from "react";
 import Home from "./pages";
 import Navbar from "./components/Navbar/index";
 import Sidebar from "./components/Sidebar/index";
+import SignupPage from "./pages/signup";
 import GalleryPage from "./pages/gallery";
 import HomeMakase from "./pages/homemakase";
 import SigninPage from "./pages/signin";
@@ -19,6 +20,7 @@ function App() {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/signin/" component={SigninPage} exact />
+          <Route path="/signup/" component={SignupPage} exact />
           <Route path="/homemakase/" component={HomeMakase} exact />
           <Route path="/sustainability/" component={SustainabilityPage} exact />
           <Route path="/gallery/" component={GalleryPage} exact />

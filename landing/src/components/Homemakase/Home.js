@@ -10,30 +10,53 @@ import {
 } from "./HomeElements";
 import video from "../../videos/video.mp4";
 import tools1 from "../../images/tools1.jpg";
+import data3 from "../../data2/data3";
 
 const Home = () => {
   const [sushi, setSushi] = useState("");
 
-  useEffect(() => {
-    axios
-      .get("https://us-central1-webesushi-a3bf0.cloudfunctions.net/api/sushis")
-      .then((res) => {
-        setSushi(res);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://us-central1-webesushi-a3bf0.cloudfunctions.net/api/sushis")
+  //     .then((res) => {
+  //       setSushi(res);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
-  console.log(sushi.data[0].desc);
   return (
     <HomeContainer>
       <h1>Home</h1>
       <h2>Follow the steps:</h2>
       <HomeDisplay>
-        <HomeMedia>hi</HomeMedia>
-        <img
+        <HomeMedia>
+          {data3.map((e, i) => (
+            <>
+              {/* {e.images.map((e) => (
+                <img
+                  style={{
+                    width: "150px",
+                    objectFit: "cover",
+                  }}
+                  src={e}
+                ></img>
+              ))} */}
+              {e.steps.map((e) => (
+                <p>{e}</p>
+              ))}
+            </>
+          ))}
+
+          <img></img>
+          <p></p>
+
+          <img></img>
+          <p></p>
+        </HomeMedia>
+        {/* <img
           style={{ width: "150px", height: "150px" }}
           src={sushi.data[0].image}
-        ></img>
+        ></img> */}
         <p>here</p>
       </HomeDisplay>
       <HomeFilter>

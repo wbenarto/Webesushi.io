@@ -28,6 +28,10 @@ export const HomeMedia = styled.div`
   width: 100%;
   height: 150px;
   background-color: yellow;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  position: relative;
 `;
 
 export const HomeFilter = styled.div`

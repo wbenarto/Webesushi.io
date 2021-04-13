@@ -14,11 +14,13 @@ import {
   FormInput,
   FormButton,
   Text,
-} from "./SinginElements";
+} from "../Singin/SinginElements";
 
-const Signin = (props) => {
+const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [handle, setHandle] = useState={''}
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -28,9 +30,11 @@ const Signin = (props) => {
 
     setLoading(true);
 
-    const userData = {
+    const newUserData = {
       email: email,
       password: password,
+      confirmPassword : confirmPassword,
+      handle: handle
     };
     console.log(userData);
     axios
@@ -67,7 +71,7 @@ const Signin = (props) => {
           <Icon to="/">WebeSushi</Icon>
           <FormContent>
             <Form onSubmit={handleSubmit} action="#">
-              <FormH1>Sign in to your account</FormH1>
+              <FormH1>Create new account</FormH1>
               <FormLabel htmlFor="for">Email</FormLabel>
               <FormInput
                 onChange={handleEmail}
@@ -86,7 +90,7 @@ const Signin = (props) => {
               />
 
               <FormButton type="submit">Continue</FormButton>
-              <Icon to="/signup">Sign Up</Icon>
+              <Icon to="/signin">Sign In</Icon>
             </Form>
           </FormContent>
         </FormWrap>
@@ -95,4 +99,4 @@ const Signin = (props) => {
   );
 };
 
-export default Signin;
+export default Signup;
