@@ -19,8 +19,8 @@ import {
 const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [handle, setHandle] = useState={''}
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [handle, setUserHandle] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -33,14 +33,14 @@ const Signup = (props) => {
     const newUserData = {
       email: email,
       password: password,
-      confirmPassword : confirmPassword,
-      handle: handle
+      confirmPassword: confirmPassword,
+      handle: handle,
     };
-    console.log(userData);
+    console.log(newUserData);
     axios
       .post(
-        "https://us-central1-webesushi-a3bf0.cloudfunctions.net/api/login",
-        userData
+        "https://us-central1-webesushi-a3bf0.cloudfunctions.net/api/signup",
+        newUserData
       )
       .then((res) => {
         console.log(res.data);
@@ -64,11 +64,18 @@ const Signup = (props) => {
     setPassword(event.target.value);
   };
 
+  const handleConfirmPassword = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+  const handleUserHandle = (event) => {
+    setUserHandle(event.target.value);
+  };
+
   return (
     <>
       <Container>
         <FormWrap>
-          <Icon to="/">WebeSushi</Icon>
+          <Icon to="/"> back - WebeSushi - Sign Up Page</Icon>
           <FormContent>
             <Form onSubmit={handleSubmit} action="#">
               <FormH1>Create new account</FormH1>
@@ -88,9 +95,31 @@ const Signup = (props) => {
                 type="password"
                 required
               />
+              <FormLabel htmlFor="for">Confirm Password</FormLabel>
+              <FormInput
+                onChange={handleConfirmPassword}
+                id="confirmPassword"
+                name="confirmPassword"
+                type="confirmPassword"
+                required
+              />
+              <FormLabel htmlFor="for">User Handle</FormLabel>
+              <FormInput
+                onChange={handleUserHandle}
+                id="userHandle"
+                name="userHandle"
+                type="userHandle"
+                required
+              />
 
               <FormButton type="submit">Continue</FormButton>
-              <Icon to="/signin">Sign In</Icon>
+
+              <Icon
+                style={{ color: "white", marginTop: "20px", fontSize: "12px" }}
+                to="/signin"
+              >
+                Already have an account? go to Sign In page.
+              </Icon>
             </Form>
           </FormContent>
         </FormWrap>

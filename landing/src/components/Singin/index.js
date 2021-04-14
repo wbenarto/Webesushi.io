@@ -86,7 +86,12 @@ const Signin = (props) => {
               />
 
               <FormButton type="submit">Continue</FormButton>
-              <Icon to="/signup">Sign Up</Icon>
+              <Icon
+                style={{ color: "white", marginTop: "20px", fontSize: "12px" }}
+                to="/signup"
+              >
+                Click here to sign up.
+              </Icon>
             </Form>
           </FormContent>
         </FormWrap>
