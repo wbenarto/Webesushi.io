@@ -6,8 +6,7 @@ import dish from "../../images2/homemakase3.jpg";
 import { Link as LinkR } from "react-router-dom";
 
 var intFrameHeight = window.innerHeight;
-let test = "200px";
-console.log(intFrameHeight);
+// console.log(intFrameHeight);
 
 export const HomemakaseContainer = styled.div`
   position: absolute;

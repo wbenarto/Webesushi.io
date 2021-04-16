@@ -27,17 +27,17 @@ const Navbar = (props) => {
       setScrollNav("white");
     } else if (window.scrollY >= 900) {
       setScrollNav("middle");
-      console.log(window.scrollY);
+      // console.log(window.scrollY);
     } else {
       setScrollNav("home");
-      console.log(window.scrollY);
+      // console.log(window.scrollY);
     }
   };
-  console.log(scrollNav);
+  // console.log(scrollNav);
 
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
-  }, []);
+  });
 
   const toggleHome = () => {
     scroll.scrollToTop({ duration: "3000" });
@@ -46,10 +46,8 @@ const Navbar = (props) => {
   return (
     <Nav scrollNav={scrollNav}>
       <NavbarContainer>
-        {/* <header className="App-header">Webe Sushi</header> */}
         <Switch>
           <NavLogo to="/" onClick={toggleHome}>
-            {/* WeBe Sushi */}
             <img
               alt="webe-sushi"
               style={{ width: "100%", height: "100%" }}

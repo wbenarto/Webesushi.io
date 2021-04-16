@@ -45,8 +45,9 @@ const Signup = (props) => {
       .then((res) => {
         console.log(res.data);
         setLoading(false);
-        console.log("Logged in successfully");
-        console.log(errors);
+        console.log("Signed Up successfully");
+        localStorage.setItem("FBIdToken", `Bearer ${res.data.token}`);
+        props.props.history.push("/");
       })
       .catch((err) => {
         console.log(err);
@@ -100,7 +101,7 @@ const Signup = (props) => {
                 onChange={handleConfirmPassword}
                 id="confirmPassword"
                 name="confirmPassword"
-                type="confirmPassword"
+                type="Password"
                 required
               />
               <FormLabel htmlFor="for">User Handle</FormLabel>

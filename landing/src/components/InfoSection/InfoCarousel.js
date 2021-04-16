@@ -65,21 +65,15 @@ const InfoCarousel = ({
   });
 
   useEffect(() => {
-    console.log("PLAYYYY");
     const play = () => {
       autoPlayRef.current();
     };
     if (slidePlay === true) {
-      console.log(slidePlay);
       interval = setInterval(play, 3000);
-
       return () => clearInterval(interval);
     } else if (slidePlay === false) {
       clearInterval(interval);
-      console.log(slidePlay);
     }
-
-    console.log(interval);
   }, [slidePlay]);
 
   let counter = 0;
@@ -168,7 +162,7 @@ const InfoCarousel = ({
             <ImageSliderCarousel>
               {sushi.map((e, i) => {
                 return (
-                  <PreviewCarousel onClick={() => handlePreview(e.id)}>
+                  <PreviewCarousel key={i} onClick={() => handlePreview(e.id)}>
                     <ImgThumb activeClass="active" src={e.images} />
                   </PreviewCarousel>
                 );

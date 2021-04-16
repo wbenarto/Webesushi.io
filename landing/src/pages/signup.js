@@ -1,11 +1,11 @@
 import React from "react";
 import Signup from "../components/Signup";
 
-const SignupPage = () => {
+const SignupPage = (props) => {
   return (
-    <div>
-      <Signup />
-    </div>
+    <>
+      <Signup props={props} />
+    </>
   );
 };
 

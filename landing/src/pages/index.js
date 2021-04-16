@@ -23,7 +23,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <HeroSection />
@@ -32,7 +32,7 @@ const Home = () => {
       <InfoSection {...homeObjThree} />
       <InfoCarousel {...homeObjFour} {...sushi} />
       <Services />
-    </div>
+    </>
   );
 };
 

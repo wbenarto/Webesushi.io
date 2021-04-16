@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import PropTypes from "prop-types";
-
 import { Link, Redirect } from "react-router-dom";
 import {
   FormContent,
@@ -41,14 +39,15 @@ const Signin = (props) => {
       .then((res) => {
         console.log(res.data);
         setLoading(false);
+        localStorage.setItem("FBIdToken", `Bearer ${res.data.token}`);
         console.log("Logged in successfully");
-        console.log(errors);
+        console.log(localStorage.getItem("FBIdToken"));
+        props.props.history.push("/");
       })
       .catch((err) => {
         console.log(err);
         setErrors(err);
         setLoading(false);
-        console.log(errors);
       });
   };
 
