@@ -10,6 +10,10 @@ import HomeMakase from "./pages/homemakase";
 import SigninPage from "./pages/signin";
 import AuthRoute from "./util/AuthRoute";
 
+// Redux
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
 import SustainabilityPage from "./pages/sustainability";
 import NotFoundPage from "./pages/404";
 
@@ -30,29 +34,35 @@ if (token) {
 
 function App() {
   return (
-    <>
-      <Router>
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <AuthRoute
-            path="/signin/"
-            component={SigninPage}
-            exact
-            authenticated={authenticated}
-          />
-          <AuthRoute
-            path="/signup/"
-            component={SignupPage}
-            exact
-            authenticated={authenticated}
-          />
-          <Route path="/homemakase/" component={HomeMakase} exact />
-          <Route path="/sustainability/" component={SustainabilityPage} exact />
-          <Route path="/gallery/" component={GalleryPage} exact />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Router>
-    </>
+    <Provider store={store}>
+      <>
+        <Router>
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <AuthRoute
+              path="/signin/"
+              component={SigninPage}
+              exact
+              authenticated={authenticated}
+            />
+            <AuthRoute
+              path="/signup/"
+              component={SignupPage}
+              exact
+              authenticated={authenticated}
+            />
+            <Route path="/homemakase/" component={HomeMakase} exact />
+            <Route
+              path="/sustainability/"
+              component={SustainabilityPage}
+              exact
+            />
+            <Route path="/gallery/" component={GalleryPage} exact />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Router>
+      </>
+    </Provider>
   );
 }
 

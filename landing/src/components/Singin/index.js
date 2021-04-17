@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { loginUser } from "../../redux/actions/userActions";
+import PropTypes from "prop-types";
 import {
   FormContent,
   Container,
@@ -17,38 +18,26 @@ import {
 const Signin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  // const {
+  //   UI: { loading },
+  // } = props.props;
+
+  // componentWillReceiveProps(nextProps) {
+  //   if(nextProps.UI.errors) {
+  //     setErrors({errors: nextProps.UI.errors})
+  //   }
+  // }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("submit button pressed");
-
-    setLoading(true);
-
     const userData = {
       email: email,
       password: password,
     };
+    props.loginUser(userData, props.history);
     console.log(userData);
-    axios
-      .post(
-        "https://us-central1-webesushi-a3bf0.cloudfunctions.net/api/login",
-        userData
-      )
-      .then((res) => {
-        console.log(res.data);
-        setLoading(false);
-        localStorage.setItem("FBIdToken", `Bearer ${res.data.token}`);
-        console.log("Logged in successfully");
-        console.log(localStorage.getItem("FBIdToken"));
-        props.props.history.push("/");
-      })
-      .catch((err) => {
-        console.log(err);
-        setErrors(err);
-        setLoading(false);
-      });
   };
 
   const handleEmail = (event) => {
@@ -99,4 +88,18 @@ const Signin = (props) => {
   );
 };
 
-export default Signin;
+loginUser.propTypes = {
+  classes: PropTypes.object.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  UI: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
+  user: state.user,
+  UI: state.UI,
+});
+
+const mapActionsToProps = {
+  loginUser,
+};
+export default connect(mapStateToProps, mapActionsToProps)(Signin);
