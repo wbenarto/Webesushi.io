@@ -19,15 +19,20 @@ const Signin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  // const {
-  //   UI: { loading },
-  // } = props.props;
+  const { UI } = props.props;
 
   // componentWillReceiveProps(nextProps) {
   //   if(nextProps.UI.errors) {
   //     setErrors({errors: nextProps.UI.errors})
   //   }
-  // }
+  // }\
+
+  useEffect(() => {
+    if (props.UI.errors) {
+      setErrors(props.UI.errors);
+    }
+  }, [props.UI.errors]);
+  console.log(props.UI);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -72,6 +77,11 @@ const Signin = (props) => {
                 type="password"
                 required
               />
+              {errors.error && (
+                <h1 style={{ color: "white" }} variant="body2">
+                  {errors.error.split("/")[1].split("-").join(" ")}
+                </h1>
+              )}
 
               <FormButton type="submit">Continue</FormButton>
               <Icon

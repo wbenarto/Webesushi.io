@@ -119,7 +119,7 @@ export const AppFooter = styled.div`
   }
 `;
 
-export const AppIconsWrapper = styled(LinkR)`
+export const AppIconsWrapper = styled.div`
   height: 50px;
   width: 100px;
   flex-direction: row;
