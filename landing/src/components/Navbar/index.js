@@ -16,10 +16,13 @@ import {
 } from "./NavbarElements";
 import webewhite from "../../images/webewhite.png";
 import webeblack from "../../images/webe.png";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 const Navbar = (props) => {
   const [scrollNav, setScrollNav] = useState("home");
-
+  const { imageUrl, authenticated } = props;
+  console.log(imageUrl, authenticated);
   const changeNav = () => {
     if (window.scrollY >= 4000) {
       setScrollNav("black");
@@ -140,11 +143,28 @@ const Navbar = (props) => {
         </NavMenu>
 
         <NavBtn>
-          <NavBtnLink to="/signin">Sign In</NavBtnLink>
+          {authenticated ? (
+            // <h1 style={{ color: "white" }}>welcome</h1>
+            <img src={imageUrl} style={{ width: "50px", height: "50px" }} />
+          ) : (
+            <NavBtnLink to="/signin">Sign In</NavBtnLink>
+          )}
         </NavBtn>
       </NavbarContainer>
     </Nav>
   );
 };
 
-export default Navbar;
+Navbar.propTypes = {
+  authenticated: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = (state) => (
+  console.log(state),
+  {
+    imageUrl: state.user.credentials.imageUrl,
+    authenticated: state.user.authenticated,
+  }
+);
+
+export default connect(mapStateToProps)(Navbar);

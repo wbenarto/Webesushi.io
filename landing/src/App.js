@@ -9,26 +9,29 @@ import GalleryPage from "./pages/gallery";
 import HomeMakase from "./pages/homemakase";
 import SigninPage from "./pages/signin";
 import AuthRoute from "./util/AuthRoute";
-
+import axios from "axios";
 // Redux
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { SET_AUTHENTICATED, SET_UNAUTHENTICATED } from "./redux/types";
+import { logOutUser, getUserData } from "./redux/actions/userActions";
 
 import SustainabilityPage from "./pages/sustainability";
 import NotFoundPage from "./pages/404";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-let authenticated;
 const token = localStorage.FBIToken;
 if (token) {
   const decodedToken = jwtDecode(token);
   console.log(decodedToken);
   if (decodedToken.exp * 1000 < Date.now()) {
+    store.dispatch(logOutUser());
     window.location.href = "/login";
-    authenticated = false;
   } else {
-    authenticated = true;
+    store.dispatch({ type: SET_AUTHENTICATED });
+    axios.defaults.headers.common["Authorization"] = token;
+    store.dispatch(getUserData());
   }
 }
 
@@ -39,18 +42,8 @@ function App() {
         <Router>
           <Switch>
             <Route path="/" component={Home} exact />
-            <AuthRoute
-              path="/signin/"
-              component={SigninPage}
-              exact
-              authenticated={authenticated}
-            />
-            <AuthRoute
-              path="/signup/"
-              component={SignupPage}
-              exact
-              authenticated={authenticated}
-            />
+            <AuthRoute path="/signin/" component={SigninPage} exact />
+            <AuthRoute path="/signup/" component={SignupPage} exact />
             <Route path="/homemakase/" component={HomeMakase} exact />
             <Route
               path="/sustainability/"

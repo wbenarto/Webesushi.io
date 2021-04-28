@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import PropTypes from "prop-types";
 
 import { Link, Redirect } from "react-router-dom";
@@ -16,6 +15,9 @@ import {
   Text,
 } from "../Singin/SinginElements";
 
+import { connect } from "react-redux";
+import { signUpUser } from "../../redux/actions/userActions";
+
 const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +25,14 @@ const Signup = (props) => {
   const [handle, setUserHandle] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const { UI } = props;
 
+  useEffect(() => {
+    console.log(UI);
+    if (UI.errors) {
+      setErrors(UI.errors);
+    }
+  }, [UI.errors]);
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("submit button pressed");
@@ -37,24 +46,7 @@ const Signup = (props) => {
       handle: handle,
     };
     console.log(newUserData);
-    axios
-      .post(
-        "https://us-central1-webesushi-a3bf0.cloudfunctions.net/api/signup",
-        newUserData
-      )
-      .then((res) => {
-        console.log(res.data);
-        setLoading(false);
-        console.log("Signed Up successfully");
-        localStorage.setItem("FBIdToken", `Bearer ${res.data.token}`);
-        props.props.history.push("/");
-      })
-      .catch((err) => {
-        console.log(err);
-        setErrors(err);
-        setLoading(false);
-        console.log(errors);
-      });
+    props.signUpUser(newUserData, props.props.history);
   };
 
   const handleEmail = (event) => {
@@ -112,7 +104,26 @@ const Signup = (props) => {
                 type="userHandle"
                 required
               />
-
+              {errors.error && (
+                <h1 style={{ color: "white" }} variant="body2">
+                  {errors.error.split("/")[1].split("-").join(" ")}
+                </h1>
+              )}
+              {errors.email && (
+                <h1 style={{ color: "white" }} variant="body2">
+                  {errors.email}
+                </h1>
+              )}
+              {errors.handle && (
+                <h1 style={{ color: "white" }} variant="body2">
+                  {errors.handle}
+                </h1>
+              )}
+              {errors.confirmPassword && (
+                <h1 style={{ color: "white" }} variant="body2">
+                  {errors.confirmPassword}
+                </h1>
+              )}
               <FormButton type="submit">Continue</FormButton>
 
               <Icon
@@ -129,4 +140,15 @@ const Signup = (props) => {
   );
 };
 
-export default Signup;
+Signup.propTypes = {
+  user: PropTypes.object.isRequired,
+  UI: PropTypes.object.isRequired,
+  signUpUser: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  user: state.user,
+  UI: state.UI,
+});
+
+export default connect(mapStateToProps, { signUpUser })(Signup);

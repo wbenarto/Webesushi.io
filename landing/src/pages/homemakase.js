@@ -8,6 +8,7 @@ import {
 import Sidebar from "../components/Sidebar/index";
 import Shop from "../components/Homemakase/Shop";
 import Home from "../components/Homemakase/Home";
+import Profile from "../components/Homemakase/Profile";
 import Navbar from "../components/Navbar/index";
 import webewhite from "../images/webe.png";
 import { FaChevronLeft, FaHome, FaStore, FaTape } from "react-icons/fa";
@@ -67,6 +68,8 @@ const HomeMakase = () => {
             <Home />
           ) : active == "shop" ? (
             <Shop />
+          ) : active == "profile" ? (
+            <Profile />
           ) : (
             <div class="parent-container">
               <h2>Omakase</h2>
@@ -179,6 +182,13 @@ const HomeMakase = () => {
               <FaTape />
             </AppIcons>
             <AppIconsTitle>Get Rollin</AppIconsTitle>
+          </AppIconsWrapper>
+
+          <AppIconsWrapper onClick={() => setActive("profile")}>
+            <AppIcons>
+              <FaStore />
+            </AppIcons>
+            <AppIconsTitle>Profile</AppIconsTitle>
           </AppIconsWrapper>
         </AppFooter>
       </HomemakaseContainer>

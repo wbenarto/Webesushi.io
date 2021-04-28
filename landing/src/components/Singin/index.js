@@ -19,7 +19,7 @@ const Signin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const { UI } = props.props;
+  const { UI } = props;
 
   // componentWillReceiveProps(nextProps) {
   //   if(nextProps.UI.errors) {
@@ -28,11 +28,12 @@ const Signin = (props) => {
   // }\
 
   useEffect(() => {
-    if (props.UI.errors) {
-      setErrors(props.UI.errors);
+    if (UI.errors) {
+      setErrors(UI.errors);
     }
-  }, [props.UI.errors]);
-  console.log(props.UI);
+  }, [UI.errors]);
+
+  console.log();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,7 +42,7 @@ const Signin = (props) => {
       email: email,
       password: password,
     };
-    props.loginUser(userData, props.history);
+    props.loginUser(userData, props.props.history);
     console.log(userData);
   };
 

@@ -5,6 +5,7 @@
   "proxy": "https://us-central1-webesushi-a3bf0.cloudfunctions.net/api",
   "homepage": "https://webesushi.io",
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
@@ -16,6 +17,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
+    "react-modal": "^3.13.1",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
