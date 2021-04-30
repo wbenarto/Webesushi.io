@@ -12,8 +12,41 @@ import video from "../../videos/video.mp4";
 import tools1 from "../../images/tools1.jpg";
 import data3 from "../../data2/data3";
 
-const Home = () => {
+import PropTypes from "prop-types";
+
+import { connect } from "react-redux";
+import { getSushis } from "../../redux/actions/dataActions";
+
+const Home = (props) => {
   const [sushi, setSushi] = useState("");
+
+  useEffect(() => {
+    props.getSushis();
+  }, []);
+
+  const { sushis, loading } = props.data;
+  console.log(sushis);
+
+  const recentSushisMarkUp = loading ? (
+    <p>Loading...</p>
+  ) : (
+    sushis.map((sushi) => (
+      <>
+        <h1 key={sushi.sushiId} sushi={sushi}>
+          {sushi.name}
+        </h1>
+        <h1>{sushi.category}</h1>
+        {sushi.ingredients.map((e, i) => (
+          <p key={i}>{e}</p>
+        ))}
+
+        <img
+          style={{ width: "200px", height: "200px" }}
+          src={sushi.image}
+        ></img>
+      </>
+    ))
+  );
 
   // useEffect(() => {
   //   axios
@@ -28,6 +61,7 @@ const Home = () => {
     <HomeContainer>
       <h1>Home</h1>
       <h2>Follow the steps:</h2>
+      {recentSushisMarkUp}
       <HomeDisplay>
         <HomeMedia>
           {data3.map((e, i) => (
@@ -88,4 +122,11 @@ const Home = () => {
   );
 };
 
-export default Home;
+Home.propTypes = {
+  getSushis: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({ data: state.data });
+
+export default connect(mapStateToProps, { getSushis })(Home);

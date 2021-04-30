@@ -6,6 +6,8 @@ import {
   SET_AUTHENTICATED,
   SET_UNAUTHENTICATED,
   LOADING_USER,
+  LIKE_SUSHI,
+  UNLIKE_SUSHI,
 } from "../types";
 
 const initialState = {
@@ -35,6 +37,26 @@ export default function (state = initialState, action) {
       return {
         ...state,
         loading: true,
+      };
+    case LIKE_SUSHI:
+      return {
+        ...state,
+        likes: [
+          ...state.likes,
+          {
+            userHandle: state.credentials.handle,
+            sushiId: action.payload.sushiId,
+          },
+        ],
+      };
+    case UNLIKE_SUSHI:
+      return {
+        ...state,
+        likes: [
+          ...state.likes.filter(
+            (like) => like.sushiId === action.payload.sushiId
+          ),
+        ],
       };
     default:
       return state;

@@ -159,12 +159,9 @@ Navbar.propTypes = {
   authenticated: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state) => (
-  console.log(state),
-  {
-    imageUrl: state.user.credentials.imageUrl,
-    authenticated: state.user.authenticated,
-  }
-);
+const mapStateToProps = (state) => ({
+  imageUrl: state.user.credentials.imageUrl,
+  authenticated: state.user.authenticated,
+});
 
 export default connect(mapStateToProps)(Navbar);
