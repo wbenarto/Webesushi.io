@@ -25,7 +25,7 @@ import webewhite from "../../images/webewhite.png";
 import { data2 } from "../../data2/data2";
 
 const Shop = () => {
-  const [content, setContent] = useState("all");
+  const [content, setContent] = useState("raw");
 
   const handleFilter = (arg) => {
     setContent(arg);

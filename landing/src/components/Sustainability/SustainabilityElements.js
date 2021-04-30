@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 export const InfoContainer = styled.div`
   color: #fff;
-  background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")};
+  /* background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")}; */
+  background: linear-gradient(#b6d1e3, #ebf8e1, #2b495c);
+  height: 100vh;
+  width: 100vw;
 
   @media screen and (max-width: 768px) {
     padding: 100px 0;
@@ -11,15 +14,25 @@ export const InfoContainer = styled.div`
 `;
 
 export const InfoWrapper = styled.div`
-  display: grid;
-  z-index: 1;
-  height: 860px;
-  width: 100%;
-  max-width: 1100px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 0 24px;
-  justify-content: center;
+  display: flex;
+  width: 70vw;
+  overflow-x: scroll;
+  margin: auto;
+`;
+
+export const CardWrapper = styled.div`
+  display: flex;
+  position: relative;
+  min-width: 400px;
+  height: 300px;
+  padding: 20px;
+  margin: 10px;
+
+  border: 2px solid black;
+  background-color: ${({ rec }) =>
+    rec == "Avoid" ? "red" : "rgba(10, 10, 10, 0.4)"};
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const InfoRow = styled.div`

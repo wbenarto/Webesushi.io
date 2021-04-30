@@ -12,8 +12,6 @@ const SustainabilityPage = () => {
   };
   return (
     <>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
-      <Navbar toggle={toggle} />
       <Sustainability />
     </>
   );

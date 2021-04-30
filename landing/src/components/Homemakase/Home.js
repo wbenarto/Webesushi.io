@@ -20,9 +20,9 @@ import { getSushis } from "../../redux/actions/dataActions";
 const Home = (props) => {
   const [sushi, setSushi] = useState("");
 
-  useEffect(() => {
-    props.getSushis();
-  }, []);
+  // useEffect(() => {
+  //   props.getSushis();
+  // }, []);
 
   const { sushis, loading } = props.data;
   console.log(sushis);
@@ -62,11 +62,11 @@ const Home = (props) => {
       <h1>Home</h1>
       <h2>Follow the steps:</h2>
       {recentSushisMarkUp}
-      <HomeDisplay>
+      {/* <HomeDisplay>
         <HomeMedia>
           {data3.map((e, i) => (
             <>
-              {/* {e.images.map((e) => (
+              {e.images.map((e) => (
                 <img
                   style={{
                     width: "150px",
@@ -74,26 +74,15 @@ const Home = (props) => {
                   }}
                   src={e}
                 ></img>
-              ))} */}
+              ))}
               {e.steps.map((e) => (
                 <p>{e}</p>
               ))}
             </>
           ))}
-
-          <img></img>
-          <p></p>
-
-          <img></img>
-          <p></p>
         </HomeMedia>
-        {/* <img
-          style={{ width: "150px", height: "150px" }}
-          src={sushi.data[0].image}
-        ></img> */}
-        <p>here</p>
-      </HomeDisplay>
-      <HomeFilter>
+      </HomeDisplay> */}
+      {/* <HomeFilter>
         {" "}
         <li>
           <ul>Tools</ul>
@@ -117,7 +106,7 @@ const Home = (props) => {
           <ul>Rolling</ul>
           <ul>Plating</ul>
         </li>
-      </HomeFilter>
+      </HomeFilter> */}
     </HomeContainer>
   );
 };

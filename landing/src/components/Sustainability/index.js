@@ -2,8 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button } from "../ButtonElement";
 import {
+  AppNav,
+  AppNavLogo,
+  AppHeading,
+} from "../Homemakase/HomemakaseElements";
+import {
   InfoContainer,
   InfoWrapper,
+  CardWrapper,
   InfoRow,
   Column1,
   TextWrapper,
@@ -16,66 +22,41 @@ import {
   Img,
   Icon,
 } from "./SustainabilityElements";
+import { FaChevronLeft, FaHome, FaStore, FaTape } from "react-icons/fa";
 
-const Sustainability = ({
-  lightBg,
-  id,
-  imgStart,
-  topLine,
-  lightText,
-  headline,
-  darkText,
-  description,
-  buttonLabel,
-  img,
-  alt,
-  primary,
-  dark,
-  dark2,
-}) => {
+import seafoodData from "../../data2/seafoodData";
+
+const Sustainability = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // "https://api.lyrics.ovh/v1/artist/title"
-
   useEffect(() => {
-    fetchData();
+    setData(seafoodData);
   }, []);
 
-  // const fetchData = () => {
-  //   axios
-  //     .get(
-  //       "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
-  //     )
-  //     .then((res) => {
-  //       console.log(res);
-  //       setData(res);
-  //     });
-  // };
-  const fetchData = async () => {
-    try {
-      const fish = await axios
-        .get("https://api.lyrics.ovh/v1/Eminem/8mile")
-        .then((res) => {
-          console.log(res);
-          setData(res.data.lyrics);
-        });
-
-      setLoading(true);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  // const fishImage = data.data[0].Quote;
-  // const fishImg = data.data[0]["Image Gallery"];
-  // console.log(fishImg);
-  // console.log(fishImage);
-  // const bitcoin = data.data.bitcoin.usd;
-  // console.log(bitcoin);
   return (
     <>
-      <Icon to="/">WebeSushi</Icon>
+      <InfoContainer>
+        <AppNav>
+          <AppNavLogo to="/">
+            <FaChevronLeft />
+          </AppNavLogo>
+          <AppHeading>SUSTAINABILITY</AppHeading>
+        </AppNav>
+        <InfoWrapper>
+          {data.map((e) => (
+            <CardWrapper rec={e.recommendation}>
+              <h1>{e.species}</h1>
+              <p>Also known as : {e.alias}</p>
+              <p>Region: {e.region}</p>
+              <p>Method: {e.method}</p>
+              <h2>{e.recommendation}</h2>
+            </CardWrapper>
+          ))}
+        </InfoWrapper>
+      </InfoContainer>
+
+      {/* <Icon to="/">WebeSushi</Icon>
       <InfoContainer lightBg={lightBg}>
         <Heading lightText="true">Sustainabilty page</Heading>
         <Subtitle> Helloooo </Subtitle>
@@ -83,18 +64,7 @@ const Sustainability = ({
         <Icon to="/">WebeSushi </Icon>
         {loading ? <h1>{data}</h1> : <h1>LOADINGGGGGG</h1>}
 
-        {/* {fishImg.map((e, i) => {
-          return (
-            <div>
-              <img
-                key={i}
-                src={e.src}
-                styles={{ height: "100px", width: "100px" }}
-              />
-            </div>
-          );
-        })} */}
-      </InfoContainer>
+      </InfoContainer> */}
     </>
   );
 };

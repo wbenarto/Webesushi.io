@@ -46,7 +46,7 @@ export const AppNav = styled.div`
   width: 100vw;
   /* height: 50px; */
   height: 7vh;
-  background-color: transparent;
+  background-color: rgba(22, 22, 23, 0.5);
   /* #2c3138 */
   display: flex;
   flex-direction: row;
@@ -87,10 +87,10 @@ export const AppMain = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: auto;
-  width: 60%;
+  width: 70%;
 
   height: calc(100vh - 15vh);
-  background-color: transparent;
+  background-color: rgba(10, 10, 10, 0.5);
   /* #a5b4cc; */
   overflow: scroll;
   color: white;
@@ -106,9 +106,10 @@ export const AppMain = styled.div`
 
 export const AppFooter = styled.div`
   position: relative;
-  margin-left: 15vw;
+  margin: auto;
   max-width: 70vw;
-  height: 5vh;
+  height: 8vh;
+  background-color: rgba(10, 10, 10, 0.8);
 
   flex-shrink: 0;
   display: flex;
