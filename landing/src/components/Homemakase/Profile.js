@@ -1,6 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import EditDetails from "./EditDetails";
+import EditDetails from "../Homemakase/EditDetails";
+import {
+  ProfileContainer,
+  ProfileImage,
+  ProfileCard,
+  HeaderText,
+  DescText,
+} from "../Profile/ProfileElements";
 
 // Redux
 import { connect } from "react-redux";
@@ -34,30 +41,31 @@ const Profile = (props) => {
 
   let profileMarkup = !loading ? (
     authenticated ? (
-      <div>
-        <img
-          style={{ width: "150px", height: "150px" }}
-          src={imageUrl}
-          alt="profile"
-        />
-        <input
-          type="file"
-          id="imageInput"
-          hidden="hidden"
-          onChange={handleImageChange}
-        />
-        <button onClick={handleEditPicture}>Upload Image</button>
-        <h1>{handle}</h1>
-        <h2>{bio}</h2>
-        <h3>{website}</h3>
-        <h2>{location}</h2>
-        <button onClick={handleLogOut}>Log Out</button>
-        <EditDetails />
-      </div>
+      <ProfileContainer>
+        <div>
+          <ProfileImage src={imageUrl}></ProfileImage>
+
+          <input
+            type="file"
+            id="imageInput"
+            hidden="hidden"
+            onChange={handleImageChange}
+          />
+          <button onClick={handleEditPicture}>Upload Image</button>
+          <ProfileCard>
+            <HeaderText>{handle}</HeaderText>
+            <DescText>{bio}</DescText>
+            <DescText>{website}</DescText>
+            <DescText>{location}</DescText>
+          </ProfileCard>
+          <button onClick={handleLogOut}>Log Out</button>
+          <EditDetails />
+        </div>
+      </ProfileContainer>
     ) : (
-      <div>
+      <ProfileContainer>
         <h1>No Profile Found</h1>
-      </div>
+      </ProfileContainer>
     )
   ) : (
     <p>loading...</p>

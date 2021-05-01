@@ -145,7 +145,12 @@ const Navbar = (props) => {
         <NavBtn>
           {authenticated ? (
             // <h1 style={{ color: "white" }}>welcome</h1>
-            <img src={imageUrl} style={{ width: "50px", height: "50px" }} />
+            <a href="/profile">
+              <img
+                src={imageUrl}
+                style={{ width: "50px", height: "50px", borderRadius: "50%" }}
+              />
+            </a>
           ) : (
             <NavBtnLink to="/signin">Sign In</NavBtnLink>
           )}

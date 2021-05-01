@@ -5,7 +5,7 @@ import Home from "./pages";
 import Navbar from "./components/Navbar/index";
 import Sidebar from "./components/Sidebar/index";
 import SignupPage from "./pages/signup";
-import GalleryPage from "./pages/gallery";
+import ProfilePage from "./pages/profile";
 import HomeMakase from "./pages/homemakase";
 import SigninPage from "./pages/signin";
 import AuthRoute from "./util/AuthRoute";
@@ -50,7 +50,7 @@ function App() {
               component={SustainabilityPage}
               exact
             />
-            <Route path="/gallery/" component={GalleryPage} exact />
+            <Route path="/profile/" component={ProfilePage} exact />
             <Route component={NotFoundPage} />
           </Switch>
         </Router>

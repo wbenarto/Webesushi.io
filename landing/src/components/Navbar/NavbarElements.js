@@ -5,14 +5,14 @@ import { Link as LinkS } from "react-scroll";
 export const Nav = styled.nav`
   background: ${({ scrollNav }) =>
     scrollNav == "home"
-      ? "transparent"
+      ? "rgba(10,10,10, 0.4)"
       : scrollNav == "middle"
       ? "#2c3138"
       : scrollNav == "white"
       ? "#2c3138"
       : "#010606"};
 
-  height: 100px;
+  height: 80px;
   margin-top: -100px;
   display: flex;
   justify-content: center;
