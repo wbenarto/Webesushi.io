@@ -24,64 +24,56 @@ export const CardWrapper = styled.div`
   display: flex;
   position: relative;
   min-width: 400px;
-  height: 300px;
+  height: 600px;
   padding: 20px;
   margin: 10px;
 
-  border: 2px solid black;
+  border: 0.5px solid black;
   background-color: ${({ rec }) =>
-    rec == "Avoid" ? "red" : "rgba(10, 10, 10, 0.4)"};
+    rec == "Avoid" ? "#e3595d" : "rgba(10, 10, 10, 0.4)"};
   align-items: center;
   flex-direction: column;
 `;
 
-export const InfoRow = styled.div`
-  display: grid;
-  grid-auto-columns: minmax(auto, 1fr);
-  align-items: center;
-  grid-template-areas: ${({ imgStart }) =>
-    imgStart ? '"col2 col1"' : '"col1 col2"'};
-
-  @media screen and (max-width: 768px) {
-    grid-template-areas: ${({ imgStart }) =>
-      imgStart ? '"col1" "col2"' : '"col1 col1" "col2 col2"'};
-  }
-`;
-
-export const Column1 = styled.div`
-  margin-bottom: 15px;
-  padding: 0 15px;
-  grid-area: col1;
-`;
-
-export const Column2 = styled.div`
-  margin-bottom: 15px;
-  padding: 0 15px;
-  grid-area: col2;
-`;
-
 export const TextWrapper = styled.div`
-  max-width: 540px;
-  padding-top: 0;
-  padding-bottom: 60px;
+  width: 100%;
+  min-height: 300px;
+  padding: 10px;
+  text-align: left;
+  /* background-color: blue; */
 `;
 
 export const TopLine = styled.p`
-  color: #dbd6a9;
-  font-size: 24px;
-  line-height: 16px;
+  /* #dbd6a9 */
+
+  color: ${({ rec }) => (rec == "Avoid" ? "black" : "#fff")};
+  font-size: ${({ rec }) => (rec == "Avoid" ? "40px" : "24px")};
   font-weight: 700;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  display: flex;
+  position: absolute;
+  padding-bottom: 20px;
+  margin: auto;
+  bottom: 0;
 `;
 
 export const Heading = styled.h1`
-  margin-bottom: 24px;
-  font-size: 48px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  /* background-color: gold; */
+  border-radius: 10px;
+  border-bottom: 0.5px solid white;
+  font-size: 32px;
   line-height: 1.1;
   font-weight: 600;
-  color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
+  color: gold;
+  margin-bottom: 10px;
+  text-align: center;
+  justify-content: center;
+  /* color: ${({ lightText }) => (lightText ? "#010606" : "#f7f8fa")}; */
 
   @media screen and (max-width: 480px) {
     font-size: 32px;
@@ -90,10 +82,13 @@ export const Heading = styled.h1`
 
 export const Subtitle = styled.p`
   max-width: 440px;
-  margin-bottom: 35px;
-  font-size: 18px;
-  line-height: 24px;
+  margin-bottom: 5px;
+  font-size: 16px;
   color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
+  > span {
+    font-size: 20px;
+    color: gold;
+  }
 `;
 
 export const BtnWrap = styled.div`
@@ -102,8 +97,9 @@ export const BtnWrap = styled.div`
 `;
 
 export const ImgWrap = styled.div`
-  max-width: 555px;
+  width: 100%;
   height: 100%;
+  background-color: teal;
 `;
 
 export const Img = styled.img`

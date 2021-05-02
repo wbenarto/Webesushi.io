@@ -43,14 +43,27 @@ const Sustainability = () => {
           </AppNavLogo>
           <AppHeading>SUSTAINABILITY</AppHeading>
         </AppNav>
+
         <InfoWrapper>
           {data.map((e) => (
             <CardWrapper rec={e.recommendation}>
-              <h1>{e.species}</h1>
-              <p>Also known as : {e.alias}</p>
-              <p>Region: {e.region}</p>
-              <p>Method: {e.method}</p>
-              <h2>{e.recommendation}</h2>
+              <ImgWrap>
+                <Img src={e.img} alt="fish"></Img>
+              </ImgWrap>
+              <TextWrapper>
+                <Heading>{e.species}</Heading>
+                <Subtitle>
+                  <span>Also known as : </span>
+                  {e.alias}
+                </Subtitle>
+                <Subtitle>
+                  <span>Region : </span> {e.region}
+                </Subtitle>
+                <Subtitle>
+                  <span>Method:</span> {e.method}
+                </Subtitle>
+                <TopLine rec={e.recommendation}>{e.recommendation}</TopLine>
+              </TextWrapper>
             </CardWrapper>
           ))}
         </InfoWrapper>
