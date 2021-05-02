@@ -1,3 +1,14 @@
+import buri from "../images/seafood/yellowtail.webp";
+import albacore from "../images/seafood/albacore.webp";
+import atlanticsalmon from "../images/seafood/albacore.webp";
+import bluecrab from "../images/seafood/bluecrab.webp";
+import bluefin from "../images/seafood/bluefin-tuna.webp";
+import mackerel from "../images/seafood/mackerel.webp";
+import octopus from "../images/seafood/octopus.webp";
+import uni from "../images/seafood/red-sea-urchin.webp";
+import snowcrab from "../images/seafood/snowcrab.webp";
+import tigershrimp from "../images/seafood/tiger-shrimp.webp";
+
 const seafoodData = [
   {
     id: 1,
@@ -7,6 +18,7 @@ const seafoodData = [
     region: "Worldwide",
     method: "Farmed indoor with recirculating tanks.",
     recommendation: "Best Choice",
+    img: buri,
   },
   {
     id: 2,
@@ -15,6 +27,7 @@ const seafoodData = [
     region: "Maryland, US",
     method: "Trotline",
     recommendation: "Best Choice",
+    img: bluecrab,
   },
   {
     id: 3,
@@ -23,6 +36,7 @@ const seafoodData = [
     region: "Alaska, US",
     method: "Pots",
     recommendation: "Best Choice",
+    img: snowcrab,
   },
   {
     id: 4,
@@ -32,6 +46,7 @@ const seafoodData = [
     region: "US",
     method: "Cast nets",
     recommendation: "Best Choice",
+    img: mackerel,
   },
   {
     id: 5,
@@ -40,6 +55,7 @@ const seafoodData = [
     region: "Alaska, US",
     method: "Pots",
     recommendation: "Best Choice",
+    img: octopus,
   },
   {
     id: 6,
@@ -48,6 +64,7 @@ const seafoodData = [
     region: "Norway",
     method: "Marine Net Pen",
     recommendation: "Avoid",
+    img: atlanticsalmon,
   },
   {
     id: 7,
@@ -56,6 +73,7 @@ const seafoodData = [
     region: "Norway",
     method: "Marine Net Pen",
     recommendation: "Best Choice",
+    img: atlanticsalmon,
   },
   {
     id: 8,
@@ -64,6 +82,7 @@ const seafoodData = [
     region: "Oregon, US",
     method: "Diving",
     recommendation: "Best Choice",
+    img: uni,
   },
   {
     id: 9,
@@ -72,6 +91,7 @@ const seafoodData = [
     region: "Worldwide",
     method: "Farmed",
     recommendation: "Best Choice",
+    img: tigershrimp,
   },
   {
     id: 10,
@@ -80,6 +100,7 @@ const seafoodData = [
     region: "Worldwide",
     method: "Drifting Longlines",
     recommendation: "Avoid",
+    img: albacore,
   },
   {
     id: 11,
@@ -88,6 +109,7 @@ const seafoodData = [
     region: "Eastern Central Pacific Ocean",
     method: "Drift Gillnets",
     recommendation: "Avoid",
+    img: bluefin,
   },
 ];
 

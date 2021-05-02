@@ -5,7 +5,7 @@ export const InfoContainer = styled.div`
   color: #fff;
   /* background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")}; */
   background: linear-gradient(#b6d1e3, #ebf8e1, #2b495c);
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 
   @media screen and (max-width: 768px) {
@@ -15,9 +15,25 @@ export const InfoContainer = styled.div`
 
 export const InfoWrapper = styled.div`
   display: flex;
-  width: 70vw;
-  overflow-x: scroll;
+  width: 90vw;
+  height: 100%;
+
+  flex-direction: column;
   margin: auto;
+  border-radius: 50px;
+  padding-top: 100px;
+  > h1 {
+    color: black;
+  }
+  > h2 {
+    color: #eb4034;
+  }
+`;
+
+export const SushiSeafood = styled.div`
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
 `;
 
 export const CardWrapper = styled.div`
@@ -33,11 +49,12 @@ export const CardWrapper = styled.div`
     rec == "Avoid" ? "#e3595d" : "rgba(10, 10, 10, 0.4)"};
   align-items: center;
   flex-direction: column;
+  border-radius: 10px;
 `;
 
 export const TextWrapper = styled.div`
   width: 100%;
-  min-height: 300px;
+  min-height: 310px;
   padding: 10px;
   text-align: left;
   /* background-color: blue; */
@@ -46,7 +63,7 @@ export const TextWrapper = styled.div`
 export const TopLine = styled.p`
   /* #dbd6a9 */
 
-  color: ${({ rec }) => (rec == "Avoid" ? "black" : "#fff")};
+  color: ${({ rec }) => (rec == "Avoid" ? "black" : "#4ced59")};
   font-size: ${({ rec }) => (rec == "Avoid" ? "40px" : "24px")};
   font-weight: 700;
   letter-spacing: 1.2px;
@@ -97,15 +114,14 @@ export const BtnWrap = styled.div`
 `;
 
 export const ImgWrap = styled.div`
+  margin-top: -40px;
   width: 100%;
-  height: 100%;
-  background-color: teal;
+  max-height: 200px;
 `;
 
 export const Img = styled.img`
   width: 100%;
-  margin: 0 0 10px;
-  padding-right: 0;
+  /* background-color: rgba(10, 10, 10, 0.2); */
 `;
 
 export const Icon = styled(Link)`
