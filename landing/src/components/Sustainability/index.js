@@ -72,7 +72,7 @@ const Sustainability = () => {
 
           <SushiSeafood>
             {data.map((e) => (
-              <CardWrapper rec={e.recommendation}>
+              <CardWrapper key={e.id} rec={e.recommendation}>
                 <ImgWrap>
                   <Img src={e.img} alt="fish"></Img>
                 </ImgWrap>

@@ -19,7 +19,7 @@ const Signin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const { UI } = props;
+  const { UI, user } = props;
 
   // componentWillReceiveProps(nextProps) {
   //   if(nextProps.UI.errors) {
@@ -33,7 +33,7 @@ const Signin = (props) => {
     }
   }, [UI.errors]);
 
-  console.log();
+  console.log("Props User?" + { user });
 
   const handleSubmit = (event) => {
     event.preventDefault();
