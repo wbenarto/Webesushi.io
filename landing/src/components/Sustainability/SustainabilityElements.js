@@ -79,6 +79,9 @@ export const TopLine = styled.p`
 export const Reason = styled.div`
   font-size: 20px;
   padding: 20px;
+  height: 140px;
+  overflow-y: scroll;
+
   color: white;
   text-align: center;
   background-color: ${({ avoid }) =>
