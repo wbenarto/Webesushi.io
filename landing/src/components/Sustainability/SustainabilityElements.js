@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+/* #dbd6a9 */
+
 export const InfoContainer = styled.div`
   color: #fff;
   /* background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")}; */
   background: linear-gradient(#b6d1e3, #ebf8e1, #2b495c);
   height: 100%;
-  width: 100vw;
+  width: 100%;
 
   @media screen and (max-width: 768px) {
-    padding: 100px 0;
   }
 `;
 
@@ -17,16 +18,18 @@ export const InfoWrapper = styled.div`
   display: flex;
   width: 90vw;
   height: 100%;
-
+  /* background-color: purple; */
   flex-direction: column;
   margin: auto;
   border-radius: 50px;
-  padding-top: 100px;
+  padding-top: 20px;
   > h1 {
     color: black;
   }
   > h2 {
     color: #eb4034;
+    background-color: rgba(10, 10, 10, 0.9);
+    border-radius: 10px;
   }
 `;
 
@@ -61,8 +64,6 @@ export const TextWrapper = styled.div`
 `;
 
 export const TopLine = styled.p`
-  /* #dbd6a9 */
-
   color: ${({ rec }) => (rec == "Avoid" ? "black" : "#4ced59")};
   font-size: ${({ rec }) => (rec == "Avoid" ? "40px" : "24px")};
   font-weight: 700;
@@ -73,6 +74,15 @@ export const TopLine = styled.p`
   padding-bottom: 20px;
   margin: auto;
   bottom: 0;
+`;
+
+export const Reason = styled.div`
+  font-size: 20px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  background-color: ${({ avoid }) =>
+    avoid == "" ? "none" : "rgba(10, 10, 10, 0.2)"};
 `;
 
 export const Heading = styled.h1`
@@ -133,7 +143,5 @@ export const Icon = styled(Link)`
   font-size: 32px;
 
   @media screen and (max-width: 480px) {
-    margin-left: 16px;
-    margin-top: 8px;
   }
 `;

@@ -43,7 +43,7 @@ export const HomemakaseContainer = styled.div`
 
 export const AppNav = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
   /* height: 50px; */
   height: 7vh;
   background-color: rgba(22, 22, 23, 0.5);

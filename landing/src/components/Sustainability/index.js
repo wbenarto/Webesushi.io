@@ -22,8 +22,15 @@ import {
   ImgWrap,
   Img,
   Icon,
+  Reason,
 } from "./SustainabilityElements";
-import { FaChevronLeft, FaHome, FaStore, FaTape } from "react-icons/fa";
+import {
+  FaChevronLeft,
+  FaHome,
+  FaStore,
+  FaTape,
+  FaExclamationTriangle,
+} from "react-icons/fa";
 
 import seafoodData from "../../data2/seafoodData";
 
@@ -61,15 +68,15 @@ const Sustainability = () => {
           <h2>Preserve Habitats</h2>
           <h2>Manage Pollution and Disease</h2>
 
-          <Heading>What can we do as ?</Heading>
+          <Heading>What can we do as sushi consumer?</Heading>
           <h2>
             We can help by consuming sushi with ingredients that are
             environmentally sustainable, plentiful in population, and following
-            safe farming practices. Webesushi Vow to avoid consuming seafood
+            safe farming practices. Webesushi vows to avoid consuming seafood
             that are fished with methods that can cause overfishing and bycatch,
             also avoid species that are endangered.
           </h2>
-
+          <br />
           <SushiSeafood>
             {data.map((e) => (
               <CardWrapper key={e.id} rec={e.recommendation}>
@@ -86,9 +93,20 @@ const Sustainability = () => {
                     <span>Region : </span> {e.region}
                   </Subtitle>
                   <Subtitle>
-                    <span>Method:</span> {e.method}
+                    <span>Method:</span> {e.method[0]}{" "}
+                    {e.method[1] == "bad" ? <FaExclamationTriangle /> : ""}
                   </Subtitle>
+                  <Subtitle>
+                    <span>Population:</span> {e.population}{" "}
+                    {e.population == "Endangered" ? (
+                      <FaExclamationTriangle />
+                    ) : (
+                      ""
+                    )}
+                  </Subtitle>
+
                   <TopLine rec={e.recommendation}>{e.recommendation}</TopLine>
+                  <Reason avoid={e.reason}>{e.reason}</Reason>
                 </TextWrapper>
               </CardWrapper>
             ))}
