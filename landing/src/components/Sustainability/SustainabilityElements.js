@@ -27,8 +27,9 @@ export const InfoWrapper = styled.div`
     color: black;
   }
   > h2 {
-    color: #eb4034;
-    background-color: rgba(10, 10, 10, 0.9);
+    color: gray;
+    padding: 20px;
+    /* background-color: rgba(10, 10, 10, 0.9); */
     border-radius: 10px;
   }
 `;
@@ -37,6 +38,38 @@ export const SushiSeafood = styled.div`
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
+`;
+
+export const SeafoodFilter = styled.div`
+  width: 100%;
+  height: 200px;
+  /* background-color: purple; */
+  display: flex;
+  flex-direction: column;
+`;
+
+export const SpeciesFilter = styled.div`
+  width: 100%;
+  height: 100px;
+  /* background-color: teal; */
+`;
+export const AdditionalFilter = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const PopulationFilter = styled.div`
+  width: 50%;
+  height: 70px;
+  /* background-color: green; */
+  display: flex;
+`;
+
+export const MethodFilter = styled.div`
+  width: 50%;
+  height: 70px;
+  /* background-color: yellow; */
+  display: flex;
 `;
 
 export const CardWrapper = styled.div`

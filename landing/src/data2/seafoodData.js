@@ -85,6 +85,7 @@ const seafoodData = [
   {
     id: 7,
     species: "Atlantic Salmon ASC Certified",
+    type: "salmon",
     alias: "Sake",
     region: "Norway",
     method: ["Marine Net Pen", "good"],

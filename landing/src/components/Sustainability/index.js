@@ -23,6 +23,11 @@ import {
   Img,
   Icon,
   Reason,
+  SeafoodFilter,
+  SpeciesFilter,
+  AdditionalFilter,
+  PopulationFilter,
+  MethodFilter,
 } from "./SustainabilityElements";
 import {
   FaChevronLeft,
@@ -31,17 +36,50 @@ import {
   FaTape,
   FaExclamationTriangle,
 } from "react-icons/fa";
+import {
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  FormControl,
+  RadioGroup,
+  Checkbox,
+} from "@material-ui/core";
 
 import seafoodData from "../../data2/seafoodData";
 
 const Sustainability = () => {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [population, setPopulation] = useState("In Abundance");
+  const [method, setMethod] = useState("Responsible");
+  const [seafood, setSeafood] = useState("all");
+  const [checked, setChecked] = useState(true);
 
+  const handleSeafood = (event) => {
+    setChecked(event.target.checked);
+    if (event.target.checked) {
+      console.log(event.target.value);
+      setSeafood(event.target.value);
+    }
+    console.log(seafood);
+  };
+
+  const handlePopulation = (event) => {
+    setPopulation(event.target.value);
+  };
+
+  const handleMethod = (event) => {
+    setMethod(event.target.value);
+    // const filter = [...data].filter((e) => e.method[1] == method);
+    // console.log(filter);
+  };
   useEffect(() => {
     setData(seafoodData);
   }, []);
-
+  console.log(method);
+  console.log(population);
+  console.log(seafoodData, filteredData);
   return (
     <>
       <InfoContainer>
@@ -77,6 +115,93 @@ const Sustainability = () => {
             also avoid species that are endangered.
           </h2>
           <br />
+          <SeafoodFilter>
+            {/* <SpeciesFilter>
+              <FormLabel component="legend">Seafood Filter : </FormLabel>
+              <FormControlLabel
+                control={
+                  <Checkbox onChange={handleSeafood} color="" value="salmon" />
+                }
+                label="Salmon"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox onChange={handleSeafood} color="" value="tuna" />
+                }
+                label="Tuna"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox onChange={handleSeafood} color="" value="hamachi" />
+                }
+                label="Hamachi"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox onChange={handleSeafood} color="" value="shrimp" />
+                }
+                label="Shrimp"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox onChange={handleSeafood} color="" value="crab" />
+                }
+                label="Crab"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox onChange={handleSeafood} color="" value="uni" />
+                }
+                label="Uni"
+              />
+            </SpeciesFilter> */}
+            <AdditionalFilter>
+              <PopulationFilter>
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">Population</FormLabel>
+                  <RadioGroup
+                    style={{ flexDirection: "row" }}
+                    aria-label="Population"
+                    value={population}
+                    onChange={handlePopulation}
+                  >
+                    <FormControlLabel
+                      value="In Abundance"
+                      control={<Radio color="primary" />}
+                      label="In Abundance"
+                    />
+                    <FormControlLabel
+                      value="Endangered"
+                      control={<Radio />}
+                      label="Endangered"
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </PopulationFilter>
+              <MethodFilter>
+                <FormControl component="fieldset">
+                  <FormLabel>Harvesting Method</FormLabel>
+                  <RadioGroup
+                    style={{ flexDirection: "row" }}
+                    aria-label="Method"
+                    value={method}
+                    onChange={handleMethod}
+                  >
+                    <FormControlLabel
+                      value="good"
+                      control={<Radio color="primary" />}
+                      label="Responsible"
+                    />
+                    <FormControlLabel
+                      value="bad"
+                      control={<Radio />}
+                      label="Unsustainable Practices"
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </MethodFilter>
+            </AdditionalFilter>
+          </SeafoodFilter>
           <SushiSeafood>
             {data.map((e) => (
               <CardWrapper key={e.id} rec={e.recommendation}>
