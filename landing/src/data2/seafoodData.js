@@ -11,6 +11,7 @@ import tigershrimp from "../images/seafood/tiger-shrimp.webp";
 import yellowfin from "../images/seafood/yellowfin_tuna.webp";
 import bigeye from "../images/seafood/bigeye-tuna.webp";
 import skipjack from "../images/seafood/skipjack.webp";
+import lobster from "../images/seafood/california-lobster.webp";
 
 const seafoodData = [
   {
@@ -230,6 +231,17 @@ const seafoodData = [
     img: bigeye,
     reason:
       "Population of Bigeye in this region isn't depleting, but overfishing is occurring with the use of Floating Object Purse Seines (FAD) harvesting method. ",
+  },
+  {
+    id: 20,
+    species: "California Spiny Lobster",
+    alias: "Red Lobster, Spiny Lobster",
+    region: "Eastern Central Pacific Ocean",
+    method: ["Traps", "good"],
+    population: "Healthy",
+    recommendation: "Best Choice",
+    img: lobster,
+    reason: "",
   },
 ];
 

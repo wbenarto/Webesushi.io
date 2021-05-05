@@ -15,8 +15,13 @@ import {
   Column1,
   TextWrapper,
   TopLine,
+  HeroImg,
+  InfoHeroSection,
   Heading,
   Subtitle,
+  InfoHeading,
+  InfoSub,
+  InfoImage,
   BtnWrap,
   Column2,
   ImgWrap,
@@ -29,6 +34,7 @@ import {
   PopulationFilter,
   MethodFilter,
 } from "./SustainabilityElements";
+// import { Img } from "../InfoSection/InfoElements";
 import {
   FaChevronLeft,
   FaHome,
@@ -44,7 +50,7 @@ import {
   RadioGroup,
   Checkbox,
 } from "@material-ui/core";
-
+import market from "../../images/market.jpg";
 import seafoodData from "../../data2/seafoodData";
 
 const Sustainability = () => {
@@ -74,9 +80,11 @@ const Sustainability = () => {
     // const filter = [...data].filter((e) => e.method[1] == method);
     // console.log(filter);
   };
+
   useEffect(() => {
     setData(seafoodData);
   }, []);
+
   console.log(method);
   console.log(population);
   console.log(seafoodData, filteredData);
@@ -91,13 +99,18 @@ const Sustainability = () => {
         </AppNav>
 
         <InfoWrapper>
-          <Heading>What is Sustainable Seafood?</Heading>
-          <h2>
-            Environmentally sustainable seafood is wild or farmed seafood that
-            is harvested in ways that don’t harm the environment or other
-            wildlife — helping to ensure healthy and resilient ocean ecosystems.
-          </h2>
-          <Heading>
+          <InfoHeroSection>
+            <HeroImg src={market} />
+            <InfoHeading>What is Sustainable Seafood?</InfoHeading>
+            <InfoSub>
+              Environmentally sustainable seafood is wild or farmed seafood that
+              is harvested in ways that don’t harm the environment or other
+              wildlife — helping to ensure healthy and resilient ocean
+              ecosystems.
+            </InfoSub>
+          </InfoHeroSection>
+
+          {/* <Heading>
             How we can make seafood more enviromentally sustainable?
           </Heading>
 
@@ -113,7 +126,7 @@ const Sustainability = () => {
             safe farming practices. Webesushi vows to avoid consuming seafood
             that are fished with methods that can cause overfishing and bycatch,
             also avoid species that are endangered.
-          </h2>
+          </h2> */}
           <br />
           <SeafoodFilter>
             {/* <SpeciesFilter>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import market from "../../images/market.jpg";
 /* #dbd6a9 */
 
 export const InfoContainer = styled.div`
@@ -53,6 +53,7 @@ export const SpeciesFilter = styled.div`
   height: 100px;
   /* background-color: teal; */
 `;
+
 export const AdditionalFilter = styled.div`
   display: flex;
   flex-direction: row;
@@ -121,9 +122,66 @@ export const Reason = styled.div`
     avoid == "" ? "none" : "rgba(10, 10, 10, 0.2)"};
 `;
 
+export const InfoHeroSection = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  max-width: 100%;
+  height: 400px;
+  background-color: pink;
+  object-fit: cover;
+  object-position: top right;
+`;
+
+export const HeroImg = styled.img`
+  height: 400px;
+  object-fit: contain;
+  object-position: bottom right;
+  /* background-color: rgba(10, 10, 10, 0.2); */
+`;
+
+export const InfoImage = styled.img`
+  background-image: url(${market});
+  height: 100%;
+`;
+
+export const InfoHeading = styled.h1`
+  height: 80px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  padding: 5px;
+  /* background-color: gold; */
+  border-bottom: 0.5px solid white;
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 600;
+  top: 60px;
+  left: 60px;
+  color: black;
+  margin-bottom: 10px;
+  text-align: center;
+  justify-content: center;
+  /* color: ${({ lightText }) => (lightText ? "#010606" : "#f7f8fa")}; */
+
+  @media screen and (max-width: 480px) {
+    font-size: 32px;
+  }
+`;
+
+export const InfoSub = styled.h2`
+  width: 40%;
+  position: absolute;
+  display: flex;
+  bottom: 60px;
+  left: 60px;
+  font-size: 30px;
+`;
+
 export const Heading = styled.h1`
   height: 80px;
   display: flex;
+  /* position: absolute; */
   align-items: center;
   padding: 5px;
   /* background-color: gold; */
@@ -132,7 +190,7 @@ export const Heading = styled.h1`
   font-size: 32px;
   line-height: 1.1;
   font-weight: 600;
-  color: gold;
+  color: black;
   margin-bottom: 10px;
   text-align: center;
   justify-content: center;
