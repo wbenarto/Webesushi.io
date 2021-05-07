@@ -127,41 +127,56 @@ export const InfoHeroSection = styled.div`
   position: relative;
   flex-direction: column;
   max-width: 100%;
-  height: 400px;
-  background-color: pink;
+  height: 500px;
+  background-color: rgba(10, 10, 10, 0.2);
   object-fit: cover;
   object-position: top right;
 `;
 
+export const SustainableControl = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50px;
+  padding: 20px;
+
+  justify-content: space-evenly;
+  margin-bottom: 40px;
+
+  > div {
+    font-size: 32px;
+    height: 60px;
+    background-color: rgba(10, 10, 10, 0.4);
+    border-radius: 10px;
+    color: #dbd6a9;
+    padding: 10px;
+  }
+`;
+
 export const HeroImg = styled.img`
-  height: 400px;
-  object-fit: contain;
-  object-position: bottom right;
+  display: flex;
+  position: relative;
+  height: 500px;
+  object-fit: cover;
   /* background-color: rgba(10, 10, 10, 0.2); */
 `;
 
-export const InfoImage = styled.img`
-  background-image: url(${market});
-  height: 100%;
-`;
-
 export const InfoHeading = styled.h1`
-  height: 80px;
+  height: 130px;
+  width: 50%;
   display: flex;
   position: absolute;
-  align-items: center;
   padding: 5px;
-  /* background-color: gold; */
+  background-color: rgba(99, 99, 99, 0.5);
   border-bottom: 0.5px solid white;
-  font-size: 52px;
+  font-size: 48px;
   line-height: 1.1;
   font-weight: 600;
-  top: 60px;
-  left: 60px;
-  color: black;
-  margin-bottom: 10px;
-  text-align: center;
-  justify-content: center;
+  margin: 20px 40px;
+  text-align: bottom;
+
+  color: white;
+
   /* color: ${({ lightText }) => (lightText ? "#010606" : "#f7f8fa")}; */
 
   @media screen and (max-width: 480px) {
@@ -170,11 +185,12 @@ export const InfoHeading = styled.h1`
 `;
 
 export const InfoSub = styled.h2`
-  width: 40%;
+  width: 50%;
   position: absolute;
   display: flex;
-  bottom: 60px;
-  left: 60px;
+  top: 180px;
+  left: 40px;
+  background-color: rgba(10, 10, 10, 0.4);
   font-size: 30px;
 `;
 

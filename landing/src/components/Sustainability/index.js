@@ -9,6 +9,7 @@ import {
 import {
   InfoContainer,
   InfoWrapper,
+  SustainableControl,
   SushiSeafood,
   CardWrapper,
   InfoRow,
@@ -21,7 +22,6 @@ import {
   Subtitle,
   InfoHeading,
   InfoSub,
-  InfoImage,
   BtnWrap,
   Column2,
   ImgWrap,
@@ -51,6 +51,7 @@ import {
   Checkbox,
 } from "@material-ui/core";
 import market from "../../images/market.jpg";
+import fishing from "../../images/fishing.jpeg";
 import seafoodData from "../../data2/seafoodData";
 
 const Sustainability = () => {
@@ -61,6 +62,8 @@ const Sustainability = () => {
   const [method, setMethod] = useState("Responsible");
   const [seafood, setSeafood] = useState("all");
   const [checked, setChecked] = useState(true);
+
+  const [active, setActive] = useState("seafood");
 
   const handleSeafood = (event) => {
     setChecked(event.target.checked);
@@ -99,7 +102,42 @@ const Sustainability = () => {
         </AppNav>
 
         <InfoWrapper>
-          <InfoHeroSection>
+          <SustainableControl>
+            <div onClick={() => setActive("seafood")}>Sustainable Seafood</div>
+            <div onClick={() => setActive("solution")}>
+              Sustainable Solution
+            </div>
+          </SustainableControl>
+          {active == "seafood" ? (
+            <InfoHeroSection>
+              <HeroImg src={market} />
+              <InfoHeading>What is Sustainable Seafood?</InfoHeading>
+              <InfoSub>
+                Environmentally sustainable seafood is wild or farmed seafood
+                that is harvested in ways that don’t harm the environment or
+                other wildlife — helping to ensure healthy and resilient ocean
+                ecosystems.
+              </InfoSub>
+            </InfoHeroSection>
+          ) : active == "solution" ? (
+            <InfoHeroSection>
+              <HeroImg src={fishing} />
+              <InfoHeading>
+                {" "}
+                How can we make seafood more enviromentally sustainable?
+              </InfoHeading>
+              <InfoSub>
+                We can help by consuming sushi with ingredients that are
+                environmentally sustainable, plentiful in population, and
+                following safe farming practices. Webesushi vows to avoid
+                consuming seafood that are fished with methods that can cause
+                overfishing and bycatch, also avoid species that are endangered.
+              </InfoSub>
+            </InfoHeroSection>
+          ) : (
+            "seafood"
+          )}
+          {/* <InfoHeroSection>
             <HeroImg src={market} />
             <InfoHeading>What is Sustainable Seafood?</InfoHeading>
             <InfoSub>
@@ -108,7 +146,7 @@ const Sustainability = () => {
               wildlife — helping to ensure healthy and resilient ocean
               ecosystems.
             </InfoSub>
-          </InfoHeroSection>
+          </InfoHeroSection> */}
 
           {/* <Heading>
             How we can make seafood more enviromentally sustainable?

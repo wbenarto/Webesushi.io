@@ -37,17 +37,17 @@ import {
 
 const HomeMakase = () => {
   const [active, setActive] = useState("/");
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useState("raw");
 
-  const toggle = () => {
-    setIsOpen(!isOpen);
-    console.log("pressed = " + isOpen);
-  };
-  const handleClick = (page) => {
-    setActive(page);
-    console.log(page);
-  };
+  // const toggle = () => {
+  //   setIsOpen(!isOpen);
+  //   console.log("pressed = " + isOpen);
+  // };
+  // const handleClick = (page) => {
+  //   setActive(page);
+  //   console.log(page);
+  // };
 
   const handleCategory = (category) => {
     console.log(category);
