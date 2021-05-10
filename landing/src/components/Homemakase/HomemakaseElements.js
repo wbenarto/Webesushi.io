@@ -46,19 +46,20 @@ export const AppNav = styled.div`
   width: 100%;
   /* height: 50px; */
   height: 7vh;
-  background-color: rgba(22, 22, 23, 0.5);
+  background-color: transparent;
   /* #2c3138 */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 `;
+// rgba(22, 22, 23, 0.5)
 
 export const AppNavLogo = styled(LinkR)`
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  color: #dbd6a9;
+  color: #000;
   padding: 20px;
 `;
 
@@ -75,7 +76,7 @@ export const AppHeading = styled.h1`
   display: flex;
   position: relative;
   justify-content: center;
-  color: #dbd6a9;
+  color: #000;
 `;
 
 export const AppDesc = styled.p`

@@ -9,7 +9,6 @@ export const HomeContainer = styled.div`
   display: flex;
   /* background-color: lightpink; */
   flex-direction: column;
-  scroll-snap-align: end;
 `;
 
 export const HomeDisplay = styled.div`

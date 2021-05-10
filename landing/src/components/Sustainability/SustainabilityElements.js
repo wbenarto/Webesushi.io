@@ -6,8 +6,8 @@ import market from "../../images/market.jpg";
 export const InfoContainer = styled.div`
   color: #fff;
   /* background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")}; */
-  background: linear-gradient(#b6d1e3, #ebf8e1, #2b495c);
-  height: 100%;
+  /* background: linear-gradient(#b6d1e3, #ebf8e1, #2b495c); */
+  height: 1300vh;
   width: 100%;
 
   @media screen and (max-width: 768px) {
@@ -17,12 +17,12 @@ export const InfoContainer = styled.div`
 export const InfoWrapper = styled.div`
   display: flex;
   width: 90vw;
-  height: 100%;
+  height: 90%;
   /* background-color: purple; */
   flex-direction: column;
   margin: auto;
   border-radius: 50px;
-  padding-top: 20px;
+  padding-top: 60px;
   > h1 {
     color: black;
   }
@@ -38,6 +38,11 @@ export const SushiSeafood = styled.div`
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #dbd6a9;
+    border-radius: 50px;
+  }
 `;
 
 export const SeafoodFilter = styled.div`
@@ -122,12 +127,22 @@ export const Reason = styled.div`
     avoid == "" ? "none" : "rgba(10, 10, 10, 0.2)"};
 `;
 
+export const HeroSlider = styled.div`
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  background-color: rgba(10, 10, 10, 0.2);
+  justify-content: center;
+`;
+
 export const InfoHeroSection = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
   max-width: 100%;
-  height: 500px;
+  height: 1200px;
   background-color: rgba(10, 10, 10, 0.2);
   object-fit: cover;
   object-position: top right;
@@ -155,24 +170,31 @@ export const SustainableControl = styled.div`
 
 export const HeroImg = styled.img`
   display: flex;
-  position: relative;
-  height: 500px;
+  /* position: relative; */
+  position: absolute;
+  width: 100%;
+  /* height: 100%; */
   object-fit: cover;
+  z-index: -1;
+
+  /* top: ${({ num }) =>
+    num == 1 ? "0px" : num == 2 ? "2000px" : num == 3 ? "1760px" : ""}; */
+
   /* background-color: rgba(10, 10, 10, 0.2); */
 `;
 
 export const InfoHeading = styled.h1`
-  height: 130px;
+  height: 180px;
   width: 50%;
   display: flex;
   position: absolute;
-  padding: 5px;
+  padding: 15px;
   background-color: rgba(99, 99, 99, 0.5);
   border-bottom: 0.5px solid white;
   font-size: 48px;
   line-height: 1.1;
   font-weight: 600;
-  margin: 20px 40px;
+  margin: 30px 40px;
   text-align: bottom;
 
   color: white;
@@ -184,14 +206,16 @@ export const InfoHeading = styled.h1`
   }
 `;
 
-export const InfoSub = styled.h2`
+export const InfoSub = styled.p`
   width: 50%;
   position: absolute;
   display: flex;
-  top: 180px;
+  top: 190px;
   left: 40px;
   background-color: rgba(10, 10, 10, 0.4);
-  font-size: 30px;
+  font-size: 24px;
+  line-height: 1.5em;
+  padding: 40px;
 `;
 
 export const Heading = styled.h1`

@@ -5,7 +5,7 @@ import { Link as LinkS } from "react-scroll";
 export const Nav = styled.nav`
   background: ${({ scrollNav }) =>
     scrollNav == "home"
-      ? "rgba(10,10,10, 0.4)"
+      ? "transparent"
       : scrollNav == "middle"
       ? "#2c3138"
       : scrollNav == "white"
@@ -142,17 +142,18 @@ export const NavBtnLink = styled(LinkR)`
 
   white-space: nowrap;
   padding: 10px 22px;
-  color: #fff;
+  color: black;
   font-size: 16px;
   outline: none;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
+  background: #dbd6a9;
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #dbd6a9;
-    color: #010606;
+    background: white;
+    color: black;
   }
 `;

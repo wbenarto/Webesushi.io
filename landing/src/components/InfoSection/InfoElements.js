@@ -6,8 +6,6 @@ export const InfoContainer = styled.div`
   background: ${({ lightBg }) => (lightBg ? "#2c3138" : "#010606")};
   height: 100%;
 
-  scroll-snap-align: start;
-
   @media screen and (max-width: 768px) {
     /* padding: 100px 0; */
     height: 100vh;

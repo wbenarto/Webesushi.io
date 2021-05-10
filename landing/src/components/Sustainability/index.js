@@ -18,6 +18,7 @@ import {
   TopLine,
   HeroImg,
   InfoHeroSection,
+  HeroSlider,
   Heading,
   Subtitle,
   InfoHeading,
@@ -51,19 +52,36 @@ import {
   Checkbox,
 } from "@material-ui/core";
 import market from "../../images/market.jpg";
+import wave from "../../images/wave.jpg";
 import fishing from "../../images/fishing.jpeg";
+import fishes from "../../images/fishes.jpg";
+
 import seafoodData from "../../data2/seafoodData";
 
 const Sustainability = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [population, setPopulation] = useState("In Abundance");
+  const [population, setPopulation] = useState("");
   const [method, setMethod] = useState("Responsible");
   const [seafood, setSeafood] = useState("all");
   const [checked, setChecked] = useState(true);
 
   const [active, setActive] = useState("seafood");
+
+  // Paralax
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setData(seafoodData);
+  }, []);
 
   const handleSeafood = (event) => {
     setChecked(event.target.checked);
@@ -76,6 +94,13 @@ const Sustainability = () => {
 
   const handlePopulation = (event) => {
     setPopulation(event.target.value);
+    handleFilteredData(population);
+  };
+
+  const handleFilteredData = (arg) => {
+    setFilteredData(seafoodData.filter((e) => e.recommendation == population));
+    setData(filteredData);
+    console.log(data);
   };
 
   const handleMethod = (event) => {
@@ -84,16 +109,16 @@ const Sustainability = () => {
     // console.log(filter);
   };
 
-  useEffect(() => {
-    setData(seafoodData);
-  }, []);
-
   console.log(method);
   console.log(population);
-  console.log(seafoodData, filteredData);
+  console.log(data);
   return (
     <>
       <InfoContainer>
+        <HeroImg num={1} src={wave} />
+        {/* <HeroImg num={2} src={market} /> */}
+
+        {/* <HeroImg num={3} src={fishes} /> */}
         <AppNav>
           <AppNavLogo to="/">
             <FaChevronLeft />
@@ -102,41 +127,58 @@ const Sustainability = () => {
         </AppNav>
 
         <InfoWrapper>
-          <SustainableControl>
-            <div onClick={() => setActive("seafood")}>Sustainable Seafood</div>
-            <div onClick={() => setActive("solution")}>
-              Sustainable Solution
-            </div>
-          </SustainableControl>
-          {active == "seafood" ? (
-            <InfoHeroSection>
-              <HeroImg src={market} />
-              <InfoHeading>What is Sustainable Seafood?</InfoHeading>
-              <InfoSub>
-                Environmentally sustainable seafood is wild or farmed seafood
-                that is harvested in ways that don’t harm the environment or
-                other wildlife — helping to ensure healthy and resilient ocean
-                ecosystems.
-              </InfoSub>
-            </InfoHeroSection>
-          ) : active == "solution" ? (
-            <InfoHeroSection>
-              <HeroImg src={fishing} />
-              <InfoHeading>
-                {" "}
-                How can we make seafood more enviromentally sustainable?
-              </InfoHeading>
-              <InfoSub>
-                We can help by consuming sushi with ingredients that are
-                environmentally sustainable, plentiful in population, and
-                following safe farming practices. Webesushi vows to avoid
-                consuming seafood that are fished with methods that can cause
-                overfishing and bycatch, also avoid species that are endangered.
-              </InfoSub>
-            </InfoHeroSection>
-          ) : (
-            "seafood"
-          )}
+          <InfoHeroSection>
+            {active == "seafood" ? (
+              <>
+                <InfoHeading>What is Sustainable Seafood?</InfoHeading>
+                <InfoSub>
+                  Environmentally sustainable seafood is wild or farmed seafood
+                  that is harvested in ways that don’t harm the environment or
+                  other wildlife — helping to ensure healthy and resilient ocean
+                  ecosystems.
+                </InfoSub>
+              </>
+            ) : active == "solution" ? (
+              <>
+                <HeroImg src={fishing} />
+                <InfoHeading>
+                  {" "}
+                  How can we make seafood more enviromentally sustainable?
+                </InfoHeading>
+                <InfoSub>
+                  We can help by consuming sushi with ingredients that are
+                  environmentally sustainable, plentiful in population, and
+                  following safe farming practices. Webesushi vows to avoid
+                  consuming seafood that are fished with methods that can cause
+                  overfishing and bycatch, also avoid species that are
+                  endangered.
+                </InfoSub>
+              </>
+            ) : (
+              "seafood"
+            )}
+            <HeroSlider>
+              <RadioGroup
+                style={{ flexDirection: "row" }}
+                aria-label="Population"
+                value={population}
+                onChange={handlePopulation}
+              >
+                <FormControlLabel
+                  value="seafood"
+                  onClick={() => setActive("seafood")}
+                  control={<Radio color="primary" />}
+                  label="Sustainable Seafood"
+                />
+                <FormControlLabel
+                  value="Solution"
+                  onClick={() => setActive("solution")}
+                  control={<Radio />}
+                  label="Solution"
+                />
+              </RadioGroup>
+            </HeroSlider>
+          </InfoHeroSection>
           {/* <InfoHeroSection>
             <HeroImg src={market} />
             <InfoHeading>What is Sustainable Seafood?</InfoHeading>
@@ -165,6 +207,9 @@ const Sustainability = () => {
             that are fished with methods that can cause overfishing and bycatch,
             also avoid species that are endangered.
           </h2> */}
+          <br />
+          <br />
+          <br />
           <br />
           <SeafoodFilter>
             {/* <SpeciesFilter>
@@ -209,27 +254,29 @@ const Sustainability = () => {
             <AdditionalFilter>
               <PopulationFilter>
                 <FormControl component="fieldset">
-                  <FormLabel component="legend">Population</FormLabel>
+                  <FormLabel component="legend">Sustainable Options</FormLabel>
                   <RadioGroup
                     style={{ flexDirection: "row" }}
-                    aria-label="Population"
+                    aria-label="Sustainability"
                     value={population}
                     onChange={handlePopulation}
                   >
                     <FormControlLabel
-                      value="In Abundance"
+                      value="Best Choice"
+                      onClick={() => handleFilteredData("Best Choice")}
                       control={<Radio color="primary" />}
-                      label="In Abundance"
+                      label="Best Choice"
                     />
                     <FormControlLabel
-                      value="Endangered"
+                      value="Avoid"
+                      onClick={() => handleFilteredData("Avoid")}
                       control={<Radio />}
-                      label="Endangered"
+                      label="Avoid"
                     />
                   </RadioGroup>
                 </FormControl>
               </PopulationFilter>
-              <MethodFilter>
+              {/* <MethodFilter>
                 <FormControl component="fieldset">
                   <FormLabel>Harvesting Method</FormLabel>
                   <RadioGroup
@@ -250,7 +297,7 @@ const Sustainability = () => {
                     />
                   </RadioGroup>
                 </FormControl>
-              </MethodFilter>
+              </MethodFilter> */}
             </AdditionalFilter>
           </SeafoodFilter>
           <SushiSeafood>

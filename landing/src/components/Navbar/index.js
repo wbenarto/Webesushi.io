@@ -15,13 +15,15 @@ import {
   NavBtn,
 } from "./NavbarElements";
 import webewhite from "../../images/webewhite.png";
-import webeblack from "../../images/webe.png";
+import webegold from "../../images/webegold.png";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 const Navbar = (props) => {
   const [scrollNav, setScrollNav] = useState("home");
+
   const { imageUrl, authenticated } = props;
+
   console.log(imageUrl, authenticated);
   const changeNav = () => {
     if (window.scrollY >= 4000) {
@@ -54,7 +56,7 @@ const Navbar = (props) => {
             <img
               alt="webe-sushi"
               style={{ width: "100%", height: "100%" }}
-              src={scrollNav == "white" ? webewhite : webewhite}
+              src={scrollNav == "white" ? webegold : webegold}
             ></img>
           </NavLogo>
         </Switch>
