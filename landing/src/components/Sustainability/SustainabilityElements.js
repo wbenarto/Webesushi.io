@@ -5,9 +5,7 @@ import market from "../../images/market.jpg";
 
 export const InfoContainer = styled.div`
   color: #fff;
-
-  height: 200vh;
-  width: 100%;
+  height: 100vh;
 
   @media screen and (max-width: 768px) {
   }
@@ -17,25 +15,14 @@ export const InfoWrapper = styled.div`
   display: flex;
   width: 90vw;
   height: 1500px;
-  /* background-color: purple; */
   flex-direction: column;
   margin: auto;
   border-radius: 50px;
   padding-top: 60px;
-  > h1 {
-    color: black;
-  }
-  > h2 {
-    color: gray;
-    padding: 20px;
-    /* background-color: rgba(10, 10, 10, 0.9); */
-    border-radius: 10px;
-  }
 `;
 
 export const InfoHeroSection = styled.div`
   display: flex;
-
   position: relative;
   flex-direction: column;
   max-width: 100%;
@@ -45,38 +32,31 @@ export const InfoHeroSection = styled.div`
   object-position: top right;
 `;
 
-export const SustainableControl = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 50px;
-  padding: 20px;
+// export const SustainableControl = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   width: 100%;
+//   height: 50px;
+//   padding: 20px;
+//   justify-content: space-evenly;
+//   margin-bottom: 40px;
 
-  justify-content: space-evenly;
-  margin-bottom: 40px;
-
-  > div {
-    font-size: 32px;
-    height: 60px;
-    background-color: rgba(10, 10, 10, 0.4);
-    border-radius: 10px;
-    color: #dbd6a9;
-    padding: 10px;
-  }
-`;
+//   > div {
+//     font-size: 32px;
+//     height: 60px;
+//     background-color: rgba(10, 10, 10, 0.4);
+//     border-radius: 10px;
+//     color: #dbd6a9;
+//     padding: 10px;
+//   }
+// `;
 
 export const HeroImg = styled.img`
   display: flex;
-  /* position: relative; */
   position: absolute;
   width: 100%;
-  /* height: 100%; */
   object-fit: cover;
   z-index: -1;
-
-  /* top: ${({ num }) =>
-    num == 1 ? "0px" : num == 2 ? "2000px" : num == 3 ? "1760px" : ""}; */
-
   /* background-color: rgba(10, 10, 10, 0.2); */
 `;
 export const InfoCanvas = styled.div`
@@ -104,8 +84,6 @@ export const InfoHeading = styled.h1`
   right: ${({ props }) => (props == 1 ? "" : "0")};
   color: white;
 
-  /* color: ${({ lightText }) => (lightText ? "#010606" : "#f7f8fa")}; */
-
   @media screen and (max-width: 480px) {
     font-size: 32px;
   }
@@ -129,18 +107,43 @@ export const InfoSub = styled.p`
 export const SushiSeafood = styled.div`
   display: flex;
   flex-direction: row;
+  min-height: 650px;
+`;
+
+export const SeafoodFilter = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 650px;
+  min-width: 200px;
+  max-width: 200px;
+  background-color: rgba(10, 10, 10, 0.8);
+  overflow: scroll;
+`;
+
+export const SeafoodDisplay = styled.div`
+  display: flex;
+  flex-direction: row;
   overflow-x: scroll;
   min-height: 650px;
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #dbd6a9;
-    border-radius: 50px;
-  }
 `;
+
+export const FilterButton = styled.div`
+  display: flex;
+  width: 70%;
+  height: 30px;
+  border-radius: 30px;
+  background-color: rgba(10, 10, 10, 0.5);
+  padding: 10px;
+  margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const CardWrapper = styled.div`
   display: flex;
   position: relative;
-  min-width: 400px;
+  max-width: 300px;
+  min-width: 300px;
   height: 600px;
   padding: 20px;
   margin: 10px;
@@ -199,20 +202,18 @@ export const HeroSlider = styled.div`
 export const Heading = styled.h1`
   height: 80px;
   display: flex;
-  /* position: absolute; */
   align-items: center;
   padding: 5px;
-  /* background-color: gold; */
+
   border-radius: 10px;
   border-bottom: 0.5px solid white;
   font-size: 32px;
   line-height: 1.1;
   font-weight: 600;
-  color: black;
+  color: white;
   margin-bottom: 10px;
   text-align: center;
   justify-content: center;
-  /* color: ${({ lightText }) => (lightText ? "#010606" : "#f7f8fa")}; */
 
   @media screen and (max-width: 480px) {
     font-size: 32px;
@@ -243,7 +244,6 @@ export const ImgWrap = styled.div`
 
 export const Img = styled.img`
   width: 100%;
-  /* background-color: rgba(10, 10, 10, 0.2); */
 `;
 
 export const Icon = styled(Link)`

@@ -48,13 +48,17 @@ export const HeroBg = styled.div`
   overflow: hidden;
 `;
 
-export const VideoBg = styled.video`
+export const VideoBg = styled.img`
   width: 100%;
   height: 100%;
+  display: flex;
+  z-index: -1;
+  position: absolute;
   object-fit: cover;
   object-position: center;
   background: #232a34;
-  z-index: 999;
+  /* 
+  transform: ${({ offset }) => `translateY(${offset} * 1)px`}; */
 `;
 
 export const HeroContent = styled.div`

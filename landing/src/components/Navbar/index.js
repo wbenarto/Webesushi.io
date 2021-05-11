@@ -6,16 +6,16 @@ import {
   Nav,
   NavbarContainer,
   NavLogo,
+  NavImg,
   MobileIcon,
   NavLinks,
   NavMenu,
   NavItem,
-  NavImg,
   NavBtnLink,
   NavBtn,
 } from "./NavbarElements";
-import webewhite from "../../images/webewhite.png";
-import webegold from "../../images/webegold.png";
+
+import webegold from "../../images/wbgold.png";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -32,20 +32,17 @@ const Navbar = (props) => {
       setScrollNav("white");
     } else if (window.scrollY >= 900) {
       setScrollNav("middle");
-      // console.log(window.scrollY);
     } else {
       setScrollNav("home");
-      // console.log(window.scrollY);
     }
   };
-  // console.log(scrollNav);
 
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, "");
 
   const toggleHome = () => {
-    scroll.scrollToTop({ duration: "3000" });
+    scroll.scrollToTop({ duration: "1000" });
   };
 
   return (
@@ -53,11 +50,10 @@ const Navbar = (props) => {
       <NavbarContainer>
         <Switch>
           <NavLogo to="/" onClick={toggleHome}>
-            <img
+            <NavImg
               alt="webe-sushi"
-              style={{ width: "100%", height: "100%" }}
               src={scrollNav == "white" ? webegold : webegold}
-            ></img>
+            ></NavImg>
           </NavLogo>
         </Switch>
 
@@ -146,7 +142,6 @@ const Navbar = (props) => {
 
         <NavBtn>
           {authenticated ? (
-            // <h1 style={{ color: "white" }}>welcome</h1>
             <a href="/profile">
               <img
                 src={imageUrl}

@@ -12,7 +12,7 @@ export const Nav = styled.nav`
       ? "#2c3138"
       : "#010606"};
 
-  height: 80px;
+  height: 100px;
   margin-top: -100px;
   display: flex;
   justify-content: center;
@@ -32,38 +32,28 @@ export const Nav = styled.nav`
 export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 90px;
+  height: 100px;
   z-index: 1;
   width: 100%;
   padding: 0 24px;
-  /* margin-top: 40px; */
   max-width: 1100px;
 
   @media screen and (max-width: 768px) {
     height: 50px;
-
     padding-bottom: 0px;
   }
 `;
 
 export const NavLogo = styled(LinkR)`
   color: white;
-
-  height: 150px;
-  border-radius: 20px;
-  width: 150px;
-  justify-self: flex-start;
+  height: 100%;
   cursor: pointer;
-  font-size: 3rem;
   display: flex;
-  align-items: center;
-  margin-top: -32px;
-  margin-left: 24px;
-  font-weight: bold;
-  text-decoration: none;
+  margin-left: 32px;
 
   @media screen and (max-width: 768px) {
   }
+
   @media screen and (max-width: 475px) {
     align-items: center;
     width: 80px;
@@ -74,6 +64,12 @@ export const NavLogo = styled(LinkR)`
     margin-left: 34px;
     left: 0;
   }
+`;
+
+export const NavImg = styled.img`
+  width: 160px;
+  height: 90px;
+  padding: 10px;
 `;
 
 export const MobileIcon = styled.div`

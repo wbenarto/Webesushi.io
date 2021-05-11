@@ -10,8 +10,10 @@ import {
 import {
   InfoContainer,
   InfoWrapper,
-  SustainableControl,
   SushiSeafood,
+  SeafoodFilter,
+  SeafoodDisplay,
+  FilterButton,
   CardWrapper,
   TextWrapper,
   TopLine,
@@ -42,14 +44,12 @@ import seafoodData from "../../data2/seafoodData";
 
 const Sustainability = () => {
   const [data, setData] = useState([]);
-
   const [hero, setHero] = useState("seafood");
-
   const [active, setActive] = useState("seafood");
 
   // Paralax
-  const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.pageYOffset);
+  const [offset, setOffset] = useState(0);
+  const handleScroll = () => setOffset(window.pageYOffset);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -78,14 +78,15 @@ const Sustainability = () => {
         },
         0.2
       )
-      .from(fish1, 1.5, { x: -500, ease: Power3.easeIn }, 0.1);
-
-    // app.from(fish2, 1, { x: 800, ease: Power3.easeIn });
+      .from(fish1, 1.5, { x: -500, opacity: 0.1, ease: Power3.easeIn }, 0.3)
+      .from(fish2, 1.5, { x: 650, opacity: 0.1, ease: Power3.easeIn }, 0.8);
 
     console.log(app, fish1, fish2);
   }, []);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     setData(seafoodData);
   }, []);
 
@@ -93,14 +94,19 @@ const Sustainability = () => {
     setHero(event.target.value);
   };
 
+  const handleFilter = (filter) => {
+    setData(seafoodData.filter((e) => e.recommendation == filter));
+  };
+
+  const handleSeafood = (filter) => {
+    setData(seafoodData.filter((e) => e.species == filter));
+  };
+
   return (
     <>
       <InfoContainer>
         <HeroImg num={1} src={wave} />
-        {/* <HeroImg src={fishing} /> */}
-        {/* <HeroImg num={2} src={market} /> */}
 
-        {/* <HeroImg num={3} src={fishes} /> */}
         <AppNav>
           <AppNavLogo to="/">
             <FaChevronLeft />
@@ -109,6 +115,7 @@ const Sustainability = () => {
         </AppNav>
 
         <InfoWrapper>
+          <Heading>Sushi and Seafood Sustainability</Heading>
           <InfoHeroSection ref={(el) => (app = el)}>
             {active == "seafood" ? (
               <div ref={canvasRef}>
@@ -172,38 +179,76 @@ const Sustainability = () => {
           <br />
 
           <SushiSeafood>
-            {data.map((e) => (
-              <CardWrapper key={e.id} rec={e.recommendation}>
-                <ImgWrap>
-                  <Img src={e.img} alt="fish"></Img>
-                </ImgWrap>
-                <TextWrapper>
-                  <Heading>{e.species}</Heading>
-                  <Subtitle>
-                    <span>Also known as : </span>
-                    {e.alias}
-                  </Subtitle>
-                  <Subtitle>
-                    <span>Region : </span> {e.region}
-                  </Subtitle>
-                  <Subtitle>
-                    <span>Method:</span> {e.method[0]}{" "}
-                    {e.method[1] == "bad" ? <FaExclamationTriangle /> : ""}
-                  </Subtitle>
-                  <Subtitle>
-                    <span>Population:</span> {e.population}{" "}
-                    {e.population == "Endangered" ? (
-                      <FaExclamationTriangle />
-                    ) : (
-                      ""
-                    )}
-                  </Subtitle>
+            <SeafoodFilter>
+              <Heading>Seafood Filter</Heading>
 
-                  <TopLine rec={e.recommendation}>{e.recommendation}</TopLine>
-                  <Reason avoid={e.reason}>{e.reason}</Reason>
-                </TextWrapper>
-              </CardWrapper>
-            ))}
+              <FilterButton onClick={() => handleFilter("Best Choice")}>
+                Recommended
+              </FilterButton>
+              <FilterButton onClick={() => handleFilter("Avoid")}>
+                Avoid
+              </FilterButton>
+
+              <FilterButton onClick={() => handleSeafood("Salmon")}>
+                Salmon
+              </FilterButton>
+              <FilterButton onClick={() => handleSeafood("Tuna")}>
+                Tuna
+              </FilterButton>
+
+              <FilterButton onClick={() => handleSeafood("Amberjack")}>
+                Amberjack
+              </FilterButton>
+              <FilterButton onClick={() => handleSeafood("Mackerel")}>
+                Mackerel
+              </FilterButton>
+              <FilterButton onClick={() => handleSeafood("Albacore")}>
+                Albacore
+              </FilterButton>
+              <FilterButton onClick={() => handleSeafood("Octopus")}>
+                Octopus
+              </FilterButton>
+              <FilterButton onClick={() => handleSeafood("Lobster")}>
+                Lobster
+              </FilterButton>
+              <FilterButton onClick={() => handleSeafood("Urchin")}>
+                Sea Urchin
+              </FilterButton>
+            </SeafoodFilter>
+            <SeafoodDisplay>
+              {data.map((e) => (
+                <CardWrapper key={e.id} rec={e.recommendation}>
+                  <ImgWrap>
+                    <Img src={e.img} alt="fish"></Img>
+                  </ImgWrap>
+                  <TextWrapper>
+                    <Heading>{e.title}</Heading>
+                    <Subtitle>
+                      <span>Also known as : </span>
+                      {e.alias}
+                    </Subtitle>
+                    <Subtitle>
+                      <span>Region : </span> {e.region}
+                    </Subtitle>
+                    <Subtitle>
+                      <span>Method:</span> {e.method[0]}{" "}
+                      {e.method[1] == "bad" ? <FaExclamationTriangle /> : ""}
+                    </Subtitle>
+                    <Subtitle>
+                      <span>Population:</span> {e.population}{" "}
+                      {e.population == "Endangered" ? (
+                        <FaExclamationTriangle />
+                      ) : (
+                        ""
+                      )}
+                    </Subtitle>
+
+                    <TopLine rec={e.recommendation}>{e.recommendation}</TopLine>
+                    <Reason avoid={e.reason}>{e.reason}</Reason>
+                  </TextWrapper>
+                </CardWrapper>
+              ))}
+            </SeafoodDisplay>
           </SushiSeafood>
         </InfoWrapper>
       </InfoContainer>

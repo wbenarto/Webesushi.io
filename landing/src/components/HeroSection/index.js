@@ -14,9 +14,11 @@ import torch from "../../images/torch.jpg";
 // const Video = lazy(() => import("../../videos/video.mp4"));
 
 const HeroSection = () => {
-  const [offsetY, setOffsetY] = useState(0);
+  const [offset, setOffset] = useState(0);
 
-  const handleScroll = () => setOffsetY(window.pageYOffset);
+  const handleScroll = () => {
+    setOffset(window.pageYOffset);
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -26,16 +28,10 @@ const HeroSection = () => {
   return (
     <HeroContainer>
       <HeroBg>
-        <VideoBg
-          style={{ transform: `translateY(${offsetY * 1}px)` }}
-          autoPlay
-          loop
-          muted
-          src={Video}
-        ></VideoBg>
+        <VideoBg offset={offset} autoPlay loop muted src={torch}></VideoBg>
       </HeroBg>
       <HeroContent>
-        <HeroH1 style={{ transform: `translateY(${offsetY * 0.4}px)` }}>
+        <HeroH1 style={{ transform: `translateX(${offset * 1}px)` }}>
           {" "}
           WE BE BETTER{" "}
         </HeroH1>
@@ -49,7 +45,7 @@ const HeroSection = () => {
             spy={true}
             exact="true"
             offset={0}
-            style={{ transform: `translateY(${offsetY * -0.2}px)` }}
+            style={{ transform: `translateX(${offset * -2.5}px)` }}
           >
             Get Started
           </ButtonHero>

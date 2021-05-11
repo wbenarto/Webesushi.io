@@ -16,6 +16,7 @@ import lobster from "../images/seafood/california-lobster.webp";
 const seafoodData = [
   {
     id: 1,
+    title: "Amberjack",
     species: "Amberjack",
     alias:
       "Amberjack, Buri, Hamachi, Hawaiian Kanpachi, Yellowtail, Hiramasa, Kanpachi",
@@ -39,7 +40,8 @@ const seafoodData = [
   },
   {
     id: 3,
-    species: "Snow Crab",
+    title: "Snow Crab",
+    species: "Crab",
     alias: "Kani, Queen, Snow, Spider crab, Tanner crab.",
     region: "Alaska, US",
     method: ["Pots", "good"],
@@ -50,7 +52,8 @@ const seafoodData = [
   },
   {
     id: 4,
-    species: "Atlantic Spanish Mackerel",
+    title: "Atlantic Spanish Mackerel",
+    species: "Mackerel",
     alias:
       "Bay Mackerel, Saba, Sierra, Spaniard, Spanish Mackerel, Spotted Cybium, Spotted Mackerel, Sawara",
     region: "US",
@@ -62,7 +65,8 @@ const seafoodData = [
   },
   {
     id: 5,
-    species: "Giant Pacific Octopus",
+    title: "Giant Pacific Octopus",
+    species: "Octopus",
     alias: "Tako",
     region: "Alaska, US",
     method: ["Pots", "good"],
@@ -73,7 +77,8 @@ const seafoodData = [
   },
   {
     id: 6,
-    species: "Atlantic Salmon",
+    title: "Atlantic Salmon",
+    species: "Salmon",
     alias: "Sake",
     region: "Norway",
     method: ["Marine Net Pen", "bad"],
@@ -85,8 +90,8 @@ const seafoodData = [
   },
   {
     id: 7,
-    species: "Atlantic Salmon ASC Certified",
-    type: "salmon",
+    title: "Atlantic Salmon ASC Certified",
+    species: "Salmon",
     alias: "Sake",
     region: "Norway",
     method: ["Marine Net Pen", "good"],
@@ -97,7 +102,8 @@ const seafoodData = [
   },
   {
     id: 8,
-    species: "Purple Sea Urchin",
+    title: "Purple Sea Urchin",
+    species: "Urchin",
     alias: "Uni",
     region: "Oregon, US",
     method: ["Diving", "good"],
@@ -108,6 +114,7 @@ const seafoodData = [
   },
   {
     id: 9,
+    title: "Shrimp",
     species: "Shrimp",
     alias: "Ebi, Prawn",
     region: "Worldwide",
@@ -119,6 +126,7 @@ const seafoodData = [
   },
   {
     id: 10,
+    title: "Albacore",
     species: "Albacore",
     alias: "White Tuna",
     region: "Worldwide",
@@ -130,7 +138,8 @@ const seafoodData = [
   },
   {
     id: 11,
-    species: "Pacific Bluefin Tuna",
+    title: "Pacific Bluefin Tuna",
+    species: "Tuna",
     alias: "Maguro, Toro",
     region: "Eastern Central Pacific Ocean",
     method: ["Drift Gillnets", "bad"],
@@ -142,6 +151,7 @@ const seafoodData = [
   },
   {
     id: 12,
+    title: "Albacore",
     species: "Albacore",
     alias: "White Tuna",
     region: "Northeast Pacific Ocean",
@@ -153,7 +163,8 @@ const seafoodData = [
   },
   {
     id: 13,
-    species: "Yellowfin Tuna",
+    title: "Yellowfin Tuna",
+    species: "Tuna",
     alias: "Ahi, Maguro",
     region: "Western Central Pacific Ocean",
     method: ["Handlines and hand-operated pole-and-lines", "good"],
@@ -164,7 +175,8 @@ const seafoodData = [
   },
   {
     id: 14,
-    species: "Bigeye Tuna",
+    title: "Bigeye Tuna",
+    species: "Tuna",
     alias: "Ahi, Maguro",
     region: "Western Central Pacific Ocean",
     method: ["Handlines and hand-operated pole-and-lines", "good"],
@@ -175,7 +187,8 @@ const seafoodData = [
   },
   {
     id: 15,
-    species: "Skipjack Tuna",
+    title: "Skipjack Tuna",
+    species: "Tuna",
     alias: "Katsuo, Ocean Bonito",
     region: "Western Central Pacific Ocean",
     method: ["Handlines and hand-operated pole-and-lines", "good"],
@@ -186,7 +199,8 @@ const seafoodData = [
   },
   {
     id: 16,
-    species: "Atlantic Bluefin Tuna",
+    title: "Atlantic Bluefin Tuna",
+    species: "Tuna",
     alias: "Maguro, Toro",
     region: "Mediterranean Sea",
     method: ["Farmed in Marine Net Pen", "bad"],
@@ -198,7 +212,8 @@ const seafoodData = [
   },
   {
     id: 17,
-    species: "Bigeye Tuna",
+    title: "Bigeye Tuna",
+    species: "Tuna",
     alias: "Ahi, Maguro",
     region: "Indian Ocean",
     method: ["Floating Object Purse Seine (FAD)", "bad"],
@@ -210,7 +225,8 @@ const seafoodData = [
   },
   {
     id: 18,
-    species: "Yellowfin Tuna",
+    title: "Yellowfin Tuna",
+    species: "Tuna",
     alias: "Ahi, Maguro",
     region: "Southwest Atlantic Ocean",
     method: ["Drifting Longlines", "bad"],
@@ -222,7 +238,8 @@ const seafoodData = [
   },
   {
     id: 19,
-    species: "Bigeye Tuna",
+    title: "Bigeye Tuna",
+    species: "Tuna",
     alias: "Ahi, Maguro",
     region: "Indian Ocean",
     method: ["Floating Object Purse Seine (FAD)", "bad"],
@@ -234,7 +251,8 @@ const seafoodData = [
   },
   {
     id: 20,
-    species: "California Spiny Lobster",
+    title: "California Spiny Lobster",
+    species: "Lobster",
     alias: "Red Lobster, Spiny Lobster",
     region: "Eastern Central Pacific Ocean",
     method: ["Traps", "good"],
