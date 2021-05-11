@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
-import { Button } from "../ButtonElement";
+import { TweenMax, TimelineLite, Power3 } from "gsap";
+
 import {
   AppNav,
   AppNavLogo,
@@ -12,8 +13,6 @@ import {
   SustainableControl,
   SushiSeafood,
   CardWrapper,
-  InfoRow,
-  Column1,
   TextWrapper,
   TopLine,
   HeroImg,
@@ -21,6 +20,7 @@ import {
   HeroSlider,
   Heading,
   Subtitle,
+  InfoCanvas,
   InfoHeading,
   InfoSub,
   BtnWrap,
@@ -29,28 +29,10 @@ import {
   Img,
   Icon,
   Reason,
-  SeafoodFilter,
-  SpeciesFilter,
-  AdditionalFilter,
-  PopulationFilter,
-  MethodFilter,
 } from "./SustainabilityElements";
-// import { Img } from "../InfoSection/InfoElements";
-import {
-  FaChevronLeft,
-  FaHome,
-  FaStore,
-  FaTape,
-  FaExclamationTriangle,
-} from "react-icons/fa";
-import {
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  FormControl,
-  RadioGroup,
-  Checkbox,
-} from "@material-ui/core";
+
+import { FaChevronLeft, FaExclamationTriangle } from "react-icons/fa";
+import { FormControlLabel, Radio, RadioGroup } from "@material-ui/core";
 import market from "../../images/market.jpg";
 import wave from "../../images/wave.jpg";
 import fishing from "../../images/fishing.jpeg";
@@ -60,12 +42,8 @@ import seafoodData from "../../data2/seafoodData";
 
 const Sustainability = () => {
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [population, setPopulation] = useState("");
-  const [method, setMethod] = useState("Responsible");
-  const [seafood, setSeafood] = useState("all");
-  const [checked, setChecked] = useState(true);
+
+  const [hero, setHero] = useState("seafood");
 
   const [active, setActive] = useState("seafood");
 
@@ -79,43 +57,47 @@ const Sustainability = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // TweenMax
+  let app = useRef(null);
+  let canvasRef = useRef(null);
+  let tl = new TimelineLite();
+
+  useEffect(() => {
+    const fish1 = canvasRef.current.children[0];
+    const fish2 = canvasRef.current.children[1];
+
+    TweenMax.to(app, 0, { css: { visibility: "visible" } });
+
+    tl.from(app, 2, { y: 1400, ease: Power3.easeOut })
+      .from(
+        app,
+        1,
+        {
+          scale: 2,
+          ease: Power3.easeOut,
+        },
+        0.2
+      )
+      .from(fish1, 1.5, { x: -500, ease: Power3.easeIn }, 0.1);
+
+    // app.from(fish2, 1, { x: 800, ease: Power3.easeIn });
+
+    console.log(app, fish1, fish2);
+  }, []);
+
   useEffect(() => {
     setData(seafoodData);
   }, []);
 
-  const handleSeafood = (event) => {
-    setChecked(event.target.checked);
-    if (event.target.checked) {
-      console.log(event.target.value);
-      setSeafood(event.target.value);
-    }
-    console.log(seafood);
+  const handleHero = (event) => {
+    setHero(event.target.value);
   };
 
-  const handlePopulation = (event) => {
-    setPopulation(event.target.value);
-    handleFilteredData(population);
-  };
-
-  const handleFilteredData = (arg) => {
-    setFilteredData(seafoodData.filter((e) => e.recommendation == population));
-    setData(filteredData);
-    console.log(data);
-  };
-
-  const handleMethod = (event) => {
-    setMethod(event.target.value);
-    // const filter = [...data].filter((e) => e.method[1] == method);
-    // console.log(filter);
-  };
-
-  console.log(method);
-  console.log(population);
-  console.log(data);
   return (
     <>
       <InfoContainer>
         <HeroImg num={1} src={wave} />
+        {/* <HeroImg src={fishing} /> */}
         {/* <HeroImg num={2} src={market} /> */}
 
         {/* <HeroImg num={3} src={fishes} /> */}
@@ -127,20 +109,22 @@ const Sustainability = () => {
         </AppNav>
 
         <InfoWrapper>
-          <InfoHeroSection>
+          <InfoHeroSection ref={(el) => (app = el)}>
             {active == "seafood" ? (
-              <>
-                <InfoHeading>What is Sustainable Seafood?</InfoHeading>
-                <InfoSub>
+              <div ref={canvasRef}>
+                <InfoHeading props={1}>
+                  What is Sustainable Seafood?
+                </InfoHeading>
+                <InfoSub props={1}>
                   Environmentally sustainable seafood is wild or farmed seafood
                   that is harvested in ways that don’t harm the environment or
                   other wildlife — helping to ensure healthy and resilient ocean
                   ecosystems.
                 </InfoSub>
-              </>
+                <InfoCanvas props={1}>hi</InfoCanvas>
+              </div>
             ) : active == "solution" ? (
               <>
-                <HeroImg src={fishing} />
                 <InfoHeading>
                   {" "}
                   How can we make seafood more enviromentally sustainable?
@@ -153,16 +137,18 @@ const Sustainability = () => {
                   overfishing and bycatch, also avoid species that are
                   endangered.
                 </InfoSub>
+                <InfoCanvas>hi</InfoCanvas>
               </>
             ) : (
               "seafood"
             )}
+
             <HeroSlider>
               <RadioGroup
-                style={{ flexDirection: "row" }}
-                aria-label="Population"
-                value={population}
-                onChange={handlePopulation}
+                style={{ flexDirection: "row", fontSize: "32px" }}
+                aria-label="Hero"
+                value={hero}
+                onChange={handleHero}
               >
                 <FormControlLabel
                   value="seafood"
@@ -179,127 +165,12 @@ const Sustainability = () => {
               </RadioGroup>
             </HeroSlider>
           </InfoHeroSection>
-          {/* <InfoHeroSection>
-            <HeroImg src={market} />
-            <InfoHeading>What is Sustainable Seafood?</InfoHeading>
-            <InfoSub>
-              Environmentally sustainable seafood is wild or farmed seafood that
-              is harvested in ways that don’t harm the environment or other
-              wildlife — helping to ensure healthy and resilient ocean
-              ecosystems.
-            </InfoSub>
-          </InfoHeroSection> */}
 
-          {/* <Heading>
-            How we can make seafood more enviromentally sustainable?
-          </Heading>
-
-          <h2>Avoid Overfishing and Limit Bycatch</h2>
-
-          <h2>Preserve Habitats</h2>
-          <h2>Manage Pollution and Disease</h2>
-
-          <Heading>What can we do as sushi consumer?</Heading>
-          <h2>
-            We can help by consuming sushi with ingredients that are
-            environmentally sustainable, plentiful in population, and following
-            safe farming practices. Webesushi vows to avoid consuming seafood
-            that are fished with methods that can cause overfishing and bycatch,
-            also avoid species that are endangered.
-          </h2> */}
           <br />
           <br />
           <br />
           <br />
-          <SeafoodFilter>
-            {/* <SpeciesFilter>
-              <FormLabel component="legend">Seafood Filter : </FormLabel>
-              <FormControlLabel
-                control={
-                  <Checkbox onChange={handleSeafood} color="" value="salmon" />
-                }
-                label="Salmon"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox onChange={handleSeafood} color="" value="tuna" />
-                }
-                label="Tuna"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox onChange={handleSeafood} color="" value="hamachi" />
-                }
-                label="Hamachi"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox onChange={handleSeafood} color="" value="shrimp" />
-                }
-                label="Shrimp"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox onChange={handleSeafood} color="" value="crab" />
-                }
-                label="Crab"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox onChange={handleSeafood} color="" value="uni" />
-                }
-                label="Uni"
-              />
-            </SpeciesFilter> */}
-            <AdditionalFilter>
-              <PopulationFilter>
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">Sustainable Options</FormLabel>
-                  <RadioGroup
-                    style={{ flexDirection: "row" }}
-                    aria-label="Sustainability"
-                    value={population}
-                    onChange={handlePopulation}
-                  >
-                    <FormControlLabel
-                      value="Best Choice"
-                      onClick={() => handleFilteredData("Best Choice")}
-                      control={<Radio color="primary" />}
-                      label="Best Choice"
-                    />
-                    <FormControlLabel
-                      value="Avoid"
-                      onClick={() => handleFilteredData("Avoid")}
-                      control={<Radio />}
-                      label="Avoid"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </PopulationFilter>
-              {/* <MethodFilter>
-                <FormControl component="fieldset">
-                  <FormLabel>Harvesting Method</FormLabel>
-                  <RadioGroup
-                    style={{ flexDirection: "row" }}
-                    aria-label="Method"
-                    value={method}
-                    onChange={handleMethod}
-                  >
-                    <FormControlLabel
-                      value="good"
-                      control={<Radio color="primary" />}
-                      label="Responsible"
-                    />
-                    <FormControlLabel
-                      value="bad"
-                      control={<Radio />}
-                      label="Unsustainable Practices"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </MethodFilter> */}
-            </AdditionalFilter>
-          </SeafoodFilter>
+
           <SushiSeafood>
             {data.map((e) => (
               <CardWrapper key={e.id} rec={e.recommendation}>
@@ -336,16 +207,6 @@ const Sustainability = () => {
           </SushiSeafood>
         </InfoWrapper>
       </InfoContainer>
-
-      {/* <Icon to="/">WebeSushi</Icon>
-      <InfoContainer lightBg={lightBg}>
-        <Heading lightText="true">Sustainabilty page</Heading>
-        <Subtitle> Helloooo </Subtitle>
-        <h1>Hello</h1>
-        <Icon to="/">WebeSushi </Icon>
-        {loading ? <h1>{data}</h1> : <h1>LOADINGGGGGG</h1>}
-
-      </InfoContainer> */}
     </>
   );
 };

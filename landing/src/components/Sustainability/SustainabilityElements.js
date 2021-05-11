@@ -5,9 +5,8 @@ import market from "../../images/market.jpg";
 
 export const InfoContainer = styled.div`
   color: #fff;
-  /* background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")}; */
-  /* background: linear-gradient(#b6d1e3, #ebf8e1, #2b495c); */
-  height: 1300vh;
+
+  height: 200vh;
   width: 100%;
 
   @media screen and (max-width: 768px) {
@@ -17,7 +16,7 @@ export const InfoContainer = styled.div`
 export const InfoWrapper = styled.div`
   display: flex;
   width: 90vw;
-  height: 90%;
+  height: 1500px;
   /* background-color: purple; */
   flex-direction: column;
   margin: auto;
@@ -34,50 +33,110 @@ export const InfoWrapper = styled.div`
   }
 `;
 
+export const InfoHeroSection = styled.div`
+  display: flex;
+
+  position: relative;
+  flex-direction: column;
+  max-width: 100%;
+  height: 1300px;
+  background-color: rgba(10, 10, 10, 0.2);
+  object-fit: cover;
+  object-position: top right;
+`;
+
+export const SustainableControl = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50px;
+  padding: 20px;
+
+  justify-content: space-evenly;
+  margin-bottom: 40px;
+
+  > div {
+    font-size: 32px;
+    height: 60px;
+    background-color: rgba(10, 10, 10, 0.4);
+    border-radius: 10px;
+    color: #dbd6a9;
+    padding: 10px;
+  }
+`;
+
+export const HeroImg = styled.img`
+  display: flex;
+  /* position: relative; */
+  position: absolute;
+  width: 100%;
+  /* height: 100%; */
+  object-fit: cover;
+  z-index: -1;
+
+  /* top: ${({ num }) =>
+    num == 1 ? "0px" : num == 2 ? "2000px" : num == 3 ? "1760px" : ""}; */
+
+  /* background-color: rgba(10, 10, 10, 0.2); */
+`;
+export const InfoCanvas = styled.div`
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-color: pink;
+  right: ${({ props }) => (props == 1 ? "0" : "")};
+  z-index: -1;
+`;
+
+export const InfoHeading = styled.h1`
+  height: 180px;
+  width: 50%;
+  display: flex;
+  position: absolute;
+  padding: 15px;
+  background-color: rgba(99, 99, 99, 0.5);
+  border-bottom: 0.5px solid white;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 40px;
+  text-align: bottom;
+  right: ${({ props }) => (props == 1 ? "" : "0")};
+  color: white;
+
+  /* color: ${({ lightText }) => (lightText ? "#010606" : "#f7f8fa")}; */
+
+  @media screen and (max-width: 480px) {
+    font-size: 32px;
+  }
+`;
+
+export const InfoSub = styled.p`
+  width: 50%;
+  height: 350px;
+  margin: 0 40px;
+  position: absolute;
+  display: flex;
+  top: 230px;
+  right: ${({ props }) => (props == 1 ? "" : "0")};
+  left: ${({ props }) => (props == 1 ? "0" : "")};
+  background-color: rgba(10, 10, 10, 0.4);
+  font-size: 28px;
+  line-height: 1.5em;
+  padding: 40px;
+`;
+
 export const SushiSeafood = styled.div`
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
+  min-height: 650px;
 
   ::-webkit-scrollbar-thumb {
     background-color: #dbd6a9;
     border-radius: 50px;
   }
 `;
-
-export const SeafoodFilter = styled.div`
-  width: 100%;
-  height: 200px;
-  /* background-color: purple; */
-  display: flex;
-  flex-direction: column;
-`;
-
-export const SpeciesFilter = styled.div`
-  width: 100%;
-  height: 100px;
-  /* background-color: teal; */
-`;
-
-export const AdditionalFilter = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-export const PopulationFilter = styled.div`
-  width: 50%;
-  height: 70px;
-  /* background-color: green; */
-  display: flex;
-`;
-
-export const MethodFilter = styled.div`
-  width: 50%;
-  height: 70px;
-  /* background-color: yellow; */
-  display: flex;
-`;
-
 export const CardWrapper = styled.div`
   display: flex;
   position: relative;
@@ -135,87 +194,6 @@ export const HeroSlider = styled.div`
   bottom: 0;
   background-color: rgba(10, 10, 10, 0.2);
   justify-content: center;
-`;
-
-export const InfoHeroSection = styled.div`
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  max-width: 100%;
-  height: 1200px;
-  background-color: rgba(10, 10, 10, 0.2);
-  object-fit: cover;
-  object-position: top right;
-`;
-
-export const SustainableControl = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 50px;
-  padding: 20px;
-
-  justify-content: space-evenly;
-  margin-bottom: 40px;
-
-  > div {
-    font-size: 32px;
-    height: 60px;
-    background-color: rgba(10, 10, 10, 0.4);
-    border-radius: 10px;
-    color: #dbd6a9;
-    padding: 10px;
-  }
-`;
-
-export const HeroImg = styled.img`
-  display: flex;
-  /* position: relative; */
-  position: absolute;
-  width: 100%;
-  /* height: 100%; */
-  object-fit: cover;
-  z-index: -1;
-
-  /* top: ${({ num }) =>
-    num == 1 ? "0px" : num == 2 ? "2000px" : num == 3 ? "1760px" : ""}; */
-
-  /* background-color: rgba(10, 10, 10, 0.2); */
-`;
-
-export const InfoHeading = styled.h1`
-  height: 180px;
-  width: 50%;
-  display: flex;
-  position: absolute;
-  padding: 15px;
-  background-color: rgba(99, 99, 99, 0.5);
-  border-bottom: 0.5px solid white;
-  font-size: 48px;
-  line-height: 1.1;
-  font-weight: 600;
-  margin: 30px 40px;
-  text-align: bottom;
-
-  color: white;
-
-  /* color: ${({ lightText }) => (lightText ? "#010606" : "#f7f8fa")}; */
-
-  @media screen and (max-width: 480px) {
-    font-size: 32px;
-  }
-`;
-
-export const InfoSub = styled.p`
-  width: 50%;
-  position: absolute;
-  display: flex;
-  top: 190px;
-  left: 40px;
-  background-color: rgba(10, 10, 10, 0.4);
-  font-size: 24px;
-  line-height: 1.5em;
-  padding: 40px;
 `;
 
 export const Heading = styled.h1`

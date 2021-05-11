@@ -59,8 +59,15 @@ export const AppNavLogo = styled(LinkR)`
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  color: #000;
-  padding: 20px;
+  color: #fff;
+  padding: 15px;
+  margin: 10px;
+
+  :hover {
+    background-color: #fff;
+    border-radius: 50px;
+    color: #000;
+  }
 `;
 
 export const AppLogo = styled.img`
@@ -76,7 +83,7 @@ export const AppHeading = styled.h1`
   display: flex;
   position: relative;
   justify-content: center;
-  color: #000;
+  color: #fff;
 `;
 
 export const AppDesc = styled.p`
