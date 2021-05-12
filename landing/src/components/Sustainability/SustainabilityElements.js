@@ -9,7 +9,7 @@ export const InfoContainer = styled.div`
   width: 100%;
   height: 200vh;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 475px) {
   }
 `;
 
@@ -21,6 +21,10 @@ export const InfoWrapper = styled.div`
   margin: auto;
   border-radius: 50px;
   padding-top: 60px;
+
+  @media screen and (max-width: 475px) {
+    padding-top: 20px;
+  }
 `;
 
 export const InfoHeroSection = styled.div`
@@ -29,9 +33,14 @@ export const InfoHeroSection = styled.div`
   flex-direction: column;
   max-width: 100%;
   height: 1300px;
-  background-color: rgba(10, 10, 10, 0.8);
+  background-color: rgba(10, 10, 10, 0.9);
   object-fit: cover;
   object-position: top right;
+
+  @media screen and (max-width: 475px) {
+    height: 90vh;
+    overflow: hidden;
+  }
 `;
 
 export const HeroImg = styled.img`
@@ -51,6 +60,12 @@ export const InfoCanvas = styled.div`
   position: absolute;
   right: ${({ props }) => (props == 1 ? "0" : "")};
   z-index: -1;
+
+  @media screen and (max-width: 475px) {
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+  }
 `;
 
 export const Solution = styled.div`
@@ -63,6 +78,13 @@ export const Solution = styled.div`
   display: flex;
   position: relative;
   align-items: center;
+
+  @media screen and (max-width: 475px) {
+    margin: 10px auto;
+    font-size: 20px;
+    height: 20px;
+    width: 90%;
+  }
 `;
 
 export const InfoHeading = styled.h1`
@@ -81,7 +103,11 @@ export const InfoHeading = styled.h1`
   color: white;
 
   @media screen and (max-width: 480px) {
-    font-size: 32px;
+    font-size: 24px;
+    width: 100%;
+    height: 80px;
+    margin: 10px 0;
+    border-bottom: none;
   }
 `;
 
@@ -98,12 +124,25 @@ export const InfoSub = styled.p`
   font-size: 28px;
   line-height: 1.5em;
   padding: 40px;
+
+  @media screen and (max-width: 475px) {
+    top: 80px;
+    font-size: 14px;
+    width: 100vw;
+    right: ${({ props }) => (props == 1 ? "0" : "")};
+    left: ${({ props }) => (props == 1 ? "" : "0")};
+  }
 `;
 
 export const SushiSeafood = styled.div`
   display: flex;
   flex-direction: row;
   min-height: 650px;
+
+  @media screen and (max-width: 475px) {
+    flex-direction: column;
+    width: 90vw;
+  }
 `;
 
 export const SeafoodFilter = styled.div`
@@ -113,6 +152,21 @@ export const SeafoodFilter = styled.div`
   min-width: 200px;
   max-width: 200px;
   background-color: rgba(10, 10, 10, 0.8);
+  @media screen and (max-width: 475px) {
+    flex-direction: row;
+    min-width: 90vw;
+    overflow: scroll;
+    min-height: 8vh;
+    > h1 {
+      position: absolute;
+      width: 100%;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #dbd6a9;
+      border-radius: 50px;
+    }
+  }
 `;
 
 export const SeafoodDisplay = styled.div`
@@ -161,6 +215,8 @@ export const CardWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   border-radius: 10px;
+  @media screen and (max-width: 475px) {
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -222,8 +278,8 @@ export const Heading = styled.h1`
   text-align: center;
   justify-content: center;
 
-  @media screen and (max-width: 480px) {
-    font-size: 32px;
+  @media screen and (max-width: 475px) {
+    font-size: 20px;
   }
 `;
 
@@ -251,6 +307,9 @@ export const ImgWrap = styled.div`
 
 export const Img = styled.img`
   width: 100%;
+
+  @media screen and (max-width: 475px) {
+  }
 `;
 
 export const Icon = styled(Link)`

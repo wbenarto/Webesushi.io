@@ -3,8 +3,7 @@ import { Link as LinkR } from "react-router-dom";
 
 export const InfoContainer = styled.div`
   color: #fff;
-  background: ${({ lightBg }) =>
-    lightBg ? "rgba(10, 10, 10, 0.8)" : "#010606"};
+  background: ${({ lightBg }) => (lightBg ? "rgba(10, 10, 10)" : "#010606")};
   height: 100%;
 
   @media screen and (max-width: 768px) {
@@ -105,7 +104,7 @@ export const TextWrapper = styled.div`
     flex: 1;
   }
   @media screen and (max-height: 740px) {
-    height: ${({ id }) => (id == "about" ? "60vh" : "40vh")};
+    height: ${({ id }) => (id == "about" ? "60vh" : "50vh")};
   }
 `;
 
@@ -224,8 +223,7 @@ export const InfoCarouselContainer = styled.div`
   color: #fff;
   height: 100vh;
   justify-content: center;
-  background: ${({ lightBg }) =>
-    lightBg ? " rgba(10, 10, 10, 0.8)" : "#010606"};
+  background: ${({ lightBg }) => (lightBg ? " rgba(10, 10, 10)" : "#010606")};
   scroll-snap-align: center;
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -639,10 +637,10 @@ export const ImgThumb = styled.img`
 
 export const InfoBtnLink = styled(LinkR)`
   border-radius: 50px;
-  background: ${({ primary }) => (primary ? "#dbd6a9" : "#010606")};
+  background: ${({ primary }) => (primary ? "#fff" : "#dbd6a9")};
   white-space: nowrap;
   padding: ${({ big }) => (big ? "14px 48px" : "12px 30px")};
-  color: ${({ dark }) => (dark ? "#010606" : "#dbd6a9")};
+  color: ${({ dark }) => (dark ? "#dbd6a9" : "#010606")};
   font-size: ${({ fontBig }) => (fontBig ? "20px" : "16px")};
   outline: none;
   border: none;
@@ -655,7 +653,7 @@ export const InfoBtnLink = styled(LinkR)`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: ${({ primary }) => (primary ? "#edecdf" : "#dbd6a9")};
+    background: ${({ primary }) => (primary ? "#dbd6a9" : "#edecdf")};
     color: ${({ primary }) => (primary ? "#010606" : "#010606")};
   }
   @media screen and (max-width: 768px) {

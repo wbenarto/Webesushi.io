@@ -21,8 +21,7 @@ export const sushi = [
     name: "Chu Toro Nigiri",
     images: chutoro,
     ingredients: ["sushi rice", "tuna"],
-    desc:
-      "Medium fatty tuna cut nigiri, glazed with homemade nikiri sauce, topped with green onions. ",
+    desc: "Medium fatty tuna cut nigiri, glazed with homemade nikiri sauce, topped with green onions. ",
     type: "Raw",
     category: "Nigiri",
   },
@@ -31,8 +30,7 @@ export const sushi = [
     name: "Torched Chu Toro Nigiri",
     images: tunatorch,
     ingredients: ["sushi rice", "tuna"],
-    desc:
-      "Medium fatty tuna cut, torched and glazed over homemade nikiri sauce.",
+    desc: "Medium fatty tuna cut, torched and glazed over homemade nikiri sauce.",
     type: "raw",
     category: "Nigiri",
   },
@@ -47,8 +45,7 @@ export const sushi = [
       "green onions",
       "gold flakes",
     ],
-    desc:
-      "Salmon belly cut torched and glazed over nikiri sauce, topped with salmon roe, green onions, and 24K gold flakes.",
+    desc: "Salmon belly cut torched and glazed over nikiri sauce, topped with salmon roe, green onions, and 24K gold flakes.",
     type: "Raw",
     category: "Nigiri",
   },
@@ -66,8 +63,7 @@ export const sushi = [
     name: "Ika Nigiri",
     images: ika,
     ingredients: ["sushi rice", "ika", "nikiri sauce", "lemon zest"],
-    desc:
-      "Squid nigiri served with homemade nikiri sauce. Topped with lemon zest.",
+    desc: "Squid nigiri served with homemade nikiri sauce. Topped with lemon zest.",
     type: "Raw",
     category: "Nigiri",
   },
@@ -103,8 +99,7 @@ export const sushi = [
       "ikura",
       "gold flakes",
     ],
-    desc:
-      "Spicy Negitoro Temari sushi, topped with avocado, salmon roe, and 24K gold flakes.",
+    desc: "Spicy Negitoro Temari sushi, topped with avocado, salmon roe, and 24K gold flakes.",
     type: "Raw",
     category: "Chef Special",
   },
@@ -120,8 +115,7 @@ export const sushi = [
       "hamachi",
       "tuna",
     ],
-    desc:
-      "No carbs option for Ketonian. Salmon, Tuna, Hamachi, and Avocado wrapped inside of thin cucumber layer.",
+    desc: "No carbs option for Ketonian. Salmon, Tuna, Hamachi, and Avocado wrapped inside of thin cucumber layer.",
     type: "Raw",
     category: "Chef Special",
   },
@@ -135,7 +129,7 @@ export const homeObjOne = {
   lightTextDesc: true,
   topLine: "Home-Makase",
   headline: "Guide to premium homemade sushi making",
-  description: "Get access to our step by step recipes from Webe-san.",
+  description: "Get access to our step by step recipes.",
   buttonLabel: "Get Rollin",
   imgStart: false,
   img: katsuobrush2,

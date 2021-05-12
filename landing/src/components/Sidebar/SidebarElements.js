@@ -47,13 +47,14 @@ export const SidebarLink = styled(LinkS)`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "Work Sans", sans-serif;
 
   font-size: 1.4rem;
   text-decoration: none;
   list-style: none;
   transition: 0.2s ease-in-out;
   text-decoration: none;
-  color: #fff;
+  color: #dbd6a9;
   cursor: pointer;
 
   &:hover {

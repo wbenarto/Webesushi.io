@@ -193,13 +193,10 @@ const Sustainability = () => {
 
           <br />
           <br />
-          <br />
-          <br />
 
           <SushiSeafood>
+            <Heading>Seafood Filter</Heading>
             <SeafoodFilter>
-              <Heading>Seafood Filter</Heading>
-
               <FilterButton onClick={() => handleFilter("Best Choice")}>
                 Recommended
               </FilterButton>

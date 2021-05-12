@@ -9,6 +9,7 @@ import {
   SidebarRoute,
   SideBtnWrap,
 } from "./SidebarElements";
+import { NavBtnLink } from "../Navbar/NavbarElements";
 
 const Sidebar = (props) => {
   return (
@@ -34,6 +35,7 @@ const Sidebar = (props) => {
             <SidebarLink onClick={props.toggle} to="services">
               Mission
             </SidebarLink>
+            <NavBtnLink to="/signin">Sign In</NavBtnLink>
           </SidebarMenu>
           {/* <SideBtnWrap>
             <SidebarRoute to="/nextpage">New Page</SidebarRoute>

@@ -35,35 +35,6 @@ const index = () => {
   return (
     <FooterContainer>
       <FooterWrapper>
-        {/* <FooterLinksContainer>
-          <FooterLinksWrapper>
-            <FooterLinkItems>
-              <FooterLinkTitle>About Us</FooterLinkTitle>
-              <FooterLink to="/signin">How it works</FooterLink>
-              <FooterLink to="/signin">Testimonials</FooterLink>
-            </FooterLinkItems>
-
-            <FooterLinkItems>
-              <FooterLinkTitle>About Us</FooterLinkTitle>
-              <FooterLink to="/signin">How it works</FooterLink>
-              <FooterLink to="/signin">Testimonials</FooterLink>
-            </FooterLinkItems>
-          </FooterLinksWrapper>
-          <FooterLinksWrapper>
-            <FooterLinkItems>
-              <FooterLinkTitle>About Us</FooterLinkTitle>
-              <FooterLink to="/signin">How it works</FooterLink>
-              <FooterLink to="/signin">Testimonials</FooterLink>
-            </FooterLinkItems>
-
-            <FooterLinkItems>
-              <FooterLinkTitle>Social Media</FooterLinkTitle>
-              <FooterLink to="/signin">How it works</FooterLink>
-              <FooterLink to="/signin">Testimonials</FooterLink>
-            </FooterLinkItems>
-          </FooterLinksWrapper>
-        </FooterLinksContainer> */}
-
         <SocialMediaWrap>
           <SocialLogo to="/" onClick={toggleHome}>
             WebeSushi
