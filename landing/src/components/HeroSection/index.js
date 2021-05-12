@@ -11,7 +11,6 @@ import {
 import { ButtonHero } from "../ButtonElement";
 import Video from "../../videos/video.mp4";
 import torch from "../../images/torch.jpg";
-// const Video = lazy(() => import("../../videos/video.mp4"));
 
 const HeroSection = () => {
   const [offset, setOffset] = useState(0);
@@ -31,10 +30,7 @@ const HeroSection = () => {
         <VideoBg offset={offset} autoPlay loop muted src={torch}></VideoBg>
       </HeroBg>
       <HeroContent>
-        <HeroH1 style={{ transform: `translateX(${offset * 1}px)` }}>
-          {" "}
-          WE BE BETTER{" "}
-        </HeroH1>
+        <HeroH1> WE BE BETTER </HeroH1>
         <HeroH1></HeroH1>
         <HeroP></HeroP>
         <HeroBtnWrapper>
@@ -45,7 +41,6 @@ const HeroSection = () => {
             spy={true}
             exact="true"
             offset={0}
-            style={{ transform: `translateX(${offset * -2.5}px)` }}
           >
             Get Started
           </ButtonHero>

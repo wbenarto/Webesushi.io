@@ -10,6 +10,7 @@ import {
 import {
   InfoContainer,
   InfoWrapper,
+  Solution,
   SushiSeafood,
   SeafoodFilter,
   SeafoodDisplay,
@@ -37,8 +38,6 @@ import { FaChevronLeft, FaExclamationTriangle } from "react-icons/fa";
 import { FormControlLabel, Radio, RadioGroup } from "@material-ui/core";
 import market from "../../images/market.jpg";
 import wave from "../../images/wave.jpg";
-import fishing from "../../images/fishing.jpeg";
-import fishes from "../../images/fishes.jpg";
 
 import seafoodData from "../../data2/seafoodData";
 
@@ -102,6 +101,14 @@ const Sustainability = () => {
     setData(seafoodData.filter((e) => e.species == filter));
   };
 
+  const sustainableSolutions = [
+    "Avoid Overfishing",
+    "Limit Bycatch",
+    "Manage Pollution & Disease",
+    "Preserve Habitats",
+    "Protect Endangered Species",
+  ];
+
   return (
     <>
       <InfoContainer>
@@ -128,7 +135,10 @@ const Sustainability = () => {
                   other wildlife — helping to ensure healthy and resilient ocean
                   ecosystems.
                 </InfoSub>
-                <InfoCanvas props={1}>hi</InfoCanvas>
+                <InfoCanvas props={1}>
+                  {" "}
+                  <HeroImg src={market}></HeroImg>
+                </InfoCanvas>
               </div>
             ) : active == "solution" ? (
               <>
@@ -144,7 +154,15 @@ const Sustainability = () => {
                   overfishing and bycatch, also avoid species that are
                   endangered.
                 </InfoSub>
-                <InfoCanvas>hi</InfoCanvas>
+                <InfoCanvas>
+                  {sustainableSolutions.map((e, i) => {
+                    return (
+                      <Solution>
+                        {i + 1}. {e}
+                      </Solution>
+                    );
+                  })}
+                </InfoCanvas>
               </>
             ) : (
               "seafood"
@@ -204,6 +222,9 @@ const Sustainability = () => {
               </FilterButton>
               <FilterButton onClick={() => handleSeafood("Albacore")}>
                 Albacore
+              </FilterButton>
+              <FilterButton onClick={() => handleSeafood("Urchin")}>
+                Sea Urchin
               </FilterButton>
               <FilterButton onClick={() => handleSeafood("Octopus")}>
                 Octopus

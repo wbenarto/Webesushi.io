@@ -2,19 +2,13 @@ import styled from "styled-components";
 import Webe from "../../images/tools1.jpg";
 import misc from "../../images2/raw/misc.jpg";
 import dish from "../../images2/homemakase3.jpg";
-// import Webe from "../../images/nigiriplate.jpg";
-import { Link as LinkR } from "react-router-dom";
 
-var intFrameHeight = window.innerHeight;
-// console.log(intFrameHeight);
+import { Link as LinkR } from "react-router-dom";
 
 export const HomemakaseContainer = styled.div`
   position: absolute;
   width: 100vw;
   height: 100%;
-
-  /* background-color: #2c3138; */
-  /* background-image: url(${Webe}); */
   background-image: ${({ active }) =>
     active == "/"
       ? `url(${Webe})`
@@ -44,27 +38,24 @@ export const HomemakaseContainer = styled.div`
 export const AppNav = styled.div`
   position: relative;
   width: 100%;
-  /* height: 50px; */
   height: 7vh;
-  background-color: transparent;
-  /* #2c3138 */
+  background-color: rgba(10, 10, 10, 0.8);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 `;
-// rgba(22, 22, 23, 0.5)
 
 export const AppNavLogo = styled(LinkR)`
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  color: #fff;
+  color: #dbd6a9;
   padding: 15px;
   margin: 10px;
 
   :hover {
-    background-color: #fff;
+    background-color: #dbd6a9;
     border-radius: 50px;
     color: #000;
   }
@@ -76,14 +67,12 @@ export const AppLogo = styled.img`
   margin-top: -25px;
 `;
 
-// AppLogo.defaultProps = { src: Webe };
-
 export const AppHeading = styled.h1`
   font-size: 1rem;
   display: flex;
   position: relative;
   justify-content: center;
-  color: #fff;
+  color: #dbd6a9;
 `;
 
 export const AppDesc = styled.p`
@@ -96,10 +85,9 @@ export const AppMain = styled.div`
   margin-right: auto;
   margin-bottom: auto;
   width: 70%;
-
   height: calc(100vh - 15vh);
   background-color: rgba(10, 10, 10, 0.5);
-  /* #a5b4cc; */
+
   overflow: scroll;
   color: white;
   ::-webkit-scrollbar {
@@ -143,8 +131,6 @@ export const AppIcons = styled.div`
   text-align: center;
   align-self: center;
   color: #dbd6a9;
-
-  /* background-color: #2c3138; */
 `;
 
 export const AppIconsTitle = styled.div`

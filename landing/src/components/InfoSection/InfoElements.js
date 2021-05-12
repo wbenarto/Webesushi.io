@@ -3,7 +3,8 @@ import { Link as LinkR } from "react-router-dom";
 
 export const InfoContainer = styled.div`
   color: #fff;
-  background: ${({ lightBg }) => (lightBg ? "#2c3138" : "#010606")};
+  background: ${({ lightBg }) =>
+    lightBg ? "rgba(10, 10, 10, 0.8)" : "#010606"};
   height: 100%;
 
   @media screen and (max-width: 768px) {
@@ -223,7 +224,8 @@ export const InfoCarouselContainer = styled.div`
   color: #fff;
   height: 100vh;
   justify-content: center;
-  background: ${({ lightBg }) => (lightBg ? "#2c3138" : "#010606")};
+  background: ${({ lightBg }) =>
+    lightBg ? " rgba(10, 10, 10, 0.8)" : "#010606"};
   scroll-snap-align: center;
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -245,7 +247,6 @@ export const InfoWrapperCarousel = styled.div`
   flex-direction: column;
   flex: 1 0 auto;
 
-  background-color: #2c3138;
   @media screen and (max-width: 475px) {
     display: flex;
     flex-direction: column;
@@ -452,6 +453,11 @@ export const IconWrapperLeft = styled.div`
   cursor: pointer;
   user-select: none;
 
+  :hover {
+    transform: scale(1.4);
+    color: #fff;
+  }
+
   @media screen and (max-width: 475px) {
     /* color: #dbd6a9; */
   }
@@ -462,6 +468,12 @@ export const IconWrapperMiddle = styled.div`
   color: #dbd6a9;
   font-size: 2rem;
   opacity: 0.7;
+
+  :hover {
+    transform: scale(1.4);
+    color: #fff;
+  }
+
   @media screen and (max-width: 475px) {
   }
 `;
@@ -474,6 +486,11 @@ export const IconWrapperRight = styled.div`
   opacity: 0.7;
   cursor: pointer;
   user-select: none;
+
+  :hover {
+    transform: scale(1.4);
+    color: #fff;
+  }
 
   @media screen and (max-width: 475px) {
   }

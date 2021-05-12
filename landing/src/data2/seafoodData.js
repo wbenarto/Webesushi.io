@@ -29,7 +29,8 @@ const seafoodData = [
   },
   {
     id: 2,
-    species: "Blue Crab",
+    title: "Blue Crab",
+    species: "Crab",
     alias: "Blue-claw, Hardshell Crab, Kani, Softshell Crab",
     region: "Maryland, US",
     method: ["Trotline", "good"],
@@ -114,7 +115,7 @@ const seafoodData = [
   },
   {
     id: 9,
-    title: "Shrimp",
+    title: "Tiger Shrimp",
     species: "Shrimp",
     alias: "Ebi, Prawn",
     region: "Worldwide",

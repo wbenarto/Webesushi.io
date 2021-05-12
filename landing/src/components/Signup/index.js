@@ -14,6 +14,12 @@ import {
   FormButton,
   Text,
 } from "../Singin/SinginElements";
+import {
+  AppNav,
+  AppNavLogo,
+  AppHeading,
+} from "../Homemakase/HomemakaseElements";
+import { FaChevronLeft } from "react-icons/fa";
 
 import { connect } from "react-redux";
 import { signUpUser } from "../../redux/actions/userActions";
@@ -67,8 +73,13 @@ const Signup = (props) => {
   return (
     <>
       <Container>
+        <AppNav>
+          <AppNavLogo to="/">
+            <FaChevronLeft />
+          </AppNavLogo>
+          <AppHeading>Sign Up</AppHeading>
+        </AppNav>
         <FormWrap>
-          <Icon to="/"> back - WebeSushi - Sign Up Page</Icon>
           <FormContent>
             <Form onSubmit={handleSubmit} action="#">
               <FormH1>Create new account</FormH1>
@@ -130,7 +141,8 @@ const Signup = (props) => {
                 style={{ color: "white", marginTop: "20px", fontSize: "12px" }}
                 to="/signin"
               >
-                Already have an account? go to Sign In page.
+                {" "}
+                <FormLabel>Click here to sign in</FormLabel>
               </Icon>
             </Form>
           </FormContent>

@@ -12,8 +12,13 @@ import {
   FormLabel,
   FormInput,
   FormButton,
-  Text,
 } from "./SinginElements";
+import {
+  AppNav,
+  AppNavLogo,
+  AppHeading,
+} from "../Homemakase/HomemakaseElements";
+import { FaChevronLeft } from "react-icons/fa";
 
 const Signin = (props) => {
   const [email, setEmail] = useState("");
@@ -57,8 +62,13 @@ const Signin = (props) => {
   return (
     <>
       <Container>
+        <AppNav>
+          <AppNavLogo to="/">
+            <FaChevronLeft />
+          </AppNavLogo>
+          <AppHeading>SIGN IN</AppHeading>
+        </AppNav>
         <FormWrap>
-          <Icon to="/">WebeSushi</Icon>
           <FormContent>
             <Form onSubmit={handleSubmit} action="#">
               <FormH1>Sign in to your account</FormH1>
@@ -89,7 +99,7 @@ const Signin = (props) => {
                 style={{ color: "white", marginTop: "20px", fontSize: "12px" }}
                 to="/signup"
               >
-                Click here to sign up.
+                <FormLabel>Click here to sign up.</FormLabel>
               </Icon>
             </Form>
           </FormContent>
