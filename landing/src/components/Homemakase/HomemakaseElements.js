@@ -9,15 +9,16 @@ export const HomemakaseContainer = styled.div`
   position: absolute;
   width: 100vw;
   height: 100%;
-  background-image: ${({ active }) =>
+  /* background-image: ${({ active }) =>
     active == "/"
       ? `url(${Webe})`
       : active == "home"
       ? `url(${dish})`
       : active == "shop"
       ? `url(${misc})`
-      : `url(${Webe})`};
+      : `url(${Webe})`}; */
   background-position: center;
+  background-color: white;
 
   background-position: left;
 
@@ -25,7 +26,8 @@ export const HomemakaseContainer = styled.div`
 
   ::before {
     content: "";
-    background-color: rgba(0, 0, 0, 0.6);
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    background-color: transparent;
     background-size: cover;
     position: absolute;
     top: 0px;
@@ -39,7 +41,9 @@ export const AppNav = styled.div`
   position: relative;
   width: 100%;
   height: 7vh;
-  background-color: rgba(10, 10, 10, 0.8);
+  /* background-color: rgba(10, 10, 10, 0.8); */
+  background-color: transparent;
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,7 +80,7 @@ export const AppHeading = styled.h1`
 `;
 
 export const AppDesc = styled.p`
-  font-size: 1.8rem;
+  font-size: 1rem;
 `;
 
 export const AppMain = styled.div`
@@ -86,10 +90,11 @@ export const AppMain = styled.div`
   margin-bottom: auto;
   width: 70%;
   height: calc(100vh - 15vh);
-  background-color: rgba(10, 10, 10, 0.5);
-
+  background-color: transparent;
+  font-family: "Raleway";
+  font-size: 0.8rem;
   overflow: scroll;
-  color: white;
+  color: #333333;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -105,7 +110,7 @@ export const AppFooter = styled.div`
   margin: auto;
   max-width: 70vw;
   height: 8vh;
-  background-color: rgba(10, 10, 10, 0.8);
+  background-color: #fff;
 
   flex-shrink: 0;
   display: flex;
@@ -126,20 +131,22 @@ export const AppIconsWrapper = styled.div`
 `;
 
 export const AppIcons = styled.div`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-top: 15px;
   text-align: center;
   align-self: center;
-  color: #dbd6a9;
+  color: #757575;
 `;
 
 export const AppIconsTitle = styled.div`
-  font-size: 1.1rem;
-  color: white;
+  font-family: "Barlow";
+  font-size: 1.2rem;
+  /* color: #009a75; */
+  color: #757575;
   text-align: center;
 
   @media screen and (max-width: 475px) {
-    font-size: 0.6rem;
+    font-size: 12px;
   }
 `;
 

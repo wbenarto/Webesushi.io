@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "../ButtonElement";
-import { sushi } from "./Data";
+import { sushi } from "../../data/data";
 import {
   FaArrowAltCircleRight,
   FaArrowAltCircleLeft,

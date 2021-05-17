@@ -208,7 +208,6 @@ export const CardWrapper = styled.div`
   height: 600px;
   padding: 20px;
   margin: 10px;
-
   border: 0.5px solid black;
   background-color: ${({ rec }) =>
     rec == "Avoid" ? "#e3595d" : "rgba(10, 10, 10, 0.8)"};

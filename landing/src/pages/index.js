@@ -12,7 +12,7 @@ import {
   homeObjThree,
   homeObjFour,
   sushi,
-} from "../components/InfoSection/Data";
+} from "../data/data";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);

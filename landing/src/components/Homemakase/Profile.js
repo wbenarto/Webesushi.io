@@ -7,7 +7,7 @@ import {
   ProfileCard,
   HeaderText,
   DescText,
-} from "../Profile/ProfileElements";
+} from "./Profile/ProfileElements";
 
 // Redux
 import { connect } from "react-redux";

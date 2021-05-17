@@ -39,7 +39,7 @@ import { FormControlLabel, Radio, RadioGroup } from "@material-ui/core";
 import market from "../../images/market.jpg";
 import wave from "../../images/wave.jpg";
 
-import seafoodData from "../../data2/seafoodData";
+import seafoodData from "../../data/seafoodData";
 
 const Sustainability = () => {
   const [data, setData] = useState([]);
