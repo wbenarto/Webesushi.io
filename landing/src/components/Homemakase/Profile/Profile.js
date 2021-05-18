@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import EditDetails from "../EditDetails";
-import { ProfileContainer } from "./ProfileElements";
-
+import EditDetails from "./EditDetails";
+import {} from "./ProfileElements";
+import { AppContainer } from "../HomemakaseElements";
 // Redux
 import { connect } from "react-redux";
 import { logOutUser, uploadImage } from "../../../redux/actions/userActions";
@@ -35,7 +35,7 @@ const Profile = (props) => {
 
   let profileMarkup = !loading ? (
     authenticated ? (
-      <ProfileContainer>
+      <AppContainer>
         <div>
           <img
             style={{ width: "150px", height: "150px" }}
@@ -56,11 +56,11 @@ const Profile = (props) => {
           <button onClick={handleLogOut}>Log Out</button>
           <EditDetails />
         </div>
-      </ProfileContainer>
+      </AppContainer>
     ) : (
-      <ProfileContainer>
+      <AppContainer>
         <h1>No Profile Found</h1>
-      </ProfileContainer>
+      </AppContainer>
     )
   ) : (
     <p>loading...</p>

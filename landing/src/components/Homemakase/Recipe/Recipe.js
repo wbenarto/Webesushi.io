@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
-  RecipeContainer,
   RecipeDisplay,
   RecipeCard,
   RecipeCardName,
@@ -9,6 +8,7 @@ import {
   CardIcons,
   CardButton,
 } from "./RecipeElements";
+import { AppContainer } from "../HomemakaseElements";
 import PropTypes from "prop-types";
 import { sushi } from "../../../data/data";
 import { connect } from "react-redux";
@@ -56,7 +56,7 @@ const Recipe = (props) => {
   // }, []);
 
   return (
-    <RecipeContainer>
+    <AppContainer>
       <h1>Recipe</h1>
       <RecipeDisplay>
         {sushi.map((e) => (
@@ -77,7 +77,7 @@ const Recipe = (props) => {
           </RecipeCard>
         ))}
       </RecipeDisplay>
-    </RecipeContainer>
+    </AppContainer>
   );
 };
 

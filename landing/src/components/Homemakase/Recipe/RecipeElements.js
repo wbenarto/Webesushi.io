@@ -1,17 +1,8 @@
 import styled from "styled-components";
 
-export const RecipeContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-`;
-
 export const RecipeDisplay = styled.div`
   width: 100%;
   height: 100vh;
-  justify-content: initial;
   display: grid;
   grid-template-columns: 50% 50%;
 
@@ -22,8 +13,8 @@ export const RecipeDisplay = styled.div`
 export const RecipeCard = styled.div`
   width: 90%;
   height: 180px;
-
   position: relative;
+  margin: auto;
 `;
 
 export const RecipeCardName = styled.h3`

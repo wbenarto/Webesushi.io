@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  ShopContainer,
   FilterContainer,
   FilterButton,
   ShopContent,
@@ -10,6 +9,8 @@ import {
   ItemImage,
   ItemDesc,
 } from "./ShopElements";
+
+import { AppContainer } from "../HomemakaseElements";
 
 import { data2 } from "../../../data/data2";
 
@@ -21,7 +22,7 @@ const Shop = () => {
   };
 
   return (
-    <ShopContainer>
+    <AppContainer>
       <FilterContainer>
         <FilterButton onClick={() => handleFilter("all")}>
           <h1>All</h1>
@@ -81,7 +82,7 @@ const Shop = () => {
           </ContentSlider>
         </ShopContent>
       )}
-    </ShopContainer>
+    </AppContainer>
   );
 };
 

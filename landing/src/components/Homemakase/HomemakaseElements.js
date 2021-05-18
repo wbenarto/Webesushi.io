@@ -76,7 +76,8 @@ export const AppHeading = styled.h1`
   display: flex;
   position: relative;
   justify-content: center;
-  color: #dbd6a9;
+  color: #757575;
+  font-family: "Raleway";
 `;
 
 export const AppDesc = styled.p`
@@ -103,6 +104,14 @@ export const AppMain = styled.div`
     min-width: 90%;
     height: calc(100vh - 28vh);
   }
+`;
+
+export const AppContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const AppFooter = styled.div`
@@ -147,73 +156,5 @@ export const AppIconsTitle = styled.div`
 
   @media screen and (max-width: 475px) {
     font-size: 12px;
-  }
-`;
-
-export const SushiCategory = styled.div`
-  margin-top: 25px;
-  width: 100%;
-  height: 100px;
-  justify-self: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-export const SushiCategoryButton = styled.div`
-  flex-basis: 25%;
-  height: 2rem;
-
-  font-size: 1.2rem;
-  background-color: transparent;
-  color: black;
-  border-radius: 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  :nth-child(1) {
-    background-color: #db405f;
-  }
-  :nth-child(2) {
-    background-color: #eded4a;
-  }
-  :nth-child(3) {
-    background-color: #8df27e;
-  }
-`;
-
-export const SushiCategoryDesc = styled.div`
-  width: 90%;
-
-  position: relative;
-  top: 0;
-  color: ${({ cat }) =>
-    cat == "raw"
-      ? "white"
-      : cat == "cooked"
-      ? "black"
-      : cat == "vegetarian"
-      ? "black"
-      : "white"};
-
-  background-color: ${({ cat }) =>
-    cat == "raw"
-      ? "#db405f"
-      : cat == "cooked"
-      ? "#eded4a"
-      : cat == "vegetarian"
-      ? "#8df27e"
-      : "#db405f"};
-  border-radius: 5px;
-
-  > p {
-    margin-bottom: 10px;
-    padding: 10px;
-  }
-
-  @media screen and (max-width: 475px) {
-    margin-bottom: 0;
   }
 `;

@@ -1,16 +1,5 @@
 import styled from "styled-components";
 
-export const ShopContainer = styled.div`
-  color: #bd8f5e;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  overflow: hidden;
-  z-index: 0;
-`;
-
 export const FilterContainer = styled.div`
   width: 100%;
   height: 40px;

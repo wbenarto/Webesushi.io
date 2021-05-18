@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {
+  HomeInfo,
   SushiCategory,
   SushiCategoryButton,
   SushiCategoryDesc,
-} from "../HomemakaseElements";
+  Steps,
+} from "./HomeElements";
+import { AppContainer } from "../HomemakaseElements";
 
 const Home = () => {
   const [category, setCategory] = useState("raw");
@@ -13,34 +16,33 @@ const Home = () => {
     setCategory(category);
   };
   return (
-    <div class="parent-container">
-      <h2>Omakase</h2>
-      <p>
-        Omakase (Japanese: お任せ, Hepburn: o-makase) is a Japanese phrase, used
-        when ordering sushi in restaurants, that means 'I'll leave it up to you'
-        (from Japanese 'to entrust' (任せる, makaseru)).
-      </p>
-      <br />
-      <h2>Homemakase</h2>
-      <p>
-        Here we will help you recreate your favorite sushi dish at the comfort
-        of your home. <br />
-        <br /> We will first take a look what kind of ingredients and tools
-        needed before we start our prepping process.
-      </p>
+    <AppContainer>
+      <HomeInfo>
+        <h2>Omakase</h2>
+        <p>
+          Omakase (Japanese: お任せ, Hepburn: o-makase) is a Japanese phrase,
+          used when ordering sushi in restaurants, that means 'I'll leave it up
+          to you' (from Japanese 'to entrust' (任せる, makaseru)).
+        </p>
+        <br />
+        <h3>Let's Homemakase</h3>
+
+        <Steps>1</Steps>
+        <p>Go to "Recipes" and pick your sushi recipe</p>
+        <p> to add into your favorites.</p>
+
+        <br />
+        <Steps>2</Steps>
+        <p> click this button to compile your shopping list</p>
+
+        <br />
+        <Steps>3</Steps>
+        <p>click this to show step-by-step guide</p>
+      </HomeInfo>
+
       <br />
 
-      <h2>Let's get rollin!~</h2>
-      <p>
-        Go to "At Market" tab to see all necessary tools and ingredients to make
-        your sushi. Then go to "Get Rollin" tab to access in depth step-by-step
-        instruction for prepping your ingredients. I also included recipes for
-        the sushi I have made in the past. Don't forget to try out the sauces
-        recipes as well!
-      </p>
-      <br />
-
-      <p>Here are some categories to help you navigate the site:</p>
+      <p>Here are some categories to help you navigate the recipes:</p>
 
       <SushiCategory>
         <SushiCategoryButton
@@ -78,8 +80,6 @@ const Home = () => {
               So many people got introduced into eating sushi from their first
               "Shrimp Tempura Roll". If you are not sure about dealing with raw
               fish, selections in this category will definitely give you some
-              learning experience. If you are not sure about dealing with raw
-              fish, selections in this category will definitely give you some
               learning experience.{" "}
             </p>
           </SushiCategoryDesc>
@@ -88,16 +88,14 @@ const Home = () => {
             <p>
               This category is for my vegetarian friends! We will explore
               different ways of serving vegetarian sushi and have fun with it.
-              If you are vegan, we will provide more recipes in the future. If
-              you are not sure about dealing with raw fish, selections in this
-              category will definitely give you some learning experience.{" "}
+              More vegan sushi options to come!{" "}
             </p>
           </SushiCategoryDesc>
         ) : (
           <SushiCategoryDesc cat={category}>Raw</SushiCategoryDesc>
         )}
       </SushiCategory>
-    </div>
+    </AppContainer>
   );
 };
 

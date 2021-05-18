@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-export const ProfileContainer = styled.div`
-  width: 100%;
-  height: 100vh;
-  /* background: linear-gradient(#b6d1e3, #ebf8e1, #2b495c); */
-  display: flex;
-  justify-content: center;
-`;
-
 export const ProfileImage = styled.img`
   border-radius: 50%;
   width: 250px;

@@ -1,0 +1,679 @@
+/** @namespace */
+var jtpsdk = {
+  v: 1 + '.3368af08',
+  client: 'jbmobilecheckin', // added in app controller after client detected
+  env: 'dev', // overwritten by utils.service.ts
+  base: 'https://sdk.uat.jetbluevacations.com/jtpsdk/api/v1/retrieve?path=', // bucket url where the static files are stored
+  cid: '389404979282', // overwritten on runtime with jtpsdkCID value from cookie.
+};
+
+/** Core will hold tools that all clients and features use */
+jtpsdk.core = {};
+
+/** Session storage get and set */
+jtpsdk.session = {
+  get: item => {
+    try {
+      return JSON.parse(sessionStorage.getItem(item));
+    } catch (e) {
+      return '';
+    }
+  },
+  set: (item, data) => {
+    data
+      ? sessionStorage.setItem(item, JSON.stringify(data))
+      : sessionStorage.removeItem(item);
+  },
+};
+
+/** Local storage get and set */
+jtpsdk.local = {
+  get: item => {
+    try {
+      return JSON.parse(localStorage.getItem(item));
+    } catch (e) {
+      return '';
+    }
+  },
+  set: (item, data) => {
+    data
+      ? localStorage.setItem(item, JSON.stringify(data))
+      : localStorage.removeItem(item);
+  },
+};
+
+/*
+  Trigger a GA pixel
+  {
+    tid: string,
+    ec: string,
+    ea: string,
+    el: string,
+    cid?: string
+  }
+ */
+jtpsdk.core.ga = obj => {
+  obj.cid = obj.cid || jtpsdk.cid;
+  const pixel = `
+  <img height="1" width="1" alt="" src="https://www.google-analytics.com/collect?v=1&tid=${
+    obj.tid
+  }&t=event&ec=${obj.ec}&ea=${obj.ea}&el=${obj.el}&cid=${obj.cid}" >`;
+
+  document.querySelector('body').insertAdjacentHTML('beforeend', pixel);
+};
+
+/** In case third party cookies are blocked, use session storage to keep a temporary cid
+ *
+ */
+jtpsdk._getTempCid = () => {
+  let tempCid = jtpsdk.session.get('tempJtpCid');
+  if (!tempCid) {
+    tempCid = (Math.random() * new Date().getTime()).toFixed(0);
+    jtpsdk.session.set('tempJtpCid', tempCid);
+  }
+
+  return tempCid;
+};
+
+/**
+ * Generic GET method.
+ *
+ * */
+jtpsdk.core.httpGetAsync = function(
+  theUrl,
+  successCb,
+  failCb,
+  withCredentials,
+) {
+  var xmlHttp = new XMLHttpRequest();
+
+  xmlHttp.withCredentials = withCredentials ? withCredentials : false;
+  xmlHttp.onreadystatechange = function() {
+    if (xmlHttp.readyState == 4) {
+      // Get the raw header string
+      var headers = xmlHttp.getAllResponseHeaders();
+
+      // Convert the header string into an array
+      // of individual headers
+      var arr = headers.trim().split(/[\r\n]+/);
+
+      // Create a map of header names to values
+      var headerMap = {};
+      arr.forEach(function(line) {
+        var parts = line.split(': ');
+        var header = parts.shift();
+        var value = parts.join(': ');
+        headerMap[header] = value;
+      });
+
+      if (xmlHttp.status == 200) {
+        successCb(xmlHttp.responseText, headerMap['jtp.action']) ||
+          function() {};
+      } else {
+        failCb ? failCb() : function() {};
+      }
+    }
+  };
+  xmlHttp.open('GET', theUrl, true); // true for asynchronous
+  xmlHttp.send(null);
+};
+
+// Generic POST request
+jtpsdk.core.httpPost = function(
+  theUrl,
+  body,
+  successCb,
+  failCb,
+  contentType,
+  withCredentials,
+) {
+  var xmlHttp = new XMLHttpRequest();
+
+  xmlHttp.withCredentials = withCredentials ? withCredentials : true;
+
+  xmlHttp.onreadystatechange = function() {
+    if (xmlHttp.readyState == 4) {
+      if (xmlHttp.status == 200) {
+        successCb(xmlHttp.responseText) || function() {};
+      } else {
+        failCb ? failCb() : function() {};
+      }
+    }
+  };
+
+  xmlHttp.open('POST', theUrl, true);
+  xmlHttp.setRequestHeader(
+    'Content-Type',
+    typeof contentType != 'undefined' && contentType
+      ? contentType
+      : 'application/json',
+  );
+  xmlHttp.setRequestHeader('accept', 'application/json, text/plain, */*');
+  if (body) {
+    body = JSON.stringify(body);
+  }
+  xmlHttp.send(body);
+};
+
+// Load external javascript files
+jtpsdk.core.loadJs = function(src, cb, id) {
+  (function(d, script) {
+    // Script already on page. Just call cb()
+    if (document.getElementById(id)) {
+      cb ? cb() : function() {};
+      return false;
+    }
+
+    script = d.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = function() {
+      // remote script has loaded. Callback if needed
+      cb ? cb() : function() {};
+    };
+    script.src = src + '?v=' + jtpsdk.v;
+
+    if (id) {
+      script.id = id;
+    }
+
+    d.getElementsByTagName('body')[0].appendChild(script);
+  })(document);
+};
+
+// Load styles by url
+jtpsdk.core.loadCss = function(url, id) {
+  // If styles already on page.
+  if (document.getElementById(id)) {
+    return false;
+  }
+
+  var fileref = document.createElement('link');
+  fileref.setAttribute('rel', 'stylesheet');
+  fileref.setAttribute('type', 'text/css');
+  fileref.setAttribute('href', url + '?v=' + jtpsdk.v);
+
+  if (id) {
+    fileref.id = id;
+  }
+
+  document.getElementsByTagName('body')[0].appendChild(fileref);
+};
+
+// Pad leading zeros so 1 becomes 01
+jtpsdk.core.padLeadingZero = function(n) {
+  if (typeof n === 'string' && n.indexOf('0') == 0) {
+    return n;
+  } else return n < 10 ? '0' + n : n;
+};
+
+// For body you can pass a string or a 'window.someGlobalVar' that has the string of html
+jtpsdk.core.openDialog = function(triggerIdNoHash, title, body) {
+  // Load the dialog template for first time
+  jtpsdk.core.loadJs(
+    jtpsdk.base + '/widgets/jtpsdk-dialog-html.js',
+    function() {
+      // Add the dialog template and styles to DOM
+      if (!document.querySelector('.jtpsdk-popup-modal')) {
+        document
+          .querySelector('body')
+          .insertAdjacentHTML('beforeend', jtpsdk.core.dialogTemplate);
+      }
+
+      if (body.indexOf('window.') == 0) {
+        body = window[body.split('window.')[1]];
+      }
+
+      document.querySelector(
+        '.jtpsdk-popup-modal .jtpsdk-dialog-title',
+      ).innerHTML = title;
+      var bodyCont = document.querySelector(
+        '.jtpsdk-popup-modal .jtpsdk-popup-modal-content',
+      );
+      bodyCont.innerHTML = '';
+      setTimeout(() => {
+        bodyCont.innerHTML = body;
+      }, 10);
+
+      var trigger = document.querySelector('#' + triggerIdNoHash);
+
+      var bodyBlackout = document.querySelector('.jtpsdk-body-blackout');
+      var popupModal = document.querySelector('.jtpsdk-popup-modal');
+
+      popupModal.classList.add('is--visible');
+      bodyBlackout.classList.add('is-blacked-out');
+      popupModal.querySelector('.jtpsdk-dialog-header').focus();
+
+      popupModal
+        .querySelector('.jtpsdk-popup-modal__close')
+        .addEventListener('click', closeModal);
+      bodyBlackout.addEventListener('click', closeModal);
+
+      function closeModal() {
+        popupModal.classList.remove('is--visible');
+        bodyBlackout.classList.remove('is-blacked-out');
+        trigger.focus();
+
+        popupModal
+          .querySelector('.jtpsdk-popup-modal__close')
+          .removeEventListener('click', closeModal);
+        bodyBlackout.removeEventListener('click', closeModal);
+      }
+    },
+    'jtpsdk-dialog-template',
+  );
+};
+
+// Cookie getter and setter
+jtpsdk.core.cookie = {
+  set: (name, value, days) => {
+    var expires = '';
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      expires = '; expires=' + date.toUTCString();
+    }
+    document.cookie = name + '=' + (value || '') + expires + '; path=/;';
+  },
+  get: name => {
+    var nameEQ = name + '=';
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  },
+};
+
+jtpsdk.core.waitForElement = function(selector, fn) {
+  'use strict';
+
+  var listeners = [],
+    doc = window.document,
+    MutationObserver = window.MutationObserver || window.WebKitMutationObserver,
+    observer;
+
+  // Store the selector and callback to be monitored
+  listeners.push({
+    selector: selector,
+    fn: fn,
+  });
+  if (!observer) {
+    // Watch for changes in the document
+    observer = new MutationObserver(check);
+    observer.observe(doc.documentElement, {
+      childList: true,
+      subtree: true,
+    });
+  }
+  // Check if the element is currently in the DOM
+  check();
+
+  function check() {
+    // Check the DOM for elements matching a stored selector
+    for (var i = 0, len = listeners.length, listener, elements; i < len; i++) {
+      listener = listeners[i];
+      // Query for elements matching the specified selector
+      elements = doc.querySelectorAll(listener.selector);
+      for (var j = 0, jLen = elements.length, element; j < jLen; j++) {
+        element = elements[j];
+        // Make sure the callback isn't invoked with the
+        // same element more than once
+        if (!element.ready) {
+          element.ready = true;
+          // Invoke the callback with the element
+          listener.fn.call(element, element);
+        }
+      }
+    }
+  }
+};
+
+jtpsdk.core.isMobile = () => {
+  return (
+    typeof window.orientation !== 'undefined' ||
+    navigator.userAgent.indexOf('IEMobile') !== -1 ||
+    window.navigator.userAgent.toLowerCase().includes('mobile')
+  );
+};
+
+// In case third party cookie are not allew, use session storage to create a temporary cid
+if (!jtpsdk.cid || jtpsdk.cid === 'undefined') {
+  jtpsdk.cid = jtpsdk._getTempCid();
+}
+
+// If page has no meta referrer, add no-referrer-when-downgrade
+if (!document.querySelector('meta[name="referrer"]')) {
+  document
+    .querySelector('head')
+    .insertAdjacentHTML(
+      'beforeend',
+      `<meta name="referrer" content="no-referrer-when-downgrade">`,
+    );
+}
+// Set env variables
+jtpsdk.checkinCars = {
+  api: 'https://apiuat.paisly.jetblue.com',
+  gaId: 'UA-123051220-5',
+  site: 'https://dev.paisly.com',
+};
+
+// Get the car image from gs cacher instead or abg
+jtpsdk.checkinCars.getImage = src => {
+  src = src.replace('/xl/', '/l/');
+  return (
+    '//www.paisly.com/gscacher/api/v1/images/retrieveABG?origin=' +
+    src +
+    '&product=avis&app=iris'
+  );
+};
+
+// Date format changed as per design
+jtpsdk.checkinCars.niceDate = function(str) {
+  var date = new Date(str).toDateString();
+  var time = new Date(str).toLocaleTimeString();
+  var sTime = time.split(':00 ');
+
+  time = sTime.length === 2 ? sTime[0] + sTime[1] : time;
+
+  return date + ' at ' + time;
+};
+
+// Generate the car offer based on search
+jtpsdk.checkinCars.getOffer = function(successCb) {
+  console.log(
+    `%cJTPSDK:`,
+    'color:magenta',
+    'Getting car offers based on PNR and last name',
+  );
+
+  var pnrData = JSON.parse(localStorage.getItem('jtpsdkPNR'));
+
+  jtpsdk.core.httpPost(
+    `${
+      jtpsdk.checkinCars.api
+    }/api/oe/OfferMakerCarRental/airwaysCheckInPath/v1/?pnr=${
+      pnrData.pnr
+    }&lastName=${pnrData.lastName}`,
+    pnrData,
+    function(res) {
+      localStorage.setItem('jtpsdkCarsOffer', res);
+      // jtpsdk.checkinCars.pixel({ ec: 'cars-shown-service', el: 'success' });
+      successCb ? successCb() : function() {};
+    },
+    function(res) {
+      console.log(`%cJTPSDK:`, 'color:magenta', 'No offers found');
+    },
+  );
+
+  // Load CSS for the list and selected car view in anticipation of cars rendering
+  jtpsdk.core.loadCss(
+    jtpsdk.base +
+      '/widgets/features/responsive-cars/responsive-cars-styles.css',
+    'jtpcars-list-styles',
+  );
+};
+
+// Take the offer from localStorage and inject into the checkin thankyou page
+jtpsdk.checkinCars.injectOffers = function(afterSelector) {
+  console.log(
+    `%cJTPSDK:`,
+    'color:magenta',
+    'Injecting car offers into ' + afterSelector,
+  );
+
+  // Load CSS for the list and selected car view in anticipation of cars rendering
+  jtpsdk.core.loadCss(
+    jtpsdk.base +
+      '/widgets/features/responsive-cars/responsive-cars-styles.css',
+    'jtpcars-list-styles',
+  );
+
+  var data = JSON.parse(localStorage.getItem('jtpsdkCarsOffer'));
+
+  var destination = data.returnLocationCode;
+
+  var pnrData = localStorage.getItem('jtpsdkPNR');
+
+  if (data.offerItems.length) {
+    // Add container for the car list
+    document.querySelector(afterSelector).insertAdjacentHTML(
+      'beforeend',
+      `
+      <img height="1" width="1" alt=""
+        src="https://www.google-analytics.com/collect?v=1&tid=${
+          jtpsdk.checkinCars.gaId
+        }&t=event&ec=cars-shown&ea=${
+        jtpsdk.client
+      }-inpath-${destination}&el=${encodeURIComponent(location.pathname)}&cid=${
+        jtpsdk.cid
+      }" >
+
+      <div id ="jtpcars-container" class="componentBlock">
+        <div id="jtp-widget">
+          <div class="jtp-max-width center-l center-m page-margin negative-page-margin-s">
+            <div style="height: fit-content;" class="relative" id="main-pod-container"></div>
+
+            <div class="pv4">
+              <jtp-copy class="db copy ph3 charcoal">
+              <b>Paisly helps you get in gear with extra convenience, savings, TrueBlue points & free cancellations.  </b><BR>
+              We've pre-selected these offers based on your flight info.
+              </jtp-copy>
+            </div>
+
+            <div class="jtp-grid jtp-grid-ph-s" id="sub-pod-container"></div>
+
+            <div class="pt4" id="car-legal-container"><jtp-copy class="db f6 ph3 pb4 charcoal">Offers above based on your trip details. Pick up is ${jtpsdk.checkinCars.niceDate(
+              data.pickUpDateTime,
+            )} and drop off is ${jtpsdk.checkinCars.niceDate(
+        data.returnDateTime,
+      )}. Prices above are for the duration of your trip, include up to 35% discount and exclude taxes.</jtp-copy></div>
+          </div>
+        </div>
+      </div>`,
+    );
+
+    var carItems = '';
+
+    data.offerItems.forEach(function(a, index) {
+      // only show 3 cars on desktop
+      if (!jtpsdk.core.isMobile() && index > 3) {
+        return false;
+      }
+
+      var pod_href =
+        jtpsdk.checkinCars.site +
+        '/cars/details?offer=' +
+        data.offerId +
+        '&offeritem=' +
+        a.offerItemId +
+        '&pnr=' +
+        JSON.parse(pnrData).pnr +
+        `&utm_source=${jtpsdk.client}&utm_medium=${
+          jtpsdk.client
+        }&utm_campaign=${jtpsdk.client}`;
+
+      var carModel = a.vehicleMakeModelName.split(' - ');
+      carModel = carModel.length > 1 ? carModel[1] : carModel[0];
+
+      // Avis gets 35% off.
+      var percent_off = a.vendorName.toLowerCase() === 'avis' ? 35 : 30;
+
+      if (index === 0) {
+        var mainPod = `
+        
+        <div class="jtp-nudge">
+          <div class="relative">
+            <div class="jtp-arrow arrow-first"></div>
+            <div class="jtp-arrow arrow-second"></div>
+          </div>
+        </div>
+
+        <jtp-promo-block class="db" id="basic-promo-block">
+        <jtp-link class="db no-underline block-link-z-index pointer relative jtp-link">
+          <a class="pointer w-100 h-100 db color-inherit hover-inherit no-underline" href="${pod_href}" target="_blank">
+            <div class="main-pod ph5 ph3-s pv5-s"> 
+              <div class="jtp-grid gr-unset">
+                <div class="relative flex ma0-ns min-h-9 mt4 col-7-l col-7-m">
+                  <!---->
+                  <jtp-overlay-image class="h-100 flex w-100 justify-center items-center relative">
+                    <div class="flex tc relative w-100 h-100-ns">
+                      <jtp-image class="absolute-ns top-0-ns left-0-ns right-0-ns center flex-ns line-height-0 dib mw-100 h-100 w-100 items-center-ns justify-center-ns">
+                        <img class="img car-image" alt="" src="${jtpsdk.checkinCars.getImage(
+                          a.vehiclePictureFeaturedURLXL,
+                        )}">
+                        <!---->
+                      </jtp-image>
+                    </div>
+                  </jtp-overlay-image>
+                  <div class="jtp-starting-from">
+                    <!-- floating rounded price section -->
+                    <div>
+                      <img src="${
+                        jtpsdk.base
+                      }/widgets/assets/paisly-logo.svg" alt="">
+                      <!--<figure class="price items-center flex">
+                        <div class="main-div items-center flex">
+                          <span class="copy-fares-from">Get up to</span>
+                          <div class="dollar-section">
+                            <div class="flex"> ${percent_off} <span class="super-text-copy percent">%</span><span class="super-text-copy off-text">off</span>
+                            </div>
+                          </div>
+                          <span class="one-way-copy">base rates</span>
+                        </div>
+                      </figure>-->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-5-l col-5-m order-1 order-1-ns">
+                  <jtp-promo-card class="db">
+                    <div class="ma5-ns mv5-m mv6-l mh0-ns jtp-promo-card relative">
+                      <div class="absolute absolute--fill jtp-full-promo-card-bg br-rounded-4" style="opacity: 1;"></div>
+                      <div class="content relative pv4">
+                        <div class="ph3 ph6-ns">
+                          <div class="mb2 cb">
+                             
+                              <jtp-flag class="pv1 ph3 copy-s b dib br-rounded-3 bg-core-blue white" title="Reduced rates"> Up to ${percent_off}% off</jtp-flag>
+            
+                          </div>
+                          <h2 class="mb2 cb"> ${a.vehicleClassDescription} </h2>
+                          <jtp-copy class="avenir db copy">${carModel}</jtp-copy>
+                          <h2 class="mt3 mb2 cb flex">
+                            <span class="super-text-copy">$</span>${Number(
+                              a.rateTotalAmount,
+                            ).toFixed(0)}</h2>
+                          <jtp-copy class="avenir db copy">${
+                            a.rentalDays
+                          }-day rental</jtp-copy>
+                          <jtp-image class="dib mw-100 w-100">
+                              <img class="img car-logo" src="${
+                                jtpsdk.base
+                              }/widgets/assets/${a.vendorName}-logo.png" alt="${
+          a.vendorName
+        }">
+                             
+                            </jtp-image>
+                          <div class="button-z-index db mt4"><button type="button" class="pointer avenir b no-underline t-med-bg t-out-hover w-100 tc border-box inline-flex align-items-center justify-center jtp-button-primary jtp-button-large b--none bg-royal-blue br-rounded-2 copy hover-white p-primary" role="button" theme="primary" aria-disabled="false"><span class="dib relative baseline-offset"> View car rental details </span></button></div>
+                        </div>
+                      </div>
+                    </div>
+                  </jtp-promo-card>
+                </div>
+              </div>
+            </div>
+          </a></jtp-link>
+          </jtp-promo-block>`;
+
+        document
+          .querySelector('#main-pod-container')
+          .insertAdjacentHTML('beforeend', mainPod);
+      } else {
+        carItems += `<jtp-product-block class="col-6-m col-4-l db relative" id="product-block-all-options" price="385">
+          <a class="flex flex-column relative no-underline pb4 ba jtp-block-border br3 overflow-hidden h-100 bg-white" href="${pod_href}" target="_blank">
+            <div class="flex sub-pod-car-section">
+              <jtp-image class="line-height-0 dib h-100 center"><img class="img" alt="" src="${jtpsdk.checkinCars.getImage(
+                a.vehiclePictureFeaturedURLXL,
+              )}">
+              </jtp-image>
+            </div>
+            <div>
+              <jtp-flag class="pv1 ph3 copy-s b dib br-rounded-3 bg-core-blue white" title="Reduced rates"> Up to ${percent_off}% off</jtp-flag>
+            </div>
+            <div class="ph4-ns pb4-ns jtp-grid-ph-s jtp-grid-b-s flex-grow-1 flex flex-column">
+              <div class="pt3 mb2 cb">
+                <div class="dib mw-100 w-100">
+                  <img class="img sub-pod-car-logo" src="${
+                    jtpsdk.base
+                  }/widgets/assets/${a.vendorName}-logo.png" alt="${
+          a.vendorName
+        }">
+                </div>
+              </div>
+              <h3 class="mb0 core-blue"> ${a.vehicleClassDescription} </h3>
+              <div class="mt2 charcoal">
+                <jtp-copy class="avenir db copy-s" size="small"> ${carModel} </jtp-copy>
+              </div>
+              <div class="flex flex-column flex-grow-1 justify-end">
+                <div class="pt3 core-blue flex">
+                  <jtp-copy class="b core-blue self-start avenir db copy-m">$</jtp-copy>
+                  <jtp-callout class="b core-blue copy-price">${Number(
+                    a.rateTotalAmount,
+                  ).toFixed(0)}</jtp-callout>
+                </div>
+                <div class="charcoal pt2">
+                  <jtp-copy class="avenir db copy-s" size="small">${
+                    a.rentalDays
+                  }-day rental</jtp-copy>
+                </div>
+              </div>
+            </div>
+          </a>
+        </jtp-product-block>`;
+      }
+    });
+
+    document
+      .querySelector('#sub-pod-container')
+      .insertAdjacentHTML('beforeend', carItems);
+  }
+};
+jtpsdk.crossSell = jtpsdk.crossSell || {};
+
+// {lastName: 'Tester', pnr: 'ABCDEF'}
+jtpsdk.crossSell.setPnr = itin => {
+  jtpsdk.local.set('jtpsdkCarsOffer', null);
+
+  if (itin.lastName && itin.pnr) {
+    if (jtpsdk.env === 'dev') {
+      itin.pnr = itin.pnr.slice(0, 5) + '1';
+    }
+
+    localStorage.setItem('jtpsdkPNR', JSON.stringify(itin));
+
+    console.log(`%cJTPSDK:`, 'color:magenta', 'PNR and last name set');
+  }
+};
+
+jtpsdk.renderOffers = container => {
+  if (
+    jtpsdk.env !== 'prod' &&
+    location.href.includes('mobilecheckin.jetblue.com')
+  ) {
+    return false;
+  }
+
+  jtpsdk.checkinCars.getOffer(function() {
+    jtpsdk.checkinCars.injectOffers(container);
+
+    // remove the nudging arrow after user scrolls
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 85) {
+        try {
+          document.querySelector('.jtp-nudge').remove();
+        } catch (err) {}
+      }
+    });
+  });
+};
