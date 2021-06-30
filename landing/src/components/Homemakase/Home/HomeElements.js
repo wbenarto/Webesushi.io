@@ -32,7 +32,6 @@ export const SushiCategory = styled.div`
 export const SushiCategoryButton = styled.div`
   flex-basis: 25%;
   height: 2rem;
-
   font-size: 1.2rem;
   background-color: transparent;
   color: black;

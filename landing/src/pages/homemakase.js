@@ -39,13 +39,13 @@ const HomeMakase = () => {
 
         <AppMain>
           {active == "home" ? (
-            <Recipe />
+            <Home />
           ) : active == "shop" ? (
             <Shop />
           ) : active == "profile" ? (
             <Profile />
           ) : (
-            <Home />
+            <Recipe />
           )}
         </AppMain>
 

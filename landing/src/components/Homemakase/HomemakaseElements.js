@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import Webe from "../../images/tools1.jpg";
-import misc from "../../images2/raw/misc.jpg";
-import dish from "../../images2/homemakase3.jpg";
 
 import { Link as LinkR } from "react-router-dom";
 
@@ -9,26 +6,10 @@ export const HomemakaseContainer = styled.div`
   position: absolute;
   width: 100vw;
   height: 100%;
-  /* background-image: ${({ active }) =>
-    active == "/"
-      ? `url(${Webe})`
-      : active == "home"
-      ? `url(${dish})`
-      : active == "shop"
-      ? `url(${misc})`
-      : `url(${Webe})`}; */
-  background-position: center;
-  background-color: white;
-
-  background-position: left;
-
   justify-content: center;
 
   ::before {
     content: "";
-    /* background-color: rgba(0, 0, 0, 0.6); */
-    background-color: transparent;
-    background-size: cover;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -42,9 +23,8 @@ export const AppNav = styled.div`
   width: 100%;
   height: 7vh;
   /* background-color: rgba(10, 10, 10, 0.8); */
-  background-color: transparent;
-
   display: flex;
+
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
@@ -72,12 +52,16 @@ export const AppLogo = styled.img`
 `;
 
 export const AppHeading = styled.h1`
-  font-size: 1rem;
+  font-size: 1.2rem;
   display: flex;
   position: relative;
   justify-content: center;
   color: #757575;
   font-family: "Raleway";
+
+  @media screen and (max-width: 475px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const AppDesc = styled.p`
@@ -90,8 +74,7 @@ export const AppMain = styled.div`
   margin-right: auto;
   margin-bottom: auto;
   width: 70%;
-  height: calc(100vh - 15vh);
-  background-color: transparent;
+  height: calc(100vh - 18vh);
   font-family: "Raleway";
   font-size: 0.8rem;
   overflow: scroll;
@@ -101,13 +84,14 @@ export const AppMain = styled.div`
   }
 
   @media screen and (max-width: 475px) {
-    min-width: 90%;
-    height: calc(100vh - 28vh);
+    width: 90%;
+    height: calc(100vh - 24vh);
   }
 `;
 
 export const AppContainer = styled.div`
   position: relative;
+  margin-top: 10px;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -117,10 +101,8 @@ export const AppContainer = styled.div`
 export const AppFooter = styled.div`
   position: relative;
   margin: auto;
-  max-width: 70vw;
+  max-width: 90vw;
   height: 8vh;
-  background-color: #fff;
-
   flex-shrink: 0;
   display: flex;
   justify-content: space-evenly;
@@ -140,21 +122,25 @@ export const AppIconsWrapper = styled.div`
 `;
 
 export const AppIcons = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin-top: 15px;
   text-align: center;
   align-self: center;
-  color: #757575;
+  color: #dbd6a9;
+
+  @media screen and (max-width: 475px) {
+    font-size: 1.4rem;
+  }
 `;
 
-export const AppIconsTitle = styled.div`
+export const AppIconsTitle = styled.h1`
   font-family: "Barlow";
-  font-size: 1.2rem;
+  font-size: 1rem;
   /* color: #009a75; */
   color: #757575;
   text-align: center;
 
   @media screen and (max-width: 475px) {
-    font-size: 12px;
+    font-size: 0.8rem;
   }
 `;
