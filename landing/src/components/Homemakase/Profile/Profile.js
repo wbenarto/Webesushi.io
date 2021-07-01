@@ -6,6 +6,10 @@ import {
   ProfileBio,
   ProfileContainer,
   ProfileButton,
+  ProfileBioLeft,
+  ProfileBioRight,
+  ProfileBioButton,
+  ProfileStats,
 } from "./ProfileElements";
 import { AppContainer } from "../HomemakaseElements";
 // Redux
@@ -21,6 +25,8 @@ const Profile = (props) => {
     },
   } = props;
 
+  let count = 0;
+
   const handleLogOut = () => {
     props.logOutUser();
   };
@@ -33,20 +39,34 @@ const Profile = (props) => {
     authenticated ? (
       <AppContainer>
         <ProfileContainer>
-          <div>
+          <ProfileBioLeft>
             <ProfileImage src={imageUrl} alt="profile" />
-            <h1>{handle}</h1>
-          </div>
+            <h4>Member since: </h4> <p> {createdAt.split("T")[0]}</p>
+            <p>{location}</p>
+          </ProfileBioLeft>
 
           <ProfileBio>
-            <h3>{bio}</h3>
-            <p>Member since: {createdAt.split("T")[0]}</p>
-            <p>{location}</p>
+            <h1>{handle}</h1>
+            <p>{bio}</p>
+            <ProfileStats>
+              <h3>
+                20 <br />
+                Posts
+              </h3>
+              <h3>
+                1 <br /> Level
+              </h3>
+              <h3>
+                10 <br />
+                Likes
+              </h3>
+            </ProfileStats>
+            <ProfileBioRight></ProfileBioRight>
 
-            <ProfileContainer>
+            <ProfileBioButton>
               <EditDetails />
               <ProfileButton onClick={handleLogOut}>Log Out</ProfileButton>
-            </ProfileContainer>
+            </ProfileBioButton>
           </ProfileBio>
         </ProfileContainer>
       </AppContainer>
@@ -66,7 +86,7 @@ const Profile = (props) => {
 Profile.propTypes = {
   user: PropTypes.object.isRequired,
   logOutUser: PropTypes.func.isRequired,
-  logInUser: PropTypes.func.isRequired,
+  loginUser: PropTypes.func.isRequired,
 };
 const mapActionsToProps = { logOutUser, loginUser };
 const mapStateToProps = (state) => ({

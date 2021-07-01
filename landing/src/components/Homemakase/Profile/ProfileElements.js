@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 export const ProfileContainer = styled.div`
+  width: 50%;
   display: flex;
   margin: 0px 5px 0px 5px;
+  padding-bottom: 15px;
   position: relative;
   flex-direction: row;
-
   justify-content: space-between;
-`;
+  border-bottom: 2px solid #dbd6a9;
+  align-self: center;
 
-export const ProfileBio = styled.div`
-  height: 100%;
-  position: relative;
+  @media screen and (max-width: 475px) {
+    width: 95%;
+  }
 `;
 
 export const ProfileImage = styled.img`
@@ -22,28 +24,56 @@ export const ProfileImage = styled.img`
   object-fit: cover;
   object-position: top;
   display: flex;
-  background-color: blue;
 `;
 
-export const ProfileCard = styled.div`
-  width: 500px;
+export const ProfileBio = styled.div`
   height: 100%;
-  background-color: rgba(10, 10, 10, 0.3);
+  width: 100%;
+  position: relative;
+  padding-left: 8px;
+`;
+export const ProfileBioLeft = styled.div`
+  height: 100%;
   display: flex;
-  margin: auto;
   flex-direction: column;
   align-items: center;
+
+  width: 55%;
 `;
 
-export const HeaderText = styled.div`
-  color: #dbd6a9;
-  font-size: 72px;
+export const ProfileBioRight = styled.div`
+  height: 30%;
+
+  :nth-child(1) {
+    padding-top: 5px;
+  }
+`;
+
+export const ProfileStats = styled.div`
   display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 20%;
+  text-align: center;
+
+  padding-top: 10px;
+  > h3 {
+    line-height: 25px;
+  }
+`;
+
+export const ProfileBioButton = styled.div`
+  display: flex;
+  margin: auto;
+  position: relative;
+  flex-direction: row;
+  flex-shrink: 0;
+  justify-content: space-between;
 `;
 
 export const ProfileButton = styled.p`
   color: black;
-
   font-size: 0.6rem;
   display: flex;
   border: 1px black solid;
@@ -55,6 +85,6 @@ export const ProfileButton = styled.p`
   align-self: baseline;
 
   :hover {
-    background-color: pink;
+    background-color: #dbd6a9;
   }
 `;
