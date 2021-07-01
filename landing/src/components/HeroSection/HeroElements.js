@@ -57,6 +57,8 @@ export const VideoBg = styled.img`
   background: #232a34;
 `;
 
+export const HeroProfileImage = styled.img``;
+
 export const HeroContent = styled.div`
   z-index: 3;
   max-width: 1200px;

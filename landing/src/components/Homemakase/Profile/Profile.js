@@ -1,11 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import EditDetails from "./EditDetails";
-import {} from "./ProfileElements";
+import {
+  ProfileImage,
+  ProfileBio,
+  ProfileContainer,
+  ProfileButton,
+} from "./ProfileElements";
 import { AppContainer } from "../HomemakaseElements";
 // Redux
 import { connect } from "react-redux";
-import { logOutUser, uploadImage } from "../../../redux/actions/userActions";
+import { logOutUser, loginUser } from "../../../redux/actions/userActions";
 
 const Profile = (props) => {
   const {
@@ -16,50 +21,39 @@ const Profile = (props) => {
     },
   } = props;
 
-  const handleImageChange = (event) => {
-    const image = event.target.files[0];
-    const formData = new FormData();
-
-    formData.append("image", image, image.name);
-    props.uploadImage(formData);
-  };
-
-  const handleEditPicture = () => {
-    const fileInput = document.getElementById("imageInput");
-    fileInput.click();
-  };
-
   const handleLogOut = () => {
     props.logOutUser();
+  };
+
+  const handleLogIn = () => {
+    props.loginUser();
   };
 
   let profileMarkup = !loading ? (
     authenticated ? (
       <AppContainer>
-        <div>
-          <img
-            style={{ width: "150px", height: "150px" }}
-            src={imageUrl}
-            alt="profile"
-          />
-          <input
-            type="file"
-            id="imageInput"
-            hidden="hidden"
-            onChange={handleImageChange}
-          />
-          <button onClick={handleEditPicture}>Upload Image</button>
-          <h1>{handle}</h1>
-          <h2>{bio}</h2>
-          <h3>{website}</h3>
-          <h2>{location}</h2>
-          <button onClick={handleLogOut}>Log Out</button>
-          <EditDetails />
-        </div>
+        <ProfileContainer>
+          <div>
+            <ProfileImage src={imageUrl} alt="profile" />
+            <h1>{handle}</h1>
+          </div>
+
+          <ProfileBio>
+            <h3>{bio}</h3>
+            <p>Member since: {createdAt.split("T")[0]}</p>
+            <p>{location}</p>
+
+            <ProfileContainer>
+              <EditDetails />
+              <ProfileButton onClick={handleLogOut}>Log Out</ProfileButton>
+            </ProfileContainer>
+          </ProfileBio>
+        </ProfileContainer>
       </AppContainer>
     ) : (
       <AppContainer>
         <h1>No Profile Found</h1>
+        {/* <ProfileButton onCLick={handleLogIn}>Log In</ProfileButton> */}
       </AppContainer>
     )
   ) : (
@@ -72,9 +66,9 @@ const Profile = (props) => {
 Profile.propTypes = {
   user: PropTypes.object.isRequired,
   logOutUser: PropTypes.func.isRequired,
-  uploadImage: PropTypes.func.isRequired,
+  logInUser: PropTypes.func.isRequired,
 };
-const mapActionsToProps = { logOutUser, uploadImage };
+const mapActionsToProps = { logOutUser, loginUser };
 const mapStateToProps = (state) => ({
   user: state.user,
 });

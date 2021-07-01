@@ -142,12 +142,10 @@ const Navbar = (props) => {
 
         <NavBtn>
           {authenticated ? (
-            <a href="/profile">
-              <img
-                src={imageUrl}
-                style={{ width: "50px", height: "50px", borderRadius: "50%" }}
-              />
-            </a>
+            <img
+              src={imageUrl}
+              style={{ width: "50px", height: "50px", borderRadius: "50%" }}
+            />
           ) : (
             <NavBtnLink to="/signin">Sign In</NavBtnLink>
           )}

@@ -3,6 +3,7 @@ import {
   HeroContainer,
   HeroBg,
   VideoBg,
+  HeroProfileImage,
   HeroContent,
   HeroH1,
   HeroP,
@@ -30,6 +31,7 @@ const HeroSection = () => {
         <VideoBg offset={offset} autoPlay loop muted src={torch}></VideoBg>
       </HeroBg>
       <HeroContent>
+        <HeroProfileImage />
         <HeroH1> WE BE BETTER </HeroH1>
         <HeroH1></HeroH1>
         <HeroP></HeroP>

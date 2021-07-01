@@ -28,6 +28,10 @@ export const AppNav = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+
+  @media screen and (max-width: 475px) {
+    height: 5vh;
+  }
 `;
 
 export const AppNavLogo = styled(LinkR)`
@@ -93,7 +97,7 @@ export const AppContainer = styled.div`
   position: relative;
   margin-top: 10px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 `;

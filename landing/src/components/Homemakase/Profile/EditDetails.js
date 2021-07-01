@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-
+import { ProfileButton } from "./ProfileElements";
 import { connect } from "react-redux";
-import { editUserDetails } from "../../../redux/actions/userActions";
+import {
+  editUserDetails,
+  uploadImage,
+} from "../../../redux/actions/userActions";
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -18,6 +21,19 @@ const EditDetails = (props) => {
   const [website, setWebsite] = useState("");
   const [location, setLocation] = useState("");
   const [open, setOpen] = useState(false);
+
+  const handleImageChange = (event) => {
+    const image = event.target.files[0];
+    const formData = new FormData();
+
+    formData.append("image", image, image.name);
+    props.uploadImage(formData);
+  };
+
+  const handleEditPicture = () => {
+    const fileInput = document.getElementById("imageInput");
+    fileInput.click();
+  };
 
   useEffect(() => {
     const { credentials } = props;
@@ -69,7 +85,7 @@ const EditDetails = (props) => {
 
   return (
     <>
-      <button onClick={handleOpen}>Edit Profile</button>
+      <ProfileButton onClick={handleOpen}>Edit Profile</ProfileButton>
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
         <DialogTitle>Edit your details</DialogTitle>
         <DialogContent>
@@ -79,7 +95,6 @@ const EditDetails = (props) => {
               type="text"
               label="Bio"
               multiline
-              rows="3"
               placeholder="A short bio about yourself"
               value={bio}
               onChange={handleBio}
@@ -106,12 +121,25 @@ const EditDetails = (props) => {
           </form>
         </DialogContent>
         <DialogActions>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleEditPicture}
+          >
+            Upload Image
+          </Button>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
           <Button onClick={handleSubmit} color="primary">
             Save
           </Button>
+          <input
+            type="file"
+            id="imageInput"
+            hidden="hidden"
+            onChange={handleImageChange}
+          />
         </DialogActions>
       </Dialog>
     </>
@@ -122,7 +150,10 @@ EditDetails.propTypes = {
   editUserDetails: PropTypes.func.isRequired,
 };
 
+const mapActionsToProps = { uploadImage, editUserDetails };
+
 const mapStateToProps = (state) => ({
   credentials: state.user.credentials,
+  uploadImage: PropTypes.func.isRequired,
 });
-export default connect(mapStateToProps, { editUserDetails })(EditDetails);
+export default connect(mapStateToProps, mapActionsToProps)(EditDetails);
