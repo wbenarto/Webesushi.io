@@ -39,7 +39,7 @@ const Navbar = (props) => {
 
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
-  }, "");
+  }, []);
 
   const toggleHome = () => {
     scroll.scrollToTop({ duration: "1000" });

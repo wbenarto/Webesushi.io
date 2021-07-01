@@ -38,7 +38,7 @@ const Signin = (props) => {
     }
   }, [UI.errors]);
 
-  console.log("Props User?" + { user });
+  console.log("Props User?" + user);
 
   const handleSubmit = (event) => {
     event.preventDefault();

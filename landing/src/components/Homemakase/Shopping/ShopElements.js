@@ -9,7 +9,7 @@ export const FilterContainer = styled.div`
   border-bottom: 3px solid black;
   align-items: center;
   position: relative;
-  justify-content: space-around;
+  justify-content: space-between;
   top: 0;
   border-radius: 5px;
   margin-bottom: 15px;
@@ -39,7 +39,6 @@ export const ShopContent = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-
   flex-direction: column;
   display: flex;
   z-index: 99;
@@ -64,7 +63,7 @@ export const ShopContentTitle = styled.h1`
 `;
 
 export const ContentSlider = styled.div`
-  width: 100%;
+  width: 90%;
 
   display: flex;
   align-items: center;
