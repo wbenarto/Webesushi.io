@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FilterContainer = styled.div`
-  width: 100%;
+  width: 50%;
   height: 40px;
   display: flex;
   color: white;
@@ -14,9 +14,12 @@ export const FilterContainer = styled.div`
   border-radius: 5px;
   margin-bottom: 15px;
   border-bottom: 2px #dbd6a9 solid;
+
   @media screen and (max-width: 475px) {
     margin-bottom: 0px;
     height: 30px;
+    width: 90%;
+    align-self: center;
   }
 `;
 
@@ -36,13 +39,13 @@ export const FilterButton = styled.div`
 `;
 
 export const ShopContent = styled.div`
-  width: 100%;
+  width: 90%;
   height: 100%;
   position: relative;
   flex-direction: column;
   display: flex;
   z-index: 99;
-
+  align-self: center;
   @media screen and (max-width: 475px) {
   }
 `;
@@ -63,7 +66,7 @@ export const ShopContentTitle = styled.h1`
 `;
 
 export const ContentSlider = styled.div`
-  width: 90%;
+  width: 100%;
 
   display: flex;
   align-items: center;

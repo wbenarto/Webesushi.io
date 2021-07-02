@@ -17,7 +17,9 @@ const Home = () => {
   };
   return (
     <AppContainer>
-      <HomeInfo>
+      <h1>Shopping List:</h1>
+      <h1>How To:</h1>
+      {/* <HomeInfo>
         <h2>Omakase</h2>
         <p>
           Omakase (Japanese: お任せ, Hepburn: o-makase) is a Japanese phrase,
@@ -94,7 +96,7 @@ const Home = () => {
         ) : (
           <SushiCategoryDesc cat={category}>Raw</SushiCategoryDesc>
         )}
-      </SushiCategory>
+      </SushiCategory> */}
     </AppContainer>
   );
 };

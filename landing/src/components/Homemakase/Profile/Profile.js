@@ -50,18 +50,18 @@ const Profile = (props) => {
             <p>{bio}</p>
             <ProfileStats>
               <h3>
-                20 <br />
+                {count} <br />
                 Posts
               </h3>
               <h3>
-                1 <br /> Level
+                {count} <br /> Level
               </h3>
               <h3>
-                10 <br />
+                {count} <br />
                 Likes
               </h3>
             </ProfileStats>
-            <ProfileBioRight></ProfileBioRight>
+            {/* <ProfileBioRight></ProfileBioRight> */}
 
             <ProfileBioButton>
               <EditDetails />

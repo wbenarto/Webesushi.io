@@ -12,7 +12,7 @@ export const ProfileContainer = styled.div`
   align-self: center;
 
   @media screen and (max-width: 475px) {
-    width: 95%;
+    width: 100%;
   }
 `;
 
@@ -27,17 +27,15 @@ export const ProfileImage = styled.img`
 `;
 
 export const ProfileBio = styled.div`
-  height: 100%;
   width: 100%;
   position: relative;
-  padding-left: 8px;
+  padding-right: 20px;
 `;
 export const ProfileBioLeft = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 55%;
 `;
 
@@ -54,10 +52,10 @@ export const ProfileStats = styled.div`
   position: relative;
   flex-direction: row;
   justify-content: space-between;
-  height: 20%;
+  height: 55%;
   text-align: center;
-
   padding-top: 10px;
+
   > h3 {
     line-height: 25px;
   }
@@ -70,6 +68,8 @@ export const ProfileBioButton = styled.div`
   flex-direction: row;
   flex-shrink: 0;
   justify-content: space-between;
+  height: 100%;
+  /* background-color: purple; */
 `;
 
 export const ProfileButton = styled.p`

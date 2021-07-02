@@ -22,15 +22,13 @@ export const AppNav = styled.div`
   position: relative;
   width: 100%;
   height: 7vh;
-  /* background-color: rgba(10, 10, 10, 0.8); */
   display: flex;
-
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 
   @media screen and (max-width: 475px) {
-    height: 5vh;
+    height: 4vh;
   }
 `;
 
@@ -83,13 +81,14 @@ export const AppMain = styled.div`
   font-size: 0.8rem;
   overflow: scroll;
   color: #333333;
+
   ::-webkit-scrollbar {
     display: none;
   }
 
   @media screen and (max-width: 475px) {
-    width: 90%;
-    height: calc(100vh - 24vh);
+    width: 100%;
+    height: calc(100vh - 26vh);
   }
 `;
 
@@ -97,7 +96,7 @@ export const AppContainer = styled.div`
   position: relative;
   margin-top: 10px;
   width: 100%;
-  height: 100%;
+
   display: flex;
   flex-direction: column;
 `;
@@ -105,14 +104,14 @@ export const AppContainer = styled.div`
 export const AppFooter = styled.div`
   position: relative;
   margin: auto;
-  max-width: 90vw;
+  max-width: 100vw;
   height: 8vh;
   flex-shrink: 0;
   display: flex;
   justify-content: space-evenly;
 
   @media screen and (max-width: 475px) {
-    height: 3vh;
+    height: 10vh;
   }
 `;
 
