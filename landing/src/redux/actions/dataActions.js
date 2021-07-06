@@ -7,6 +7,7 @@ export const getSushis = () => (dispatch) => {
   axios
     .get("/sushis")
     .then((res) => {
+      console.log(res);
       dispatch({
         type: SET_SUSHIS,
         payload: res.data,

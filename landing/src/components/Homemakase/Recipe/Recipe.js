@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import {
   RecipeDisplay,
   RecipeCard,
@@ -12,7 +13,11 @@ import { AppContainer } from "../HomemakaseElements";
 import PropTypes from "prop-types";
 import { sushi } from "../../../data/data";
 import { connect } from "react-redux";
-import { getSushis } from "../../../redux/actions/dataActions";
+import {
+  getSushis,
+  likeSushi,
+  unlikeSushi,
+} from "../../../redux/actions/dataActions";
 import {
   FaRegHeart,
   FaHeart,
@@ -23,17 +28,31 @@ const Recipe = (props) => {
   const [sushiCard, setSushiCard] = useState("");
   const [hover, onHover] = useState("");
   const [shoppingCart, setShoppingCart] = useState([]);
-  const [likedSushi, setLikedSushi] = useState([]);
+  // const [likedSushi, setLikedSushi] = useState([]);
   const [liked, setLiked] = useState(false);
 
-  // useEffect(() => {
-  //   setSushiCard(sushi);
-  //   console.log(sushiCard);
-  // }, []);
-
   const { sushis, loading } = props.data;
-  // console.log(sushis);
+  const { authenticated } = props.user;
 
+  const likedSushi = (sushiId) => {
+    if (
+      props.user.likes &&
+      props.user.likes.find((like) => like.sushiId == sushiId)
+    ) {
+      return true;
+    } else return false;
+  };
+
+  // const likeButton = !authenticated ? (
+  //   <Link to="/signin">
+  //     {" "}
+  //     <FaRegHeart />{" "}
+  //   </Link>
+  // ) : likedSushi ? (
+  //   <FaHeart onClick={() => handleUnlike(e.sushiId)} />
+  // ) : (
+  //   <FaRegHeart onClick={() => handleLike(e.sushiId)} />
+  // );
   const recentSushisMarkUp = loading ? (
     <p>Loading...</p>
   ) : (
@@ -42,8 +61,22 @@ const Recipe = (props) => {
         <RecipeCardName>{e.name}</RecipeCardName>
         <RecipeCardImage src={e.image} />
         <CardIcons>
-          <CardButton onClick={() => handleLike(e.name)}>
-            {liked ? <FaHeart /> : <FaRegHeart />}
+          <CardButton>
+            {!authenticated ? (
+              <Link to="/signin">
+                {" "}
+                <FaRegHeart />{" "}
+              </Link>
+            ) : false ? (
+              <FaHeart onClick={() => handleUnlike(e.sushiId)} />
+            ) : (
+              <FaRegHeart onClick={() => handleLike(e.sushiId)} />
+            )}
+            {/* {liked ? (
+              <FaHeart onClick={() => handleUnlike(e.sushiId)} />
+            ) : (
+              <FaRegHeart onClick={() => handleLike(e.sushiId)} />
+            )} */}
           </CardButton>
           {/* <CardButton>
             <FaRegListAlt />
@@ -54,27 +87,13 @@ const Recipe = (props) => {
         </CardIcons>
       </RecipeCard>
     ))
-    // sushis.map((sushi) => (
-
-    //   <>
-    //     <h1 key={sushi.sushiId} sushi={sushi}>
-    //       {sushi.name}
-    //     </h1>
-    //     <h1>{sushi.category}</h1>
-    //     {sushi.ingredients.map((e, i) => (
-    //       <p key={i}>{e}</p>
-    //     ))}
-
-    //     <img
-    //       style={{ width: "200px", height: "200px" }}
-    //       src={sushi.image}
-    //     ></img>
-    //   </>
-    // ))
   );
-  const handleLike = (name) => {
-    console.log("sushi liked = " + name);
-    setLiked(true);
+  const handleLike = (sushiId) => {
+    props.likeSushi(sushiId);
+  };
+
+  const handleUnlike = (sushiId) => {
+    props.unlikeSushi(sushiId);
   };
   const handleAdd = (ingr) => {
     const leanCart = new Set([...shoppingCart, ...ingr]);
@@ -82,15 +101,9 @@ const Recipe = (props) => {
   };
   console.log(shoppingCart);
   useEffect(() => {
-    // axios
-    //   .get("https://us-central1-webesushi-a3bf0.cloudfunctions.net/api/sushis")
-    //   .then((res) => {
-    //     setSushiCard(res);
-    //     console.log(sushiCard.data[0].name);
-    //     console.log(sushiCard.data.map((e) => console.log(e)));
-    //   })
-    //   .catch((err) => console.log(err));
-    getSushis();
+    props.getSushis();
+    console.log(props);
+    console.log(likedSushi);
   }, []);
 
   return (
@@ -109,11 +122,19 @@ const Recipe = (props) => {
 Recipe.propTypes = {
   getSushis: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  likeSushi: PropTypes.func.isRequired,
+  unlikeSushi: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({ data: state.data });
+const mapStateToProps = (state) => ({ data: state.data, user: state.user });
+const mapActionToProps = {
+  likeSushi,
+  unlikeSushi,
+  getSushis,
+};
 
-export default connect(mapStateToProps, { getSushis })(Recipe);
+export default connect(mapStateToProps, mapActionToProps)(Recipe);
 
 // {sushi.map((e) => (
 //   <RecipeCard key={e.id}>

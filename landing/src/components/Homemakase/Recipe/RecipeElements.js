@@ -14,11 +14,10 @@ export const RecipeCard = styled.div`
   width: 90%;
   height: 320px;
   position: relative;
-  margin: auto;
+
   margin-bottom: 30px;
   @media screen and (max-width: 475px) {
     height: 170px;
-    margin-bottom: 0px;
   }
 `;
 
