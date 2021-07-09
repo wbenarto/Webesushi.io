@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Shop from "../components/Homemakase/Shopping/Shop";
 import Home from "../components/Homemakase/Home/Home";
@@ -11,6 +11,10 @@ import {
   FaTape,
   FaUserAlt,
 } from "react-icons/fa";
+import Badge from "@material-ui/core/Badge";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getSushis } from "../redux/actions/dataActions";
 
 import {
   HomemakaseContainer,
@@ -24,9 +28,10 @@ import {
   AppIconsTitle,
 } from "../components/Homemakase/HomemakaseElements";
 
-const HomeMakase = () => {
+const HomeMakase = (props) => {
   const [active, setActive] = useState("/");
 
+  console.log(props);
   return (
     <>
       <HomemakaseContainer active={active}>
@@ -59,7 +64,14 @@ const HomeMakase = () => {
 
           <AppIconsWrapper onClick={() => setActive("home")}>
             <AppIcons>
-              <FaTape />
+              <Badge
+                color="secondary"
+                badgeContent={
+                  props.data.shoppingCart ? props.data.shoppingCart.length : 0
+                }
+              >
+                <FaTape />
+              </Badge>
             </AppIcons>
             <AppIconsTitle>Recipes</AppIconsTitle>
           </AppIconsWrapper>
@@ -83,4 +95,11 @@ const HomeMakase = () => {
   );
 };
 
-export default HomeMakase;
+HomeMakase.propTypes = {
+  getSushis: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({ data: state.data });
+
+export default connect(mapStateToProps, getSushis)(HomeMakase);

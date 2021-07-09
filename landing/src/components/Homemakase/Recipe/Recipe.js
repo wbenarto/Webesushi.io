@@ -24,6 +24,7 @@ import {
   FaRegListAlt,
   FaRegPlusSquare,
 } from "react-icons/fa";
+
 const Recipe = (props) => {
   const [sushiCard, setSushiCard] = useState("");
   const [hover, onHover] = useState("");
@@ -39,20 +40,11 @@ const Recipe = (props) => {
       props.user.likes &&
       props.user.likes.find((like) => like.sushiId == sushiId)
     ) {
+      console.log(sushiId, props.user.likes);
       return true;
     } else return false;
   };
 
-  // const likeButton = !authenticated ? (
-  //   <Link to="/signin">
-  //     {" "}
-  //     <FaRegHeart />{" "}
-  //   </Link>
-  // ) : likedSushi ? (
-  //   <FaHeart onClick={() => handleUnlike(e.sushiId)} />
-  // ) : (
-  //   <FaRegHeart onClick={() => handleLike(e.sushiId)} />
-  // );
   const recentSushisMarkUp = loading ? (
     <p>Loading...</p>
   ) : (
@@ -67,7 +59,7 @@ const Recipe = (props) => {
                 {" "}
                 <FaRegHeart />{" "}
               </Link>
-            ) : false ? (
+            ) : likedSushi(e.sushiId) ? (
               <FaHeart onClick={() => handleUnlike(e.sushiId)} />
             ) : (
               <FaRegHeart onClick={() => handleLike(e.sushiId)} />
@@ -98,13 +90,9 @@ const Recipe = (props) => {
   const handleAdd = (ingr) => {
     const leanCart = new Set([...shoppingCart, ...ingr]);
     setShoppingCart([...leanCart]);
+    props.data.shoppingCart = shoppingCart;
   };
   console.log(shoppingCart);
-  useEffect(() => {
-    props.getSushis();
-    console.log(props);
-    console.log(likedSushi);
-  }, []);
 
   return (
     <AppContainer>
@@ -120,7 +108,6 @@ const Recipe = (props) => {
 };
 
 Recipe.propTypes = {
-  getSushis: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
   likeSushi: PropTypes.func.isRequired,
@@ -131,7 +118,6 @@ const mapStateToProps = (state) => ({ data: state.data, user: state.user });
 const mapActionToProps = {
   likeSushi,
   unlikeSushi,
-  getSushis,
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Recipe);

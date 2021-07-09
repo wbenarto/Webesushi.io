@@ -7,17 +7,26 @@ import {
   Steps,
 } from "./HomeElements";
 import { AppContainer } from "../HomemakaseElements";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const Home = () => {
+const Home = (props) => {
   const [category, setCategory] = useState("raw");
-
+  const { shoppingCart } = props.data;
+  console.log(props);
   const handleCategory = (category) => {
     console.log(category);
     setCategory(category);
   };
+
   return (
     <AppContainer>
-      <h1>Shopping List:</h1>
+      <h1>
+        Shopping List:
+        {shoppingCart.map((e) => (
+          <p>{e}</p>
+        ))}
+      </h1>
       <h1>How To:</h1>
       {/* <HomeInfo>
         <h2>Omakase</h2>
@@ -101,4 +110,12 @@ const Home = () => {
   );
 };
 
-export default Home;
+Home.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  data: state.data,
+  user: state.user,
+});
+export default connect(mapStateToProps)(Home);
