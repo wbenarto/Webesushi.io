@@ -1,23 +1,23 @@
 import styled from "styled-components";
 
 export const RecipeDisplay = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 50% 50%;
-
   @media screen and (max-width: 475px) {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
   }
 `;
 
 export const RecipeCard = styled.div`
-  width: 90%;
-  height: 320px;
+  height: 520px;
   position: relative;
 
+  align-items: center;
   margin-bottom: 30px;
+  padding: 0px 5px;
   @media screen and (max-width: 475px) {
-    height: 170px;
+    height: 150px;
   }
 `;
 
@@ -35,10 +35,10 @@ export const RecipeCardName = styled.h3`
 
 export const RecipeCardImage = styled.img`
   width: 100%;
-  height: 240px;
+  height: 440px;
   object-fit: cover;
   @media screen and (max-width: 475px) {
-    height: 80px;
+    height: 100px;
   }
 `;
 

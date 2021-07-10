@@ -1,9 +1,16 @@
-import { SET_SUSHIS, LIKE_SUSHI, UNLIKE_SUSHI, LOADING_DATA } from "../types";
+import {
+  SET_SUSHIS,
+  LIKE_SUSHI,
+  UNLIKE_SUSHI,
+  LOADING_DATA,
+  SHOPPING_CART,
+} from "../types";
 
 const initialState = {
   sushis: [],
   sushi: {},
   loading: false,
+  shoppingCart: [],
 };
 
 export default function (state = initialState, action) {
@@ -18,6 +25,11 @@ export default function (state = initialState, action) {
         ...state,
         sushis: action.payload,
         loading: false,
+      };
+    case SHOPPING_CART:
+      return {
+        ...state,
+        shoppingCart: state.shoppingCart.concat([...action.payload]),
       };
 
     case LIKE_SUSHI:

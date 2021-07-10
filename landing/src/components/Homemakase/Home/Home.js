@@ -9,6 +9,7 @@ import {
 import { AppContainer } from "../HomemakaseElements";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { data2 } from "../../../data/data2";
 
 const Home = (props) => {
   const [category, setCategory] = useState("raw");
@@ -18,13 +19,14 @@ const Home = (props) => {
     console.log(category);
     setCategory(category);
   };
-
+  // console.log(data2.filter((e) => e.term == "shrimp tempura"));
+  // console.log(shoppingCart.map((e) => data2.filter((x) => x.term == e)[0]));
   return (
     <AppContainer>
       <h1>
         Shopping List:
         {shoppingCart.map((e) => (
-          <p>{e}</p>
+          <SushiCategoryButton>{e}</SushiCategoryButton>
         ))}
       </h1>
       <h1>How To:</h1>

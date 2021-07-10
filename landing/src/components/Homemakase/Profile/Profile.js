@@ -12,6 +12,7 @@ import {
   ProfileStats,
 } from "./ProfileElements";
 import { AppContainer } from "../HomemakaseElements";
+import webechef from "../../../images/webechef.jpg";
 // Redux
 import { connect } from "react-redux";
 import { logOutUser, loginUser } from "../../../redux/actions/userActions";
@@ -72,7 +73,38 @@ const Profile = (props) => {
       </AppContainer>
     ) : (
       <AppContainer>
-        <h1>No Profile Found</h1>
+        <ProfileContainer>
+          <ProfileBioLeft>
+            <ProfileImage src={webechef} alt="profile" />
+            <h4>Member since: </h4> <p> 2021-04-17</p>
+            <p>San Francisco</p>
+          </ProfileBioLeft>
+
+          <ProfileBio>
+            <h1>Webesushi</h1>
+            <p>Who loves Uni????</p>
+            <ProfileStats>
+              <h3>
+                14 <br />
+                Posts
+              </h3>
+              <h3>
+                3 <br /> Level
+              </h3>
+              <h3>
+                3 <br />
+                Liked
+              </h3>
+            </ProfileStats>
+            {/* <ProfileBioRight></ProfileBioRight> */}
+
+            <ProfileBioButton>
+              <EditDetails />
+              <ProfileButton onClick={handleLogOut}>Log Out</ProfileButton>
+            </ProfileBioButton>
+          </ProfileBio>
+        </ProfileContainer>
+        <ProfileBio>Dummy Account for demo purposes</ProfileBio>
         {/* <ProfileButton onCLick={handleLogIn}>Log In</ProfileButton> */}
       </AppContainer>
     )

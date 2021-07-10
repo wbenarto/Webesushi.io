@@ -96,7 +96,6 @@ export const AppContainer = styled.div`
   position: relative;
   margin-top: 10px;
   width: 100%;
-
   display: flex;
   flex-direction: column;
 `;

@@ -41,16 +41,6 @@ export const SushiCategoryButton = styled.div`
   justify-content: center;
   align-items: center;
 
-  :nth-child(1) {
-    background-color: #db405f;
-  }
-  :nth-child(2) {
-    background-color: #eded4a;
-  }
-  :nth-child(3) {
-    background-color: #8df27e;
-  }
-
   @media screen and (max-width: 475px) {
     font-size: 0.9rem;
   }

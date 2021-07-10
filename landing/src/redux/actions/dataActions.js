@@ -1,4 +1,10 @@
-import { SET_SUSHIS, LOADING_DATA, LIKE_SUSHI, UNLIKE_SUSHI } from "../types";
+import {
+  SET_SUSHIS,
+  LOADING_DATA,
+  LIKE_SUSHI,
+  UNLIKE_SUSHI,
+  SHOPPING_CART,
+} from "../types";
 import axios from "axios";
 
 // Get all sushis
@@ -55,4 +61,11 @@ export const unlikeSushi = (sushiId) => (dispatch) => {
         payload: [],
       });
     });
+};
+
+export const addShoppingCart = (arr) => (dispatch) => {
+  return dispatch({
+    type: SHOPPING_CART,
+    payload: arr,
+  });
 };

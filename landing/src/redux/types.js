@@ -15,3 +15,4 @@ export const SET_SUSHIS = "SET_SUSHIS";
 export const SET_SUSHI = "SET_SUSHI";
 export const LIKE_SUSHI = "LIKE_SUSHI";
 export const UNLIKE_SUSHI = "UNLIKE_SUSHI";
+export const SHOPPING_CART = "SHOPPING_CART";

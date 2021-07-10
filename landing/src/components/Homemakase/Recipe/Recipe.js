@@ -17,6 +17,7 @@ import {
   getSushis,
   likeSushi,
   unlikeSushi,
+  addShoppingCart,
 } from "../../../redux/actions/dataActions";
 import {
   FaRegHeart,
@@ -46,7 +47,7 @@ const Recipe = (props) => {
   };
 
   const recentSushisMarkUp = loading ? (
-    <p>Loading...</p>
+    <RecipeCardName>Loading...</RecipeCardName>
   ) : (
     sushis.map((e) => (
       <RecipeCard key={e.sushiId} e={e}>
@@ -57,12 +58,12 @@ const Recipe = (props) => {
             {!authenticated ? (
               <Link to="/signin">
                 {" "}
-                <FaRegHeart />{" "}
+                <FaRegHeart color="black" />{" "}
               </Link>
             ) : likedSushi(e.sushiId) ? (
-              <FaHeart onClick={() => handleUnlike(e.sushiId)} />
+              <FaHeart color="black" onClick={() => handleUnlike(e.sushiId)} />
             ) : (
-              <FaRegHeart onClick={() => handleLike(e.sushiId)} />
+              <FaRegHeart color="black" onClick={() => handleLike(e.sushiId)} />
             )}
             {/* {liked ? (
               <FaHeart onClick={() => handleUnlike(e.sushiId)} />
@@ -89,10 +90,12 @@ const Recipe = (props) => {
   };
   const handleAdd = (ingr) => {
     const leanCart = new Set([...shoppingCart, ...ingr]);
-    setShoppingCart([...leanCart]);
-    props.data.shoppingCart = shoppingCart;
+    console.log("handleAdd Recipe " + [...leanCart]);
+    console.log(props);
+    // setShoppingCart([...leanCart]);
+    props.addShoppingCart([...leanCart]);
+    // props.data.shoppingCart = shoppingCart;
   };
-  console.log(shoppingCart);
 
   return (
     <AppContainer>
@@ -100,7 +103,7 @@ const Recipe = (props) => {
         {sushis.length !== 0 ? (
           recentSushisMarkUp
         ) : (
-          <h1>something is wrong...</h1>
+          <RecipeCardName>Let's Get Rollin!</RecipeCardName>
         )}
       </RecipeDisplay>
     </AppContainer>
@@ -118,6 +121,7 @@ const mapStateToProps = (state) => ({ data: state.data, user: state.user });
 const mapActionToProps = {
   likeSushi,
   unlikeSushi,
+  addShoppingCart,
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Recipe);
