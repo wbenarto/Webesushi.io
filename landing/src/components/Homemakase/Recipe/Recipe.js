@@ -89,7 +89,7 @@ const Recipe = (props) => {
     props.unlikeSushi(sushiId);
   };
   const handleAdd = (ingr) => {
-    const leanCart = new Set([...shoppingCart, ...ingr]);
+    const leanCart = new Set([...props.data.shoppingCart, ...ingr]);
     console.log("handleAdd Recipe " + [...leanCart]);
     console.log(props);
     // setShoppingCart([...leanCart]);

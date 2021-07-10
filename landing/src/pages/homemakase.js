@@ -30,7 +30,7 @@ import {
 
 const HomeMakase = (props) => {
   const [active, setActive] = useState("/");
-
+  useEffect(getSushis, []);
   console.log(props);
   return (
     <>

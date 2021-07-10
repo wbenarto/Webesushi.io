@@ -29,7 +29,7 @@ export default function (state = initialState, action) {
     case SHOPPING_CART:
       return {
         ...state,
-        shoppingCart: state.shoppingCart.concat([...action.payload]),
+        shoppingCart: action.payload,
       };
 
     case LIKE_SUSHI:
