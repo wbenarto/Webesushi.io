@@ -38,8 +38,6 @@ const Signin = (props) => {
     }
   }, [UI.errors]);
 
-  console.log("Props User?" + user);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("submit button pressed");

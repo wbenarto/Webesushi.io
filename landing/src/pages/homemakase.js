@@ -15,7 +15,7 @@ import Badge from "@material-ui/core/Badge";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getSushis } from "../redux/actions/dataActions";
-
+import axios from "axios";
 import {
   HomemakaseContainer,
   AppNav,
@@ -30,9 +30,16 @@ import {
 
 const HomeMakase = (props) => {
   const [active, setActive] = useState("/");
+
   console.log(props);
 
-  useEffect(() => getSushis(), []);
+  useEffect(() => {
+    console.log("HEY YOUUUUUUU ");
+    props.getSushis();
+    console.log(props);
+    console.log(props.data);
+  }, []);
+
   return (
     <>
       <HomemakaseContainer active={active}>
@@ -49,7 +56,7 @@ const HomeMakase = (props) => {
           ) : active == "shop" ? (
             <Shop />
           ) : active == "profile" ? (
-            <Profile />
+            <Profile props={props} />
           ) : (
             <Recipe />
           )}
@@ -103,4 +110,4 @@ HomeMakase.propTypes = {
 
 const mapStateToProps = (state) => ({ data: state.data });
 
-export default connect(mapStateToProps, getSushis)(HomeMakase);
+export default connect(mapStateToProps, { getSushis })(HomeMakase);

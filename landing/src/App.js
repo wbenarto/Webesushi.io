@@ -21,6 +21,8 @@ import NotFoundPage from "./pages/404";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+axios.defaults.baseURL =
+  "https://us-central1-webesushi-a3bf0.cloudfunctions.net/api";
 const token = localStorage.FBIToken;
 if (token) {
   const decodedToken = jwtDecode(token);

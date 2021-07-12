@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import EditDetails from "./EditDetails";
 import {
@@ -11,6 +11,17 @@ import {
   ProfileBioButton,
   ProfileStats,
 } from "./ProfileElements";
+import {
+  FormContent,
+  Container,
+  FormWrap,
+  Icon,
+  Form,
+  FormH1,
+  FormLabel,
+  FormInput,
+  FormButton,
+} from "../../Singin/SinginElements";
 import { AppContainer } from "../HomemakaseElements";
 import webechef from "../../../images/webechef.jpg";
 // Redux
@@ -23,17 +34,45 @@ const Profile = (props) => {
       credentials: { handle, createdAt, imageUrl, location, bio, website },
       loading,
       authenticated,
+      likes,
     },
   } = props;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
 
   let count = 0;
-
+  let likedSushi = props.user.likes.map((e) =>
+    props.data.sushis.find((x) => x.sushiId == e.sushiId)
+  );
+  console.log(props);
+  // console.log(likedSushi[0].name);
   const handleLogOut = () => {
     props.logOutUser();
   };
 
   const handleLogIn = () => {
     props.loginUser();
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("submit button pressed");
+    const userData = {
+      email: email,
+      password: password,
+    };
+
+    props.loginUser(userData, props.props.history);
+    console.log(userData);
+  };
+
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
   };
 
   let profileMarkup = !loading ? (
@@ -58,7 +97,7 @@ const Profile = (props) => {
                 {count} <br /> Level
               </h3>
               <h3>
-                {count} <br />
+                {likes.length} <br />
                 Likes
               </h3>
             </ProfileStats>
@@ -70,41 +109,83 @@ const Profile = (props) => {
             </ProfileBioButton>
           </ProfileBio>
         </ProfileContainer>
+        {/* <>
+          {likedSushi.map((e) => (
+            <p>{e.name}</p>
+          ))}
+        </> */}
       </AppContainer>
     ) : (
       <AppContainer>
         <ProfileContainer>
           <ProfileBioLeft>
             <ProfileImage src={webechef} alt="profile" />
-            <h4>Member since: </h4> <p> 2021-04-17</p>
-            <p>San Francisco</p>
           </ProfileBioLeft>
 
           <ProfileBio>
-            <h1>Webesushi</h1>
-            <p>Who loves Uni????</p>
+            <h1> </h1>
+            <p> </p>
             <ProfileStats>
               <h3>
-                14 <br />
+                - <br />
                 Posts
               </h3>
               <h3>
-                3 <br /> Level
+                - <br /> Level
               </h3>
               <h3>
-                3 <br />
+                - <br />
                 Liked
               </h3>
             </ProfileStats>
             {/* <ProfileBioRight></ProfileBioRight> */}
-
-            <ProfileBioButton>
-              <EditDetails />
-              <ProfileButton onClick={handleLogOut}>Log Out</ProfileButton>
-            </ProfileBioButton>
           </ProfileBio>
         </ProfileContainer>
-        <ProfileBio>Dummy Account for demo purposes</ProfileBio>
+
+        <ProfileBioButton>
+          <FormWrap>
+            <FormContent>
+              <Form onSubmit={handleSubmit} action="#">
+                <FormH1>Sign in to your account</FormH1>
+                <FormLabel htmlFor="for">Email</FormLabel>
+                <FormInput
+                  onChange={handleEmail}
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                />
+                <FormLabel htmlFor="for">Password</FormLabel>
+                <FormInput
+                  onChange={handlePassword}
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                />
+                {errors.error && (
+                  <h1 style={{ color: "white" }} variant="body2">
+                    {errors.error.split("/")[1].split("-").join(" ")}
+                  </h1>
+                )}
+
+                <FormButton type="submit">Continue</FormButton>
+                <Icon
+                  style={{
+                    color: "white",
+                    marginTop: "20px",
+                    fontSize: "12px",
+                  }}
+                  to="/signup"
+                >
+                  <FormLabel>Click here to sign up.</FormLabel>
+                </Icon>
+              </Form>
+            </FormContent>
+          </FormWrap>
+          <ProfileButton onClick={handleLogIn}>Log In</ProfileButton>
+        </ProfileBioButton>
+        {/* <ProfileBio>Dummy Account for demo purposes</ProfileBio> */}
         {/* <ProfileButton onCLick={handleLogIn}>Log In</ProfileButton> */}
       </AppContainer>
     )
@@ -120,9 +201,13 @@ Profile.propTypes = {
   logOutUser: PropTypes.func.isRequired,
   loginUser: PropTypes.func.isRequired,
 };
-const mapActionsToProps = { logOutUser, loginUser };
+const mapActionsToProps = {
+  logOutUser,
+  loginUser,
+};
 const mapStateToProps = (state) => ({
   user: state.user,
+  data: state.data,
 });
 
 export default connect(mapStateToProps, mapActionsToProps)(Profile);

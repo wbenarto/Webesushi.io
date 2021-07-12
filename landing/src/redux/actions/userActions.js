@@ -21,7 +21,7 @@ export const loginUser = (userData, history) => (dispatch) => {
       dispatch(getUserData());
       dispatch({ type: CLEAR_ERRORS });
 
-      history.push("/");
+      history.push("/homemakase");
       console.log(history);
     })
     .catch((err) => {
