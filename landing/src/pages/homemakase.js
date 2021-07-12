@@ -30,8 +30,9 @@ import {
 
 const HomeMakase = (props) => {
   const [active, setActive] = useState("/");
-  useEffect(getSushis, []);
   console.log(props);
+
+  useEffect(() => getSushis(), []);
   return (
     <>
       <HomemakaseContainer active={active}>

@@ -103,7 +103,7 @@ const Recipe = (props) => {
         {sushis.length !== 0 ? (
           recentSushisMarkUp
         ) : (
-          <RecipeCardName>Let's Get Rollin!</RecipeCardName>
+          <RecipeCardName>Connecting to Firebase!</RecipeCardName>
         )}
       </RecipeDisplay>
     </AppContainer>
