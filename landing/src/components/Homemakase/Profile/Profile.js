@@ -142,49 +142,40 @@ const Profile = (props) => {
           </ProfileBio>
         </ProfileContainer>
 
-        <ProfileBioButton>
-          <FormWrap>
-            <FormContent>
-              <Form onSubmit={handleSubmit} action="#">
-                <FormH1>Sign in to your account</FormH1>
-                <FormLabel htmlFor="for">Email</FormLabel>
-                <FormInput
-                  onChange={handleEmail}
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                />
-                <FormLabel htmlFor="for">Password</FormLabel>
-                <FormInput
-                  onChange={handlePassword}
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                />
-                {errors.error && (
-                  <h1 style={{ color: "white" }} variant="body2">
-                    {errors.error.split("/")[1].split("-").join(" ")}
-                  </h1>
-                )}
+        <FormWrap>
+          <FormContent>
+            <Form onSubmit={handleSubmit} action="#">
+              <FormH1>Sign in to your account</FormH1>
+              <FormLabel htmlFor="for">Email</FormLabel>
+              <FormInput
+                onChange={handleEmail}
+                id="email"
+                name="email"
+                type="email"
+                required
+              />
+              <FormLabel htmlFor="for">Password</FormLabel>
+              <FormInput
+                onChange={handlePassword}
+                id="password"
+                name="password"
+                type="password"
+                required
+              />
+              {errors.error && (
+                <h1 style={{ color: "white" }} variant="body2">
+                  {errors.error.split("/")[1].split("-").join(" ")}
+                </h1>
+              )}
 
-                <FormButton type="submit">Continue</FormButton>
-                <Icon
-                  style={{
-                    color: "white",
-                    marginTop: "20px",
-                    fontSize: "12px",
-                  }}
-                  to="/signup"
-                >
-                  <FormLabel>Click here to sign up.</FormLabel>
-                </Icon>
-              </Form>
-            </FormContent>
-          </FormWrap>
-          <ProfileButton onClick={handleLogIn}>Log In</ProfileButton>
-        </ProfileBioButton>
+              <FormButton type="submit">Continue</FormButton>
+              <Icon to="/signup">
+                <FormLabel>Click here to sign up.</FormLabel>
+              </Icon>
+            </Form>
+          </FormContent>
+        </FormWrap>
+
         {/* <ProfileBio>Dummy Account for demo purposes</ProfileBio> */}
         {/* <ProfileButton onCLick={handleLogIn}>Log In</ProfileButton> */}
       </AppContainer>

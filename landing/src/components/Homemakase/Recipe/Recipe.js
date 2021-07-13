@@ -14,6 +14,7 @@ import {
   ModalDesc,
   ModalCategory,
   ModalPoints,
+  ModalBox,
 } from "./RecipeElements";
 import { AppContainer } from "../HomemakaseElements";
 import PropTypes from "prop-types";
@@ -31,6 +32,7 @@ import {
   FaRegListAlt,
   FaRegPlusSquare,
 } from "react-icons/fa";
+import { FiFrown, FiSmile } from "react-icons/fi";
 import Modal from "@material-ui/core/Modal";
 
 const Recipe = (props) => {
@@ -105,14 +107,6 @@ const Recipe = (props) => {
               onClick={() => handleOpen(e.sushiId)}
               src={sushiCard.image}
             />
-            <ModalDesc style={{ backgroundColor: "white" }}>
-              {sushiCard.desc}
-            </ModalDesc>
-            Category
-            <ModalCategory e={sushiCard.category}>
-              {sushiCard.category}
-            </ModalCategory>
-            Difficulty <ModalPoints>{sushiCard.dishPoint}</ModalPoints>
             <CardIcons>
               <CardButton>
                 {!authenticated ? (
@@ -135,6 +129,27 @@ const Recipe = (props) => {
               <CardButton onClick={() => handleAdd(sushiCard.ingredients)}>
                 <FaRegPlusSquare />
               </CardButton>
+            </CardIcons>
+            <ModalDesc style={{ backgroundColor: "white" }}>
+              {sushiCard.desc}
+            </ModalDesc>
+            <CardIcons>
+              <ModalBox>
+                Category
+                <ModalCategory e={sushiCard.category}>
+                  {sushiCard.category}
+                </ModalCategory>
+              </ModalBox>
+              <ModalBox>
+                Difficulty <ModalPoints>{sushiCard.dishPoint}</ModalPoints>
+              </ModalBox>
+              <ModalBox>
+                {" "}
+                Sustainability
+                <ModalPoints>
+                  <FiSmile />
+                </ModalPoints>
+              </ModalBox>
             </CardIcons>
           </ModalContainer>
         </Modal>

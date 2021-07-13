@@ -45,7 +45,7 @@ export const RecipeCardImage = styled.img`
 export const CardIcons = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 10px;
 `;
 
@@ -61,10 +61,13 @@ export const CardButton = styled.div`
 `;
 
 export const ModalContainer = styled.div`
+  margin: auto;
   background-color: white;
+  max-width: 700px;
   height: 100%;
   padding: 20px;
   font-family: Raleway;
+  overflow-y: scroll;
 `;
 
 export const ModalTitle = styled.div`
@@ -84,15 +87,15 @@ export const ModalDesc = styled.div`
 
 export const ModalCategory = styled.div`
   width: 100px;
-  height: 60px;
+  height: 50px;
   border-radius: 15px;
   margin: 20px auto 40px;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${({ e }) =>
-    e == "raw" ? "#edafbe" : e == "yellow" ? "#dcde64" : "#50b827"};
+    e == "raw" ? "#edafbe" : e == "cooked" ? "#dcde64" : "#50b827"};
 `;
 
 export const ModalPoints = styled.div`
@@ -104,4 +107,11 @@ export const ModalPoints = styled.div`
   border-radius: 50%;
   border: solid 2px black;
   margin: 20px auto;
+  font-size: 1.5rem;
+`;
+
+export const ModalBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
