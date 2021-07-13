@@ -59,3 +59,49 @@ export const CardButton = styled.div`
     font-size: 1rem;
   }
 `;
+
+export const ModalContainer = styled.div`
+  background-color: white;
+  height: 100%;
+  padding: 20px;
+  font-family: Raleway;
+`;
+
+export const ModalTitle = styled.div`
+  font-size: 2.4rem;
+  text-align: center;
+`;
+
+export const ModalImage = styled.img`
+  width: 100%;
+  margin: 20px 0px;
+`;
+
+export const ModalDesc = styled.div`
+  font-size: 1.2rem;
+  margin: 20px 0px;
+`;
+
+export const ModalCategory = styled.div`
+  width: 100px;
+  height: 60px;
+  border-radius: 15px;
+  margin: 20px auto 40px;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ e }) =>
+    e == "raw" ? "#edafbe" : e == "yellow" ? "#dcde64" : "#50b827"};
+`;
+
+export const ModalPoints = styled.div`
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: solid 2px black;
+  margin: 20px auto;
+`;
