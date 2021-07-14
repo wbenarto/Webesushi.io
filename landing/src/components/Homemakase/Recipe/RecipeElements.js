@@ -62,34 +62,37 @@ export const CardButton = styled.div`
 
 export const ModalContainer = styled.div`
   margin: auto;
-  background-color: white;
-  max-width: 700px;
+  background-color: #dbd6a9;
+
+  width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 20px 0px 0px 15px;
   font-family: Raleway;
   overflow-y: scroll;
 `;
 
 export const ModalTitle = styled.div`
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   text-align: center;
 `;
 
 export const ModalImage = styled.img`
   width: 100%;
+
   margin: 20px 0px;
 `;
 
 export const ModalDesc = styled.div`
   font-size: 1.2rem;
   margin: 20px 0px;
+  text-align: center;
 `;
 
 export const ModalCategory = styled.div`
   width: 100px;
   height: 50px;
   border-radius: 15px;
-  margin: 20px auto 40px;
+  margin: 10px auto 40px;
   font-size: 1.1rem;
   display: flex;
   justify-content: center;
@@ -98,6 +101,9 @@ export const ModalCategory = styled.div`
     e == "raw" ? "#edafbe" : e == "cooked" ? "#dcde64" : "#50b827"};
 `;
 
+export const Modalh1 = styled.h1`
+  font-size: 1.1rem;
+`;
 export const ModalPoints = styled.div`
   width: 50px;
   height: 50px;
@@ -105,8 +111,8 @@ export const ModalPoints = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  border: solid 2px black;
-  margin: 20px auto;
+
+  margin: 10px auto;
   font-size: 1.5rem;
 `;
 

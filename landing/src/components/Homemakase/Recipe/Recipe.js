@@ -15,6 +15,7 @@ import {
   ModalCategory,
   ModalPoints,
   ModalBox,
+  Modalh1,
 } from "./RecipeElements";
 import { AppContainer } from "../HomemakaseElements";
 import PropTypes from "prop-types";
@@ -93,16 +94,14 @@ const Recipe = (props) => {
         </CardIcons>
         <Modal
           open={open}
-          data={e}
           onClick={handleClose}
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
+          style={{ width: "100%" }}
         >
           <ModalContainer>
             {" "}
-            <ModalTitle style={{ backgroundColor: "white" }}>
-              {sushiCard.name}
-            </ModalTitle>
+            <ModalTitle>{sushiCard.name}</ModalTitle>
             <ModalImage
               onClick={() => handleOpen(e.sushiId)}
               src={sushiCard.image}
@@ -130,25 +129,31 @@ const Recipe = (props) => {
                 <FaRegPlusSquare />
               </CardButton>
             </CardIcons>
-            <ModalDesc style={{ backgroundColor: "white" }}>
-              {sushiCard.desc}
-            </ModalDesc>
+            <ModalDesc>{sushiCard.desc}</ModalDesc>
             <CardIcons>
               <ModalBox>
-                Category
+                <Modalh1>Category</Modalh1>
+
                 <ModalCategory e={sushiCard.category}>
                   {sushiCard.category}
                 </ModalCategory>
               </ModalBox>
               <ModalBox>
-                Difficulty <ModalPoints>{sushiCard.dishPoint}</ModalPoints>
+                <Modalh1>Difficulty</Modalh1>
+                <ModalPoints>{sushiCard.dishPoint}</ModalPoints>
               </ModalBox>
               <ModalBox>
-                {" "}
-                Sustainability
-                <ModalPoints>
-                  <FiSmile />
-                </ModalPoints>
+                <Modalh1> Sustainability</Modalh1>
+
+                {sushiCard.sustainability == "good" ? (
+                  <ModalPoints>
+                    <FiSmile />
+                  </ModalPoints>
+                ) : (
+                  <ModalPoints>
+                    <FiFrown />
+                  </ModalPoints>
+                )}
               </ModalBox>
             </CardIcons>
           </ModalContainer>
