@@ -191,6 +191,7 @@ export const data2 = [
     images: eelsauce,
     desc: "Sweet dark sauce used in many specialty sushi rolls.",
     type: "essentials",
+    term: "eel sauce",
   },
   {
     id: 23,
@@ -212,6 +213,7 @@ export const data2 = [
     images: veggies,
     desc: "You can grab any of your favorite vegetables and turn them into delicious sushi rolls.",
     type: "veg",
+    term: "green onions",
   },
   {
     id: 23,
@@ -226,6 +228,7 @@ export const data2 = [
     images: cucumber,
     desc: "One of the most used ingredients in sushi.",
     type: "veg",
+    term: "cucumber",
   },
   {
     id: 23,
@@ -255,7 +258,7 @@ export const data2 = [
     images: eel,
     desc: "Broiled eel glazed in teriyaki sauce. Unagi gives strong umami flavor to your dish.",
     type: "cooked",
-    term: "unagi",
+    term: "eel",
   },
   {
     id: 27,

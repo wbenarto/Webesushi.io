@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const RecipeDisplay = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
   @media screen and (max-width: 475px) {
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 50% 50%;
   }
 `;
 
 export const RecipeCard = styled.div`
-  height: 520px;
+  height: 420px;
   position: relative;
 
   align-items: center;
@@ -35,7 +35,7 @@ export const RecipeCardName = styled.h3`
 
 export const RecipeCardImage = styled.img`
   width: 100%;
-  height: 440px;
+  height: 300px;
   object-fit: cover;
   @media screen and (max-width: 475px) {
     height: 100px;
@@ -63,7 +63,7 @@ export const CardButton = styled.div`
 export const ModalContainer = styled.div`
   margin: auto;
   background-color: #dbd6a9;
-
+  max-width: 700px;
   width: 100%;
   height: 100%;
   padding: 20px 0px 0px 15px;
@@ -79,7 +79,13 @@ export const ModalTitle = styled.div`
 export const ModalImage = styled.img`
   width: 100%;
 
+  max-height: 60%;
+  object-fit: cover;
   margin: 20px 0px;
+
+  @media screen and (max-width: 475px) {
+    max-height: 300px;
+  }
 `;
 
 export const ModalDesc = styled.div`
