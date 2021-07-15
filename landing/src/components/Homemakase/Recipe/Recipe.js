@@ -38,11 +38,8 @@ import Modal from "@material-ui/core/Modal";
 
 const Recipe = (props) => {
   const [sushiCard, setSushiCard] = useState("");
-  const [hover, onHover] = useState("");
   const [open, setOpen] = useState(false);
   const [shoppingCart, setShoppingCart] = useState([]);
-  // const [likedSushi, setLikedSushi] = useState([]);
-  const [liked, setLiked] = useState(false);
 
   const { sushis, loading } = props.data;
   const { authenticated } = props.user;
@@ -56,6 +53,7 @@ const Recipe = (props) => {
       return true;
     } else return false;
   };
+
   const handleOpen = (e) => {
     setSushiCard(e);
     setOpen(true);
@@ -65,6 +63,24 @@ const Recipe = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleLike = (sushiId) => {
+    props.likeSushi(sushiId);
+  };
+
+  const handleUnlike = (sushiId) => {
+    props.unlikeSushi(sushiId);
+  };
+
+  const handleAdd = (ingr) => {
+    const leanCart = new Set([...props.data.shoppingCart, ...ingr]);
+    console.log("handleAdd Recipe " + [...leanCart]);
+    console.log(props);
+    // setShoppingCart([...leanCart]);
+    props.addShoppingCart([...leanCart]);
+    // props.data.shoppingCart = shoppingCart;
+  };
+
   const recentSushisMarkUp = loading ? (
     <RecipeCardName>Loading...</RecipeCardName>
   ) : (
@@ -92,13 +108,7 @@ const Recipe = (props) => {
             <FaRegPlusSquare />
           </CardButton>
         </CardIcons>
-        <Modal
-          open={open}
-          onClick={handleClose}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          style={{ width: "100%" }}
-        >
+        <Modal open={open} onClick={handleClose}>
           <ModalContainer>
             {" "}
             <ModalTitle>{sushiCard.name}</ModalTitle>
@@ -161,21 +171,6 @@ const Recipe = (props) => {
       </RecipeCard>
     ))
   );
-  const handleLike = (sushiId) => {
-    props.likeSushi(sushiId);
-  };
-
-  const handleUnlike = (sushiId) => {
-    props.unlikeSushi(sushiId);
-  };
-  const handleAdd = (ingr) => {
-    const leanCart = new Set([...props.data.shoppingCart, ...ingr]);
-    console.log("handleAdd Recipe " + [...leanCart]);
-    console.log(props);
-    // setShoppingCart([...leanCart]);
-    props.addShoppingCart([...leanCart]);
-    // props.data.shoppingCart = shoppingCart;
-  };
 
   return (
     <AppContainer>
@@ -205,19 +200,3 @@ const mapActionToProps = {
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Recipe);
-
-// {sushi.map((e) => (
-//   <RecipeCard key={e.id}>
-//     <RecipeCardName>{e.name}</RecipeCardName>
-//     <RecipeCardImage src={e.images} />
-//     <CardIcons>
-//       <CardButton onClick={() => handleLike(e.name)}>
-//         {liked ? <FaHeart /> : <FaRegHeart />}
-//       </CardButton>
-
-//       <CardButton onClick={() => handleAdd(e.ingredients)}>
-//         <FaRegPlusSquare />
-//       </CardButton>
-//     </CardIcons>
-//   </RecipeCard>
-// ))}

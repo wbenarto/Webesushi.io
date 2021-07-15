@@ -64,9 +64,9 @@ export const ModalContainer = styled.div`
   margin: auto;
   background-color: #dbd6a9;
   max-width: 700px;
-  width: 100%;
+  width: 99vw;
   height: 100%;
-  padding: 20px 0px 0px 15px;
+  padding: 20px 10px 10px 15px;
   font-family: Raleway;
   overflow-y: scroll;
 `;
@@ -108,7 +108,7 @@ export const ModalCategory = styled.div`
 `;
 
 export const Modalh1 = styled.h1`
-  font-size: 1.1rem;
+  font-size: 1rem;
 `;
 export const ModalPoints = styled.div`
   width: 50px;
@@ -126,4 +126,5 @@ export const ModalBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 85%;
 `;

@@ -31,23 +31,6 @@ export const HomeInfo = styled.div`
   }
 `;
 
-export const SushiCategoryButton = styled.div`
-  flex-basis: 25%;
-  height: 2rem;
-  font-size: 1.2rem;
-  background-color: transparent;
-  color: black;
-  border-radius: 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media screen and (max-width: 475px) {
-    font-size: 0.9rem;
-  }
-`;
-
 export const HomeH2 = styled.h2`
   font-size: 1.5rem;
   padding-bottom: 10px;
@@ -65,12 +48,15 @@ export const CartContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 50px;
-
+  /* background-color: ${({ checked }) => (checked ? "#7be890" : "#fff")}; */
   padding: 5px 0;
 `;
 
 export const CartImage = styled.img`
   height: 100%;
+  padding-right: 10px;
+  width: 80px;
+  object-fit: cover;
 `;
 
 export const CartP = styled.p`
@@ -78,6 +64,7 @@ export const CartP = styled.p`
   display: flex;
   width: 30%;
   padding-left: 10px;
+  background-color: ${({ checked }) => (checked ? "#7be890" : "#fff")};
 `;
 
 export const CartIcon = styled.div`
@@ -86,8 +73,8 @@ export const CartIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
-  color: red;
+  font-size: 1.4rem;
+  color: #db574d;
 `;
 
 export const CartButtons = styled.div`
@@ -107,6 +94,6 @@ export const CartButton = styled.div`
   font-size: 1.6rem;
 
   :nth-child(1) {
-    color: green;
+    color: #32b84c;
   }
 `;

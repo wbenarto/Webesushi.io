@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import Shop from "../components/Homemakase/Shopping/Shop";
 import Home from "../components/Homemakase/Home/Home";
 import Recipe from "../components/Homemakase/Recipe/Recipe";
@@ -15,7 +14,6 @@ import Badge from "@material-ui/core/Badge";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getSushis } from "../redux/actions/dataActions";
-import axios from "axios";
 import {
   HomemakaseContainer,
   AppNav,
@@ -31,13 +29,8 @@ import {
 const HomeMakase = (props) => {
   const [active, setActive] = useState("/");
 
-  console.log(props);
-
   useEffect(() => {
-    console.log("HEY YOUUUUUUU ");
     props.getSushis();
-    console.log(props);
-    console.log(props.data);
   }, []);
 
   return (
