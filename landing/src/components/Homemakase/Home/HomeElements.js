@@ -60,3 +60,53 @@ export const HomeP = styled.p`
     line-height: 45px;
   }
 `;
+
+export const CartContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+
+  padding: 5px 0;
+`;
+
+export const CartImage = styled.img`
+  height: 100%;
+`;
+
+export const CartP = styled.p`
+  align-items: center;
+  display: flex;
+  width: 30%;
+  padding-left: 10px;
+`;
+
+export const CartIcon = styled.div`
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  color: red;
+`;
+
+export const CartButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 43%;
+
+  align-items: center;
+  justify-content: space-between;
+  right: 0;
+`;
+
+export const CartButton = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  font-size: 1.6rem;
+
+  :nth-child(1) {
+    color: green;
+  }
+`;

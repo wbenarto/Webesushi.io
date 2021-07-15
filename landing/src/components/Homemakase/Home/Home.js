@@ -5,11 +5,23 @@ import {
   Steps,
   HomeH2,
   HomeP,
+  CartContainer,
+  CartImage,
+  CartP,
+  CartIcon,
+  CartButtons,
+  CartButton,
 } from "./HomeElements";
 import { AppContainer } from "../HomemakaseElements";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { FaRegHeart, FaRegPlusSquare } from "react-icons/fa";
+import {
+  FaRegHeart,
+  FaRegPlusSquare,
+  FaCheck,
+  FaTrash,
+  FaSortDown,
+} from "react-icons/fa";
 import { data2 } from "../../../data/data2";
 
 const Home = (props) => {
@@ -66,18 +78,32 @@ const Home = (props) => {
       ) : (
         <>
           <h1>Shopping List: </h1>
-          {/* {list.map((e) => (
-            <>
-              <p>{e.name}</p>
-              <img src={e.images}></img>
-            </>
-          ))} */}
-          {shoppingCart.map((e) => (
-            <SushiCategoryButton>{e}</SushiCategoryButton>
+
+          {list.map((e) => (
+            <CartContainer>
+              <CartP>{e.name}</CartP>
+              <CartImage src={e.images}></CartImage>
+              <CartIcon>
+                {e.sustainability == "bad" ? <FaSortDown /> : <></>}
+              </CartIcon>
+
+              <CartButtons>
+                <CartButton>
+                  <FaCheck />
+                </CartButton>
+                <CartButton>
+                  <CartP>
+                    <FaTrash />
+                  </CartP>
+                </CartButton>
+              </CartButtons>
+            </CartContainer>
           ))}
+          {/* {shoppingCart.map((e) => (
+            <SushiCategoryButton>{e}</SushiCategoryButton>
+          ))} */}
         </>
       )}
-
       <h1>How To:</h1>
     </AppContainer>
   );
