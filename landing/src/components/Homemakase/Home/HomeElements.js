@@ -65,6 +65,17 @@ export const CartP = styled.p`
   width: 30%;
   padding-left: 10px;
   background-color: ${({ checked }) => (checked ? "#7be890" : "#fff")};
+  transition: 0.3s;
+  :hover {
+    animation: runanim 0.5s forwards;
+    background-color: #ecf0eb;
+  }
+
+  @keyframes runanim {
+    100% {
+      background-color: linear-gradient(0.25turn, #ecf0eb, #ebf8e1, #dbd6a9);
+    }
+  }
 `;
 
 export const CartIcon = styled.div`
@@ -92,8 +103,28 @@ export const CartButton = styled.div`
   width: 50%;
   justify-content: center;
   font-size: 1.6rem;
+  transition: 0.3s;
 
   :nth-child(1) {
     color: #32b84c;
+    border-radius: 50px;
+    :focus {
+      box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+      border: 2px solid #c1e0bc;
+
+      color: pink;
+      animation: anim-shadow 0.3s forwards;
+    }
+    :hover {
+      box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+
+      animation: anim-shadow 0.3s forwards;
+    }
+  }
+
+  @keyframes anim-shadow {
+    100% {
+      box-shadow: 0px 0px 10px 10px #c1e0bc;
+    }
   }
 `;

@@ -353,6 +353,8 @@ export const data2 = [
     type: "raw",
     term: "tuna",
     sustainability: "bad",
+    reason:
+      "Blue fin livestock has gone down drastically and facing extinction. Overfishing and bycatch also the result of tuna fishing using gillnets.",
   },
   {
     id: 32,
@@ -398,6 +400,8 @@ export const data2 = [
     type: "raw",
     term: "toro",
     sustainability: "bad",
+    reason:
+      "Blue fin livestock has gone down drastically and facing extinction. Overfishing and bycatch also the result of tuna fishing using gillnets.",
   },
   {
     id: 36,
@@ -407,6 +411,8 @@ export const data2 = [
     type: "raw",
     term: "negitoro",
     sustainability: "bad",
+    reason:
+      "Blue fin livestock has gone down drastically and facing extinction. Overfishing and bycatch also the result of tuna fishing using gillnets.",
   },
   {
     id: 37,

@@ -109,6 +109,7 @@ export const ModalCategory = styled.div`
 
 export const Modalh1 = styled.h1`
   font-size: 1rem;
+  text-align: center;
 `;
 export const ModalPoints = styled.div`
   width: 50px;

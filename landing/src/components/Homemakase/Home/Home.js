@@ -145,7 +145,12 @@ const Home = (props) => {
           </CartContainer>
           {list.map((e) => (
             <CartContainer checked={checkedIngredients(e.term)} key={e.id}>
-              <CartP checked={checkedIngredients(e.term)}>{e.name}</CartP>
+              <CartP
+                onClick={() => handleOpen(e.term)}
+                checked={checkedIngredients(e.term)}
+              >
+                {e.name}
+              </CartP>
               <CartImage
                 onClick={() => handleOpen(e.term)}
                 src={e.images}
@@ -176,6 +181,26 @@ const Home = (props) => {
                       )}
                     </ModalBox>
                   </CardIcons>
+
+                  {sushiCard.reason !== null ? (
+                    <ModalContainer>
+                      <Modalh1>
+                        {" "}
+                        <FaExclamationTriangle
+                          style={{
+                            justifySelf: "center",
+                            color: "red",
+                            marginRight: "10px",
+                          }}
+                        />
+                        Sustainability concerns:{" "}
+                      </Modalh1>
+
+                      <ModalDesc> {sushiCard.reason}</ModalDesc>
+                    </ModalContainer>
+                  ) : (
+                    <></>
+                  )}
                 </ModalContainer>
               </Modal>
               <CartIcon>
