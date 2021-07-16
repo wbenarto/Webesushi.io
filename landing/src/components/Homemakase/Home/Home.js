@@ -12,6 +12,17 @@ import {
   CartButton,
 } from "./HomeElements";
 import { AppContainer } from "../HomemakaseElements";
+import {
+  ModalContainer,
+  ModalImage,
+  ModalDesc,
+  CardIcons,
+  ModalBox,
+  Modalh1,
+  ModalCategory,
+  ModalPoints,
+  ModalTitle,
+} from "../Recipe/RecipeElements";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addShoppingCart } from "../../../redux/actions/dataActions";
@@ -23,19 +34,33 @@ import {
   FaRegCheckCircle,
   FaExclamationTriangle,
 } from "react-icons/fa";
-import { MdNewReleases } from "react-icons/md";
+import { FiFrown, FiSmile } from "react-icons/fi";
+import Modal from "@material-ui/core/Modal";
 import { data2 } from "../../../data/data2";
 
 const Home = (props) => {
   const [list, setList] = useState([]);
   const [checked, setChecked] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [sushiCard, setSushiCard] = useState("");
   const { shoppingCart } = props.data;
 
-  console.log(props);
+  // console.log(props);
 
   useEffect(() => {
     getItemInfo();
   }, []);
+
+  const handleOpen = (e) => {
+    let sush = data2.find((x) => x.term == e);
+    setSushiCard(sush);
+    setOpen(true);
+    console.log(e);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const getItemInfo = () => {
     let res = [];
@@ -121,7 +146,38 @@ const Home = (props) => {
           {list.map((e) => (
             <CartContainer checked={checkedIngredients(e.term)} key={e.id}>
               <CartP checked={checkedIngredients(e.term)}>{e.name}</CartP>
-              <CartImage src={e.images}></CartImage>
+              <CartImage
+                onClick={() => handleOpen(e.term)}
+                src={e.images}
+              ></CartImage>
+              <Modal open={open} onClick={handleClose}>
+                <ModalContainer>
+                  <ModalTitle>{sushiCard.name}</ModalTitle>
+                  <ModalImage src={sushiCard.images} />
+                  <ModalDesc>{sushiCard.desc}</ModalDesc>
+                  <CardIcons>
+                    <ModalBox>
+                      <Modalh1>Category</Modalh1>
+                      <ModalCategory e={sushiCard.type}>
+                        {sushiCard.type}
+                      </ModalCategory>
+                    </ModalBox>
+                    <ModalBox>
+                      <Modalh1> Sustainability</Modalh1>
+
+                      {sushiCard.sustainability == "good" ? (
+                        <ModalPoints>
+                          <FiSmile />
+                        </ModalPoints>
+                      ) : (
+                        <ModalPoints>
+                          <FiFrown />
+                        </ModalPoints>
+                      )}
+                    </ModalBox>
+                  </CardIcons>
+                </ModalContainer>
+              </Modal>
               <CartIcon>
                 {e.sustainability == "bad" ? <FaExclamationTriangle /> : <></>}
               </CartIcon>

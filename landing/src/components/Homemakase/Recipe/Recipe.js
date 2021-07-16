@@ -143,7 +143,6 @@ const Recipe = (props) => {
             <CardIcons>
               <ModalBox>
                 <Modalh1>Category</Modalh1>
-
                 <ModalCategory e={sushiCard.category}>
                   {sushiCard.category}
                 </ModalCategory>
