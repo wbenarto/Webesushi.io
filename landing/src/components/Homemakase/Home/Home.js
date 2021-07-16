@@ -106,7 +106,7 @@ const Home = (props) => {
     getItemInfo();
   };
 
-  console.log(checked);
+  console.log(list);
   return (
     <AppContainer>
       {shoppingCart == 0 ? (
@@ -138,11 +138,11 @@ const Home = (props) => {
         </HomeInfo>
       ) : (
         <>
-          <h1>Shopping List: </h1>
-          <CartContainer>
-            <p>Sustainability Warning : </p>
+          <h1>Shopping List: </h1>{" "}
+          <p>
+            Sustainability Warning :{" "}
             <FaExclamationTriangle style={{ color: "red" }} />{" "}
-          </CartContainer>
+          </p>
           {list.map((e) => (
             <CartContainer checked={checkedIngredients(e.term)} key={e.id}>
               <CartP
@@ -182,7 +182,7 @@ const Home = (props) => {
                     </ModalBox>
                   </CardIcons>
 
-                  {sushiCard.reason !== null ? (
+                  {sushiCard.sustainability == "bad" ? (
                     <ModalContainer>
                       <Modalh1>
                         {" "}
@@ -217,9 +217,7 @@ const Home = (props) => {
                   )}
                 </CartButton>
                 <CartButton>
-                  <CartP>
-                    <FaTrash onClick={() => handleDelete(e.term)} />
-                  </CartP>
+                  <FaTrash onClick={() => handleDelete(e.term)} />
                 </CartButton>
               </CartButtons>
             </CartContainer>

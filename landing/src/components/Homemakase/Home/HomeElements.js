@@ -48,8 +48,8 @@ export const CartContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 50px;
-  /* background-color: ${({ checked }) => (checked ? "#7be890" : "#fff")}; */
-  padding: 5px 0;
+  background-color: rgba(201, 209, 167, 0.2);
+  margin: 5px 0;
 `;
 
 export const CartImage = styled.img`
@@ -57,6 +57,9 @@ export const CartImage = styled.img`
   padding-right: 10px;
   width: 80px;
   object-fit: cover;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const CartP = styled.p`
@@ -64,11 +67,13 @@ export const CartP = styled.p`
   display: flex;
   width: 30%;
   padding-left: 10px;
-  background-color: ${({ checked }) => (checked ? "#7be890" : "#fff")};
-  transition: 0.3s;
+  background-color: ${({ checked }) =>
+    checked ? "#7be890" : "rgba(201, 209, 167, 0.2)"};
+  transition: 0.6s;
   :hover {
-    animation: runanim 0.5s forwards;
+    animation: runanim 1.7s ease-in-out;
     background-color: #ecf0eb;
+    cursor: pointer;
   }
 
   @keyframes runanim {
@@ -102,10 +107,13 @@ export const CartButton = styled.div`
   display: flex;
   width: 50%;
   justify-content: center;
-  font-size: 1.6rem;
+  font-size: 1rem;
   transition: 0.3s;
-
+  :hover {
+    cursor: pointer;
+  }
   :nth-child(1) {
+    font-size: 1.4rem;
     color: #32b84c;
     border-radius: 50px;
     :focus {
