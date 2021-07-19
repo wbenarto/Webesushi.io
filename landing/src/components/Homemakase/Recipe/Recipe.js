@@ -93,12 +93,12 @@ const Recipe = (props) => {
             {!authenticated ? (
               <Link to="/signin">
                 {" "}
-                <FaRegHeart color="black" />{" "}
+                <FaRegHeart />{" "}
               </Link>
             ) : likedSushi(e.sushiId) ? (
-              <FaHeart color="black" onClick={() => handleUnlike(e.sushiId)} />
+              <FaHeart onClick={() => handleUnlike(e.sushiId)} />
             ) : (
-              <FaRegHeart color="black" onClick={() => handleLike(e.sushiId)} />
+              <FaRegHeart onClick={() => handleLike(e.sushiId)} />
             )}
           </CardButton>
           {/* <CardButton>

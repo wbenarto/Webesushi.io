@@ -16,7 +16,6 @@ export const RecipeCard = styled.div`
   align-items: center;
   margin: 0px 3px 20px 3px;
   padding: 0px 5px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   @media screen and (max-width: 475px) {
     height: 180px;
@@ -32,10 +31,11 @@ export const RecipeCardName = styled.h3`
   margin-top: 5px;
   margin-bottom: 5px;
   transition: 0.3s;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 
   :hover {
     cursor: pointer;
+    background-color: rgba(10, 10, 10, 0.1);
+    color: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
   }
 
   @media screen and (max-width: 475px) {
@@ -49,12 +49,10 @@ export const RecipeCardImage = styled.img`
   width: 100%;
   height: 300px;
   object-fit: cover;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 
   :hover {
     cursor: pointer;
-
-    box-shadow: 10px 10px 5px 5px rgba(0, 0, 0, 0.5);
+    background-color: rgba(10, 10, 10, 0.1);
   }
   @media screen and (max-width: 475px) {
     height: 100px;
@@ -75,10 +73,23 @@ export const CardButton = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1.7rem;
-  width: 50px;
-  border-radius: 50%;
+  width: 100%;
+  color: black;
+
+  > a {
+    color: black;
+  }
+
   :hover {
     cursor: pointer;
+    background-color: rgba(10, 10, 10, 0.1);
+    transition: 0.3s;
+    color: #fff;
+
+    > a {
+      color: #fff;
+      transition: 0.3s;
+    }
   }
 
   :focus {
@@ -101,6 +112,7 @@ export const ModalContainer = styled.div`
   padding: 20px 10px 10px 15px;
   font-family: Raleway;
   overflow-y: scroll;
+  transition: 3s;
 `;
 
 export const ModalTitle = styled.div`

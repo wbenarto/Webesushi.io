@@ -138,9 +138,11 @@ const Home = (props) => {
         </HomeInfo>
       ) : (
         <>
-          <h1>Shopping List: </h1>{" "}
+          <h1>
+            Shopping List: {checked.length} / {shoppingCart.length} Checked.{" "}
+          </h1>{" "}
           <p>
-            Sustainability Warning :{" "}
+            Sustainability Warning :
             <FaExclamationTriangle style={{ color: "red" }} />{" "}
           </p>
           {list.map((e) => (

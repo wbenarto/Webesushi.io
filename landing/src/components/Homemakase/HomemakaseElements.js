@@ -115,12 +115,16 @@ export const AppFooter = styled.div`
 `;
 
 export const AppIconsWrapper = styled.div`
-  height: 50px;
+  height: 150px;
   width: 100px;
   flex-direction: row;
   justify-content: center;
   align-content: center;
   display: block;
+
+  :hover {
+    background-color: rgba(10, 10, 10, 0.2);
+  }
 `;
 
 export const AppIcons = styled.div`
@@ -129,7 +133,9 @@ export const AppIcons = styled.div`
   text-align: center;
   align-self: center;
   color: #dbd6a9;
-
+  :hover {
+    color: #fff;
+  }
   @media screen and (max-width: 475px) {
     font-size: 1.4rem;
   }
