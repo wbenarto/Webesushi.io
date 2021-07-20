@@ -76,7 +76,7 @@ export const AppMain = styled.div`
   margin-right: auto;
   margin-bottom: auto;
   width: 70%;
-  height: calc(100vh - 18vh);
+  height: calc(100vh - 17vh);
   font-family: "Raleway";
   font-size: 0.8rem;
   overflow: scroll;
@@ -110,12 +110,12 @@ export const AppFooter = styled.div`
   justify-content: space-evenly;
 
   @media screen and (max-width: 475px) {
-    height: 10vh;
+    height: 8vh;
   }
 `;
 
 export const AppIconsWrapper = styled.div`
-  height: 150px;
+  height: 80px;
   width: 100px;
   flex-direction: row;
   justify-content: center;
@@ -124,6 +124,10 @@ export const AppIconsWrapper = styled.div`
 
   :hover {
     background-color: rgba(10, 10, 10, 0.2);
+  }
+
+  @media screen and (max-width: 475px) {
+    height: 100px;
   }
 `;
 

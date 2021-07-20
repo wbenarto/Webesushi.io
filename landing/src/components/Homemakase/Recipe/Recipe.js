@@ -6,6 +6,7 @@ import {
   RecipeCard,
   RecipeCardName,
   RecipeCardImage,
+  RecipeCategory,
   CardIcons,
   CardButton,
   ModalContainer,
@@ -53,7 +54,7 @@ const Recipe = (props) => {
       return true;
     } else return false;
   };
-
+  console.log(sushiCard);
   const handleOpen = (e) => {
     setSushiCard(e);
     setOpen(true);
@@ -86,7 +87,11 @@ const Recipe = (props) => {
   ) : (
     sushis.map((e) => (
       <RecipeCard key={e.sushiId} e={e}>
-        <RecipeCardName>{e.name}</RecipeCardName>
+        <RecipeCategory e={e.category}>
+          {e.category == "vegetarian" ? "VEG" : e.category.toUpperCase()}
+          {/* {e.category.split("").splice(0, 4).join("")} */}
+        </RecipeCategory>
+        <RecipeCardName onClick={() => handleOpen(e)}>{e.name}</RecipeCardName>
         <RecipeCardImage onClick={() => handleOpen(e)} src={e.image} />
         <CardIcons>
           <CardButton>
@@ -144,7 +149,7 @@ const Recipe = (props) => {
               <ModalBox>
                 <Modalh1>Category</Modalh1>
                 <ModalCategory e={sushiCard.category}>
-                  {sushiCard.category}
+                  {sushiCard.category ? sushiCard.category.toUpperCase() : ""}
                 </ModalCategory>
               </ModalBox>
               <ModalBox>
