@@ -8,6 +8,8 @@ export const HomemakaseContainer = styled.div`
   height: 100%;
   justify-content: center;
 
+  /* background-color: pink; */
+
   ::before {
     content: "";
     position: absolute;
@@ -81,6 +83,19 @@ export const AppMain = styled.div`
   font-size: 0.8rem;
   overflow: scroll;
   color: #333333;
+  animation: transitionIn 1s ease-in-out;
+
+  @keyframes transitionIn {
+    from {
+      opacity: 0;
+      transform: translateX(200px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
   ::-webkit-scrollbar {
     display: none;
@@ -125,9 +140,8 @@ export const AppIconsWrapper = styled.div`
   :hover {
     background-color: rgba(10, 10, 10, 0.2);
   }
-
   @media screen and (max-width: 475px) {
-    height: 100px;
+    height: 80px;
   }
 `;
 

@@ -60,7 +60,7 @@ const Navbar = (props) => {
         <MobileIcon onClick={props.toggle}>
           <FaBars />
         </MobileIcon>
-        <NavMenu>
+        {/* <NavMenu>
           <NavItem>
             <Switch>
               <NavLinks
@@ -138,7 +138,7 @@ const Navbar = (props) => {
               Mission
             </NavLinks>
           </NavItem>
-        </NavMenu>
+        </NavMenu> */}
 
         <NavBtn>
           {authenticated ? (

@@ -650,6 +650,8 @@ export const InfoBtnLink = styled(LinkR)`
   align-items: center;
   transition: all 0.2s ease-in-out;
   margin-top: 10px;
+  text-decoration: none;
+  font-family: Raleway;
 
   &:hover {
     transition: all 0.2s ease-in-out;
