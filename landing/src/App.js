@@ -19,7 +19,12 @@ import { logOutUser, getUserData } from "./redux/actions/userActions";
 import SustainabilityPage from "./pages/sustainability";
 import NotFoundPage from "./pages/404";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 axios.defaults.baseURL =
   "https://us-central1-webesushi-a3bf0.cloudfunctions.net/api";
@@ -53,7 +58,8 @@ function App() {
               exact
             />
             <Route path="/profile/" component={ProfilePage} exact />
-            <Route component={NotFoundPage} />
+            {/* <Route component={NotFoundPage} /> */}
+            <Redirect to="/homemakase" />
           </Switch>
         </Router>
       </>

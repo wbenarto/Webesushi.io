@@ -58,9 +58,9 @@ const Navbar = (props) => {
           </NavLogo>
         </Switch>
 
-        <MobileIcon onClick={props.toggle}>
+        {/* <MobileIcon onClick={props.toggle}>
           <FaBars />
-        </MobileIcon>
+        </MobileIcon> */}
         {/* <NavMenu>
           <NavItem>
             <Switch>

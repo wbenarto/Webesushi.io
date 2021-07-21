@@ -1,6 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
-import axios from "axios";
-import { TweenMax, TimelineLite, Power3 } from "gsap";
+import React, { useState, useEffect } from "react";
 
 import {
   AppNav,
@@ -56,33 +54,6 @@ const Sustainability = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // TweenMax
-  let app = useRef(null);
-  let canvasRef = useRef(null);
-  let tl = new TimelineLite();
-
-  useEffect(() => {
-    const fish1 = canvasRef.current.children[0];
-    const fish2 = canvasRef.current.children[1];
-
-    TweenMax.to(app, 0, { css: { visibility: "visible" } });
-
-    tl.from(app, 2, { y: 1400, ease: Power3.easeOut })
-      .from(
-        app,
-        1,
-        {
-          scale: 2,
-          ease: Power3.easeOut,
-        },
-        0.2
-      )
-      .from(fish1, 1.5, { x: -500, opacity: 0.1, ease: Power3.easeIn }, 0.3)
-      .from(fish2, 1.5, { x: 650, opacity: 0.1, ease: Power3.easeIn }, 0.8);
-
-    console.log(app, fish1, fish2);
-  }, []);
-
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -123,9 +94,9 @@ const Sustainability = () => {
 
         <InfoWrapper>
           <Heading>Sushi and Seafood Sustainability</Heading>
-          <InfoHeroSection ref={(el) => (app = el)}>
+          <InfoHeroSection>
             {active == "seafood" ? (
-              <div ref={canvasRef}>
+              <div>
                 <InfoHeading props={1}>
                   What is Sustainable Seafood?
                 </InfoHeading>

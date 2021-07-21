@@ -118,6 +118,7 @@ export const SocialIcons = styled.div`
   width: 240px;
 
   @media screen and (max-width: 768px) {
+    padding-top: 10px;
     width: 100vw;
     display: flex;
     justify-content: space-evenly;

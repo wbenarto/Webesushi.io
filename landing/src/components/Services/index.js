@@ -1,7 +1,4 @@
 import React from "react";
-import Icon1 from "../../images/market.jpg";
-import Icon2 from "../../images/omakase.jpg";
-import Icon3 from "../../images/recipe.jpg";
 import Footer from "../Footer";
 import {
   ServicesContainer,

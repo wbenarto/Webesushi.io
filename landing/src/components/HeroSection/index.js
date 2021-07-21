@@ -60,16 +60,6 @@ const HeroSection = () => {
         <HeroH1></HeroH1>
         <HeroP></HeroP>
         <HeroBtnWrapper>
-          {/* <ButtonHero
-            to="home-makase"
-            smooth={true}
-            duration={800}
-            spy={true}
-            exact="true"
-            offset={0}
-          >
-            Get Started
-          </ButtonHero> */}
           <InfoBtnLink
             to="/homemakase"
             smooth={true}
