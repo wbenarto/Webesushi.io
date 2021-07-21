@@ -649,14 +649,20 @@ export const InfoBtnLink = styled(LinkR)`
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
-  margin-top: 10px;
+  margin: 40px 0px;
   text-decoration: none;
   font-family: Raleway;
+  transition: 0.5s;
+  letter-spacing: 4px;
 
   &:hover {
     transition: all 0.2s ease-in-out;
     background: ${({ primary }) => (primary ? "#dbd6a9" : "#edecdf")};
     color: ${({ primary }) => (primary ? "#010606" : "#010606")};
+
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+      0 0 200px #03e9f4;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
   }
   @media screen and (max-width: 768px) {
     justify-content: center;

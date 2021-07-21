@@ -8,8 +8,9 @@ import {
   HeroH1,
   HeroP,
   HeroBtnWrapper,
+  InfoBtnLink,
 } from "./HeroElements";
-import { InfoBtnLink } from "../InfoSection/InfoElements";
+
 import { ButtonHero } from "../ButtonElement";
 import Video from "../../videos/video.mp4";
 import torch from "../../images/torch.jpg";
@@ -49,7 +50,13 @@ const HeroSection = () => {
       </HeroBg> */}
       <HeroProfileImage src={torch} />
       <HeroContent>
-        <HeroH1> WE BE {text} </HeroH1>
+        <HeroH1>
+          {" "}
+          <b>
+            WE BE
+            <span> S</span>US<span>HI</span>
+          </b>
+        </HeroH1>
         <HeroH1></HeroH1>
         <HeroP></HeroP>
         <HeroBtnWrapper>
@@ -73,7 +80,7 @@ const HeroSection = () => {
           >
             Homemakase
           </InfoBtnLink>
-          <InfoBtnLink
+          {/* <InfoBtnLink
             to="/sustainability"
             smooth={true}
             duration={800}
@@ -82,7 +89,7 @@ const HeroSection = () => {
             offset={0}
           >
             Sustainability
-          </InfoBtnLink>
+          </InfoBtnLink> */}
         </HeroBtnWrapper>
       </HeroContent>
     </HeroContainer>

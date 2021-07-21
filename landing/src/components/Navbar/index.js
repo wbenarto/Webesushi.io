@@ -16,6 +16,7 @@ import {
 } from "./NavbarElements";
 
 import webegold from "../../images/wbgold.png";
+import webeblack from "../../images/webe.png";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -52,7 +53,7 @@ const Navbar = (props) => {
           <NavLogo to="/" onClick={toggleHome}>
             <NavImg
               alt="webe-sushi"
-              src={scrollNav == "white" ? webegold : webegold}
+              src={scrollNav == "white" ? webegold : webeblack}
             ></NavImg>
           </NavLogo>
         </Switch>

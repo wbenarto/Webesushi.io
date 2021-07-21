@@ -59,6 +59,7 @@ export const NavImg = styled.img`
   width: 160px;
   height: 90px;
   padding: 10px;
+  object-fit: cover;
 
   @media screen and (max-width: 768px) {
     width: 100px;
@@ -135,19 +136,20 @@ export const NavBtnLink = styled(LinkR)`
 
   white-space: nowrap;
   padding: 10px 22px;
-  color: black;
+  color: white;
   font-size: 16px;
   outline: none;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  background: #dbd6a9;
+  /* background: #dbd6a9; */
+  background-color: black;
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: white;
-    color: black;
+    background: black;
+    color: white;
   }
 
   @media screen and (max-width: 768px) {
