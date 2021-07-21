@@ -139,6 +139,7 @@ export const AppIconsWrapper = styled.div`
 
   :hover {
     background-color: rgba(10, 10, 10, 0.2);
+    border-radius: 10px;
   }
   @media screen and (max-width: 475px) {
     height: 80px;

@@ -34,6 +34,9 @@ export const HomeInfo = styled.div`
 export const HomeH2 = styled.h2`
   font-size: 1.5rem;
   padding-bottom: 10px;
+  @media screen and (max-width: 475px) {
+    font-size: 1rem;
+  }
 `;
 
 export const HomeP = styled.p`
@@ -47,18 +50,32 @@ export const HomeP = styled.p`
 export const CartContainer = styled.div`
   display: flex;
   flex-direction: row;
-  height: 50px;
+  height: 100px;
   background-color: rgba(201, 209, 167, 0.2);
   margin: 5px 0;
+  border-radius: 20px;
+
+  @media screen and (max-width: 475px) {
+    height: 50px;
+  }
 `;
 
 export const CartImage = styled.img`
   height: 100%;
-  padding-right: 10px;
-  width: 80px;
+
+  width: 200px;
+
   object-fit: cover;
   :hover {
     cursor: pointer;
+    transform: scale(2.5);
+    transition: 0.1s ease-in-out;
+    z-index: 1;
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width: 475px) {
+    width: 80px;
   }
 `;
 
@@ -67,8 +84,9 @@ export const CartP = styled.p`
   display: flex;
   width: 30%;
   padding-left: 10px;
-  background-color: ${({ checked }) =>
-    checked ? "#7be890" : "rgba(201, 209, 167, 0.2)"};
+  border-radius: 20px;
+  font-size: 1.4rem;
+  background-color: ${({ checked }) => (checked ? "#7be890" : "transparent")};
   transition: 0.6s;
   :hover {
     animation: runanim 1.7s ease-in-out;
@@ -80,6 +98,10 @@ export const CartP = styled.p`
     100% {
       background-color: linear-gradient(0.25turn, #ecf0eb, #ebf8e1, #dbd6a9);
     }
+  }
+
+  @media screen and (max-width: 475px) {
+    font-size: 0.8rem;
   }
 `;
 
@@ -99,12 +121,13 @@ export const CartButtons = styled.div`
   width: 43%;
 
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   right: 0;
 `;
 
 export const CartButton = styled.div`
   display: flex;
+  padding: 5px;
   width: 50%;
   justify-content: center;
   font-size: 1rem;
@@ -113,7 +136,7 @@ export const CartButton = styled.div`
     cursor: pointer;
   }
   :nth-child(1) {
-    font-size: 1.4rem;
+    font-size: 2rem;
     color: #32b84c;
     border-radius: 50px;
     :focus {
@@ -127,6 +150,34 @@ export const CartButton = styled.div`
       box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
       animation: anim-shadow 0.3s forwards;
+    }
+    @media screen and (max-width: 475px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  :nth-child(2) {
+    color: #eb4034;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    transition: 0.2s ease-in-out;
+
+    :focus {
+      border: 2px solid #eb4034;
+      text-align: center;
+      background-color: #ecf0eb;
+    }
+    :hover {
+      border: 2px solid #eb4034;
+      text-align: center;
+      background-color: #ecf0eb;
+    }
+
+    @media screen and (max-width: 475px) {
+      font-size: 0.8rem;
     }
   }
 

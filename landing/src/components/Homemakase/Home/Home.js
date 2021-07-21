@@ -138,13 +138,9 @@ const Home = (props) => {
         </HomeInfo>
       ) : (
         <>
-          <h1>
-            Shopping List: {checked.length} / {shoppingCart.length} Checked.{" "}
-          </h1>{" "}
-          <p>
-            Sustainability Warning :
-            <FaExclamationTriangle style={{ color: "red" }} />{" "}
-          </p>
+          <HomeH2>
+            Shopping List : {checked.length} / {shoppingCart.length} Checked.{" "}
+          </HomeH2>{" "}
           {list.map((e) => (
             <CartContainer checked={checkedIngredients(e.term)} key={e.id}>
               <CartP
@@ -205,19 +201,22 @@ const Home = (props) => {
                   )}
                 </ModalContainer>
               </Modal>
-              <CartIcon>
+              <CartIcon onClick={() => handleOpen(e.term)}>
                 {e.sustainability == "bad" ? <FaExclamationTriangle /> : <></>}
               </CartIcon>
 
               <CartButtons>
-                <CartButton>
-                  {/* <FaCheck onClick={() => handleCheck(e.term)} /> */}
-                  {checkedIngredients(e.term) ? (
-                    <FaRegCheckCircle onClick={() => handleUncheck(e.term)} />
-                  ) : (
-                    <FaCheck onClick={() => handleCheck(e.term)} />
-                  )}
-                </CartButton>
+                {/* <FaCheck onClick={() => handleCheck(e.term)} /> */}
+                {checkedIngredients(e.term) ? (
+                  <CartButton onClick={() => handleUncheck(e.term)}>
+                    <FaRegCheckCircle />
+                  </CartButton>
+                ) : (
+                  <CartButton onClick={() => handleCheck(e.term)}>
+                    <FaCheck />
+                  </CartButton>
+                )}
+
                 <CartButton>
                   <FaTrash onClick={() => handleDelete(e.term)} />
                 </CartButton>
@@ -226,7 +225,7 @@ const Home = (props) => {
           ))}
         </>
       )}
-      <h1>How To:</h1>
+      <HomeH2>How To:</HomeH2>
     </AppContainer>
   );
 };
