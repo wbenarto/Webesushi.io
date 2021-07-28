@@ -17,6 +17,8 @@ import {
   ModalPoints,
   ModalBox,
   Modalh1,
+  RecipeFilter,
+  RecipeFilterButton,
 } from "./RecipeElements";
 import { AppContainer } from "../HomemakaseElements";
 import PropTypes from "prop-types";
@@ -41,6 +43,7 @@ const Recipe = (props) => {
   const [sushiCard, setSushiCard] = useState("");
   const [open, setOpen] = useState(false);
   const [shoppingCart, setShoppingCart] = useState([]);
+  const [filterOpen, setFilterOpen] = useState(false);
 
   const { sushis, loading } = props.data;
   const { authenticated } = props.user;
@@ -178,6 +181,18 @@ const Recipe = (props) => {
 
   return (
     <AppContainer>
+      <RecipeFilterButton
+        onClick={() => {
+          filterOpen == false ? setFilterOpen(true) : setFilterOpen(false);
+        }}
+      >
+        <h1>filter</h1>
+      </RecipeFilterButton>
+
+      <RecipeFilter open={filterOpen}>
+        <h1>RAW VEG COOKED HO</h1>
+      </RecipeFilter>
+
       <RecipeDisplay>
         {sushis.length !== 0 ? (
           recentSushisMarkUp

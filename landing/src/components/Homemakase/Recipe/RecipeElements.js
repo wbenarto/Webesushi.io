@@ -9,6 +9,45 @@ export const RecipeDisplay = styled.div`
   }
 `;
 
+export const RecipeFilterButton = styled.div`
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background-color: white;
+  height: 50px;
+  z-index: 2;
+  font-size: 0.5rem;
+`;
+
+export const RecipeFilter = styled.div`
+  display: ${({ open }) => (open == false ? "none" : "flex")};
+  position: relative;
+  left: 0;
+  top: 0;
+  background-color: pink;
+  height: 150px;
+  padding: 10px;
+
+  transition: top 0.3s, left 0.3s;
+  animation: animRipple 1s;
+  @keyframes animRipple {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @media screen and (max-width: 968px) {
+    height: 60px;
+    font-size: 0.5rem;
+  }
+`;
+
 export const RecipeCard = styled.div`
   height: 420px;
   position: relative;
@@ -41,6 +80,13 @@ export const RecipeCardName = styled.h3`
     background-color: rgba(10, 10, 10, 0.1);
 
     transition: 0.3s;
+  }
+
+  @media screen and (max-width: 968px) {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 40px;
   }
 
   @media screen and (max-width: 475px) {

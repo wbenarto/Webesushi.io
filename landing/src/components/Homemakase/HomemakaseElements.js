@@ -101,7 +101,7 @@ export const AppMain = styled.div`
     display: none;
   }
 
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 968px) {
     width: 100%;
     height: calc(100vh - 26vh);
   }
