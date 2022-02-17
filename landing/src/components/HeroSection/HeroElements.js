@@ -103,20 +103,6 @@ export const HeroH1 = styled.h1`
     transform-origin: bottom left;
   }
 
-  ::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    inset: 0 0 0 0;
-    background: #fcba03;
-    z-index: -1;
-    transition: transform 0.3s ease;
-  }
-
   @media screen and (max-width: 768px) {
     font-size: 40px;
   }
@@ -224,6 +210,7 @@ export const InfoBtnLink = styled(LinkR)`
       0 0 200px #dbcc46;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
   }
+  
   @media screen and (max-width: 768px) {
     justify-content: center;
     display: ${({ id }) => (id == "about" ? "none" : "flex")};

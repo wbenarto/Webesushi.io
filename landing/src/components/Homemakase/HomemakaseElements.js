@@ -136,7 +136,7 @@ export const AppIconsWrapper = styled.div`
   justify-content: center;
   align-content: center;
   display: block;
-
+  cursor: pointer;
   :hover {
     background-color: rgba(10, 10, 10, 0.2);
     border-radius: 10px;
