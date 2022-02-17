@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import $ from "jquery";
 import { Link } from "react-router-dom";
 import {
   RecipeDisplay,
@@ -19,10 +19,12 @@ import {
   Modalh1,
   RecipeFilter,
   RecipeFilterButton,
+  ContainerCol,
+  FilterButton,
 } from "./RecipeElements";
 import { AppContainer } from "../HomemakaseElements";
+import CheckBox from "./Sections/CheckBox";
 import PropTypes from "prop-types";
-import { sushi } from "../../../data/data";
 import { connect } from "react-redux";
 import {
   getSushis,
@@ -42,12 +44,33 @@ import Modal from "@material-ui/core/Modal";
 const Recipe = (props) => {
   const [sushiCard, setSushiCard] = useState("");
   const [open, setOpen] = useState(false);
-  const [shoppingCart, setShoppingCart] = useState([]);
   const [filterOpen, setFilterOpen] = useState(false);
 
   const { sushis, loading } = props.data;
   const { authenticated } = props.user;
 
+  const [filteredSushi, setFilteredSushi] = useState(sushis);
+
+  useEffect(() => {
+    console.log(filteredSushi);
+  }, []);
+
+  $("#filter-container").click(function () {
+    $(this).addClass("out");
+    $("body").removeClass("modal-active");
+  });
+
+  const handleFilter = (arg) => {
+    console.log(arg);
+    let new_filter = sushis.filter((e) => e.category == arg);
+
+    let filtered = new Set([...new_filter, ...filteredSushi]);
+    console.log([...filtered]);
+    setFilteredSushi(new_filter);
+  };
+  const clearFilter = () => {
+    setFilteredSushi(sushis);
+  };
   const likedSushi = (sushiId) => {
     if (
       props.user.likes &&
@@ -57,6 +80,7 @@ const Recipe = (props) => {
       return true;
     } else return false;
   };
+
   console.log(sushiCard);
   const handleOpen = (e) => {
     setSushiCard(e);
@@ -80,15 +104,13 @@ const Recipe = (props) => {
     const leanCart = new Set([...props.data.shoppingCart, ...ingr]);
     console.log("handleAdd Recipe " + [...leanCart]);
     console.log(props);
-    // setShoppingCart([...leanCart]);
     props.addShoppingCart([...leanCart]);
-    // props.data.shoppingCart = shoppingCart;
   };
 
   const recentSushisMarkUp = loading ? (
     <RecipeCardName>Loading...</RecipeCardName>
   ) : (
-    sushis.map((e) => (
+    filteredSushi.map((e) => (
       <RecipeCard key={e.sushiId} e={e}>
         <RecipeCategory e={e.category}>
           {e.category == "vegetarian" ? "VEG" : e.category.toUpperCase()}
@@ -179,9 +201,22 @@ const Recipe = (props) => {
     ))
   );
 
+  const handleFilters = (filters, category) => {
+    console.log(filters, category);
+
+    let new_filter = filteredSushi.filter((e) => e.type == filters);
+    console.log(new_filter);
+    setFilteredSushi(new_filter);
+    // let filtered = sushis.filter((e) => e.type == ["sashimi", "nigiri"]);
+    // console.log(filtered);
+    // const newFilters = {...Filters}
+    // newFilters[category] = filters
+    // if (category ---)
+  };
+
   return (
     <AppContainer>
-      <RecipeFilterButton
+      {/* <RecipeFilterButton
         onClick={() => {
           filterOpen == false ? setFilterOpen(true) : setFilterOpen(false);
         }}
@@ -189,9 +224,29 @@ const Recipe = (props) => {
         <h1>filter</h1>
       </RecipeFilterButton>
 
-      <RecipeFilter open={filterOpen}>
-        <h1>RAW VEG COOKED HO</h1>
-      </RecipeFilter>
+      <RecipeFilter className="filter-container" open={filterOpen}>
+        <FilterButton onClick={() => clearFilter()}>All</FilterButton>
+        <FilterButton onClick={() => handleFilter("raw")}>Raw</FilterButton>
+        <FilterButton onClick={() => handleFilter("cooked")}>
+          Cooked
+        </FilterButton>
+        <FilterButton onClick={() => handleFilter("vegetarian")}>
+          Veg
+        </FilterButton>
+        <ContainerCol>
+          <FilterButton
+            handleFilters={(filters) => handleFilters(filters, "type")}
+          >
+            ??
+          </FilterButton>
+        </ContainerCol>
+
+        <ContainerCol>
+          <CheckBox
+            handleFilters={(filters) => handleFilters(filters, "type")}
+          />
+        </ContainerCol>
+      </RecipeFilter> */}
 
       <RecipeDisplay>
         {sushis.length !== 0 ? (

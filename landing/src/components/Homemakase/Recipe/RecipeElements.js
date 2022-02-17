@@ -26,25 +26,97 @@ export const RecipeFilter = styled.div`
   position: relative;
   left: 0;
   top: 0;
-  background-color: pink;
+  /* background-color: pink; */
   height: 150px;
   padding: 10px;
 
-  transition: top 0.3s, left 0.3s;
-  animation: animRipple 1s;
-  @keyframes animRipple {
-    from {
+  transform: scaleY(0.01) scaleX(0);
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  .modal-background {
+    .modal {
       transform: scale(0);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
+      animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     }
   }
+  &.out {
+    transform: scale(1);
+    animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    .modal-background {
+      .modal {
+        animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+      }
+    }
+  }
+  @keyframes unfoldIn {
+    0% {
+      transform: scaleY(0.005) scaleX(0);
+    }
+    50% {
+      transform: scaleY(0.005) scaleX(1);
+    }
+    100% {
+      transform: scaleY(1) scaleX(1);
+    }
+  }
+
+  @keyframes unfoldOut {
+    0% {
+      transform: scaleY(1) scaleX(1);
+    }
+    50% {
+      transform: scaleY(0.005) scaleX(1);
+    }
+    100% {
+      transform: scaleY(0.005) scaleX(0);
+    }
+  }
+
+  @keyframes slidein {
+    from {
+      margin-top: -10%;
+    }
+
+    to {
+      margin-top: 0%;
+    }
+  }
+
+  @keyframes slideout {
+    from {
+      margin-top: 0%;
+    }
+    to {
+      margin-top: -10%;
+    }
+  }
+
   @media screen and (max-width: 968px) {
     height: 60px;
     font-size: 0.5rem;
+  }
+`;
+
+export const ContainerCol = styled.div`
+  width: 100px;
+  /* background-color: purple; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const FilterButton = styled.button`
+  width: 100px;
+  height: 50px;
+  text-decoration: none;
+  font-family: Raleway;
+  border: none;
+  background-color: transparent;
+
+  :active,
+  :hover,
+  :focus {
+    background-color: pink;
   }
 `;
 

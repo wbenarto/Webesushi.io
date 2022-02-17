@@ -225,7 +225,7 @@ const Home = (props) => {
           ))}
         </>
       )}
-      <HomeH2>How To:</HomeH2>
+      {/* <HomeH2>How To:</HomeH2> */}
     </AppContainer>
   );
 };

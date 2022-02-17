@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Switch } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
 import { animateScroll as scroll } from "react-scroll";
 import {
   Nav,
-  NavbarContainer,
   NavLogo,
   NavImg,
-  MobileIcon,
-  NavLinks,
-  NavMenu,
-  NavItem,
   NavBtnLink,
   NavBtn,
 } from "./NavbarElements";
@@ -48,98 +41,12 @@ const Navbar = (props) => {
 
   return (
     <Nav scrollNav={scrollNav}>
-      <NavbarContainer>
-        <Switch>
           <NavLogo to="/" onClick={toggleHome}>
             <NavImg
               alt="webe-sushi"
               src={scrollNav == "white" ? webegold : webeblack}
             ></NavImg>
           </NavLogo>
-        </Switch>
-
-        {/* <MobileIcon onClick={props.toggle}>
-          <FaBars />
-        </MobileIcon> */}
-        {/* <NavMenu>
-          <NavItem>
-            <Switch>
-              <NavLinks
-                to="home-makase"
-                smooth={true}
-                duration={1200}
-                spy={true}
-                exact="true"
-                offset={0}
-                activeClass="active"
-              >
-                Home-Makase
-              </NavLinks>
-            </Switch>
-          </NavItem>
-
-          <NavItem>
-            <Switch>
-              <NavLinks
-                to="sustainability"
-                smooth={true}
-                duration={1200}
-                spy={true}
-                exact="true"
-                offset={0}
-                activeClass="active"
-              >
-                Sustainability
-              </NavLinks>
-            </Switch>
-          </NavItem>
-
-          <NavItem>
-            <Switch>
-              <NavLinks
-                to="about"
-                smooth={true}
-                duration={1200}
-                spy={true}
-                exact="true"
-                offset={0}
-                activeClass="active"
-              >
-                About
-              </NavLinks>
-            </Switch>
-          </NavItem>
-
-          <NavItem>
-            <Switch>
-              <NavLinks
-                to="gallery"
-                smooth={true}
-                duration={1200}
-                spy={true}
-                exact="true"
-                offset={0}
-                activeClass="active"
-              >
-                Gallery
-              </NavLinks>
-            </Switch>
-          </NavItem>
-
-          <NavItem>
-            <NavLinks
-              to="services"
-              smooth={true}
-              duration={1200}
-              spy={true}
-              exact="true"
-              offset={0}
-              activeClass="active"
-            >
-              Mission
-            </NavLinks>
-          </NavItem>
-        </NavMenu> */}
 
         <NavBtn>
           {authenticated ? (
@@ -151,7 +58,6 @@ const Navbar = (props) => {
             <NavBtnLink to="/signin">Sign In</NavBtnLink>
           )}
         </NavBtn>
-      </NavbarContainer>
     </Nav>
   );
 };

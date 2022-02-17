@@ -60,7 +60,7 @@ const HomeMakase = (props) => {
             <AppIcons>
               <FaHome />
             </AppIcons>
-            <AppIconsTitle>Home</AppIconsTitle>
+            <AppIconsTitle>Recipes</AppIconsTitle>
           </AppIconsWrapper>
 
           <AppIconsWrapper onClick={() => setActive("home")}>
@@ -74,14 +74,14 @@ const HomeMakase = (props) => {
                 <FaTape />
               </Badge>
             </AppIcons>
-            <AppIconsTitle>Recipes</AppIconsTitle>
+            <AppIconsTitle>Shopping List</AppIconsTitle>
           </AppIconsWrapper>
 
           <AppIconsWrapper onClick={() => setActive("shop")}>
             <AppIcons>
               <FaStore />
             </AppIcons>
-            <AppIconsTitle>Shopping List</AppIconsTitle>
+            <AppIconsTitle>Ingredients</AppIconsTitle>
           </AppIconsWrapper>
 
           <AppIconsWrapper onClick={() => setActive("profile")}>

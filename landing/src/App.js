@@ -1,23 +1,21 @@
 import "./App.css";
-import { useState } from "react";
 import jwtDecode from "jwt-decode";
 import Home from "./pages";
-import Navbar from "./components/Navbar/index";
-import Sidebar from "./components/Sidebar/index";
 import SignupPage from "./pages/signup";
 import ProfilePage from "./pages/profile";
 import HomeMakase from "./pages/homemakase";
+import SustainabilityPage from "./pages/sustainability";
 import SigninPage from "./pages/signin";
+
+// Authentication
 import AuthRoute from "./util/AuthRoute";
 import axios from "axios";
+
 // Redux
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { SET_AUTHENTICATED, SET_UNAUTHENTICATED } from "./redux/types";
 import { logOutUser, getUserData } from "./redux/actions/userActions";
-
-import SustainabilityPage from "./pages/sustainability";
-import NotFoundPage from "./pages/404";
 
 import {
   BrowserRouter as Router,
@@ -26,6 +24,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
+// Set user authentication into redux
 axios.defaults.baseURL =
   "https://us-central1-webesushi-a3bf0.cloudfunctions.net/api";
 const token = localStorage.FBIToken;
@@ -58,7 +57,7 @@ function App() {
               exact
             />
             <Route path="/profile/" component={ProfilePage} exact />
-            {/* <Route component={NotFoundPage} /> */}
+  
             <Redirect to="/homemakase" />
           </Switch>
         </Router>
