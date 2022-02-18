@@ -8,7 +8,7 @@ import {
   ContentSlider,
   ItemImage,
   ItemDesc,
-} from "./ShopElements";
+} from "./IngredientsElements";
 
 import { AppContainer } from "../HomemakaseElements";
 

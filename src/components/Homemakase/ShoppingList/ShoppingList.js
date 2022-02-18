@@ -10,19 +10,21 @@ import {
   CartIcon,
   CartButtons,
   CartButton,
-} from "./HomeElements";
+} from "./ShoppingListElement";
 import { AppContainer } from "../HomemakaseElements";
+import {
+  CardIcons,
+} from "../Recipe/RecipeElements";
 import {
   ModalContainer,
   ModalImage,
   ModalDesc,
-  CardIcons,
   ModalBox,
   Modalh1,
   ModalCategory,
   ModalPoints,
   ModalTitle,
-} from "../Recipe/RecipeElements";
+} from '../../Modal/ModalElements'
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addShoppingCart } from "../../../redux/actions/dataActions";

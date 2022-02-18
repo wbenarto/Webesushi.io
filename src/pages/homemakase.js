@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Shop from "../components/Homemakase/Shopping/Shop";
-import Home from "../components/Homemakase/Home/Home";
+import Ingredients from "../components/Homemakase/Ingredients/Ingredients";
+import ShoppingList from "../components/Homemakase/ShoppingList/ShoppingList";
 import Recipe from "../components/Homemakase/Recipe/Recipe";
 import Profile from "../components/Homemakase/Profile/Profile";
 import {
@@ -44,10 +44,10 @@ const HomeMakase = (props) => {
         </AppNav>
 
         <AppMain>
-          {active == "home" ? (
-            <Home />
-          ) : active == "shop" ? (
-            <Shop />
+          {active == "shoppingList" ? (
+            <ShoppingList />
+          ) : active == "ingredients" ? (
+            <Ingredients />
           ) : active == "profile" ? (
             <Profile props={props} />
           ) : (
@@ -63,7 +63,7 @@ const HomeMakase = (props) => {
             <AppIconsTitle>Recipes</AppIconsTitle>
           </AppIconsWrapper>
 
-          <AppIconsWrapper onClick={() => setActive("home")}>
+          <AppIconsWrapper onClick={() => setActive("shoppingList")}>
             <AppIcons>
               <Badge
                 color="secondary"
@@ -77,7 +77,7 @@ const HomeMakase = (props) => {
             <AppIconsTitle>Shopping List</AppIconsTitle>
           </AppIconsWrapper>
 
-          <AppIconsWrapper onClick={() => setActive("shop")}>
+          <AppIconsWrapper onClick={() => setActive("ingredients")}>
             <AppIcons>
               <FaStore />
             </AppIcons>
