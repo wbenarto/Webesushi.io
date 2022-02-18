@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import $ from "jquery";
 import { Link } from "react-router-dom";
 import {
   RecipeDisplay,
@@ -9,10 +8,6 @@ import {
   RecipeCategory,
   CardIcons,
   CardButton,
-  RecipeFilter,
-  RecipeFilterButton,
-  ContainerCol,
-  FilterButton,
 } from "./RecipeElements";
 import { ModalContainer,
   ModalTitle,
@@ -22,9 +17,9 @@ import { ModalContainer,
   ModalPoints,
   ModalBox,
   Modalh1,
-  ModalList,
   ModalIngredients,
   ModalIngredient} from '../../Modal/ModalElements'
+import Modal from '../../Modal/Modal'
 import { AppContainer } from "../HomemakaseElements";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -37,12 +32,10 @@ import {
 import {
   FaRegHeart,
   FaHeart,
-  FaRegListAlt,
   FaRegPlusSquare,
 } from "react-icons/fa";
-import { FiFrown, FiSmile } from "react-icons/fi";
-import { makeStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
+
+// import Modal from "@material-ui/core/Modal";
 
 const Recipe = (props) => {
   const [sushiCard, setSushiCard] = useState("");
@@ -51,11 +44,6 @@ const Recipe = (props) => {
   const { sushis, loading } = props.data;
   const { authenticated } = props.user;
 
-
-  $("#filter-container").click(function () {
-    $(this).addClass("out");
-    $("body").removeClass("modal-active");
-  });
 
   const likedSushi = (sushiId) => {
     if (
@@ -67,14 +55,10 @@ const Recipe = (props) => {
     } else return false;
   };
 
-  console.log(sushis)
-  console.log(sushiCard);
-  console.log(sushiIngredients)
   const handleOpen = (e) => {
     setSushiCard(e);
     setSushiIngredients(e.ingredients)
     setOpen(true);
-    console.log(e);
   };
 
   const handleClose = () => {
@@ -92,7 +76,6 @@ const Recipe = (props) => {
   const handleAdd = (ingr) => {
     const leanCart = new Set([...props.data.shoppingCart, ...ingr]);
     console.log("handleAdd Recipe " + [...leanCart]);
-    console.log(props);
     props.addShoppingCart([...leanCart]);
   };
 
@@ -128,13 +111,14 @@ const Recipe = (props) => {
           </CardButton>
         </CardIcons>
 
-        
+        <Modal  open={open} sushiCard={sushiCard} handleClose={handleClose}/> 
+
+{/*         
         <Modal open={open} onClick={handleClose}>
           <ModalContainer>
             {" "}
             <ModalTitle>{sushiCard.name}</ModalTitle>
             <ModalImage
-              onClick={() => handleOpen(e.sushiId)}
               src={sushiCard.image}
             />
             <CardIcons>
@@ -193,10 +177,8 @@ const Recipe = (props) => {
                     <ModalIngredient key={i}>{e.charAt(0).toUpperCase() + e.slice(1)}</ModalIngredient>
                   ))}
               </ModalIngredients>
-              
-
           </ModalContainer>
-        </Modal>
+        </Modal> */}
       </RecipeCard>
     ))
   );

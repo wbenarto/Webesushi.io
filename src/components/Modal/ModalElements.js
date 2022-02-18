@@ -10,6 +10,7 @@ padding: 20px 10px 10px 15px;
 font-family: Raleway;
 overflow-y: scroll;
 transition: 3s;
+border-radius: 25px;
 `;
 
 export const ModalTitle = styled.div`
@@ -21,7 +22,8 @@ font-weight: 600;
 export const ModalImage = styled.img`
 width: 100%;
 border-radius: 20px;
-max-height: 60%;
+min-height: 400px;
+max-height: 600px;
 object-fit: cover;
 margin: 20px 0px;
 
@@ -76,15 +78,12 @@ width: 85%;
 height: 100%;
 `;
 
-export const ModalList = styled.p`
-padding: 5px;
-`
-
 export const ModalIngredients = styled.div`
     display: flex;
     justify-content: center;
     color:black;
     width: 100%;
+    min-height: 400px;
     flex-direction: column;
     border: 1px solid black;
     border-width: 1px 0 1px 0;
@@ -94,6 +93,7 @@ export const ModalIngredient = styled.p`
     color: black;
     font-size: 1.5em;
     padding: 2px;
+    width: 100%;
 `
 
 
@@ -102,10 +102,10 @@ export const ModalIngredient = styled.p`
 export const ModalBackground1 = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: blue;
+  background-color: #e6d2bc;
   position: absolute;
     z-index: 10;
-  display: flex;
+
 
 `
 export const ModalContainer1 = styled.div`
