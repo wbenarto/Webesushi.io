@@ -9,7 +9,12 @@ import {
   RecipeCategory,
   CardIcons,
   CardButton,
-  ModalContainer,
+  RecipeFilter,
+  RecipeFilterButton,
+  ContainerCol,
+  FilterButton,
+} from "./RecipeElements";
+import { ModalContainer,
   ModalTitle,
   ModalImage,
   ModalDesc,
@@ -17,13 +22,10 @@ import {
   ModalPoints,
   ModalBox,
   Modalh1,
-  RecipeFilter,
-  RecipeFilterButton,
-  ContainerCol,
-  FilterButton,
-} from "./RecipeElements";
+  ModalList,
+  ModalIngredients,
+  ModalIngredient} from '../../Modal/ModalElements'
 import { AppContainer } from "../HomemakaseElements";
-import CheckBox from "./Sections/CheckBox";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
@@ -39,10 +41,12 @@ import {
   FaRegPlusSquare,
 } from "react-icons/fa";
 import { FiFrown, FiSmile } from "react-icons/fi";
+import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 
 const Recipe = (props) => {
   const [sushiCard, setSushiCard] = useState("");
+  const [sushiIngredients, setSushiIngredients] = useState([])
   const [open, setOpen] = useState(false);
   const { sushis, loading } = props.data;
   const { authenticated } = props.user;
@@ -63,9 +67,12 @@ const Recipe = (props) => {
     } else return false;
   };
 
+  console.log(sushis)
   console.log(sushiCard);
+  console.log(sushiIngredients)
   const handleOpen = (e) => {
     setSushiCard(e);
+    setSushiIngredients(e.ingredients)
     setOpen(true);
     console.log(e);
   };
@@ -92,7 +99,7 @@ const Recipe = (props) => {
   const recentSushisMarkUp = loading ? (
     <RecipeCardName>Loading...</RecipeCardName>
   ) : (
-    sushis.map((e) => (
+    sushis.map((e, i) => (
       <RecipeCard key={e.sushiId} e={e}>
         <RecipeCategory e={e.category}>
           {e.category == "vegetarian" ? "VEG" : e.category.toUpperCase()}
@@ -120,6 +127,8 @@ const Recipe = (props) => {
             <FaRegPlusSquare />
           </CardButton>
         </CardIcons>
+
+        
         <Modal open={open} onClick={handleClose}>
           <ModalContainer>
             {" "}
@@ -177,6 +186,15 @@ const Recipe = (props) => {
                 )}
               </ModalBox>
             </CardIcons>
+              
+              <ModalIngredients>
+              <ModalTitle>Ingredients List:</ModalTitle>
+              {sushiIngredients.map((e,i) => (
+                    <ModalIngredient key={i}>{e.charAt(0).toUpperCase() + e.slice(1)}</ModalIngredient>
+                  ))}
+              </ModalIngredients>
+              
+
           </ModalContainer>
         </Modal>
       </RecipeCard>
