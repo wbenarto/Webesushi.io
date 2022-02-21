@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ModalContainer = styled.div`
-margin: auto;
+margin: 20px auto;
 background-color: #ffffff;
 max-width: 700px;
 width: 98%;

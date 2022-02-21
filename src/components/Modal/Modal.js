@@ -59,7 +59,7 @@ function Modal({ open , sushiCard, handleClose}) {
             <CardIcons>
               <ModalBox>
                 <Modalh1>Category</Modalh1>
-                <ModalCategory >
+                <ModalCategory e={sushiCard.category} >
                   {sushiCard.category ? sushiCard.category.toUpperCase() : ""}
                 </ModalCategory>
               </ModalBox>
