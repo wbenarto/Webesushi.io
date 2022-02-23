@@ -106,8 +106,8 @@ const Recipe = (props) => {
           {/* <CardButton>
             <FaRegListAlt />
           </CardButton> */}
-          <CardButton onClick={() => handleAdd(e.ingredients)}>
-            <FaRegPlusSquare />
+          <CardButton className='add' onClick={() => handleAdd(e.ingredients)}>
+            {/* <FaRegPlusSquare /> */}
           </CardButton>
         </CardIcons>
 

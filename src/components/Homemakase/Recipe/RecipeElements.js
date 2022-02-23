@@ -126,11 +126,27 @@ export const CardButton = styled.div`
     color: black;
   }
 
+  &::before {
+    content: '+';
+    font-size: 40px;
+    }
   :hover {
     cursor: pointer;
     background-color: rgba(10, 10, 10, 0.1);
     transition: 0.3s;
     color: #fff;
+    &::before {
+      content: none;
+    }
+    width: 100%;
+    padding: 0px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &::after {
+      content: 'Add to Shopping List';
+      font-size: 20px;
+    }
 
     > a {
       color: #fff;
