@@ -9,16 +9,6 @@ import {
   CardIcons,
   CardButton,
 } from "./RecipeElements";
-import { ModalContainer,
-  ModalTitle,
-  ModalImage,
-  ModalDesc,
-  ModalCategory,
-  ModalPoints,
-  ModalBox,
-  Modalh1,
-  ModalIngredients,
-  ModalIngredient} from '../../Modal/ModalElements'
 import Modal from '../../Modal/Modal'
 import { AppContainer } from "../HomemakaseElements";
 import PropTypes from "prop-types";
@@ -34,8 +24,6 @@ import {
   FaHeart,
   FaRegPlusSquare,
 } from "react-icons/fa";
-
-// import Modal from "@material-ui/core/Modal";
 
 const Recipe = (props) => {
   const [sushiCard, setSushiCard] = useState("");
@@ -112,73 +100,6 @@ const Recipe = (props) => {
         </CardIcons>
 
         <Modal  open={open} sushiCard={sushiCard} handleClose={handleClose}/> 
-
-{/*         
-        <Modal open={open} onClick={handleClose}>
-          <ModalContainer>
-            {" "}
-            <ModalTitle>{sushiCard.name}</ModalTitle>
-            <ModalImage
-              src={sushiCard.image}
-            />
-            <CardIcons>
-              <CardButton>
-                {!authenticated ? (
-                  <Link to="/signin">
-                    {" "}
-                    <FaRegHeart color="black" />{" "}
-                  </Link>
-                ) : likedSushi(sushiCard.sushiId) ? (
-                  <FaHeart
-                    color="black"
-                    onClick={() => handleUnlike(sushiCard.sushiId)}
-                  />
-                ) : (
-                  <FaRegHeart
-                    color="black"
-                    onClick={() => handleLike(sushiCard.sushiId)}
-                  />
-                )}
-              </CardButton>
-              <CardButton onClick={() => handleAdd(sushiCard.ingredients)}>
-                <FaRegPlusSquare />
-              </CardButton>
-            </CardIcons>
-            <ModalDesc>{sushiCard.desc}</ModalDesc>
-            <CardIcons>
-              <ModalBox>
-                <Modalh1>Category</Modalh1>
-                <ModalCategory e={sushiCard.category}>
-                  {sushiCard.category ? sushiCard.category.toUpperCase() : ""}
-                </ModalCategory>
-              </ModalBox>
-              <ModalBox>
-                <Modalh1>Difficulty</Modalh1>
-                <ModalPoints>{sushiCard.dishPoint}</ModalPoints>
-              </ModalBox>
-              <ModalBox>
-                <Modalh1> Sustainability</Modalh1>
-
-                {sushiCard.sustainability == "good" ? (
-                  <ModalPoints>
-                    <FiSmile />
-                  </ModalPoints>
-                ) : (
-                  <ModalPoints>
-                    <FiFrown />
-                  </ModalPoints>
-                )}
-              </ModalBox>
-            </CardIcons>
-              
-              <ModalIngredients>
-              <ModalTitle>Ingredients List:</ModalTitle>
-              {sushiIngredients.map((e,i) => (
-                    <ModalIngredient key={i}>{e.charAt(0).toUpperCase() + e.slice(1)}</ModalIngredient>
-                  ))}
-              </ModalIngredients>
-          </ModalContainer>
-        </Modal> */}
       </RecipeCard>
     ))
   );

@@ -11,6 +11,18 @@ font-family: Raleway;
 overflow-y: scroll;
 transition: 3s;
 border-radius: 25px;
+animation: transitionIn 1s;
+
+@keyframes transitionIn {
+        from {
+            opacity: 0;
+            margin-top: 1000px;
+        }
+        to {
+            opacity: 1;
+            top: 0;
+        }
+    }
 `;
 
 export const ModalTitle = styled.div`

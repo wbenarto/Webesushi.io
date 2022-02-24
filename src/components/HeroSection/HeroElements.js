@@ -75,7 +75,7 @@ export const HeroH1 = styled.h1`
   color: #dbd6a9;
   font-size: 75px;
   text-align: center;
-  font-weight: normal;
+  font-weight: 100;
   line-height: 2em;
   color: #fee;
 
@@ -92,6 +92,7 @@ export const HeroH1 = styled.h1`
       animation: blink linear infinite 3s;
     }
   }
+
   ::before {
     transform: scaleX(0);
     transform-origin: bottom right;
@@ -104,11 +105,11 @@ export const HeroH1 = styled.h1`
   }
 
   @media screen and (max-width: 768px) {
-    font-size: 40px;
-  }
-
-  @media screen and (max-width: 475px) {
-    font-size: 32px;
+    >b {
+      font-size: 40px;
+    
+    }
+    
   }
 
   @keyframes blink {
