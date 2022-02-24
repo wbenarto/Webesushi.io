@@ -91,7 +91,7 @@ const Recipe = (props) => {
         <RecipeCardName onClick={() => handleOpen(e)}>{e.name}</RecipeCardName>
         <RecipeCardImage onClick={() => handleOpen(e)} src={e.image} />
         <CardIcons>
-          <CardButton>
+          <CardButton data-hover='Save to favorite'>
             {!authenticated ? (
               <Link to="/signin">
                 {" "}
@@ -106,8 +106,8 @@ const Recipe = (props) => {
           {/* <CardButton>
             <FaRegListAlt />
           </CardButton> */}
-          <CardButton className='add' onClick={() => handleAdd(e.ingredients)}>
-            {/* <FaRegPlusSquare /> */}
+          <CardButton data-hover='Add to Shopping List' onClick={() => handleAdd(e.ingredients)}>
+            <FaRegPlusSquare />
           </CardButton>
         </CardIcons>
 
