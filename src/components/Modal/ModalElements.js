@@ -81,13 +81,16 @@ height: 100%;
 
 export const ModalIngredients = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     color:black;
     width: 100%;
     min-height: 400px;
     flex-direction: column;
     border: 1px solid black;
     border-width: 1px 0 1px 0;
+    margin-top: 20px;
+    padding-top: 20px;
+
 `
 
 export const ModalIngredient = styled.p`
@@ -108,14 +111,4 @@ export const ModalBackground1 = styled.div`
     z-index: 10;
 
 
-`
-export const ModalContainer1 = styled.div`
-  width: 50vw;
-  height: 40vh;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  display: flex;
-  flex-direction: column;
-  padding: 25px;
 `
