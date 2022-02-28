@@ -27,7 +27,6 @@ import {
 
 const Recipe = (props) => {
   const [sushiCard, setSushiCard] = useState("");
-  const [sushiIngredients, setSushiIngredients] = useState([])
   const [open, setOpen] = useState(false);
   const { sushis, loading } = props.data;
   const { authenticated } = props.user;
@@ -45,7 +44,6 @@ const Recipe = (props) => {
 
   const handleOpen = (e) => {
     setSushiCard(e);
-    setSushiIngredients(e.ingredients)
     setOpen(true);
   };
 

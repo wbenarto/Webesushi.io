@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ProfileContainer = styled.div`
-  width: 50%;
+  width: 100%;
   display: flex;
   margin: 0px 5px 0px 5px;
   padding-bottom: 15px;
