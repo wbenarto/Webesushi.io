@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import EditDetails from "./EditDetails";
 import {
@@ -11,6 +12,7 @@ import {
   ProfileBioButton,
   ProfileStats,
 } from "./ProfileElements";
+import {AppContainer} from '../HomemakaseElements';
 import {
   FormContent,
   Container,
@@ -22,11 +24,31 @@ import {
   FormInput,
   FormButton,
 } from "../../Singin/SinginElements";
-import { AppContainer } from "../HomemakaseElements";
+import Modal from '../../Modal/Modal'
+import {
+  RecipeCard,
+  RecipeCardName,
+  RecipeCardImage,
+  RecipeCategory,
+  CardIcons,
+  CardButton,
+  RecipeDisplay,
+} from "../Recipe/RecipeElements";
 import webechef from "../../../images/webechef.jpg";
+import {
+  FaRegHeart,
+  FaHeart,
+  FaRegPlusSquare,
+} from "react-icons/fa";
+
 // Redux
 import { connect } from "react-redux";
 import { logOutUser, loginUser } from "../../../redux/actions/userActions";
+import {
+  likeSushi,
+  unlikeSushi,
+  addShoppingCart,
+} from "../../../redux/actions/dataActions";
 
 const Profile = (props) => {
   const {
@@ -37,16 +59,51 @@ const Profile = (props) => {
       likes,
     },
   } = props;
+  const [sushiCard, setSushiCard] = useState("");
+  const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
   let count = 0;
-  let likedSushi = props.user.likes.map((e) =>
+  let likedSushis = props.user.likes.map((e) =>
     props.data.sushis.find((x) => x.sushiId == e.sushiId)
   );
   console.log(props);
-  // console.log(likedSushi[0].name);
+
+  const likedSushi = (sushiId) => {
+    if (
+      props.user.likes &&
+      props.user.likes.find((like) => like.sushiId == sushiId)
+    ) {
+      console.log(sushiId, props.user.likes);
+      return true;
+    } else return false;
+  };
+
+  const handleOpen = (e) => {
+    setSushiCard(e);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleLike = (sushiId) => {
+    props.likeSushi(sushiId);
+  };
+
+  const handleUnlike = (sushiId) => {
+    props.unlikeSushi(sushiId);
+  };
+
+  const handleAdd = (ingr) => {
+    const leanCart = new Set([...props.data.shoppingCart, ...ingr]);
+    console.log("handleAdd Recipe " + [...leanCart]);
+    props.addShoppingCart([...leanCart]);
+  };
+
   const handleLogOut = () => {
     props.logOutUser();
   };
@@ -109,11 +166,40 @@ const Profile = (props) => {
             </ProfileBioButton>
           </ProfileBio>
         </ProfileContainer>
-        {/* <>
-          {likedSushi.map((e) => (
-            <p>{e.name}</p>
+          <RecipeDisplay>
+          {likedSushis?.map((e,i) => (
+            <RecipeCard key={e.sushiId} e={e}>
+            <RecipeCategory e={e.category}>
+              {e.category == "vegetarian" ? "VEG" : e.category.toUpperCase()}
+              {/* {e.category.split("").splice(0, 4).join("")} */}
+            </RecipeCategory>
+            <RecipeCardName onClick={() => handleOpen(e)}>{e.name}</RecipeCardName>
+            <RecipeCardImage onClick={() => handleOpen(e)} src={e.image} />
+            <CardIcons>
+            <CardButton data-hover='Save to favorite'>
+            {!authenticated ? (
+              <Link to="/signin">
+                {" "}
+                <FaRegHeart />{" "}
+              </Link>
+            ) : likedSushi(e.sushiId) ? (
+              <FaHeart onClick={() => handleUnlike(e.sushiId)} />
+            ) : (
+              <FaRegHeart onClick={() => handleLike(e.sushiId)} />
+            )}
+          </CardButton>
+         
+          <CardButton data-hover='Add to Shopping List' onClick={() => handleAdd(e.ingredients)}>
+            <FaRegPlusSquare />
+          </CardButton>
+        </CardIcons>
+        
+            <Modal  open={open} sushiCard={sushiCard} handleClose={handleClose}/> 
+          </RecipeCard>
           ))}
-        </> */}
+          </RecipeDisplay>
+          
+      
       </AppContainer>
     ) : (
       <AppContainer>
@@ -191,14 +277,20 @@ Profile.propTypes = {
   user: PropTypes.object.isRequired,
   logOutUser: PropTypes.func.isRequired,
   loginUser: PropTypes.func.isRequired,
-};
-const mapActionsToProps = {
-  logOutUser,
-  loginUser,
+  likeSushi: PropTypes.func.isRequired,
+  unlikeSushi: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
   user: state.user,
   data: state.data,
 });
+const mapActionToProps = {
+  logOutUser,
+  loginUser,
+  likeSushi,
+  unlikeSushi,
+  addShoppingCart,
+};
 
-export default connect(mapStateToProps, mapActionsToProps)(Profile);
+
+export default connect(mapStateToProps, mapActionToProps)(Profile);
