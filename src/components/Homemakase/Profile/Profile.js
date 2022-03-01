@@ -176,18 +176,27 @@ const Profile = (props) => {
             <RecipeCardName onClick={() => handleOpen(e)}>{e.name}</RecipeCardName>
             <RecipeCardImage onClick={() => handleOpen(e)} src={e.image} />
             <CardIcons>
-            <CardButton data-hover='Save to favorite'>
+            
             {!authenticated ? (
+              
               <Link to="/signin">
-                {" "}
-                <FaRegHeart />{" "}
+                <CardButton data-hover='Save to favorite'>
+                <FaRegHeart />
+                </CardButton>
               </Link>
+            
             ) : likedSushi(e.sushiId) ? (
-              <FaHeart onClick={() => handleUnlike(e.sushiId)} />
+              <CardButton onClick={() => handleUnlike(e.sushiId)} data-hover='Save to favorite'>
+                <FaHeart  />
+              </CardButton>
+              
             ) : (
-              <FaRegHeart onClick={() => handleLike(e.sushiId)} />
+              <CardButton onClick={() => handleLike(e.sushiId)} data-hover='Save to favorite'>
+                <FaRegHeart  />
+              </CardButton>
+              
             )}
-          </CardButton>
+         
          
           <CardButton data-hover='Add to Shopping List' onClick={() => handleAdd(e.ingredients)}>
             <FaRegPlusSquare />

@@ -19,6 +19,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+  console.log(action.payload, state)
   switch (action.type) {
     case SET_AUTHENTICATED:
       return {
@@ -53,9 +54,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         likes: [
-          ...state.likes.filter(
-            (like) => like.sushiId === action.payload.sushiId
-          ),
+          ...state.likes
         ],
       };
     default:
