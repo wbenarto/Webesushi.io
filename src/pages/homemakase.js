@@ -3,6 +3,13 @@ import Ingredients from "../components/Homemakase/Ingredients/Ingredients";
 import ShoppingList from "../components/Homemakase/ShoppingList/ShoppingList";
 import Recipe from "../components/Homemakase/Recipe/Recipe";
 import Profile from "../components/Homemakase/Profile/Profile";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   FaChevronLeft,
   FaHome,
@@ -42,7 +49,7 @@ const HomeMakase = (props) => {
           </AppNavLogo>
           <AppHeading>HOME-MAKASE</AppHeading>
         </AppNav>
-
+{/* 
         <AppMain>
           {active == "shoppingList" ? (
             <ShoppingList />
@@ -53,17 +60,24 @@ const HomeMakase = (props) => {
           ) : (
             <Recipe />
           )}
+        </AppMain> */}
+        <AppMain>
+         <Recipe />
         </AppMain>
 
+
         <AppFooter>
-          <AppIconsWrapper onClick={() => setActive("/")}>
+          <Link to='/homemakase/'>  
+          <AppIconsWrapper>
             <AppIcons>
               <FaHome />
             </AppIcons>
             <AppIconsTitle>Recipes</AppIconsTitle>
           </AppIconsWrapper>
+          </Link>
 
-          <AppIconsWrapper onClick={() => setActive("shoppingList")}>
+          <Link to='/homemakase/shoppinglist'>
+          <AppIconsWrapper>
             <AppIcons>
               <Badge
                 color="secondary"
@@ -74,22 +88,28 @@ const HomeMakase = (props) => {
                 <FaTape />
               </Badge>
             </AppIcons>
-            <AppIconsTitle>Shopping List</AppIconsTitle>
+            <AppIconsTitle>Shopping List</AppIconsTitle>   
           </AppIconsWrapper>
+          </Link>
 
-          <AppIconsWrapper onClick={() => setActive("ingredients")}>
+          <Link to='/homemakase/ingredients'>
+          <AppIconsWrapper>
             <AppIcons>
               <FaStore />
             </AppIcons>
             <AppIconsTitle>Ingredients</AppIconsTitle>
           </AppIconsWrapper>
-
-          <AppIconsWrapper onClick={() => setActive("profile")}>
+          </Link>
+          
+          <Link to='/homemakase/profile'>
+          <AppIconsWrapper>
             <AppIcons>
               <FaUserAlt />
             </AppIcons>
             <AppIconsTitle>Profile</AppIconsTitle>
           </AppIconsWrapper>
+          </Link>
+          
         </AppFooter>
       </HomemakaseContainer>
     </>
