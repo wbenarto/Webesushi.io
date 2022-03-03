@@ -5,10 +5,7 @@ import { Link as LinkR } from "react-router-dom";
 export const HomemakaseContainer = styled.div`
   position: absolute;
   width: 100vw;
-  background-color: pink;
   justify-content: center;
-
-  /* background-color: pink; */
 
   ::before {
     content: "";
@@ -78,7 +75,7 @@ export const AppMain = styled.div`
   margin-right: auto;
   margin-bottom: auto;
   width: 70%;
-
+  height: calc(100vh - 19vh);
   font-family: "Raleway";
   font-size: 0.8rem;
   overflow: scroll;
@@ -119,11 +116,10 @@ export const AppFooter = styled.div`
   position: relative;
   margin: auto;
   max-width: 100vw;
-  height: 8vh;
+  height: 9vh;
   flex-shrink: 0;
   display: flex;
   justify-content: space-evenly;
-
   @media screen and (max-width: 475px) {
     height: 8vh;
   }

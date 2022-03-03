@@ -5,10 +5,11 @@ import SignupPage from "./pages/signup";
 import ProfilePage from "./pages/profile";
 import HomeMakase from "./pages/homemakase";
 import SustainabilityPage from "./pages/sustainability";
+import Ingredients from './pages/ingredients';
 import SigninPage from "./pages/signin";
 import ShoppingList from './pages/shoppinglist'
 import Recipe from './components/Homemakase/Recipe/Recipe'
-import Ingredients from './components/Homemakase/Ingredients/Ingredients'
+// import Ingredients from './components/Homemakase/Ingredients/Ingredients'
 import Profile from './components/Homemakase/Profile/Profile'
 
 // Authentication
@@ -55,16 +56,15 @@ function App() {
             <AuthRoute path="/signin/" component={SigninPage} exact />
             <AuthRoute path="/signup/" component={SignupPage} exact />
             <Route path="/homemakase/" component={HomeMakase} exact />
-            {/* <Route path="/homemakase/" component={Recipe} exact /> */}
             <Route path="/homemakase/shoppinglist" component={ShoppingList} exact />
             <Route path="/homemakase/ingredients" component={Ingredients} exact />
-            <Route path="/homemakase/profile" component={Profile} exact />
+            <Route path="/homemakase/profile" component={ProfilePage} exact />
             <Route
               path="/sustainability/"
               component={SustainabilityPage}
               exact
             />
-            <Route path="/profile/" component={ProfilePage} exact />
+
   
             <Redirect to="/homemakase" />
           </Switch>
