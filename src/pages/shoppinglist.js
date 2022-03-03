@@ -137,6 +137,7 @@ const Home = (props) => {
           </AppNavLogo>
           <AppHeading>HOME-MAKASE</AppHeading>
         </AppNav>
+        
         <AppMain>
         {shoppingCart == 0 ? (
         <HomeInfo>
