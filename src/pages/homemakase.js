@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Recipe from "../components/Homemakase/Recipe/Recipe";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";

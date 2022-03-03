@@ -8,9 +8,6 @@ import SustainabilityPage from "./pages/sustainability";
 import Ingredients from './pages/ingredients';
 import SigninPage from "./pages/signin";
 import ShoppingList from './pages/shoppinglist'
-import Recipe from './components/Homemakase/Recipe/Recipe'
-// import Ingredients from './components/Homemakase/Ingredients/Ingredients'
-import Profile from './components/Homemakase/Profile/Profile'
 
 // Authentication
 import AuthRoute from "./util/AuthRoute";

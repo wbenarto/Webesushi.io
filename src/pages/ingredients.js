@@ -15,7 +15,7 @@ const Ingredients = (props) => {
         <>
         <HomemakaseContainer>
             <HomemakaseNav />
-            {/* <h1>Henlo</h1> */}
+            
             <AppMain>
                 <IngredientsMain />
             </AppMain>
