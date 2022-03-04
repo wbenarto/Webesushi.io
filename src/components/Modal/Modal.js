@@ -26,7 +26,7 @@ import {
 function Modal({ open , sushiCard, handleClose}) {
   return (
     <ModalMUI open={open} onClick={handleClose}>
-    <ModalBackground1>
+  
       <ModalContainer>
       <ModalTitle>{sushiCard.name}</ModalTitle>
             <ModalImage
@@ -89,7 +89,7 @@ function Modal({ open , sushiCard, handleClose}) {
                   ))}
               </ModalIngredients>
       </ModalContainer>
-    </ModalBackground1>
+    
     </ModalMUI>
     
   );

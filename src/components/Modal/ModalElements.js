@@ -5,7 +5,7 @@ margin: 20px auto;
 background-color: #ffffff;
 max-width: 700px;
 width: 98%;
-height: 100%;
+height: 95%;
 padding: 20px 10px 10px 15px;
 font-family: Raleway;
 overflow-y: scroll;
@@ -23,8 +23,7 @@ font-weight: 600;
 export const ModalImage = styled.img`
 width: 100%;
 border-radius: 20px;
-min-height: 400px;
-max-height: 600px;
+height: 400px;
 object-fit: cover;
 margin: 20px 0px;
 
@@ -84,7 +83,7 @@ export const ModalIngredients = styled.div`
     justify-content: flex-start;
     color:black;
     width: 100%;
-    min-height: 400px;
+    min-height: 80%;
     flex-direction: column;
     border: 1px solid black;
     border-width: 1px 0 1px 0;
