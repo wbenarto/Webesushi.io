@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useEffect, useState } from 'react'
 import {
     AppFooter,
     AppIconsWrapper,
@@ -11,10 +11,22 @@ import {
     FaStore,
     FaTape,
     FaUserAlt,
+    FaPlus
   } from "react-icons/fa";
+import ModalAddProduct from '../Modal/ModalAddProduct'
 import { Link } from "react-router-dom";
 
 const HomemakaseFooter = ({props}) => {
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => {
+      setOpen(true)
+    }
+
+    const handleClose = () => {
+      setOpen(false);
+    };
+
     return (
         <>
         <AppFooter>
@@ -42,6 +54,14 @@ const HomemakaseFooter = ({props}) => {
             <AppIconsTitle>Shopping List</AppIconsTitle>   
             </Link>
           </AppIconsWrapper>
+
+          <AppIconsWrapper onClick={() => handleOpen()}>
+                <AppIcons >
+                  <FaPlus />
+                  <AppIconsTitle>Post Recipe</AppIconsTitle> 
+                </AppIcons>
+          </AppIconsWrapper>
+          <ModalAddProduct open={open} handleClose={handleClose} />
           
           <AppIconsWrapper>
             <Link to='/homemakase/ingredients'>

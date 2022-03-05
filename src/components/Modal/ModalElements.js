@@ -111,3 +111,11 @@ export const ModalBackground1 = styled.div`
 
 
 `
+
+// ModalAddProduct
+export const ModalAddProductHeader = styled.div`
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #000000;
+  text-align: center;
+`
