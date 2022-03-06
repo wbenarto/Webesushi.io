@@ -9,6 +9,9 @@ import {ModalBackground1, ModalContainer, ModalTitle,
     ModalIngredients,
     ModalIngredient,
     ModalAddProductHeader,
+    ModalAddImageSection,
+    ModalImageBox,
+    ModalRecipeDescription
 } from './ModalElements'
 import {  
     CardIcons,
@@ -31,8 +34,15 @@ function ModalAddProduct({ open, handleClose}) {
   
       <ModalContainer>
           <ModalAddProductHeader>
+            <h3>Back</h3>
             <h1>Add New Sushi Recipe</h1>
+            <h3>Post</h3>
           </ModalAddProductHeader>
+          <ModalAddImageSection>
+            <ModalImageBox />
+            <ModalRecipeDescription />
+    
+          </ModalAddImageSection>
           <h1>Product Image Upload</h1><h2>Add Description</h2>
           <h1>Add Ingredients</h1>
           <h1>Add Category</h1>

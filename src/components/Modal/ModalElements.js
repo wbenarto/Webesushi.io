@@ -118,5 +118,31 @@ export const ModalAddProductHeader = styled.div`
   height: 60px;
   border-bottom: 1px solid #000000;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: pink;
 `
 
+export const ModalAddImageSection = styled.div`
+  height: 200px;
+  width: 100%;
+  background-color: purple;
+  padding: 20px 0;
+  display: flex;
+
+
+`
+
+export const ModalImageBox = styled.div`
+  width : 40%;
+  height: 100%;
+  background-color: blue;
+`
+
+export const ModalRecipeDescription = styled.div`
+  width: 60%;
+  height: 100%;
+  background-color: yellow;
+`
