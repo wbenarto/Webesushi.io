@@ -33,9 +33,8 @@ function ModalAddProduct({ open, handleClose}) {
           <ModalAddProductHeader>
             <h1>Add New Sushi Recipe</h1>
           </ModalAddProductHeader>
-          <h1>Product Image Upload</h1>
+          <h1>Product Image Upload</h1><h2>Add Description</h2>
           <h1>Add Ingredients</h1>
-          <h1>Add Description</h1>
           <h1>Add Category</h1>
           <h1>Add Sustainabilty Score</h1>
           <h1>Add Difficulty Score</h1>
