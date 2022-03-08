@@ -145,4 +145,31 @@ export const ModalRecipeDescription = styled.div`
   width: 60%;
   height: 100%;
   background-color: yellow;
+
+  >textarea {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+ 
+  }
+`
+
+export const ModalRecipeIngredients = styled.div`
+  width: 100%;
+  height: 50px;
+  background-color: pink;
+  display: flex;
+  align-items: center; 
+  >select {
+      width: 60%;
+    }
+  >label {
+    width: 40%;
+    background-color: red;
+    >h2 {
+    
+    }
+    
+ 
+  }
 `

@@ -1,4 +1,4 @@
-import React from "react";
+import Reac, {useState} from "react";
 import {ModalBackground1, ModalContainer, ModalTitle,
     ModalImage,
     ModalDesc,
@@ -11,7 +11,8 @@ import {ModalBackground1, ModalContainer, ModalTitle,
     ModalAddProductHeader,
     ModalAddImageSection,
     ModalImageBox,
-    ModalRecipeDescription
+    ModalRecipeDescription,
+    ModalRecipeIngredients
 } from './ModalElements'
 import {  
     CardIcons,
@@ -28,22 +29,63 @@ import {
 
 
 
-function ModalAddProduct({ open, handleClose}) {
+const ModalAddProduct = ({ open, handleClose}) => {
+  const [description, setDescription] = useState('')
+  const [ingredients, setIngredients] = useState([])
+
+  const handleSubmit = (event) => {
+   
+    event.preventDefault();
+    alert('Description : ' + description);
+    alert('ingredients : ' + ingredients)
+  }
+
+  const handleIngredients = (newIngredients) => {
+    setIngredients(newIngredients)
+  }
+
   return (
-    <ModalMUI open={open} onClick={handleClose}>
+    <ModalMUI open={open} >
   
       <ModalContainer>
+          <form>
           <ModalAddProductHeader>
-            <h3>Back</h3>
+            <h3 onClick={handleClose}>Back</h3>
             <h1>Add New Sushi Recipe</h1>
-            <h3>Post</h3>
+            <h3 onClick={handleSubmit}>Post</h3>
           </ModalAddProductHeader>
           <ModalAddImageSection>
-            <ModalImageBox />
-            <ModalRecipeDescription />
+            <ModalImageBox>
+
+              <h1>Product Image Upload</h1>  
+            </ModalImageBox>
+            <ModalRecipeDescription>
+              <textarea type="text" 
+              value={description} 
+              onChange={(e) => setDescription(e.target.value)}  
+              label='Add Description'/>
+              
+            </ModalRecipeDescription>
+            
     
           </ModalAddImageSection>
-          <h1>Product Image Upload</h1><h2>Add Description</h2>
+          <ModalRecipeIngredients>
+              <label for="ingredients"><h2>Select Ingredients:</h2></label>
+                <select id="ingredients" name="ingredients">
+                  <option onClick={()=>handleIngredients('cucumber')} value="Cucumber">Cucumber</option>
+                  <option onClick={()=>handleIngredients('avocado')} value="Avocado">Avocado</option>
+                  <option onClick={()=>handleIngredients('fiat')} value="fiat">Fiat</option>
+                  <option onClick={()=>handleIngredients('audi')} value="audi">Audi</option>
+                </select>
+        
+                {ingredients?.map((e, i)=> (
+                  <p>{e}</p>
+                ))}
+          </ModalRecipeIngredients>
+          
+          </form>
+        
+          
           <h1>Add Ingredients</h1>
           <h1>Add Category</h1>
           <h1>Add Sustainabilty Score</h1>
