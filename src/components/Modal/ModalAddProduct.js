@@ -12,7 +12,9 @@ import {ModalBackground1, ModalContainer, ModalTitle,
     ModalAddImageSection,
     ModalImageBox,
     ModalRecipeDescription,
-    ModalRecipeIngredients
+    ModalRecipeIngredients,
+    ModalDropdownItem,
+    ModalDropdown
 } from './ModalElements'
 import {  
     CardIcons,
@@ -25,8 +27,74 @@ import {
     FaRegHeart,
     FaHeart,
     FaRegPlusSquare,
+    FaRegCaretSquareDown
   } from "react-icons/fa";
+  import {CSSTransition} from 'react-transition-group'
 
+
+const NavItem = (props) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <li onClick={() => setOpen(!open)}>
+      {open ?  props.children : <FaRegCaretSquareDown /> }
+
+      
+    </li>
+  )
+}
+
+const DropdownMenu = ({handleIngredients}) => {
+  const [activeIngredient, setActiveIngredient] = useState('Vegetables'); //Essentials, Cooked, Raw, Vegetarian 
+  const [activeMenu, setActiveMenu] = useState('main')
+
+  const DropdownItem = (props) => {
+    return (
+      <ModalDropdownItem onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>{props.children}</ModalDropdownItem>
+
+      // <ModalDropdownItem onClick={()=>handleIngredients(`${props.children}`)}>{props.children}</ModalDropdownItem>
+    )
+
+  }
+
+  return (
+    <ModalDropdown>
+      <CSSTransition 
+      in={activeMenu === 'main'}
+      timeout={500}
+      classNames="menu-primary"
+      unmountOnExit>
+        <div>
+        <DropdownItem goToMenu='vegetarian'>Vegetarian</DropdownItem>
+        <DropdownItem goToMenu='raw'>Raw</DropdownItem>
+        <DropdownItem goToMenu='cooked'>Cooked</DropdownItem>
+        <DropdownItem goToMenu='essentials'>Essentials</DropdownItem>
+
+        </div>
+      </CSSTransition>
+
+      <CSSTransition
+        in={activeMenu === 'vegetarian'}
+        timeout={500}
+        classNames="menu-secondary"
+        unmountOnExit
+      >
+        <div>
+          <DropdownItem goToMenu="main">
+            <h2>Vegetarian</h2>
+          </DropdownItem>
+          <DropdownItem>Avocado</DropdownItem>
+          <DropdownItem>Cucumber</DropdownItem>
+          <DropdownItem>Daikon</DropdownItem>
+          <DropdownItem>Shiso Leaf</DropdownItem>
+          <DropdownItem>Inari</DropdownItem>
+        </div>
+      </CSSTransition>
+      
+    </ModalDropdown>
+  )
+
+}
 
 
 const ModalAddProduct = ({ open, handleClose}) => {
@@ -40,8 +108,12 @@ const ModalAddProduct = ({ open, handleClose}) => {
     alert('ingredients : ' + ingredients)
   }
 
-  const handleIngredients = (newIngredients) => {
-    setIngredients(newIngredients)
+  const handleIngredients = (newIngredient) => {
+    
+    let parsedNewIngredient = newIngredient.toLowerCase();
+    console.log('handle ingredients clicked : ' + parsedNewIngredient)
+    setIngredients([...ingredients, parsedNewIngredient]);
+    console.log(ingredients);
   }
 
   return (
@@ -60,23 +132,32 @@ const ModalAddProduct = ({ open, handleClose}) => {
               <h1>Product Image Upload</h1>  
             </ModalImageBox>
             <ModalRecipeDescription>
+              <input placeholder='Recipe Name...'/>
               <textarea type="text" 
               value={description} 
               onChange={(e) => setDescription(e.target.value)}  
-              label='Add Description'/>
+              placeholder='Add Description...'/>
               
             </ModalRecipeDescription>
             
     
           </ModalAddImageSection>
           <ModalRecipeIngredients>
+
               <label for="ingredients"><h2>Select Ingredients:</h2></label>
-                <select id="ingredients" name="ingredients">
-                  <option onClick={()=>handleIngredients('cucumber')} value="Cucumber">Cucumber</option>
-                  <option onClick={()=>handleIngredients('avocado')} value="Avocado">Avocado</option>
-                  <option onClick={()=>handleIngredients('fiat')} value="fiat">Fiat</option>
-                  <option onClick={()=>handleIngredients('audi')} value="audi">Audi</option>
-                </select>
+              <NavItem icon={'><'}>
+       
+                <DropdownMenu handleIngredients={handleIngredients}></DropdownMenu>
+              </NavItem>  
+                {/* <div id="ingredients" name="ingredients">
+                  <ul>
+                    <li onClick={()=>handleIngredients('cucumber')} value="Cucumber">Cucumber</li>
+                    <li onClick={()=>handleIngredients('avocado')} value="Avocado">Avocado</li>
+                    <li onClick={()=>handleIngredients('fiat')} value="fiat">Fiat</li>
+                    <li onClick={()=>handleIngredients('audi')} value="audi">Audi</li>
+                  </ul>
+                  
+                </div> */}
         
                 {ingredients?.map((e, i)=> (
                   <p>{e}</p>

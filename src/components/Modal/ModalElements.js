@@ -122,7 +122,19 @@ export const ModalAddProductHeader = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: pink;
+  /* background-color: pink; */
+
+  @media screen and (max-width: 475px) {
+    >h1 {
+      font-size: 1.2rem;
+    }
+    >h3 {
+      font-size: 1rem;
+    }
+    >h2 {
+      font-size: 1rem;
+    }
+  }
 `
 
 export const ModalAddImageSection = styled.div`
@@ -138,19 +150,31 @@ export const ModalAddImageSection = styled.div`
 export const ModalImageBox = styled.div`
   width : 40%;
   height: 100%;
-  background-color: blue;
+  /* background-color: blue; */
 `
 
 export const ModalRecipeDescription = styled.div`
   width: 60%;
   height: 100%;
-  background-color: yellow;
-
+  /* background-color: yellow; */
+  font-family: Raleway;
+  
+  >input {
+    width: 100%;
+    background-color: transparent;
+    font-family: Raleway;
+    font-weight: 500;
+    border: none;
+    height: 2rem;
+    padding: 5px;
+  }
   >textarea {
     width: 100%;
-    height: 100%;
+    height: 70%;
     background-color: transparent;
- 
+    font-family: Raleway;
+    padding: 5px;
+    
   }
 `
 
@@ -160,16 +184,66 @@ export const ModalRecipeIngredients = styled.div`
   background-color: pink;
   display: flex;
   align-items: center; 
+
+  >li {
+    font-size: 32px;
+
+    &:hover {
+      filter: brightness(1.2);
+      cursor: pointer;
+
+    }
+  }
   >select {
       width: 60%;
+      height: 50px;
     }
   >label {
     width: 40%;
     background-color: red;
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+
+    @media screen and (max-width: 475px) {
+
     >h2 {
-    
+      font-size: 1rem;
     }
-    
+  }
  
+  }
+`
+
+export const ModalDropdown = styled.div`
+  
+  position: absolute;
+
+  width: 300px;
+
+  /* background-color: #242526; */
+  border:  1px solid #474a4d;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow: hidden;
+  transition: height 500ms ease;
+`
+
+export const ModalDropdownItem = styled.p`
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  transition: #151616 500ms;
+  padding: 0.5rem;
+
+  border-bottom: 1px solid #000000;
+
+  &:hover {
+    background-color: #525357;
+    cursor: pointer;
   }
 `
