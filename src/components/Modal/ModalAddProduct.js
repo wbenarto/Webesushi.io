@@ -1,4 +1,4 @@
-import Reac, {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import {ModalBackground1, ModalContainer, ModalTitle,
     ModalImage,
     ModalDesc,
@@ -46,11 +46,15 @@ const NavItem = (props) => {
 
 const DropdownMenu = ({handleIngredients}) => {
   const [activeIngredient, setActiveIngredient] = useState('Vegetables'); //Essentials, Cooked, Raw, Vegetarian 
-  const [activeMenu, setActiveMenu] = useState('main')
+  const [activeMenu, setActiveMenu] = useState('main');
+  
 
+  console.log(activeMenu)
   const DropdownItem = (props) => {
+    console.log(props)
     return (
-      <ModalDropdownItem onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>{props.children}</ModalDropdownItem>
+
+      <ModalDropdownItem className='menu-item' onClick={() => props.goToMenu && setActiveMenu(props.goToMenu) && console.log(props.goToMenu)}>{props.children}</ModalDropdownItem>
 
       // <ModalDropdownItem onClick={()=>handleIngredients(`${props.children}`)}>{props.children}</ModalDropdownItem>
     )
@@ -58,13 +62,14 @@ const DropdownMenu = ({handleIngredients}) => {
   }
 
   return (
-    <ModalDropdown>
+    <ModalDropdown >
       <CSSTransition 
       in={activeMenu === 'main'}
       timeout={500}
       classNames="menu-primary"
-      unmountOnExit>
-        <div>
+      unmountOnExit
+      >
+        <div className='menu'>
         <DropdownItem goToMenu='vegetarian'>Vegetarian</DropdownItem>
         <DropdownItem goToMenu='raw'>Raw</DropdownItem>
         <DropdownItem goToMenu='cooked'>Cooked</DropdownItem>
@@ -79,10 +84,8 @@ const DropdownMenu = ({handleIngredients}) => {
         classNames="menu-secondary"
         unmountOnExit
       >
-        <div>
-          <DropdownItem goToMenu="main">
-            <h2>Vegetarian</h2>
-          </DropdownItem>
+        <div className='menu'>
+       
           <DropdownItem>Avocado</DropdownItem>
           <DropdownItem>Cucumber</DropdownItem>
           <DropdownItem>Daikon</DropdownItem>
