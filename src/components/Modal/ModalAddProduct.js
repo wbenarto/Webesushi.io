@@ -1,3 +1,4 @@
+import './transition.css'
 import React, {useState, useRef, useEffect} from "react";
 import {ModalBackground1, ModalContainer, ModalTitle,
     ModalImage,
@@ -13,8 +14,12 @@ import {ModalBackground1, ModalContainer, ModalTitle,
     ModalImageBox,
     ModalRecipeDescription,
     ModalRecipeIngredients,
+    ModalIngredientsList,
     ModalDropdownItem,
-    ModalDropdown
+    ModalDropdown,
+    ModalInputField,
+    ModalInputLabel,
+    ModalAddSteps
 } from './ModalElements'
 import {  
     CardIcons,
@@ -32,83 +37,53 @@ import {
   import {CSSTransition} from 'react-transition-group'
 
 
+const ingredientsList = [
+  'avocado',
+  'cucumber',
+  'salmon',
+  'tuna'
+
+]
+
+
 const NavItem = (props) => {
   const [open, setOpen] = useState(false);
 
   return (
     <li onClick={() => setOpen(!open)}>
-      {open ?  props.children : <FaRegCaretSquareDown /> }
-
-      
+      {open ?  props.children : <FaRegCaretSquareDown style={{fontSize:'2rem'}}/> }     
     </li>
   )
 }
 
 const DropdownMenu = ({handleIngredients}) => {
-  const [activeIngredient, setActiveIngredient] = useState('Vegetables'); //Essentials, Cooked, Raw, Vegetarian 
-  const [activeMenu, setActiveMenu] = useState('main');
-  
-
-  console.log(activeMenu)
   const DropdownItem = (props) => {
-    console.log(props)
     return (
-
-      <ModalDropdownItem className='menu-item' onClick={() => props.goToMenu && setActiveMenu(props.goToMenu) && console.log(props.goToMenu)}>{props.children}</ModalDropdownItem>
-
-      // <ModalDropdownItem onClick={()=>handleIngredients(`${props.children}`)}>{props.children}</ModalDropdownItem>
+      <ModalDropdownItem className='menu-item' onClick={() => handleIngredients(`${props.children}`)}>{props.children}</ModalDropdownItem>
     )
-
   }
 
   return (
-    <ModalDropdown >
-      <CSSTransition 
-      in={activeMenu === 'main'}
-      timeout={500}
-      classNames="menu-primary"
-      unmountOnExit
-      >
-        <div className='menu'>
-        <DropdownItem goToMenu='vegetarian'>Vegetarian</DropdownItem>
-        <DropdownItem goToMenu='raw'>Raw</DropdownItem>
-        <DropdownItem goToMenu='cooked'>Cooked</DropdownItem>
-        <DropdownItem goToMenu='essentials'>Essentials</DropdownItem>
-
-        </div>
-      </CSSTransition>
-
-      <CSSTransition
-        in={activeMenu === 'vegetarian'}
-        timeout={500}
-        classNames="menu-secondary"
-        unmountOnExit
-      >
-        <div className='menu'>
-       
-          <DropdownItem>Avocado</DropdownItem>
-          <DropdownItem>Cucumber</DropdownItem>
-          <DropdownItem>Daikon</DropdownItem>
-          <DropdownItem>Shiso Leaf</DropdownItem>
-          <DropdownItem>Inari</DropdownItem>
-        </div>
-      </CSSTransition>
-      
+    <ModalDropdown style={{zIndex:'4'}}>
+      {ingredientsList.map((e,i)=> (
+        <DropdownItem key={i}>{e}</DropdownItem>
+      ))}
     </ModalDropdown>
   )
-
 }
 
 
 const ModalAddProduct = ({ open, handleClose}) => {
+  const [recipeName, setRecipeName] = useState('')
   const [description, setDescription] = useState('')
   const [ingredients, setIngredients] = useState([])
 
   const handleSubmit = (event) => {
    
     event.preventDefault();
+    alert('Recipe Name : ' + recipeName);
     alert('Description : ' + description);
-    alert('ingredients : ' + ingredients)
+    alert('ingredients : ' + ingredients);
   }
 
   const handleIngredients = (newIngredient) => {
@@ -131,50 +106,70 @@ const ModalAddProduct = ({ open, handleClose}) => {
           </ModalAddProductHeader>
           <ModalAddImageSection>
             <ModalImageBox>
-
               <h1>Product Image Upload</h1>  
             </ModalImageBox>
             <ModalRecipeDescription>
-              <input placeholder='Recipe Name...'/>
+              <input value={recipeName} onChange={(e)=> setRecipeName(e.target.value)} placeholder='Recipe Name...'/>
               <textarea type="text" 
               value={description} 
               onChange={(e) => setDescription(e.target.value)}  
               placeholder='Add Description...'/>
-              
             </ModalRecipeDescription>
-            
     
           </ModalAddImageSection>
           <ModalRecipeIngredients>
-
-              <label for="ingredients"><h2>Select Ingredients:</h2></label>
-              <NavItem icon={'><'}>
-       
+              <ModalInputField>
+                <ModalInputLabel>
+                  <h2>Ingredients:</h2>
+                </ModalInputLabel>
+              
+              <NavItem >
                 <DropdownMenu handleIngredients={handleIngredients}></DropdownMenu>
               </NavItem>  
-                {/* <div id="ingredients" name="ingredients">
-                  <ul>
-                    <li onClick={()=>handleIngredients('cucumber')} value="Cucumber">Cucumber</li>
-                    <li onClick={()=>handleIngredients('avocado')} value="Avocado">Avocado</li>
-                    <li onClick={()=>handleIngredients('fiat')} value="fiat">Fiat</li>
-                    <li onClick={()=>handleIngredients('audi')} value="audi">Audi</li>
-                  </ul>
-                  
-                </div> */}
-        
-                {ingredients?.map((e, i)=> (
-                  <p>{e}</p>
+              </ModalInputField>
+              {ingredients.length>0 ?   
+              <ModalIngredientsList>
+              {ingredients?.map((e, i)=> (
+                  <p>{e.toUpperCase()}</p>
                 ))}
+              </ModalIngredientsList> : <></>}
+           
+ 
           </ModalRecipeIngredients>
-          
-          </form>
-        
-          
-          <h1>Add Ingredients</h1>
-          <h1>Add Category</h1>
-          <h1>Add Sustainabilty Score</h1>
-          <h1>Add Difficulty Score</h1>
+          <ModalInputField>
+            <ModalInputLabel>
+              <h2>Category:</h2>
+            </ModalInputLabel>
+            <NavItem>
+              <DropdownMenu></DropdownMenu>
+            </NavItem>
+          </ModalInputField>
+          <ModalInputField>
+            <ModalInputLabel>
+              <h2>Sustainability Score:</h2>
+            </ModalInputLabel>
+            <NavItem>
+              <DropdownMenu></DropdownMenu>
+            </NavItem>
+          </ModalInputField>
+          <ModalInputField>
+            <ModalInputLabel>
+              <h2>Difficulty Score:</h2>
+            </ModalInputLabel>
+            <NavItem>
+              <DropdownMenu></DropdownMenu>
+            </NavItem>
+          </ModalInputField>
+          <ModalAddSteps>
           <h1>Add Steps +</h1>
+          </ModalAddSteps>
+
+          
+
+          
+          </form>       
+
+         
           <h1>When add steps clicked, open new boxes</h1>
           <h2>Add Step Number</h2>
           <h2>Add Step Image</h2>

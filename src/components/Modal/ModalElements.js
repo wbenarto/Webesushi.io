@@ -130,6 +130,9 @@ export const ModalAddProductHeader = styled.div`
     }
     >h3 {
       font-size: 1rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
     >h2 {
       font-size: 1rem;
@@ -140,7 +143,7 @@ export const ModalAddProductHeader = styled.div`
 export const ModalAddImageSection = styled.div`
   height: 200px;
   width: 100%;
-  background-color: purple;
+  /* background-color: purple; */
   padding: 20px 0;
   display: flex;
 
@@ -151,6 +154,20 @@ export const ModalImageBox = styled.div`
   width : 40%;
   height: 100%;
   /* background-color: blue; */
+`
+
+export const ModalInputField = styled.div`
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  height: 60px;
+  align-items: center;
+
+`
+
+export const ModalInputLabel = styled.div`
+  width: 40%;
+  /* background-color: yellow; */
 `
 
 export const ModalRecipeDescription = styled.div`
@@ -180,10 +197,11 @@ export const ModalRecipeDescription = styled.div`
 
 export const ModalRecipeIngredients = styled.div`
   width: 100%;
-  height: 50px;
-  background-color: pink;
+  height: 100%;
+  /* background-color: pink; */
   display: flex;
   align-items: center; 
+  flex-direction: column;
 
   >li {
     font-size: 32px;
@@ -198,30 +216,35 @@ export const ModalRecipeIngredients = styled.div`
       width: 60%;
       height: 50px;
     }
-  >label {
-    width: 40%;
-    background-color: red;
-    height: 50px;
-    display: flex;
-    align-items: center;
-
-
-    @media screen and (max-width: 475px) {
-
-    >h2 {
-      font-size: 1rem;
-    }
-  }
- 
+  
   }
 `
 
+export const ModalIngredientsList = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  /* background-color: cyan; */
+  height: 100px;
+  padding: 5px;
+  overflow: scroll; 
+
+  >p{
+    height: 40px;
+    padding: 10px; 
+    border: 1px solid black;
+    border-radius: 10px;
+    align-items: center;
+    display:flex;
+    margin: 5px;
+
+  }
+
+`
+
 export const ModalDropdown = styled.div`
-  
   position: absolute;
-
   width: 300px;
-
   /* background-color: #242526; */
   border:  1px solid #474a4d;
   background-color: #ffffff;
@@ -231,7 +254,7 @@ export const ModalDropdown = styled.div`
   transition: height 500ms ease;
 `
 
-export const ModalDropdownItem = styled.p`
+export const ModalDropdownItem = styled.div`
   height: 50px;
   width: 100%;
   display: flex;
@@ -239,11 +262,18 @@ export const ModalDropdownItem = styled.p`
   border-radius: 8px;
   transition: #151616 500ms;
   padding: 0.5rem;
-
   border-bottom: 1px solid #000000;
 
   &:hover {
     background-color: #525357;
     cursor: pointer;
   }
+`
+
+export const ModalAddSteps = styled.div`
+  width: 100%;
+  background-color: pink;
+  height: 100%;
+  justify-content: center;
+  display: flex;
 `
