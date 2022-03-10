@@ -19,7 +19,8 @@ import {ModalBackground1, ModalContainer, ModalTitle,
     ModalDropdown,
     ModalInputField,
     ModalInputLabel,
-    ModalAddSteps
+    ModalAddSteps,
+    ModalAddStepButton
 } from './ModalElements'
 import {  
     CardIcons,
@@ -77,6 +78,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
   const [recipeName, setRecipeName] = useState('')
   const [description, setDescription] = useState('')
   const [ingredients, setIngredients] = useState([])
+  const [steps, setSteps] = useState([{step: ''}])
 
   const handleSubmit = (event) => {
    
@@ -94,6 +96,15 @@ const ModalAddProduct = ({ open, handleClose}) => {
     console.log(ingredients);
   }
 
+  const handleAddStep = () => {
+    setSteps([...steps, {step:'' }])
+  }
+
+  const handleRemoveStep = (i) => {
+    const step = [...steps];
+    step.splice(i, 1);
+    setSteps(step);
+  }
   return (
     <ModalMUI open={open} >
   
@@ -161,7 +172,24 @@ const ModalAddProduct = ({ open, handleClose}) => {
             </NavItem>
           </ModalInputField>
           <ModalAddSteps>
-          <h1>Add Steps +</h1>
+          {steps.map((step, i) => (
+            <ModalAddImageSection key={i}>
+            <ModalImageBox>
+              <h1>Step Image Upload</h1>  
+            </ModalImageBox>
+            <ModalRecipeDescription>
+              <textarea type="text" 
+              value={description} 
+              onChange={(e) => setDescription(e.target.value)}  
+              placeholder='Add Step Description...'/>
+              <h3 onClick={()=>handleRemoveStep(i)}>Remove Step</h3>
+            </ModalRecipeDescription>
+    
+          </ModalAddImageSection>
+           
+          ))}
+          <ModalAddStepButton onClick={handleAddStep}>Add Steps +</ModalAddStepButton>
+          
           </ModalAddSteps>
 
           
@@ -169,12 +197,6 @@ const ModalAddProduct = ({ open, handleClose}) => {
           
           </form>       
 
-         
-          <h1>When add steps clicked, open new boxes</h1>
-          <h2>Add Step Number</h2>
-          <h2>Add Step Image</h2>
-          <h2>Add Step Description</h2>
-          <h1>Submit Button</h1>
         
       </ModalContainer>
     

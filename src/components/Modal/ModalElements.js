@@ -153,6 +153,10 @@ export const ModalAddImageSection = styled.div`
 export const ModalImageBox = styled.div`
   width : 40%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   /* background-color: blue; */
 `
 
@@ -269,11 +273,22 @@ export const ModalDropdownItem = styled.div`
     cursor: pointer;
   }
 `
-
+// Add Steps
 export const ModalAddSteps = styled.div`
   width: 100%;
-  background-color: pink;
+  /* background-color: pink; */
   height: 100%;
   justify-content: center;
   display: flex;
+  flex-direction: column;
+`
+
+export const ModalAddStepButton = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content:center;
+  /* background-color: yellow; */
+  align-items:center;
+
 `
