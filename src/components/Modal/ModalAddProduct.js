@@ -189,12 +189,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
            
           ))}
           <ModalAddStepButton onClick={handleAddStep}>Add Steps +</ModalAddStepButton>
-          
           </ModalAddSteps>
-
-          
-
-          
           </form>       
 
         
