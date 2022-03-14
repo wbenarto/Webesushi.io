@@ -290,5 +290,10 @@ export const ModalAddStepButton = styled.div`
   justify-content:center;
   /* background-color: yellow; */
   align-items:center;
+  cursor: pointer;
 
+  &:hover {
+    transform: scale(1.2);
+
+  }
 `
