@@ -80,6 +80,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
   const [ingredients, setIngredients] = useState([])
   const [steps, setSteps] = useState([{step: '', imageURL: ''}])
 
+  console.log(steps)
   const handleSubmit = (event) => {
    
     event.preventDefault();
@@ -96,8 +97,13 @@ const ModalAddProduct = ({ open, handleClose}) => {
     console.log(ingredients);
   }
 
-  const handleAddStep = (step, imageURL) => {
-    setSteps([...steps, {step, imageURL }])
+  const handleAddStep = () => {
+    setSteps([...steps, {step:'', imageURL:'' }])
+  }
+
+  const handleStep = (i, val) => {
+    console.log(i, val)
+    // setSteps([...steps][i].step=val)
   }
 
   const handleRemoveStep = (i) => {
@@ -179,8 +185,8 @@ const ModalAddProduct = ({ open, handleClose}) => {
             </ModalImageBox>
             <ModalRecipeDescription>
               <textarea type="text" 
-              value={steps[i][step]} 
-              onChange={(e) => setSteps(step=e.target.value)}  
+              value={step.step} 
+              onChange={(e) => handleStep(i, e.target.value)}  
               placeholder='Add Step Description...'/>
               <ModalAddStepButton onClick={()=>handleRemoveStep(i)}>Remove Step</ModalAddStepButton>
             </ModalRecipeDescription>
