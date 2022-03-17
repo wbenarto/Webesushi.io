@@ -22,6 +22,11 @@ import {ModalBackground1, ModalContainer, ModalTitle,
     ModalAddSteps,
     ModalAddStepButton
 } from './ModalElements'
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import {
+  uploadImage,
+} from "../../redux/actions/userActions";
 import {  
     CardIcons,
     CardButton,} from '../Homemakase/Recipe/RecipeElements'
@@ -77,12 +82,13 @@ const DropdownMenu = ({handleIngredients}) => {
 const ModalAddProduct = ({ open, handleClose}) => {
   const [recipeName, setRecipeName] = useState('')
   const [description, setDescription] = useState('')
+  const [recipeImage, setRecipeImage] = useState('')
   const [ingredients, setIngredients] = useState([])
   const [steps, setSteps] = useState([{step: '', imageURL: ''}])
 
   console.log(steps)
+  console.log(recipeImage)
   const handleSubmit = (event) => {
-   
     event.preventDefault();
     alert('Recipe Name : ' + recipeName);
     alert('Description : ' + description);
@@ -101,17 +107,12 @@ const ModalAddProduct = ({ open, handleClose}) => {
     console.log('index : '+ index)
     console.log('values : ' + e.target.name)
     let newArr = [...steps]
-    newArr[index] = e.target.value
+    newArr[index].step = e.target.value
     setSteps(newArr)
   }
 
   const handleAddStep = () => {
     setSteps([...steps, {step: '' , imageURL: '' }])
-  }
-  const handleStep = (i, val) => {
-    console.log(i, val)
-
-    // setSteps([...steps][i].step=val)
   }
 
   const handleRemoveStep = (i) => {
@@ -119,6 +120,31 @@ const ModalAddProduct = ({ open, handleClose}) => {
     step.splice(i, 1);
     setSteps(step);
   }
+
+  const handleRecipeImage = () => {
+    const fileInput = document.getElementById('imageInput');
+    fileInput.click();
+  }
+
+  const handleRecipeImageUpload = (event) => {
+    const image=event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState == 2) {
+        setRecipeImage(reader.result)
+      }
+    }
+
+    reader.readAsDataURL(image)
+
+    // setRecipeImage(image)
+   
+    // const formData = new FormData();
+
+    // formData.append('image', image, image.name);
+    // props.uploadImage(formData)
+  } 
+
   return (
     <ModalMUI open={open} >
   
@@ -130,8 +156,19 @@ const ModalAddProduct = ({ open, handleClose}) => {
             <h3 onClick={handleSubmit}>Post</h3>
           </ModalAddProductHeader>
           <ModalAddImageSection>
-            <ModalImageBox>
-              <h1>Product Image Upload</h1>  
+            <ModalImageBox
+              onClick={handleRecipeImage}
+            >
+              {!recipeImage ? (<h1>Product Image Upload</h1>) : 
+                <img src={recipeImage} style={{width: '200px', height: '200px', objectFit: 'contain'}} />
+              }
+              
+              <input 
+                type='file'
+                id='imageInput'
+                hidden='hidden'
+                onChange={handleRecipeImageUpload}
+              />  
             </ModalImageBox>
             <ModalRecipeDescription>
               <input value={recipeName} onChange={(e)=> setRecipeName(e.target.value)} placeholder='Recipe Name...'/>
@@ -215,3 +252,12 @@ const ModalAddProduct = ({ open, handleClose}) => {
 }
 
 export default ModalAddProduct;
+
+
+// const mapActionsToProps = { uploadImage };
+
+// const mapStateToProps = (state) => ({
+//   uploadImage: PropTypes.func.isRequired,
+// });
+
+// export default connect(mapStateToProps, mapActionsToProps)(ModalAddProduct);
