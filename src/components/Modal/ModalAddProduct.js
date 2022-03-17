@@ -38,17 +38,60 @@ import {
     FaRegHeart,
     FaHeart,
     FaRegPlusSquare,
-    FaRegCaretSquareDown
+    FaRegCaretSquareDown,
+    FaRegCaretSquareUp
   } from "react-icons/fa";
   import {CSSTransition} from 'react-transition-group'
 
 
 const ingredientsList = [
-  'avocado',
-  'cucumber',
+  'hamachi',
+  'uni',
+  'tuna',
+  'ikura',
+  'masago',
+  'oo toro',
+  'chu toro',
+  'negi toro',
+  'katsuo',
+  'kanpachi',
   'salmon',
-  'tuna'
+  'shrimp tempura',
+  'cocktail shrimp',
+  'unagi',
+  'imitation crab',
+  'squid',
+  'cucumber',
+  'daikon',
+  'avocado',
+  'jalapeno',
+  'lemon',
+  'inari',
+  'tofu',
+  'sushi rice',
+  'sriracha',
+  'unagi sauce',
+  'mayo',
+  'wasabi',
+  'nori',
+  'mirin',
+  'sesame seeds',
+  'sesame oil'
+]
 
+const categoryList = [
+  'raw',
+  'cooked',
+  'vegetarian'
+]
+
+const sustainabilityScoreList = [
+  'good',
+  'bad'
+]
+
+const difficultyScoreList = [
+  '1','2','3','4','5','6','7','8','9','10'
 ]
 
 
@@ -57,7 +100,12 @@ const NavItem = (props) => {
 
   return (
     <li onClick={() => setOpen(!open)}>
-      {open ?  props.children : <FaRegCaretSquareDown style={{fontSize:'2rem'}}/> }     
+      {open ?  ( 
+      <>
+      <FaRegCaretSquareUp style={{fontSize:'2rem'}} /> 
+      {props.children}
+      </>
+      ) : <FaRegCaretSquareDown style={{fontSize:'2rem'}}/> }     
     </li>
   )
 }
@@ -70,7 +118,7 @@ const DropdownMenu = ({handleIngredients}) => {
   }
 
   return (
-    <ModalDropdown style={{zIndex:'4'}}>
+    <ModalDropdown style={{zIndex:'4', height: '200px', overflow: 'scroll'}}>
       {ingredientsList.map((e,i)=> (
         <DropdownItem key={i}>{e}</DropdownItem>
       ))}
@@ -84,6 +132,9 @@ const ModalAddProduct = ({ open, handleClose}) => {
   const [description, setDescription] = useState('')
   const [recipeImage, setRecipeImage] = useState('')
   const [ingredients, setIngredients] = useState([])
+  const [category, setCategory] = useState('')
+  const [sustainability, setSustainability] = useState('')
+  const [difficulty, setDifficulty] = useState('')
   const [steps, setSteps] = useState([{step: '', imageURL: ''}])
 
   console.log(steps)
@@ -99,9 +150,24 @@ const ModalAddProduct = ({ open, handleClose}) => {
     
     let parsedNewIngredient = newIngredient.toLowerCase();
     console.log('handle ingredients clicked : ' + parsedNewIngredient)
-    setIngredients([...ingredients, parsedNewIngredient]);
+    if (ingredients.indexOf(parsedNewIngredient) < 0) {
+      setIngredients([...ingredients, parsedNewIngredient]);
+    }
     console.log(ingredients);
   }
+
+  const handleCategory = (newCategory) => {
+    setCategory(newCategory)
+  }
+
+  const handleSustainability = (newSustainability) => {
+    setSustainability(newSustainability)
+  }
+
+  const handleDifficulty = (newDifficulty) => {
+    setDifficulty(newDifficulty)
+  }
+
 
   const updateFieldChange = index => e => {
     console.log('index : '+ index)
@@ -160,7 +226,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
               onClick={handleRecipeImage}
             >
               {!recipeImage ? (<h1>Product Image Upload</h1>) : 
-                <img src={recipeImage} style={{width: '200px', height: '200px', objectFit: 'contain'}} />
+                <img src={recipeImage} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
               }
               
               <input 
