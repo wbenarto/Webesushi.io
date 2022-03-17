@@ -164,6 +164,12 @@ const ModalAddProduct = ({ open, handleClose}) => {
     console.log(ingredients);
   }
 
+  const removeIngredient = (i) => {
+    const ing = [...ingredients]
+    ing.splice(i, 1)
+    setIngredients(ing)
+  }
+
   const handleCategory = (newCategory) => {
     setCategory(newCategory)
   }
@@ -266,7 +272,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
               {ingredients.length>0 ?   
               <ModalIngredientsList>
               {ingredients?.map((e, i)=> (
-                  <p>{e.toUpperCase()}</p>
+                  <p onClick={() => removeIngredient(i)}>{e.toUpperCase()}</p>
                 ))}
               </ModalIngredientsList> : <></>}
            
