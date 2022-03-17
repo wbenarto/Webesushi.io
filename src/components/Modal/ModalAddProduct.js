@@ -105,21 +105,29 @@ const NavItem = (props) => {
       <FaRegCaretSquareUp style={{fontSize:'2rem'}} /> 
       {props.children}
       </>
-      ) : <FaRegCaretSquareDown style={{fontSize:'2rem'}}/> }     
+      ) : 
+      (
+        <div style={{display:'flex' , justifyContent:'center', alignItems:'center'}}>
+          <FaRegCaretSquareDown style={{fontSize:'2rem'}}/> 
+          <h3 style={{paddingLeft: '30px'}}>{props.result}</h3>
+        </div>
+
+      )
+      }     
     </li>
   )
 }
 
-const DropdownMenu = ({handleIngredients}) => {
+const DropdownMenu = ({handleDropdown, dropdownList}) => {
   const DropdownItem = (props) => {
     return (
-      <ModalDropdownItem className='menu-item' onClick={() => handleIngredients(`${props.children}`)}>{props.children}</ModalDropdownItem>
+      <ModalDropdownItem className='menu-item' onClick={() => handleDropdown(`${props.children}`)}>{props.children}</ModalDropdownItem>
     )
   }
 
   return (
     <ModalDropdown style={{zIndex:'4', height: '200px', overflow: 'scroll'}}>
-      {ingredientsList.map((e,i)=> (
+      {dropdownList.map((e,i)=> (
         <DropdownItem key={i}>{e}</DropdownItem>
       ))}
     </ModalDropdown>
@@ -252,7 +260,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
                 </ModalInputLabel>
               
               <NavItem >
-                <DropdownMenu handleIngredients={handleIngredients}></DropdownMenu>
+                <DropdownMenu dropdownList={ingredientsList} handleDropdown={handleIngredients}></DropdownMenu>
               </NavItem>  
               </ModalInputField>
               {ingredients.length>0 ?   
@@ -268,24 +276,25 @@ const ModalAddProduct = ({ open, handleClose}) => {
             <ModalInputLabel>
               <h2>Category:</h2>
             </ModalInputLabel>
-            <NavItem>
-              <DropdownMenu></DropdownMenu>
+            <NavItem result={category}>
+              <DropdownMenu dropdownList={categoryList} handleDropdown={handleCategory}></DropdownMenu>
             </NavItem>
           </ModalInputField>
           <ModalInputField>
             <ModalInputLabel>
               <h2>Sustainability Score:</h2>
             </ModalInputLabel>
-            <NavItem>
-              <DropdownMenu></DropdownMenu>
+            <NavItem result={sustainability}>
+              <DropdownMenu dropdownList={sustainabilityScoreList} handleDropdown={handleSustainability}></DropdownMenu>
             </NavItem>
           </ModalInputField>
           <ModalInputField>
             <ModalInputLabel>
               <h2>Difficulty Score:</h2>
             </ModalInputLabel>
-            <NavItem>
-              <DropdownMenu></DropdownMenu>
+            <NavItem result={difficulty}>
+              <DropdownMenu dropdownList={difficultyScoreList} handleDropdown={handleDifficulty}></DropdownMenu>
+              
             </NavItem>
           </ModalInputField>
           <ModalAddSteps>
