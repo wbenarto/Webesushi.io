@@ -54,15 +54,6 @@ const EditDetails = (props) => {
     credentials.location ? setLocation(credentials.location) : setLocation("");
   };
 
-  //   const handleChange = (event) => {
-  //     event.target.name == "bio"
-  //       ? setBio(event.target.value)
-  //       : event.target.name == "website"
-  //       ? setWebsite(event.target.value)
-  //       : event.target.name == "location"
-  //       ? setLocation(event.target.value)
-  //       : "";
-  //   };
   const handleBio = (event) => {
     setBio(event.target.value);
   };
