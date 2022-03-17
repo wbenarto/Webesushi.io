@@ -191,6 +191,25 @@ const ModalAddProduct = ({ open, handleClose}) => {
     setSteps(newArr)
   }
 
+  const handleStepImage = () => {
+    const fileInput = document.getElementById('stepImageInput');
+    fileInput.click();
+  }
+
+  const handleStepImageUpload = (index) => (e) => {
+    const image = e.target.files[0];
+    console.log(image)
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState == 2) {
+        let newArr = [...steps]
+        newArr[index].imageURL = reader.result
+        setSteps(newArr)
+      }
+    }
+    reader.readAsDataURL(image)
+  }
+
   const handleAddStep = () => {
     setSteps([...steps, {step: '' , imageURL: '' }])
   }
@@ -208,6 +227,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
 
   const handleRecipeImageUpload = (event) => {
     const image=event.target.files[0];
+
     const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState == 2) {
@@ -306,8 +326,17 @@ const ModalAddProduct = ({ open, handleClose}) => {
           <ModalAddSteps>
           {steps.map((step, i) => (
             <ModalAddImageSection key={i}>
-            <ModalImageBox>
-              <h1>Step Image Upload</h1>  
+            <ModalImageBox onClick={handleStepImage}>
+              {step.imageURL ? (
+                <img src={step.imageURL} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
+              ) : ( <h1>Step Image Upload</h1>  )}
+             
+              <input 
+                type='file'
+                id='stepImageInput'
+                hidden='hidden'
+                onChange={handleStepImageUpload(i)}
+              />  
             </ModalImageBox>
             <ModalRecipeDescription>
               <textarea type="text" 
