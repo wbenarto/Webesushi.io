@@ -97,12 +97,20 @@ const ModalAddProduct = ({ open, handleClose}) => {
     console.log(ingredients);
   }
 
-  const handleAddStep = () => {
-    setSteps([...steps, {step:'', imageURL:'' }])
+  const updateFieldChange = index => e => {
+    console.log('index : '+ index)
+    console.log('values : ' + e.target.name)
+    let newArr = [...steps]
+    newArr[index] = e.target.value
+    setSteps(newArr)
   }
 
+  const handleAddStep = () => {
+    setSteps([...steps, {step: '' , imageURL: '' }])
+  }
   const handleStep = (i, val) => {
     console.log(i, val)
+
     // setSteps([...steps][i].step=val)
   }
 
@@ -186,7 +194,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
             <ModalRecipeDescription>
               <textarea type="text" 
               value={step.step} 
-              onChange={(e) => handleStep(i, e.target.value)}  
+              onChange={updateFieldChange(i)}  
               placeholder='Add Step Description...'/>
               <ModalAddStepButton onClick={()=>handleRemoveStep(i)}>Remove Step</ModalAddStepButton>
             </ModalRecipeDescription>
