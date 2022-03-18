@@ -146,12 +146,15 @@ const ModalAddProduct = ({ open, handleClose}) => {
   const [steps, setSteps] = useState([{step: '', imageURL: ''}])
 
   console.log(steps)
-  console.log(recipeImage)
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert('Recipe Name : ' + recipeName);
-    alert('Description : ' + description);
-    alert('ingredients : ' + ingredients);
+    console.log('Recipe Name : ' + recipeName)
+    console.log('Description : ' + description)
+    console.log('ingredients : ' + ingredients)
+    console.log('category : ' + category)
+    console.log('sustainability : ' + sustainability)
+    console.log('difficulty : ' + difficulty)
+    console.log('steps : ' + {steps})
   }
 
   const handleIngredients = (newIngredient) => {
@@ -191,18 +194,19 @@ const ModalAddProduct = ({ open, handleClose}) => {
     setSteps(newArr)
   }
 
-  const handleStepImage = () => {
-    const fileInput = document.getElementById('stepImageInput');
+  const handleStepImage = (i) => {
+    const fileInput = document.getElementById(`stepImageInput${i}`);
     fileInput.click();
   }
 
   const handleStepImageUpload = (index) => (e) => {
+    console.log(index)
     const image = e.target.files[0];
     console.log(image)
     const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState == 2) {
-        let newArr = [...steps]
+        const newArr = [...steps]
         newArr[index].imageURL = reader.result
         setSteps(newArr)
       }
@@ -326,14 +330,14 @@ const ModalAddProduct = ({ open, handleClose}) => {
           <ModalAddSteps>
           {steps.map((step, i) => (
             <ModalAddImageSection key={i}>
-            <ModalImageBox onClick={handleStepImage}>
+            <ModalImageBox onClick={()=>handleStepImage(i)}>
               {step.imageURL ? (
                 <img src={step.imageURL} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
               ) : ( <h1>Step Image Upload</h1>  )}
              
               <input 
                 type='file'
-                id='stepImageInput'
+                id={`stepImageInput${i}`}
                 hidden='hidden'
                 onChange={handleStepImageUpload(i)}
               />  
