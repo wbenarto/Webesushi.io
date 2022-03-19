@@ -123,6 +123,11 @@ export const ModalAddProductHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   /* background-color: pink; */
+  >h3 {
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
   @media screen and (max-width: 475px) {
     >h1 {
@@ -130,9 +135,6 @@ export const ModalAddProductHeader = styled.div`
     }
     >h3 {
       font-size: 1rem;
-      &:hover {
-        cursor: pointer;
-      }
     }
     >h2 {
       font-size: 1rem;
@@ -158,6 +160,13 @@ export const ModalImageBox = styled.div`
   align-items: center;
   text-align: center;
   /* background-color: blue; */
+
+  >h1 {
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
 `
 
 export const ModalInputField = styled.div`
@@ -179,6 +188,7 @@ export const ModalRecipeDescription = styled.div`
   height: 100%;
   /* background-color: yellow; */
   font-family: Raleway;
+  padding: 5px;
   
   >input {
     width: 100%;
@@ -219,8 +229,6 @@ export const ModalRecipeIngredients = styled.div`
   >select {
       width: 60%;
       height: 50px;
-    }
-  
   }
 `
 
@@ -295,5 +303,14 @@ export const ModalAddStepButton = styled.div`
   &:hover {
     transform: scale(1.2);
 
+  }
+`
+
+export const ModalDropdownIcon = styled.div`
+  width: 100%;
+  height: 100%;
+
+  &:hover{
+    cursor: pointer;
   }
 `

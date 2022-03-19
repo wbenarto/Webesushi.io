@@ -20,7 +20,8 @@ import {ModalBackground1, ModalContainer, ModalTitle,
     ModalInputField,
     ModalInputLabel,
     ModalAddSteps,
-    ModalAddStepButton
+    ModalAddStepButton,
+    ModalDropdownIcon
 } from './ModalElements'
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -102,13 +103,18 @@ const NavItem = (props) => {
     <li onClick={() => setOpen(!open)}>
       {open ?  ( 
       <>
-      <FaRegCaretSquareUp style={{fontSize:'2rem'}} /> 
+      <ModalDropdownIcon>
+        <FaRegCaretSquareUp style={{fontSize:'2rem'}} /> 
+      </ModalDropdownIcon>
+     
       {props.children}
       </>
       ) : 
       (
         <div style={{display:'flex' , justifyContent:'center', alignItems:'center'}}>
-          <FaRegCaretSquareDown style={{fontSize:'2rem'}}/> 
+          <ModalDropdownIcon>
+            <FaRegCaretSquareDown style={{fontSize:'2rem'}}/> 
+          </ModalDropdownIcon>
           <h3 style={{paddingLeft: '30px'}}>{props.result}</h3>
         </div>
 
@@ -154,7 +160,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
     console.log('category : ' + category)
     console.log('sustainability : ' + sustainability)
     console.log('difficulty : ' + difficulty)
-    console.log('steps : ' + {steps})
+    console.log('steps : ' + JSON.stringify(steps))
   }
 
   const handleIngredients = (newIngredient) => {
@@ -239,7 +245,12 @@ const ModalAddProduct = ({ open, handleClose}) => {
       }
     }
 
-    reader.readAsDataURL(image)
+    if (image.size > 1000000) {
+      alert("File is too big! Please upload image less than 1MB.");
+    } else {
+      reader.readAsDataURL(image)
+    }
+
 
     // setRecipeImage(image)
    
@@ -264,7 +275,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
               onClick={handleRecipeImage}
             >
               {!recipeImage ? (<h1>Product Image Upload</h1>) : 
-                <img src={recipeImage} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
+                <img src={recipeImage} style={{padding: '5px', width: '100%', height: '100%', objectFit: 'contain'}} />
               }
               
               <input 
@@ -332,7 +343,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
             <ModalAddImageSection key={i}>
             <ModalImageBox onClick={()=>handleStepImage(i)}>
               {step.imageURL ? (
-                <img src={step.imageURL} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
+                <img src={step.imageURL} style={{padding: '5px', width: '100%', height: '100%', objectFit: 'contain'}} />
               ) : ( <h1>Step Image Upload</h1>  )}
              
               <input 
