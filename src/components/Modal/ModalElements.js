@@ -167,6 +167,13 @@ export const ModalImageBox = styled.div`
         cursor: pointer;
       }
     }
+  
+  @media screen and (max-width: 475px) {
+    >h1 {
+      font-size: 1rem;
+    }
+   
+  }
 `
 
 export const ModalInputField = styled.div`
@@ -181,6 +188,12 @@ export const ModalInputField = styled.div`
 export const ModalInputLabel = styled.div`
   width: 40%;
   /* background-color: yellow; */
+
+  @media screen and (max-width: 475px) {
+    >h2 {
+      font-size: 1rem;
+    }
+  }
 `
 
 export const ModalRecipeDescription = styled.div`
