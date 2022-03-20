@@ -1,5 +1,6 @@
 import {
   SET_SUSHIS,
+  CREATE_SUSHI,
   LIKE_SUSHI,
   UNLIKE_SUSHI,
   LOADING_DATA,
@@ -20,6 +21,12 @@ export default function (state = initialState, action) {
         ...state,
         loading: true,
       };
+    case CREATE_SUSHI:
+      return{
+        ...state,
+        sushis: [action.payload, ...state.sushis],
+        loading: false,
+      }
     case SET_SUSHIS:
       return {
         ...state,

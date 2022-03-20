@@ -153,6 +153,18 @@ const ModalAddProduct = ({ open, handleClose}) => {
 
   console.log(steps)
   const handleSubmit = (event) => {
+
+    const newRecipe = {
+      name: recipeName,
+      desc: description,
+      imageUrl: recipeImage,
+      ingredients: ingredients,
+      category: category,
+      difficultyScore: difficultyScore,
+      steps: steps,
+    }
+
+    props.create
     event.preventDefault();
     console.log('Recipe Name : ' + recipeName)
     console.log('Description : ' + description)
@@ -283,6 +295,7 @@ const ModalAddProduct = ({ open, handleClose}) => {
                 id='imageInput'
                 hidden='hidden'
                 onChange={handleRecipeImageUpload}
+                required
               />  
             </ModalImageBox>
             <ModalRecipeDescription>

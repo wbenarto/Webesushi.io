@@ -11,6 +11,7 @@ export const LOADING_DATA = "LOADING_DATA";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 // Data reducer types
+export const CREATE_SUSHI = 'CREATE_SUSHI'
 export const SET_SUSHIS = "SET_SUSHIS";
 export const SET_SUSHI = "SET_SUSHI";
 export const LIKE_SUSHI = "LIKE_SUSHI";

@@ -1,9 +1,12 @@
 import {
+  CREATE_SUSHI, 
   SET_SUSHIS,
   LOADING_DATA,
   LIKE_SUSHI,
   UNLIKE_SUSHI,
   SHOPPING_CART,
+  SET_ERRORS,
+  CLEAR_ERRORS
 } from "../types";
 import axios from "axios";
 
@@ -69,3 +72,23 @@ export const addShoppingCart = (arr) => (dispatch) => {
     payload: arr,
   });
 };
+
+
+// createSushi 
+export const createSushi = (newSushiData) => (dispatch) {
+  axios
+    .post('/sushi', newSushiData)
+    .then((res)=>{
+      dispatch({
+        type: CREATE_SUSHI,
+        payload: res.data,
+      })
+      dispatch({type: CLEAR_ERRORS})
+    })
+    .catch(err=>{
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response.data
+      })
+    })
+}
