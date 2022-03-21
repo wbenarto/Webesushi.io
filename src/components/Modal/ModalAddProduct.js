@@ -303,7 +303,9 @@ const ModalAddProduct = ({ open, handleClose}) => {
               <textarea type="text" 
               value={description} 
               onChange={(e) => setDescription(e.target.value)}  
-              placeholder='Add Description...'/>
+              placeholder='Add Description...'
+              required
+              />
             </ModalRecipeDescription>
     
           </ModalAddImageSection>
@@ -364,13 +366,16 @@ const ModalAddProduct = ({ open, handleClose}) => {
                 id={`stepImageInput${i}`}
                 hidden='hidden'
                 onChange={handleStepImageUpload(i)}
+                required
               />  
             </ModalImageBox>
             <ModalRecipeDescription>
               <textarea type="text" 
               value={step.step} 
               onChange={updateFieldChange(i)}  
-              placeholder='Add Step Description...'/>
+              placeholder='Add Step Description...'
+              required
+              />
               <ModalAddStepButton onClick={()=>handleRemoveStep(i)}>Remove Step</ModalAddStepButton>
             </ModalRecipeDescription>
     
