@@ -83,7 +83,7 @@ const Sustainability = () => {
   return (
     <>
       <InfoContainer>
-        <HeroImg num={1} src={wave} />
+        {/* <HeroImg num={1} src={wave} />
 
         <AppNav>
           <AppNavLogo to="/">
@@ -239,7 +239,7 @@ const Sustainability = () => {
               ))}
             </SeafoodDisplay>
           </SushiSeafood>
-        </InfoWrapper>
+        </InfoWrapper> */}
       </InfoContainer>
     </>
   );
