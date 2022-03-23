@@ -153,6 +153,12 @@ const ModalAddProduct = ({ open, handleClose}) => {
 
   console.log(steps)
   const handleSubmit = (event) => {
+    //uploadRecipeImage returns URL, update imageURL
+    //uploadRecipeStepImage returns URL, upadate steps[i].imageURL
+    // compile all new recipe info
+    // props.createSushi to POST 
+    
+
 
     const newRecipe = {
       name: recipeName,
@@ -160,11 +166,11 @@ const ModalAddProduct = ({ open, handleClose}) => {
       imageUrl: recipeImage,
       ingredients: ingredients,
       category: category,
-      difficultyScore: difficultyScore,
+      difficultyScore: difficulty,
       steps: steps,
     }
 
-    props.create
+    
     event.preventDefault();
     console.log('Recipe Name : ' + recipeName)
     console.log('Description : ' + description)

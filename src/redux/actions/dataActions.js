@@ -75,7 +75,7 @@ export const addShoppingCart = (arr) => (dispatch) => {
 
 
 // createSushi 
-export const createSushi = (newSushiData) => (dispatch) {
+export const createSushi = (newSushiData) => (dispatch) => {
   axios
     .post('/sushi', newSushiData)
     .then((res)=>{
