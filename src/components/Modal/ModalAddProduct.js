@@ -28,6 +28,9 @@ import PropTypes from "prop-types";
 import {
   uploadImage,
 } from "../../redux/actions/userActions";
+import {
+  createSushi
+} from '../../redux/actions/dataActions';
 import {  
     CardIcons,
     CardButton,} from '../Homemakase/Recipe/RecipeElements'
@@ -43,6 +46,7 @@ import {
     FaRegCaretSquareUp
   } from "react-icons/fa";
   import {CSSTransition} from 'react-transition-group'
+
 
 
 const ingredientsList = [
@@ -141,7 +145,7 @@ const DropdownMenu = ({handleDropdown, dropdownList}) => {
 }
 
 
-const ModalAddProduct = ({ open, handleClose}) => {
+const ModalAddProduct = (props) => {
   const [recipeName, setRecipeName] = useState('')
   const [description, setDescription] = useState('')
   const [recipeImage, setRecipeImage] = useState('')
@@ -179,6 +183,8 @@ const ModalAddProduct = ({ open, handleClose}) => {
     console.log('sustainability : ' + sustainability)
     console.log('difficulty : ' + difficulty)
     console.log('steps : ' + JSON.stringify(steps))
+
+    props.createSushi(newRecipe);
   }
 
   const handleIngredients = (newIngredient) => {
@@ -279,12 +285,12 @@ const ModalAddProduct = ({ open, handleClose}) => {
   } 
 
   return (
-    <ModalMUI open={open} >
+    <ModalMUI open={props.open} >
   
       <ModalContainer>
           <form>
           <ModalAddProductHeader>
-            <h3 onClick={handleClose}>Back</h3>
+            <h3 onClick={props.handleClose}>Back</h3>
             <h1>Add New Sushi Recipe</h1>
             <h3 onClick={handleSubmit}>Post</h3>
           </ModalAddProductHeader>
@@ -400,13 +406,16 @@ const ModalAddProduct = ({ open, handleClose}) => {
   );
 }
 
-export default ModalAddProduct;
+// export default ModalAddProduct;
 
+ModalAddProduct.propTypes = {
+  createSushi: PropTypes.func.isRequired,
+}
 
-// const mapActionsToProps = { uploadImage };
+const mapActionsToProps = { uploadImage, createSushi };
 
-// const mapStateToProps = (state) => ({
-//   uploadImage: PropTypes.func.isRequired,
-// });
+const mapStateToProps = (state) => ({
+  uploadImage: PropTypes.func.isRequired,
+});
 
-// export default connect(mapStateToProps, mapActionsToProps)(ModalAddProduct);
+export default connect(mapStateToProps, mapActionsToProps)(ModalAddProduct);
