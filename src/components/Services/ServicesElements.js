@@ -8,7 +8,7 @@ export const ServicesContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #010606;
+  background: gray;
 `;
 
 export const ServicesH1 = styled.h1`
